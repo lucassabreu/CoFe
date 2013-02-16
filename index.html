@@ -41,54 +41,42 @@
         <h1>CoFe</h1>
 
 <hr><p>CoFe é uma aplicação desenvolvida para confirmar o aprendizado adiquirido com o 
-curso "ZF2 na prática" (**<a href="http://code-squad.com/curso/zf2-na-pratica**">http://code-squad.com/curso/zf2-na-pratica**</a>).</p>
+curso "ZF2 na prática" <strong>(<a href="http://code-squad.com/curso/zf2-na-pratica">http://code-squad.com/curso/zf2-na-pratica</a>)</strong>.</p>
 
 <p>Também objetiva gerar uma maior intimidade com o Zend Framework.</p>
 
-<hr><h2>Entidades</h2>
+<h2>Entidades</h2>
 
 <hr><p>Para esse projeto serão utilizadas as seguintes entidades:</p>
 
-<ul>
-<li>
-<p>Usuário (user</p>
+<pre><code>* Usuário (user)
+    * Código (id) [INCREMENT]
+    * Nome de Usuário (username)
+    * Senha (password) [MD5(?)]
+    * Ativo (active) [0|1]
+    * Função (role) [admin|common]
+    * Ultima Atividade (last_activity) [DATETIME]
+    * Nome (name)
+    * E-mail (email)
+    * Data Criação (dt_criation)
 
-<ul>
-<li>Código (id) [INCREMENT]</li>
-<li>Nome de Usuário (username)</li>
-<li>Senha (password) [MD5(?)]</li>
-<li>Ativo (active) [0|1]</li>
-<li>Função (role) [admin|common]</li>
-<li>Ultima Atividade (last_activity) [DATETIME]</li>
-<li>Nome (name)</li>
-<li>E-mail (email)</li>
-<li>Data Criação (dt_criation)</li>
-</ul>
-</li>
-<li>
-<p>Categoria (category)</p>
+* Categoria (category)
+    * Usuário (user_id)
+    * Categoria (code)
+    * Descrição (descrition)
+    * Tipo Fluxo (flow_type) [I|O]
 
-<ul>
-<li>Usuário (user_id)</li>
-<li>Categoria (code)</li>
-<li>Descrição (descrition)</li>
-<li>Tipo Fluxo (flow_type) [I|O]</li>
-</ul>
-</li>
-<li>
-<p>Movimento (moviment)</p>
+* Movimento (moviment)
+    * Código (id) [INCREMENT]
+    * Usuário (user_id)
+    * Categoria (cat_code)
+    * Valor (value) [18,2]
+    * Data Movimento (dt_emission)
+    * Descrição (description) 
+    * Notas (notes) [TEXT]
+</code></pre>
 
-<ul>
-<li>Código (id) [INCREMENT]</li>
-<li>Usuário (user_id)</li>
-<li>Categoria (cat_code)</li>
-<li>Valor (value) [18,2]</li>
-<li>Data Movimento (dt_emission)</li>
-<li>Descrição (description) </li>
-<li>Notas (notes) [TEXT]</li>
-</ul>
-</li>
-</ul><hr><h2>Composer</h2>
+<h2>Composer</h2>
 
 <hr><p>Para poder utilizar esse projeto será necessário antes de tudo atualizar os pacotes
 usando o composer. Segue abaixo o comando que realiza a ação.</p>
