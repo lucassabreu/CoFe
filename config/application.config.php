@@ -9,6 +9,7 @@
 return array(
     'modules' => array(
         'Application',
+        'Core'
     ),
     'module_listener_options' => array(
         'module_paths' => array(
