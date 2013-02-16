@@ -32,7 +32,7 @@
       <section>
         <div id="title">
           <h1>Cofe</h1>
-          <p>zf2;zenframework2;zend framework 2;</p>
+          <p>zf2;zenframework2;zend framework 2;code squad;zf2 na pratica</p>
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/lucassabreu">lucassabreu</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
@@ -40,14 +40,14 @@
 
         <h1>CoFe</h1>
 
-<hr><p>CoFe é uma aplicação desenvolvida para confirmar o aprendizado adiquirido com o 
-curso <em>"ZF2 na prática"</em> <strong>(<a href="http://code-squad.com/curso/zf2-na-pratica">http://code-squad.com/curso/zf2-na-pratica</a>)</strong>.</p>
+<p>CoFe é uma aplicação desenvolvida para confirmar o aprendizado adiquirido com o 
+curso "_ZF2 na prática_" <strong>(<a href="http://code-squad.com/curso/zf2-na-pratica">http://code-squad.com/curso/zf2-na-pratica</a>)</strong>.</p>
 
 <p>Também objetiva gerar uma maior intimidade com o Zend Framework.</p>
 
 <h2>Entidades</h2>
 
-<hr><p>Para esse projeto serão utilizadas as seguintes entidades:</p>
+<p>Para esse projeto serão utilizadas as seguintes entidades:</p>
 
 <pre><code>- Usuário (user)
     - Código (id) [INCREMENT]
@@ -55,10 +55,10 @@ curso <em>"ZF2 na prática"</em> <strong>(<a href="http://code-squad.com/curso/z
     - Senha (password) [MD5(?)]
     - Ativo (active) [0|1]
     - Função (role) [admin|common]
-    - Ultima Atividade (last_activity) [DATETIME]
     - Nome (name)
     - E-mail (email)
     - Data Criação (dt_criation)
+    - Validado (valided) [0|1]
 
 - Categoria (category)
     - Usuário (user_id)
@@ -76,9 +76,11 @@ curso <em>"ZF2 na prática"</em> <strong>(<a href="http://code-squad.com/curso/z
     - Notas (notes) [TEXT]
 </code></pre>
 
+<p>SQL: <strong>(<a href="https://github.com/lucassabreu/CoFe/blob/master/sql/create.sql">https://github.com/lucassabreu/CoFe/blob/master/sql/create.sql</a>)</strong></p>
+
 <h2>Composer</h2>
 
-<hr><p>Para poder utilizar esse projeto será necessário antes de tudo atualizar os pacotes
+<p>Para poder utilizar esse projeto será necessário antes de tudo atualizar os pacotes
 usando o composer. Segue abaixo o comando que realiza a ação.</p>
 
 <pre><code>cd %diretório_clone%
