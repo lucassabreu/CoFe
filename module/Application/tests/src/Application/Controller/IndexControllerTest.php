@@ -9,7 +9,7 @@ class IndexControllerTest extends ControllerTestCase {
     protected $controllerFQDN = 'Application\Controller\IndexController';
     protected $controllerRoute = 'application';
 
-    public function testIndexActionCanBeAccessed() {
+    public function test404() {
         $this->routeMatch->setParam('action', 'action_nao_existente');
         $result = $this->controller->dispatch($this->request);
         $response = $this->controller->getResponse();
