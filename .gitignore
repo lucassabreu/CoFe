@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 /nbproject/private/
-=======
 nbproject
 ._*
 .~lock.*
@@ -12,5 +10,4 @@ nbproject
 composer.lock
 _reports
 vendor
-
->>>>>>> 531245d16df4fd10b1be6bc3489205f7ad68c205
+*.bak
