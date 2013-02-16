@@ -15,10 +15,10 @@ Para esse projeto serão utilizadas as seguintes entidades:
 		- Senha (password) [MD5(?)]
 		- Ativo (active) [0|1]
 		- Função (role) [admin|common]
-		- Ultima Atividade (last_activity) [DATETIME]
 		- Nome (name)
 		- E-mail (email)
 		- Data Criação (dt_criation)
+                - Validado (valided) [0|1]
 		
 	- Categoria (category)
 		- Usuário (user_id)
