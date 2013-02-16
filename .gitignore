@@ -11,3 +11,4 @@ composer.lock
 _reports
 vendor
 *.bak
+*.old

@@ -9,7 +9,8 @@
 return array(
     'modules' => array(
         'Application',
-        'Core'
+        'Core',
+        'Admin'
     ),
     'module_listener_options' => array(
         'module_paths' => array(
@@ -17,5 +18,5 @@ return array(
             './vendor'
         ),
         'config_glob_paths' => array('config/autoload/{,*.}{global,local}.php')
-    )
+    ),
 );

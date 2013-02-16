@@ -15,5 +15,4 @@ class IndexControllerTest extends ControllerTestCase {
         $response = $this->controller->getResponse();
         $this->assertEquals(404, $response->getStatusCode());
     }
-
 }
