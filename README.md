@@ -35,6 +35,8 @@ Para esse projeto serão utilizadas as seguintes entidades:
         - Descrição (description) 
         - Notas (notes) [TEXT]
 
+SQL: ** https://github.com/lucassabreu/CoFe/blob/master/sql/create.sql **
+
 ## Composer
 
 Para poder utilizar esse projeto será necessário antes de tudo atualizar os pacotes
