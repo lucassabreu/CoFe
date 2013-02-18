@@ -15,7 +15,7 @@ use Doctrine\ORM\EntityRepository;
  * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
  * @abstract
  */
-class AbstractDoctrineDAO extends Service implements DAOInterface {
+abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
 
     private $className = null;
 
@@ -57,7 +57,11 @@ class AbstractDoctrineDAO extends Service implements DAOInterface {
 
     public function findById() {
         $id = func_get_args();
-        return $this->getRepository()->find($id);
+
+        if (count($id) == 1 && is_array($id[0]))
+            return $this->getRepository()->find($id[0]);
+        else
+            return $this->getRepository()->find($id);
     }
 
     public function save(Entity $ent) {

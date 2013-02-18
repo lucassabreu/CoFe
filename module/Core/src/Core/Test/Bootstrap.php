@@ -120,10 +120,10 @@ final class Bootstrap {
     }
 
     public function reset() {
-        unset($this->application);
-        unset($this->serviceManager);
-        unset($this->event);
-        unset($this->routes);
+        $this->application = null;
+        $this->serviceManager = null;
+        $this->event = null;
+        $this->routes = null;
     }
 
     /**
@@ -183,6 +183,7 @@ final class Bootstrap {
      */
     public function getApplication() {
         if ($this->application === null) {
+
             //$config = $this->getConfiguration();
             $config = include 'config/application.config.php';
             $config['module_listener_options']['config_static_paths'] = array(getcwd() . '/config/test.config.php');

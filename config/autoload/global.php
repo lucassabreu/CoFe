@@ -17,7 +17,7 @@ return array(
             'driver' => 'pdo_mysql',
             'host' => 'localhost',
             'port' => '3306',
-            'dbname' => 'zf2napratica'
+            'dbname' => 'cofe'
         ),
     ),
     'service_manager' => array(
@@ -27,7 +27,7 @@ return array(
     ),
     'db' => array(
         'driver' => 'PDO',
-        'dsn' => 'mysql:dbname=zf2napratica;host=localhost',
+        'dsn' => 'mysql:dbname=cofe;host=localhost',
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),

@@ -20,8 +20,18 @@ interface DAOInterface extends ServiceLocatorAwareInterface {
     public function getEntityClassName();
 
     /**
-     * Retrieves the instance of entity based id
-     * @param mixed ... $id Sequence of params to identify entity.
+     * Retrieves the instance of entity based id. 
+     * 
+     * If ID of class is not-unique attribute, that that can be passed by two
+     * ways:
+     * 
+     *  DAOInterface::findById($id1, $id2, $id...);
+     *  
+     *  or
+     *      
+     *  DAOInterface::findById(array($id1, $id2, $id...));
+     * 
+     * @param array|mixed $_ Sequence of params to identify entity.
      * @return Entity
      */
     public function findById();
@@ -34,7 +44,7 @@ interface DAOInterface extends ServiceLocatorAwareInterface {
      * @throws DAOException Error in entity values.
      */
     public function save(Entity $ent);
-    
+
     /**
      * Removes the param entity.
      * @param Entity $ent
@@ -43,13 +53,13 @@ interface DAOInterface extends ServiceLocatorAwareInterface {
      * @throws DAOException Error of relation or state.
      */
     public function remove(Entity $ent);
-    
+
     /**
      * Retrieves all entries of entity.
      * @return array Entities
      */
     public function fetchAll($limite = null, $initial = null);
-    
+
     /**
      * 
      * @param array $params
@@ -57,7 +67,6 @@ interface DAOInterface extends ServiceLocatorAwareInterface {
      * @param integer $offset
      */
     public function fetchByParams(array $params, $limite = null, $offset = null);
-    
 }
 
 ?>

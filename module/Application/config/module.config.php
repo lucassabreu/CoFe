@@ -1,5 +1,11 @@
 <?php
 
+use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use Doctrine\ORM\Configuration;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -14,23 +20,23 @@ return array(
             'Doctrine\ORM\EntityManager' => function($sm) {
                 $config = $sm->get('Configuration');
 
-                $doctrineConfig = new \Doctrine\ORM\Configuration();
+                $doctrineConfig = new Configuration();
                 $cache = new $config['doctrine']['driver']['cache'];
                 $doctrineConfig->setQueryCacheImpl($cache);
                 $doctrineConfig->setProxyDir('/tmp');
                 $doctrineConfig->setProxyNamespace('EntityProxy');
                 $doctrineConfig->setAutoGenerateProxyClasses(true);
 
-                $driver = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver(
-                                new \Doctrine\Common\Annotations\AnnotationReader(),
+                $driver = new AnnotationDriver(
+                                new AnnotationReader(),
                                 array($config['doctrine']['driver']['paths'])
                 );
                 $doctrineConfig->setMetadataDriverImpl($driver);
                 $doctrineConfig->setMetadataCacheImpl($cache);
-                \Doctrine\Common\Annotations\AnnotationRegistry::registerFile(
+                AnnotationRegistry::registerFile(
                         getenv('PROJECT_ROOT') . '/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php'
                 );
-                $em = \Doctrine\ORM\EntityManager::create(
+                $em = EntityManager::create(
                                 $config['doctrine']['connection'], $doctrineConfig
                 );
                 return $em;

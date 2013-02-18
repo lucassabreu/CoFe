@@ -2,9 +2,11 @@
 
 namespace Core\Test;
 
-use Zend\Json\Server\Smd\Service;
+use Core\Test\Bootstrap;
+use Zend\Db\Adapter\Adapter;
 use Zend\Mvc\Application;
 use Zend\Mvc\MvcEvent;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceManager;
 
 abstract class TestCase extends \PHPUnit_Framework_TestCase {
@@ -25,15 +27,66 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase {
     public function setup() {
         parent::setup();
         $this->application = $this->getBootstrap()->getApplication();
-
-        //$this->createDatabase();
+        $this->createDatabase();
     }
 
     public function tearDown() {
         parent::tearDown();
+        $this->dropDatabase();
         $this->application = null;
         $this->getBootstrap()->reset();
-        //$this->dropDatabase();
+    }
+
+    /**
+     * @return void
+     */
+    public function createDatabase() {
+        $dbAdapter = $this->getAdapter();
+
+        if (get_class($dbAdapter->getPlatform()) == 'Zend\Db\Adapter\Platform\Sqlite') {
+            //enable foreign keys on sqlite
+            $dbAdapter->query('PRAGMA foreign_keys = ON;', Adapter::QUERY_MODE_EXECUTE);
+        }
+
+        if (get_class($dbAdapter->getPlatform()) == 'Zend\Db\Adapter\Platform\Mysql') {
+            //enable foreign keys on mysql
+            $dbAdapter->query('SET FOREIGN_KEY_CHECKS = 1;', Adapter::QUERY_MODE_EXECUTE);
+        }
+
+        $queries = include $this->getBootstrap()->getModuleRoot() . '/data/test.data.php';
+        foreach ($queries as $queries) {
+            foreach ($queries['create'] as $query)
+                $dbAdapter->query($query, Adapter::QUERY_MODE_EXECUTE);
+        }
+    }
+
+    /**
+     * @return void
+     */
+    public function dropDatabase() {
+        $dbAdapter = $this->getAdapter();
+
+        if (get_class($dbAdapter->getPlatform()) == 'Zend\Db\Adapter\Platform\Sqlite') {
+            //disable foreign keys on sqlite
+            $dbAdapter->query('PRAGMA foreign_keys = OFF;', Adapter::QUERY_MODE_EXECUTE);
+        }
+        if (get_class($dbAdapter->getPlatform()) == 'Zend\Db\Adapter\Platform\Mysql') {
+            //disable foreign keys on mysql
+            $dbAdapter->query('SET FOREIGN_KEY_CHECKS = 0;', Adapter::QUERY_MODE_EXECUTE);
+        }
+
+        $queries = include $this->getBootstrap()->getModuleRoot() . '/data/test.data.php';
+        foreach ($queries as $query) {
+            $dbAdapter->query($query['drop'], Adapter::QUERY_MODE_EXECUTE);
+        }
+    }
+
+    /**
+     * 
+     * @return Adapter
+     */
+    public function getAdapter() {
+        return $this->getServiceManager()->get('DbAdapter');
     }
 
     public function getApplication() {
@@ -68,7 +121,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase {
      * Retrieve Service
      *
      * @param  string $service
-     * @return Service
+     * @return ServiceLocatorAwareInterface
      */
     protected function getService($service) {
         return $this->getServiceManager()->get($service);

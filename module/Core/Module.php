@@ -2,6 +2,9 @@
 
 namespace Core;
 
+use Zend\Mvc\ModuleRouteListener;
+use Zend\Validator\AbstractValidator;
+
 class Module {
 
     public function onBootstrap($e) {
@@ -10,7 +13,7 @@ class Module {
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
 
-        \Zend\Validator\AbstractValidator::setDefaultTranslator($translator);
+        AbstractValidator::setDefaultTranslator($translator);
     }
 
     public function getConfig() {

@@ -3,9 +3,9 @@
 return array(
     'db' => array(
         'driver' => 'PDO',
-        'dsn' => 'mysql:dbname=zf2napratica_test;host=localhost',
-        'username' => 'root',
-        'password' => '',
+        'dsn' => 'mysql:dbname=cofe_test;host=localhost',
+        'username' => 'cofe',
+        'password' => 'cofe',
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
@@ -15,9 +15,9 @@ return array(
             'driver' => 'pdo_mysql',
             'host' => 'localhost',
             'port' => '3306',
-            'user' => 'root',
-            'password' => '',
-            'dbname' => 'zf2napratica_test'
+            'user' => 'cofe',
+            'password' => 'cofe',
+            'dbname' => 'cofe_test'
         ),
     ),
 );
