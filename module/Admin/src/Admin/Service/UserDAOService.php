@@ -1,5 +1,7 @@
 <?php
 
+namespace Admin\Service;
+
 use Admin\Model\DAO\UserDAOInterface;
 use Admin\Model\Entity\User;
 use Core\Model\DAO\Exception\DAOException;

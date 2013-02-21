@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Model\Doctrine\DAO;
+namespace Core\Model\DAO\Doctrine;
 
 use Core\Model\DAO\DAOInterface;
 use Core\Model\DAO\Doctrine\AbstractDoctrineDAO;

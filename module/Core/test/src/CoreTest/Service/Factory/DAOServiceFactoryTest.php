@@ -10,7 +10,7 @@ use Core\Test\TestCase;
 class DAOServiceFactoryTest extends TestCase {
 
     public function testDispatchRequest() {
-        $this->getService('TEST_LOL');
+        $this->getService('Admin\Service\UserDAOService');
     }
 
 }

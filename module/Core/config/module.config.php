@@ -9,7 +9,10 @@ return array(
             'Core\Service\Factory\DAOServiceFactory'
         ),
         'dao_services' => array(
-            'Admin\Service\UserDAOService' => 'Admin\Model\DAO\Doctrine\UserDoctrineDAO',
+            'Admin\Service\UserDAOService' => array(
+                'service' => 'Admin\Service\UserDAOService',
+                'model' => 'Admin\Model\Doctrine\UserDAODoctrine',
+            ),
         ),
     ),
 );
