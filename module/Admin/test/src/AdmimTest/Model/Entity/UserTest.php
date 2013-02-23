@@ -3,7 +3,7 @@
 namespace AdminTest\Model\Entity;
 
 use Admin\Model\DAO\UserDAOInterface;
-use Admin\Model\User;
+use Admin\Model\Entity\User;
 use Core\Test\ModelTestCase;
 use DateTime;
 use Zend\InputFilter\InputFilter;
@@ -26,14 +26,13 @@ class UserTest extends ModelTestCase {
     public function retrieveUser($name) {
         $user = new User();
 
-        $user->username = $name;
-        $user->password = md5($name);
-        $user->name = $name;
-        $user->role = 'admin';
-        $user->email = "$name@localhost.net";
-        $user->dateCriation = new \DateTime();
-        $user->valided = 1;
-        $user->active = 1;
+        $user->setUsername($name);
+        $user->setPassword(md5($name));
+        $user->setName($name);
+        $user->setRole('admin');
+        $user->setEmail("$name@localhost.net");
+        $user->setDateCriation(new \DateTime());
+        $user->setActive(1);
 
         return $user;
     }
@@ -69,7 +68,6 @@ class UserTest extends ModelTestCase {
         $this->assertArrayHasKey('name', $data);
         $this->assertArrayHasKey('email', $data);
         $this->assertArrayHasKey('dateCriation', $data);
-        $this->assertArrayHasKey('valided', $data);
     }
 
     /**
@@ -95,12 +93,6 @@ class UserTest extends ModelTestCase {
 
         $user->dateCriation = '2012-01-01';
         $this->assertEquals(new DateTime('2012-01-01'), $user->dateCriation);
-
-        $user->valided = true;
-        $this->assertEquals(true, $user->valided);
-
-        $user->valided = false;
-        $this->assertEquals(false, $user->valided);
 
         $user->active = 1;
         $this->assertEquals(true, $user->active);

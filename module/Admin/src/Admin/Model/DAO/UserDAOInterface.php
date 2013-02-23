@@ -13,18 +13,20 @@ use Core\Model\DAO\DAOInterface;
  * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
  */
 interface UserDAOInterface extends DAOInterface {
+
     /**
      * Retrieves, if exists, the User the username from param
      * @param string $username
      * @return User
      */
     public function findByUsername($username);
-    
+
     /**
      * Alter the password of User
      * @param User $user
      * @param string $oldPassword
      * @param string $newPassword
+     * @return User
      */
     public function changePassword(User $user, $oldPassword, $newPassword);
 }

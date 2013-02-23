@@ -3,11 +3,12 @@
 namespace Core\Model\Entity;
 
 use Core\Model\DAO\DAOInterface;
+use Core\Model\DAO\Exception\DAOException;
+use InvalidArgumentException;
 use Serializable;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
-use Zend\XmlRpc\Server\Exception\InvalidArgumentException;
 
 /**
  * Base class for entities managed by Core\Model\DAOInterface.
@@ -16,7 +17,6 @@ use Zend\XmlRpc\Server\Exception\InvalidArgumentException;
  * 
  * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
  * 
- * @MappedSuperclass
  */
 abstract class Entity implements Serializable, InputFilterAwareInterface {
 
@@ -94,7 +94,7 @@ abstract class Entity implements Serializable, InputFilterAwareInterface {
      * @return void
      */
     public function setInputFilter(InputFilterInterface $inputFilter) {
-        throw new Exception\DAOException("Not used");
+        throw new DAOException("Not used");
     }
 
     /**
@@ -126,7 +126,7 @@ abstract class Entity implements Serializable, InputFilterAwareInterface {
         if (!$filter->isValid()) {
             $errors = implode(', ', $filter->getMessages());
 
-            throw new Exception\DAOException("Input inválido: $key = '$value'. $errors");
+            throw new DAOException("Input inválido: $key = '$value'. $errors");
         }
 
         return $filter->getValue($key);

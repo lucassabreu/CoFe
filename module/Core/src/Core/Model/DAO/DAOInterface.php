@@ -2,8 +2,10 @@
 
 namespace Core\Model\DAO;
 
-use Core\Model\DAO\Entity;
+use Core\Model\DAO\DAOInterface;
 use Core\Model\DAO\Exception\DAOException;
+use Core\Model\Entity\Entity;
+use Zend\Paginator\Adapter\AdapterInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 
 /**
@@ -48,7 +50,7 @@ interface DAOInterface extends ServiceLocatorAwareInterface {
     /**
      * Removes the param entity.
      * @param Entity $ent
-     * @return Entity
+     * @return DAOInterface
      * 
      * @throws DAOException Error of relation or state.
      */
@@ -56,17 +58,25 @@ interface DAOInterface extends ServiceLocatorAwareInterface {
 
     /**
      * Retrieves all entries of entity.
-     * @return array Entities
+     * @return Entity[] Entities
      */
     public function fetchAll($limite = null, $initial = null);
 
     /**
-     * 
+     * Retrieves a array of entities based on params.
      * @param array $params
      * @param integer $limite
      * @param integer $offset
+     * @return Entity[] Entities
      */
     public function fetchByParams(array $params, $limite = null, $offset = null);
+
+    /**
+     * Returns a Paginator Adapter based on params.
+     * @param array|mixed $params
+     * @return AdapterInterface
+     */
+    public function getAdapterPaginator($params, $orderBy = null);
 }
 
 ?>

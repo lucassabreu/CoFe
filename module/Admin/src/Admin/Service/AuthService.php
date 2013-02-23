@@ -2,15 +2,13 @@
 
 namespace Admin\Service;
 
-use Core\Service\Service;
+use Core\Service\BasicAuthService;
 
 /**
  * Class for authentification process
  *
  * @author Lucas
  */
-class AuthService extends Service {
-    
-}
+class AuthService extends BasicAuthService {}
 
 ?>

@@ -3,7 +3,7 @@
 namespace Core\Service;
 
 use Core\Model\DAO\DAOInterface;
-use Core\Model\DAO\Entity;
+use Core\Model\Entity\Entity;
 use Core\Service\DAOServiceInterface;
 use Core\Service\Service;
 
@@ -31,21 +31,31 @@ abstract class AbstractDAOService extends Service implements DAOServiceInterface
         return $this->dao->fetchByParams($params, $limite, $offset);
     }
 
+    public function getAdapterPaginator($params, $orderBy = null) {
+        return $this->getDAOInterface()->getAdapterPaginator($params, $orderBy);
+    }
+
     public function getEntityClassName() {
         return $this->dao->getEntityClassName();
     }
 
     public function remove(Entity $ent) {
-        return $this->dao->remove($ent);
+        $this->dao->remove($ent);
+        return $this;
     }
 
     public function save(Entity $ent) {
-        return $this->dao->save($ent);
+        $this->dao->save($ent);
+        return $ent;
     }
 
     public function setDAOInterface(DAOInterface $dao) {
         $this->dao = $dao;
         return $this;
+    }
+
+    public function getDAOInterface() {
+        return $this->dao;
     }
 
 }

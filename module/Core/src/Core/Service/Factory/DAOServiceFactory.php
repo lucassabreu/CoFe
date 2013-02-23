@@ -52,6 +52,8 @@ final class DAOServiceFactory implements AbstractFactoryInterface {
             $model = $this->returnInstanceOf($config[$requestedName]['model']);
 
             $service->setServiceLocator($serviceLocator);
+            $model->setServiceLocator($serviceLocator);
+
             $service->setDAOInterface($model);
 
             $this->services[$requestedName] = $service;

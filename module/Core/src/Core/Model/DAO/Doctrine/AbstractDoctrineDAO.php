@@ -4,10 +4,13 @@ namespace Core\Model\DAO\Doctrine;
 
 use Core\Model\DAO\DAOInterface;
 use Core\Model\DAO\Doctrine\AbstractDoctrineDAO;
-use Core\Model\DAO\Entity;
+use Core\Model\Entity\Entity;
 use Core\Service\Service;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator;
 
 /**
  * Basic implemented abstract class for DAO based on Doctrine
@@ -17,13 +20,21 @@ use Doctrine\ORM\EntityRepository;
  */
 abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
 
+    /**
+     * @var array
+     */
+    private $_idColumns = null;
+
+    /**
+     * @var string
+     */
     private $className = null;
 
     /**
      * Retrieve the instance of EntityManager
      * @return EntityManager
      */
-    public static function getEntityManager() {
+    public function getEntityManager() {
         return $this->getService('Doctrine\ORM\EntityManager');
     }
 
@@ -31,7 +42,7 @@ abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
      * Retrieves the Repository relative to managed entity.
      * @return EntityRepository
      */
-    public static function getRepository() {
+    public function getRepository() {
         return $this->getEntityManager()->getRepository($this->getEntityClassName());
     }
 
@@ -44,36 +55,110 @@ abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
     }
 
     public function fetchAll($limite = null, $offset = null) {
-        if ($limite === null && $offset === null) {
-            return $this->getRepository()->findAll();
-        }
-
-        return $this->getRepository()->findBy(array(), null, $limite, $offset);
+        $query = $this->getQuery(null, $limite, $offset)->getQuery();
+        return $query->execute();
     }
 
     public function fetchByParams(array $params, $limite = null, $offset = null) {
-        return $this->getRepository()->findBy($params, null, $limite, $offset);
+        $query = $this->getQuery($params, $limite, $offset)->getQuery();
+        return $query->execute();
+    }
+
+    /**
+     * Returns a query to execute based on params.
+     * @param array|mixed $params
+     * @param integer $limit
+     * @param integer $offset
+     * @return QueryBuilder
+     */
+    protected function getQuery($params = null, $limit = null, $offset = null) {
+        $qb = $this->getRepository()->createQueryBuilder('ent');
+
+        if ($params !== null) {
+            if (is_array($params)) {
+                if (count($params) !== 0) {
+                    /**
+                     * @var string[]
+                     */
+                    $qbParams = array();
+
+                    $and = $qb->expr()->andX();
+
+                    foreach ($params as $column => $clause) {
+                        if (is_array($clause)) {
+                            $and->add($qb->expr()->between('ent.' . $column, "?" . count($qbParams), "?" . (count($qbParams) + 1)));
+                            $qbParams[] = $clause[0];
+                            $qbParams[] = $clause[1];
+                        } else {
+                            if (strpos($clause, '%') > 0)
+                                $and->add($qb->expr()->like('ent.' . $column, "?" . count($qbParams)));
+                            else
+                                $and->add($qb->expr()->eq('ent.' . $column, "?" . count($qbParams)));
+                            
+                            $qbParams[] = $clause;
+                        }
+                    }
+
+                    $qb->where($and);
+                    $qb->setParameters($qbParams);
+                }
+            } else
+                $qb->where($params);
+        }
+
+        if ($limit != null)
+            $qb->setMaxResults($limit);
+
+        if ($offset != null)
+            $qb->setFirstResult($offset);
+
+        return $qb;
+    }
+
+    public function getAdapterPaginator($params, $orderBy = null) {
+        $qb = $this->getQuery($params);
+
+        if ($orderBy != null)
+            foreach ($orderBy as $column => $order)
+                $qb->orderBy($column, $order);
+
+        $paginator = new Paginator($qb->getQuery());
+        $adapter = new DoctrinePaginator($paginator);
+
+        return $adapter;
     }
 
     public function findById() {
         $id = func_get_args();
 
         if (count($id) == 1 && is_array($id[0]))
-            return $this->getRepository()->find($id[0]);
+            return $this->find($id[0]);
         else
-            return $this->getRepository()->find($id);
+            return $this->find($id);
+    }
+
+    protected function find(array $id) {
+        $keys = $this->getIdColumns();
+
+        $nId = array();
+
+        foreach ($id as $num => $value) {
+            $nId[$keys[$num]] = $value;
+        }
+
+        return $this->getRepository()->find($nId);
     }
 
     public function save(Entity $ent) {
-        $ent = $this->getEntityManager()->persist($ent);
+        $this->getEntityManager()->persist($ent);
         $this->getEntityManager()->flush($ent);
         return $ent;
     }
 
     public function remove(Entity $ent) {
-        $ent = $this->getEntityManager()->remove($ent);
+        $this->getEntityManager()->remove($ent);
         $this->getEntityManager()->flush($ent);
-        return $ent;
+        return $this;
     }
 
     /**
@@ -88,6 +173,14 @@ abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
 
     public function getEntityClassName() {
         return $this->className;
+    }
+
+    protected function getIdColumns() {
+        if ($this->_idColumns === null) {
+            $this->_idColumns = $this->getEntityManager()->getClassMetadata('\\' . $this->getEntityClassName())->identifier;
+        }
+
+        return $this->_idColumns;
     }
 
 }

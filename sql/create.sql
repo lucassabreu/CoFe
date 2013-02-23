@@ -14,13 +14,12 @@ DROP TABLE IF EXISTS `cofe`.`user` ;
 CREATE  TABLE IF NOT EXISTS `cofe`.`user` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `username` VARCHAR(50) NOT NULL ,
-  `password` VARCHAR(20) NOT NULL ,
+  `password` CHAR(32) NOT NULL ,
   `active` TINYINT(1) NOT NULL DEFAULT 0 ,
   `role` VARCHAR(10) NOT NULL DEFAULT 'common' ,
   `name` VARCHAR(60) NOT NULL ,
   `email` VARCHAR(45) NOT NULL ,
   `dt_criation` DATE NOT NULL ,
-  `validated` TINYINT(1) NOT NULL DEFAULT 0 ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -81,6 +80,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cofe`;
-INSERT INTO `cofe`.`user` (`id`, `username`, `password`, `active`, `role`, `name`, `email`, `dt_criation`, `validated`) VALUES (NULL, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 'admin', 'Administrator', 'admin@localhost', '2000-01-01', 1);
+INSERT INTO `cofe`.`user` (`id`, `username`, `password`, `active`, `role`, `name`, `email`, `dt_criation`) VALUES (NULL, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 'admin', 'Administrator', 'admin@localhost', '2000-01-01');
 
 COMMIT;

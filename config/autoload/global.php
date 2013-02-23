@@ -12,6 +12,43 @@
  * file.
  */
 return array(
+    'acl' => array(
+        'roles' => array(
+            'guest' => null,
+            'common' => 'guest',
+            'admin' => 'common'
+        ),
+        'resources' => array(
+            'Admin\Controller\Index.index',
+            'Admin\Controller\Auth.index',
+            'Admin\Controller\Auth.logout',
+        ),
+        'privilege' => array(
+            'visitante' => array(
+                'allow' => array(
+                    'Application\Controller\Index.index',
+                    'Application\Controller\Index.post',
+                    'Application\Controller\Index.comments',
+                    'Admin\Controller\Auth.index',
+                    'Admin\Controller\Auth.login',
+                    'Admin\Controller\Auth.logout',
+                ),
+            ),
+            'redator' => array(
+                'allow' => array(
+                    'Admin\Controller\Index.save',
+                ),
+            ),
+            'admin' => array(
+                'allow' => array(
+                    'Admin\Controller\Index.delete',
+                    'Admin\Controller\User.index',
+                    'Admin\Controller\User.save',
+                    'Admin\Controller\User.delete',
+                ),
+            ),
+        ),
+    ),
     'doctrine' => array(
         'connection' => array(
             'driver' => 'pdo_mysql',
