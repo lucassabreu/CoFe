@@ -5,6 +5,7 @@
  * The previous configuration file is stored in application.config.old
  *
  * @see https://github.com/zendframework/ZFTool
+ * @ignore
  */
 return array(
     'modules' => array(

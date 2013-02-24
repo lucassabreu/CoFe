@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * @ignore
+ * 
  * Global Configuration Override
  *
  * You can use this file for overriding configuration values from modules, etc.
@@ -19,32 +21,26 @@ return array(
             'admin' => 'common'
         ),
         'resources' => array(
+            'Application\Controller\Index.index',
             'Admin\Controller\Index.index',
             'Admin\Controller\Auth.index',
             'Admin\Controller\Auth.logout',
         ),
         'privilege' => array(
-            'visitante' => array(
+            'guest' => array(
                 'allow' => array(
-                    'Application\Controller\Index.index',
-                    'Application\Controller\Index.post',
-                    'Application\Controller\Index.comments',
                     'Admin\Controller\Auth.index',
-                    'Admin\Controller\Auth.login',
                     'Admin\Controller\Auth.logout',
                 ),
             ),
-            'redator' => array(
+            'common' => array(
                 'allow' => array(
-                    'Admin\Controller\Index.save',
+                    'Application\Controller\Index.index',
                 ),
             ),
             'admin' => array(
                 'allow' => array(
-                    'Admin\Controller\Index.delete',
-                    'Admin\Controller\User.index',
-                    'Admin\Controller\User.save',
-                    'Admin\Controller\User.delete',
+                    'Admin\Controller\Index.index',
                 ),
             ),
         ),

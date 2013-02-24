@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>CoFe</title>
+    <parser>
+        <target>public/docs</target>
+        <markers>
+            <item>TODO</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+            <extension>php3</extension>
+            <extension>phtml</extension>
+        </extensions>
+        <visibility></visibility>
+    </parser>
+    <transformer>
+        <target>public/docs</target>
+    </transformer>
+    <logging>
+        <level>warn</level>
+        <paths>
+            <default>{APP_ROOT}/data/log/{DATE}.log</default>
+            <errors>{APP_ROOT}/data/log/{DATE}.errors.log</errors>
+        </paths>
+    </logging>
+    <transformations>
+        <template name="responsive" />
+    </transformations>
+    <files>
+        <directory>.</directory>
+        <ignore>module/*/test</ignore>
+        <ignore>*.config.php</ignore>
+        <ignore>*.data.php</ignore>
+    </files>
+</phpdoc>

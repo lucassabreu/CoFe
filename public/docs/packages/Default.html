@@ -1,0 +1,267 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>CoFe » Default</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">CoFe</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Admin.html"><i class="icon-th"></i> Admin</a></li>
+<li><a href="../namespaces/Application.html"><i class="icon-th"></i> Application</a></li>
+<li><a href="../namespaces/Core.html"><i class="icon-th"></i> Core</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">104</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<a href="../packages/Default.html" title="Default"><i class="icon-folder-open"></i>Default</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-interface"></i> Interfaces</li>
+<li><a href="#UserDAOInterface" title="Interface contract for DAO objects for class User">UserDAOInterface</a></li>
+<li><a href="#DAOInterface" title="Basic interface for DAO classes.">DAOInterface</a></li>
+<li><a href="#DAOServiceInterface" title="Base interface for DAO services.">DAOServiceInterface</a></li>
+<li class="nav-header">
+<i class="icon-custom icon-class"></i> Classes</li>
+<li><a href="#UserDAODoctrine" title="Implementation of UserDAOInterface for Doctrine">UserDAODoctrine</a></li>
+<li><a href="#User" title="Entity User">User</a></li>
+<li><a href="#AuthService" title="Class for authentification processes.">AuthService</a></li>
+<li><a href="#UserDAOService" title="Service used by manage user entity">UserDAOService</a></li>
+<li><a href="#IndexControllerTest" title="Base Test Case class">IndexControllerTest</a></li>
+<li><a href="#Builder" title="Class retrieves a filled ACL.">Builder</a></li>
+<li><a href="#DoctrineAdapter" title="Extension of &lt;code&gt;ObjectRepository&lt;/code&gt; using &lt;code&gt;ValidatableAdapterInterface&lt;/code&gt;.">DoctrineAdapter</a></li>
+<li><a href="#AbstractDoctrineDAO" title="Basic implemented abstract class for DAO based on Doctrine">AbstractDoctrineDAO</a></li>
+<li><a href="#DAOException" title="Base class for custom DAO exceptions">DAOException</a></li>
+<li><a href="#Entity" title="Base class for entities managed by Core\Model\DAOInterface.">Entity</a></li>
+<li><a href="#AbstractDAOService" title="Abstract class with basic logic to DAO Service classes">AbstractDAOService</a></li>
+<li><a href="#DAOServiceFactory" title="Factory of DAO Service classes.">DAOServiceFactory</a></li>
+<li><a href="#Service" title="Service base class">Service</a></li>
+<li><a href="#Bootstrap" title="Bootstrap class for application's test.">Bootstrap</a></li>
+<li><a href="#ControllerTestCase" title="Base Test Case class">ControllerTestCase</a></li>
+<li><a href="#ModelTestCase" title="Base Test Case class">ModelTestCase</a></li>
+<li><a href="#ServiceTestCase" title="Base Test Case class">ServiceTestCase</a></li>
+<li><a href="#TestCase" title="Base Test Case class">TestCase</a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  "><a href="#ZF2_PATH" title="ZF2_PATH :: "><span class="description">ZF2_PATH</span><pre>ZF2_PATH</pre></a></li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span>
+</li>
+<li class="active"><a href="../packages/Default.html">Default</a></li>
+</ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="UserDAOInterface" id="UserDAOInterface"></a><div class="element ajax clickable interface" href="../classes/Admin.Model.DAO.UserDAOInterface.html">
+<h1>UserDAOInterface<a href="../classes/Admin.Model.DAO.UserDAOInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface contract for DAO objects for class User</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Model.DAO.UserDAOInterface.html" class="more">« More »</a>
+</div>
+<a name="DAOInterface" id="DAOInterface"></a><div class="element ajax clickable interface" href="../classes/Core.Model.DAO.DAOInterface.html">
+<h1>DAOInterface<a href="../classes/Core.Model.DAO.DAOInterface.html">¶</a>
+</h1>
+<p class="short_description">Basic interface for DAO classes.</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Model.DAO.DAOInterface.html" class="more">« More »</a>
+</div>
+<a name="DAOServiceInterface" id="DAOServiceInterface"></a><div class="element ajax clickable interface" href="../classes/Core.Service.DAOServiceInterface.html">
+<h1>DAOServiceInterface<a href="../classes/Core.Service.DAOServiceInterface.html">¶</a>
+</h1>
+<p class="short_description">Base interface for DAO services.</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Service.DAOServiceInterface.html" class="more">« More »</a>
+</div>
+<a name="UserDAODoctrine" id="UserDAODoctrine"></a><div class="element ajax clickable class" href="../classes/Admin.Model.Doctrine.UserDAODoctrine.html">
+<h1>UserDAODoctrine<a href="../classes/Admin.Model.Doctrine.UserDAODoctrine.html">¶</a>
+</h1>
+<p class="short_description">Implementation of UserDAOInterface for Doctrine</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Model.Doctrine.UserDAODoctrine.html" class="more">« More »</a>
+</div>
+<a name="User" id="User"></a><div class="element ajax clickable class" href="../classes/Admin.Model.Entity.User.html">
+<h1>User<a href="../classes/Admin.Model.Entity.User.html">¶</a>
+</h1>
+<p class="short_description">Entity User</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Model.Entity.User.html" class="more">« More »</a>
+</div>
+<a name="AuthService" id="AuthService"></a><div class="element ajax clickable class" href="../classes/Admin.Service.AuthService.html">
+<h1>AuthService<a href="../classes/Admin.Service.AuthService.html">¶</a>
+</h1>
+<p class="short_description">Class for authentification processes.</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Service.AuthService.html" class="more">« More »</a>
+</div>
+<a name="UserDAOService" id="UserDAOService"></a><div class="element ajax clickable class" href="../classes/Admin.Service.UserDAOService.html">
+<h1>UserDAOService<a href="../classes/Admin.Service.UserDAOService.html">¶</a>
+</h1>
+<p class="short_description">Service used by manage user entity</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Service.UserDAOService.html" class="more">« More »</a>
+</div>
+<a name="IndexControllerTest" id="IndexControllerTest"></a><div class="element ajax clickable class" href="../classes/Application.Controller.IndexControllerTest.html">
+<h1>IndexControllerTest<a href="../classes/Application.Controller.IndexControllerTest.html">¶</a>
+</h1>
+<p class="short_description">Base Test Case class</p>
+<div class="details collapse"></div>
+<a href="../classes/Application.Controller.IndexControllerTest.html" class="more">« More »</a>
+</div>
+<a name="Builder" id="Builder"></a><div class="element ajax clickable class" href="../classes/Core.Acl.Builder.html">
+<h1>Builder<a href="../classes/Core.Acl.Builder.html">¶</a>
+</h1>
+<p class="short_description">Class retrieves a filled ACL.</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Acl.Builder.html" class="more">« More »</a>
+</div>
+<a name="DoctrineAdapter" id="DoctrineAdapter"></a><div class="element ajax clickable class" href="../classes/Core.Authentification.Doctrine.DoctrineAdapter.html">
+<h1>DoctrineAdapter<a href="../classes/Core.Authentification.Doctrine.DoctrineAdapter.html">¶</a>
+</h1>
+<p class="short_description">Extension of <code>ObjectRepository</code> using <code>ValidatableAdapterInterface</code>.</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Authentification.Doctrine.DoctrineAdapter.html" class="more">« More »</a>
+</div>
+<a name="AbstractDoctrineDAO" id="AbstractDoctrineDAO"></a><div class="element ajax clickable class" href="../classes/Core.Model.DAO.Doctrine.AbstractDoctrineDAO.html">
+<h1>AbstractDoctrineDAO<a href="../classes/Core.Model.DAO.Doctrine.AbstractDoctrineDAO.html">¶</a>
+</h1>
+<p class="short_description">Basic implemented abstract class for DAO based on Doctrine</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Model.DAO.Doctrine.AbstractDoctrineDAO.html" class="more">« More »</a>
+</div>
+<a name="DAOException" id="DAOException"></a><div class="element ajax clickable class" href="../classes/Core.Model.DAO.Exception.DAOException.html">
+<h1>DAOException<a href="../classes/Core.Model.DAO.Exception.DAOException.html">¶</a>
+</h1>
+<p class="short_description">Base class for custom DAO exceptions</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Model.DAO.Exception.DAOException.html" class="more">« More »</a>
+</div>
+<a name="Entity" id="Entity"></a><div class="element ajax clickable class" href="../classes/Core.Model.Entity.Entity.html">
+<h1>Entity<a href="../classes/Core.Model.Entity.Entity.html">¶</a>
+</h1>
+<p class="short_description">Base class for entities managed by Core\Model\DAOInterface.</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Model.Entity.Entity.html" class="more">« More »</a>
+</div>
+<a name="AbstractDAOService" id="AbstractDAOService"></a><div class="element ajax clickable class" href="../classes/Core.Service.AbstractDAOService.html">
+<h1>AbstractDAOService<a href="../classes/Core.Service.AbstractDAOService.html">¶</a>
+</h1>
+<p class="short_description">Abstract class with basic logic to DAO Service classes</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Service.AbstractDAOService.html" class="more">« More »</a>
+</div>
+<a name="DAOServiceFactory" id="DAOServiceFactory"></a><div class="element ajax clickable class" href="../classes/Core.Service.Factory.DAOServiceFactory.html">
+<h1>DAOServiceFactory<a href="../classes/Core.Service.Factory.DAOServiceFactory.html">¶</a>
+</h1>
+<p class="short_description">Factory of DAO Service classes.</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Service.Factory.DAOServiceFactory.html" class="more">« More »</a>
+</div>
+<a name="Service" id="Service"></a><div class="element ajax clickable class" href="../classes/Core.Service.Service.html">
+<h1>Service<a href="../classes/Core.Service.Service.html">¶</a>
+</h1>
+<p class="short_description">Service base class</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Service.Service.html" class="more">« More »</a>
+</div>
+<a name="Bootstrap" id="Bootstrap"></a><div class="element ajax clickable class" href="../classes/Core.Test.Bootstrap.html">
+<h1>Bootstrap<a href="../classes/Core.Test.Bootstrap.html">¶</a>
+</h1>
+<p class="short_description">Bootstrap class for application's test.</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Test.Bootstrap.html" class="more">« More »</a>
+</div>
+<a name="ControllerTestCase" id="ControllerTestCase"></a><div class="element ajax clickable class" href="../classes/Core.Test.ControllerTestCase.html">
+<h1>ControllerTestCase<a href="../classes/Core.Test.ControllerTestCase.html">¶</a>
+</h1>
+<p class="short_description">Base Test Case class</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Test.ControllerTestCase.html" class="more">« More »</a>
+</div>
+<a name="ModelTestCase" id="ModelTestCase"></a><div class="element ajax clickable class" href="../classes/Core.Test.ModelTestCase.html">
+<h1>ModelTestCase<a href="../classes/Core.Test.ModelTestCase.html">¶</a>
+</h1>
+<p class="short_description">Base Test Case class</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Test.ModelTestCase.html" class="more">« More »</a>
+</div>
+<a name="ServiceTestCase" id="ServiceTestCase"></a><div class="element ajax clickable class" href="../classes/Core.Test.ServiceTestCase.html">
+<h1>ServiceTestCase<a href="../classes/Core.Test.ServiceTestCase.html">¶</a>
+</h1>
+<p class="short_description">Base Test Case class</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Test.ServiceTestCase.html" class="more">« More »</a>
+</div>
+<a name="TestCase" id="TestCase"></a><div class="element ajax clickable class" href="../classes/Core.Test.TestCase.html">
+<h1>TestCase<a href="../classes/Core.Test.TestCase.html">¶</a>
+</h1>
+<p class="short_description">Base Test Case class</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Test.TestCase.html" class="more">« More »</a>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="ZF2_PATH" id="ZF2_PATH"> </a><div class="element clickable constant  ZF2_PATH" data-toggle="collapse" data-target=".ZF2_PATH .collapse">
+<h2>ZF2_PATH</h2>
+<pre>ZF2_PATH </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
+            generated on 2013-02-24T17:36:34-03:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a8" title="CoFe">
+  <file path="init_autoloader.php" hash="6d3b75f8f75b29a955d08f65471758af" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Zend Framework (http://framework.zend.com/)]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="link" description="for the canonical source repository" link="http://github.com/zendframework/ZendSkeletonApplication"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)"/>
+      <tag line="2" name="license" description="http://framework.zend.com/license/new-bsd New BSD License"/>
+    </docblock>
+    <include line="21" type="Include" package="Default">
+      <name>vendor/autoload.php</name>
+    </include>
+    <include line="38" type="Include" package="Default">
+      <name/>
+    </include>
+    <source>eJx9VNuO2zYQfTfgf5gCASQvdqWtgb5summ3l0UDBEVQb16CAA5NjSzCFCmQlBVv0H/vDHXzNkb4JNNnzpw5M8Off2mqZrnIr66WC7iCj2gKeHSixs66A6RVCM1dnpfjTfZMgEzaOl8xPsb8qpU5QDwDfK9C1e4ijPFTdM70mwNqDNY8NI1WUgRlDZTWQagQpDDW0KUGb1snERw21qtg3alPJW1zcmpfBfh9+krlCta3tz/drG9/XPcVPKGsjNV2r9DDh80DvDUym6rpum6qYzWWINF4nEu4UPGAyQ12NztfwN/YwW+bP+Bdf89E+XIxe/lUKQ+iDaRDFMrswWNoG6BLh0LrE9TWUcm27n3AgiwQBlQAg1h4CBZ2GK2prQ+RUsye+YwSIIiioMBIgl9UODG9V/TrxPEOi5ZcZGuDqpG5gziQJ8QaCakWKPCI2jboxpSNsxQW1BGho06CgNKhr8APncvgbQCqwHYv6ouEPYO0zqEMJEJaU6p9S0KuSc1euEKj92DLKEoZH4ioH4IaQ2ULENS/A2Ljez5CtdQYCuAirUc3VBuQ6G3DoUJnvdu9w76yrS4gTnCpDE7Vso/M5vw1VLajut01lIiaC0TWPsl90bgBCyfbJgVodcBs7nZOozgIe2GGKiEtlcYt9cUHnyZHGiTr8hGU0eIlqxV8JSo6r/iOOO7JFKnbAuFiwOvl4l9O++q5XL8X1Jx7KIX2+JovOeWejDHHNPn4uN6+f3j6K6aA+ZDeTds01oU4WiMMKEg5a2o0AY7CKbHT5LoD2mXw7a6mkdA4SJ1zf5uNBQKSokHMVpb7LRGmCUVtGwrrFf1Px/gnFIonh2fvKHR7MeMlyhdpld8SzeQ4iaPl3TnhTueGz5yXgKPRzDdCp9g+CU1bOrRtpj3r5c0b2k7yhsiT6ykfS2VQL/c8bGz8pCyDJD6Z+bvIlz8Mk4DuUUh+FMeRGBkY/KkHf/oGfHdX9h+pcE6c0jmMT3Ieuwm0hbSrM0cC92/gUlyM5RGl7aY5R7d9LiM4uLF741nNP1eTC2c2/yC18H7al+8Wc9bIUDnbxZfsn9bwM/fnF4nxXUiTDybOMW02R/O0Z4yCz2Tc9KCQi8KNb9FnHvoC47shvr8eWT92y8V/821UIQ==</source>
+  </file>
+  <file path="module\Admin\src\Admin\Model\DAO\UserDAOInterface.php" hash="aed0c002d9724406a8ec47de49e043aa" package="Default">
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
+    <interface namespace="Admin\Model\DAO" line="14" package="Default">
+      <name>UserDAOInterface</name>
+      <full_name>\Admin\Model\DAO\UserDAOInterface</full_name>
+      <extends>Core\Model\DAO\DAOInterface</extends>
+      <docblock line="8">
+        <description><![CDATA[Interface contract for DAO objects for class User]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="8" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+        <tag line="8" name="see" description="\Admin\Model\User" refers="\Admin\Model\User"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\DAO" line="21" package="Default">
+        <name>findByUsername</name>
+        <full_name>findByUsername</full_name>
+        <docblock line="16">
+          <description><![CDATA[Retrieves, if exists, the User the username from param]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="16" name="param" description="" type="string" variable="$username">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="16" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="21">
+          <name>$username</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\DAO" line="30" package="Default">
+        <name>changePassword</name>
+        <full_name>changePassword</full_name>
+        <docblock line="23">
+          <description><![CDATA[Alter the password of User]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="param" description="" type="\Admin\Model\Entity\User" variable="$user">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+          <tag line="23" name="param" description="" type="string" variable="$oldPassword">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="23" name="param" description="" type="string" variable="$newPassword">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="23" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="30">
+          <name>$user</name>
+          <default><![CDATA[]]></default>
+          <type>\Admin\Model\Entity\User</type>
+        </argument>
+        <argument line="30">
+          <name>$oldPassword</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="30">
+          <name>$newPassword</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Model\DAO\UserDAOInterface.php</error>
+    </parse_markers>
+    <source>eJyNUk1PwzAMvVfqf/CBw6im7QdsgpWPAxIIBNqtlyx116A0qRKHMSH+O0m6dqtgEpHaOs/283tWl9dt3aZJmijWoG0ZR8jLRqjiSZcoi7v8eRGyzo7xe0WC9sXaoll02Vtt8NgUngdFaCrPGBnmWZYmkMGAAteKDOMElTbg60Fv3pGTjXcumbUQ+GNXfK2Yo9rnHh1nFkpt4Y0p8p98Y9DBUgZ8ZmcsXFfbhgk547q56potIhSnHnryeZqIQVQAT7UDfhKq0sII/AqOwJ/OVTgZvCIZgR9opyAq3ycs+ZDqjjQGflEmLBoqoxtomWHN0L6KV7CeRG3hoi895g2SM6rfSQTnXdC6jRQcKqc4Ca2gEqq82a8PDJOB63Lxl+5c0kFe63e+06YEXY3G9Nqij8h2TrWW5cuB5FyJwt3vkv974zVTW+wZJkdJ09H06WhQMP4dvF/7n+EH4//njw==</source>
+  </file>
+  <file path="module\Admin\src\Admin\Model\Doctrine\UserDAODoctrine.php" hash="8b3ad6b9b0f0b9339ce0735357defe68" package="Default">
+    <namespace-alias name="UserDAOInterface">Admin\Model\DAO\UserDAOInterface</namespace-alias>
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="AbstractDoctrineDAO">Core\Model\DAO\Doctrine\AbstractDoctrineDAO</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Model\Doctrine" line="14" package="Default">
+      <extends>\Core\Model\DAO\Doctrine\AbstractDoctrineDAO</extends>
+      <implements>\Admin\Model\DAO\UserDAOInterface</implements>
+      <name>UserDAODoctrine</name>
+      <full_name>\Admin\Model\Doctrine\UserDAODoctrine</full_name>
+      <docblock line="9">
+        <description><![CDATA[Implementation of UserDAOInterface for Doctrine]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="9" name="author" description="Lucas dos Santos Abreu"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="16" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="20" package="Default">
+        <name>changePassword</name>
+        <full_name>changePassword</full_name>
+        <argument line="20">
+          <name>$user</name>
+          <default><![CDATA[]]></default>
+          <type>\Admin\Model\Entity\User</type>
+        </argument>
+        <argument line="20">
+          <name>$oldPassword</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="20">
+          <name>$newPassword</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="24" package="Default">
+        <name>findByUsername</name>
+        <full_name>findByUsername</full_name>
+        <argument line="24">
+          <name>$username</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Model\Doctrine\UserDAODoctrine.php</error>
+      <error line="16" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="20" code="50010">No DocBlock was found for method changePassword()</error>
+      <error line="24" code="50010">No DocBlock was found for method findByUsername()</error>
+    </parse_markers>
+    <source>eJyFU01v2zAMvRvwf+AhgJ2gWe/Jli7ddiiwLV2L3QIUikzXAhTJpaSlwbD/PkqpmrpZMR0sy++Dj4T8/qLv+rIoCyO26HohEZbNVpn1N9ugXn+20pMyOI+U4F6By9X6p0Pi/cp4pJbV81PaF+OV3yfmE/rJEr7wyEXWy43zJKTPHxhMhc8nk7KACVxte41bNF54ZQ3YFl6Xh9YSZHnUJN1HEXzHwNcghYPGOrgVxvO23BCGSDkvC6mFc9kwWwA+ejRNZJ5EA5XjuNMcv2Nu4NWHjVYS2mBkCn13J61hryB9PY40eFq9ILaazV4SqjfmWI3nB+Gft8rITph7vOaWdpaaOopgxLOnMxhZ3WSATwZ3+TTIQ+gDGRj5TrnpwolfWCeD/5ZulWku97FivFMHUXwbuI8eNvAhm9+jv8HeOuUt7evxdCEJhccfAWl/GZRukOoqpKYHDhwLNcY5MXhE8poudh0SJ4hMfOwpWuMDs9/lTNUZVLPnw/ifJg79tSDGfYpxVB47GwaLn2NzsSy3ltqIpfl9ZXBF34PWN+iC5hswUOaRh8Ov8jzl9LhYlMVfh3khew==</source>
+  </file>
+  <file path="module\Admin\src\Admin\Model\Entity\User.php" hash="5ffd8a2c021a1e72919649c5a4e0dc9f" package="Default">
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="Entity">Core\Model\Entity\Entity</namespace-alias>
+    <namespace-alias name="DateTime">DateTime</namespace-alias>
+    <namespace-alias name="ORM">Doctrine\ORM\Mapping</namespace-alias>
+    <namespace-alias name="Factory">Zend\InputFilter\Factory</namespace-alias>
+    <namespace-alias name="InputFilterInterface">Zend\InputFilter\InputFilterInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Model\Entity" line="20" package="Default">
+      <extends>\Core\Model\Entity\Entity</extends>
+      <name>User</name>
+      <full_name>\Admin\Model\Entity\User</full_name>
+      <docblock line="12">
+        <description><![CDATA[Entity User]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="12" name="author" description="Lucas dos Santos Abreu"/>
+        <tag line="12" name="ORM\Entity" description="Entity" plugin="doctrine" link="http://www.doctrine-project.org/docs/orm/2.1/en/reference/annotations-reference.html#annref-entity" content=""/>
+        <tag line="12" name="ORM\Table" description="Table" plugin="doctrine" link="http://www.doctrine-project.org/docs/orm/2.1/en/reference/annotations-reference.html#annref-table" content="name=&quot;user&quot;">
+          <argument field-name="name">"user"</argument>
+        </tag>
+      </docblock>
+      <property final="false" static="true" visibility="protected" line="25" namespace="Admin\Model\Entity" package="Default">
+        <name>$_inputFilter</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="22">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="22" name="var" description="" type="\Zend\InputFilter\InputFilterInterface">
+            <type by_reference="false">\Zend\InputFilter\InputFilterInterface</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="34" namespace="Admin\Model\Entity" package="Default">
+        <name>$id</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="27">
+          <description><![CDATA[Unique identifier of User]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="27" name="var" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="27" name="ORM\Id" description="Id" plugin="doctrine" link="http://www.doctrine-project.org/docs/orm/2.1/en/reference/annotations-reference.html#annref-id" content="ORM\Column(type=&quot;integer&quot;">
+            <argument field-name="ORM\Column(type">"integer"</argument>
+          </tag>
+          <tag line="27" name="ORM\GeneratedValue" description="GeneratedValue" plugin="doctrine" link="http://www.doctrine-project.org/docs/orm/2.1/en/reference/annotations-reference.html#annref-generatedvalue" content=""/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="42" namespace="Admin\Model\Entity" package="Default">
+        <name>$username</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="36">
+          <description><![CDATA[Username used in login]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="36" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="36" name="ORM\Column" description="(type=&quot;string&quot;, length=50, unique=true, nullable=false)"/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="50" namespace="Admin\Model\Entity" package="Default">
+        <name>$password</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="44">
+          <description><![CDATA[Password of User (Cripted MD5)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="44" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="44" name="ORM\Column" description="(type=&quot;string&quot;, length=32, unique=false, nullable=false)"/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="58" namespace="Admin\Model\Entity" package="Default">
+        <name>$role</name>
+        <default><![CDATA[]]></default>
+        <docblock line="52">
+          <description><![CDATA[Role gived to User]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="52" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="52" name="ORM\Column" description="(type=&quot;string&quot;, length=10, unique=false, nullable=false)"/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="66" namespace="Admin\Model\Entity" package="Default">
+        <name>$name</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="60">
+          <description><![CDATA[Name of User]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="60" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="60" name="ORM\Column" description="(type=&quot;string&quot;, length=60, unique=false, nullable=false)"/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="74" namespace="Admin\Model\Entity" package="Default">
+        <name>$email</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="68">
+          <description><![CDATA[E-mail of User]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="68" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="68" name="ORM\Column" description="(type=&quot;string&quot;, length=45, unique=false, nullable=false)"/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="82" namespace="Admin\Model\Entity" package="Default">
+        <name>$dateCriation</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="76">
+          <description><![CDATA[Date of User Criation]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="76" name="var" description="" type="\Admin\Model\Entity\date">
+            <type by_reference="false">\Admin\Model\Entity\date</type>
+          </tag>
+          <tag line="76" name="ORM\Column" description="(type=&quot;date&quot;, unique=false, nullable=false, name=&quot;dt_criation&quot;)"/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="90" namespace="Admin\Model\Entity" package="Default">
+        <name>$active</name>
+        <default><![CDATA[false]]></default>
+        <docblock line="84">
+          <description><![CDATA[Flag if the User is Active]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="84" name="var" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="84" name="ORM\Column" description="(type=&quot;boolean&quot;, unique=false, nullable=false)"/>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="Admin\Model\Entity" line="92" package="Default">
+        <name>_getInputFilter</name>
+        <full_name>_getInputFilter</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="252" package="Default">
+        <name>getInputFilter</name>
+        <full_name>getInputFilter</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="256" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="265" package="Default">
+        <name>setId</name>
+        <full_name>setId</full_name>
+        <docblock line="260">
+          <description><![CDATA[Set ID]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="260" name="param" description="" type="integer" variable="$id">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="260" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="265">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="275" package="Default">
+        <name>setUsername</name>
+        <full_name>setUsername</full_name>
+        <docblock line="270">
+          <description><![CDATA[Set username]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="270" name="param" description="" type="string" variable="$username">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="270" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="275">
+          <name>$username</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="285" package="Default">
+        <name>setPassword</name>
+        <full_name>setPassword</full_name>
+        <docblock line="280">
+          <description><![CDATA[Set password (MD5)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="280" name="param" description="" type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="280" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="285">
+          <name>$password</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="295" package="Default">
+        <name>setRole</name>
+        <full_name>setRole</full_name>
+        <docblock line="290">
+          <description><![CDATA[Set role]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="290" name="param" description="" type="string" variable="$role">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="290" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="295">
+          <name>$role</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="305" package="Default">
+        <name>setName</name>
+        <full_name>setName</full_name>
+        <docblock line="300">
+          <description><![CDATA[Set name]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="300" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="300" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="305">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="315" package="Default">
+        <name>setEmail</name>
+        <full_name>setEmail</full_name>
+        <docblock line="310">
+          <description><![CDATA[set e-mail]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="310" name="param" description="" type="string" variable="$email">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="310" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="315">
+          <name>$email</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="325" package="Default">
+        <name>setDateCriation</name>
+        <full_name>setDateCriation</full_name>
+        <docblock line="320">
+          <description><![CDATA[Set date of criation]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="320" name="param" description="" type="string" variable="$dateCriation">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="320" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="325">
+          <name>$dateCriation</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="335" package="Default">
+        <name>setActive</name>
+        <full_name>setActive</full_name>
+        <docblock line="330">
+          <description><![CDATA[Set active status]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="330" name="param" description="" type="boolean" variable="$active">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="330" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="335">
+          <name>$active</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="344" package="Default">
+        <name>getId</name>
+        <full_name>getId</full_name>
+        <docblock line="340">
+          <description><![CDATA[Retrives ID]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="340" name="return" description="" type="integer">
+            <type by_reference="false">integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="352" package="Default">
+        <name>getUsername</name>
+        <full_name>getUsername</full_name>
+        <docblock line="348">
+          <description><![CDATA[Retrives Username]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="348" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="360" package="Default">
+        <name>getPassword</name>
+        <full_name>getPassword</full_name>
+        <docblock line="356">
+          <description><![CDATA[Retrives Password]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="356" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="368" package="Default">
+        <name>getRole</name>
+        <full_name>getRole</full_name>
+        <docblock line="364">
+          <description><![CDATA[Retrives role]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="364" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="376" package="Default">
+        <name>getName</name>
+        <full_name>getName</full_name>
+        <docblock line="372">
+          <description><![CDATA[Retrives name]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="372" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="384" package="Default">
+        <name>getEmail</name>
+        <full_name>getEmail</full_name>
+        <docblock line="380">
+          <description><![CDATA[Retrives e-mail]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="380" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="392" package="Default">
+        <name>getDateCriation</name>
+        <full_name>getDateCriation</full_name>
+        <docblock line="388">
+          <description><![CDATA[Retrives the creation's date]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="388" name="return" description="" type="\DateTime">
+            <type by_reference="false">\DateTime</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Entity" line="400" package="Default">
+        <name>getActive</name>
+        <full_name>getActive</full_name>
+        <docblock line="396">
+          <description><![CDATA[Retrives the active status]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="396" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Model\Entity\User.php</error>
+      <critical line="22" code="50019">No short description for property $_inputFilter</critical>
+      <error line="92" code="50010">No DocBlock was found for method _getInputFilter()</error>
+      <error line="252" code="50010">No DocBlock was found for method getInputFilter()</error>
+      <error line="256" code="50010">No DocBlock was found for method __construct()</error>
+    </parse_markers>
+    <source>eJztWmtPIzcU/Y7Ef3ARUiYIRHZZVtXSsEt5bJGArni0ahUJmRknWJ0Zz3o8sKja/14/J+NkXnEgBVoLQYLvtc+x72PGvj99TG6T5aXlpRhGKE2gj8BeEOF4cEoCFA4OY4bZw44QyNKyrsFViuiO6t0nFNmdubroPoAMXeIIma/EZxTHaPDr+engFCYJjkcApoB/1RJ/ojgYHMdJxo5wyBAdHEGfEfpQ1V34fBzzX0PORkLfXFtbXgJrQMEBArL4Lv/3CWbsllBwkvl88oCk4ALGjP/Zu6EokyJKTsBUA4y/X8KbEHli6forHBJd6Yq+zeUlP4RpKicC6BvjQFMz+d8CEOBNgRKND3YHKSiDbyQ21YeEEoZ8hgKQMsiwD1av8VgL9EGcheFO2QxXMf6aIYADxGEMMRcmQ7MQBQw4ZiD/z7hLcD0O1N99EmZR7LGHhJPm8mikeRdkP6MYUb7dwW8wzKpJrOKgFjOHJ9YW8KUNODQQkhGObcCpsKFRBWQLqpJcWQchikfstr/dWweZXJU+oxlalzjEfvaHMExRtxp1ZnDVYP/C9/+e0MAsM/D2KU6E+unBdvexOGy9zTlI0DOQSAzAGhLnJERghO+4PCMl1uIO/E3PGTjloErRnoktKbVqd5zv3XE2WcjhRgRx+NiA3207A0YSTw1iEcBze+bmzCMQmXDHgIu0gS3kVuqR8u8yrgbs2tdzrdSgFyMaTHUkjkI4AngI2C1SRDAP9T7jRm4zuSHczmDchowWbeBTgx3K+TlqKZjDnor2wyz2Jb/rEWKFdOF1RVoBunFyXorC4YcPE9mhr5bFEhZtdajyqlg2dA90lvW6O7ZY6Zi58sauTxHfgyIsW980SCl8qOgTrYODDujvNspJWWEjUlporTcIDyWstPXoY7SFeXhu7nTr9Wq6uzUYOyaxuNDPdZsWgaKvGaZIrbHMfItYtQsZpy4pjjp1S9CkT07IPaLuQySXcJQ2qjf1d+5giHnAIfOuyhlhh1HCHmYg1CwnEY7n2AvjLGqyilyPJCLAzEYrV4ZhSO5/v8UMXYg3CTmIioXtBmmzCk+4UsrGTmQiXcyCRfibVNxuOZtSglqp13ZZ51/Vuv7akGYeM11CWq774kPaqwoo/4abxFLxRxc32Xq7uODj7CbipcbFRaTei3ePSv126bpuenKVJC0eGJ6zg07l8lfm28pNO2/azqfUoFHrdRaXBR29W75Zu7i3Uvyv+/dzds4X4WEqe265+Ne77YV5l2hTW3IoPGAvCChK5zOUWgd1fel+5S/cc6TfX1gUyhsPjP538Gb1R3HwNy4O/r737NNn8WjXxUst/WfkrTOb1j4Mwxvo/7UYs/LNbPIYRx89e6t34kpv6gy5qYlD6R+0MsBxymDsIzLML4W7LexrsunR1Km1GcgA3JltvNmk1Rwbuylics7eOhA/3fzovm2jiGU01uPNAPn783inFe1FBWdhJYvxniGhEWRq1j82oo3gEV9TnibMqlsolwCrNV9yaP1Z3eEtxjbEtWFBU5ybtzL6fAAfpow/ZLRdSNOe6iFdXok9wbP5BN5iTP9ejLQ6ipZcUGqNXDrJbsLiRWrdPao16tSNa9PI19c+tw++OT6zh11ltziVqeOg8FziWTmsE5P7TndqjuI99gVi4Pgg//opgRRGQNfjiMqacZcmUiwz2CwHzUEdBx5XLkMsi3X0ZxnzPXnnKuYq7oxJaUKwiYC5tJykoaoaxpU2jlxMAZGXD1TGq1DOY7MbX6mOkbgyzcttPLv+x+ZrpBz5mqIjLx+ojG+h8sfmO75vGSNx5SsOpqtY2n0zMRQVSZ4coIyZ+P8UK3VErmZ1ZVNno3PY55m0zSq7LLVJY4+utshnBUhWHlXxQXbnTITkaY2nhiijZEqMbE76lFNP7bpHga5O8qcKk2x+xbdBR5pW4LYGLCM9UZlkc7ffTW10riuhy4lE0VCWgsl10NVKpurIcQlUyZSnBymjnRc12YTNs6KZ34XkOeJ7eYdSKwFqZZ0BGxiMZKIrS/d5smsF4KoqQdkVfNUo8hRVg8XknlaIvlSlkLaI8iRSg8hkh1aISsN9WzQy4Ncg0dWgzSjm2qWzhh1qvTuToXdGHCq+1gCREbQVElH/KCv2ROBJ7cJNA8s8jzYDsyJiDb5ieGsN04pnUyAnCjWrMeqQVYNOTVTEJX993F1e+geXUc7U</source>
+  </file>
+  <file path="module\Admin\src\Admin\Service\AuthService.php" hash="8fc1cc6d5d85af900395bbbd65cdfa2a" package="Default">
+    <namespace-alias name="Closure">Closure</namespace-alias>
+    <namespace-alias name="Service">Core\Service\Service</namespace-alias>
+    <namespace-alias name="Exception">Exception</namespace-alias>
+    <namespace-alias name="ValidatableAdapterInterface">Zend\Authentication\Adapter\ValidatableAdapterInterface</namespace-alias>
+    <namespace-alias name="AuthenticationService">Zend\Authentication\AuthenticationService</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Service" line="16" package="Default">
+      <extends>\Core\Service\Service</extends>
+      <name>AuthService</name>
+      <full_name>\Admin\Service\AuthService</full_name>
+      <docblock line="11">
+        <description><![CDATA[Class for authentification processes.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="11" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="21" namespace="Admin\Service" package="Default">
+        <name>$adapter</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="18">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="18" name="var" description="" type="\Zend\Authentication\Adapter\ValidatableAdapterInterface">
+            <type by_reference="false">\Zend\Authentication\Adapter\ValidatableAdapterInterface</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="23">
+          <description><![CDATA[Constructor of class]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="param" description="Adapter used on validation" type="\Zend\Authentication\Adapter\ValidatableAdapterInterface" variable="$adapter">
+            <type by_reference="false">\Zend\Authentication\Adapter\ValidatableAdapterInterface</type>
+          </tag>
+          <tag line="23" name="param" description="Function will return the user for put on session" type="\Closure" variable="$returnUser">
+            <type by_reference="false">\Closure</type>
+          </tag>
+        </docblock>
+        <argument line="28">
+          <name>$adapter</name>
+          <default><![CDATA[]]></default>
+          <type>\Zend\Authentication\Adapter\ValidatableAdapterInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="39" package="Default">
+        <name>authentificate</name>
+        <full_name>authentificate</full_name>
+        <docblock line="32">
+          <description><![CDATA[Realize the authentification based on params.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="param" description="" type="string" variable="$username">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="32" name="param" description="" type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="32" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="32" name="throws" description="If authentification fails" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="39">
+          <name>$username</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="39">
+          <name>$password</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="58" package="Default">
+        <name>logout</name>
+        <full_name>logout</full_name>
+        <docblock line="54">
+          <description><![CDATA[Remove identity from session]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="54" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="71" package="Default">
+        <name>authorize</name>
+        <full_name>authorize</full_name>
+        <docblock line="64">
+          <description><![CDATA[Authorize the logged user for resource]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="64" name="param" description="module name" type="string" variable="$moduleName">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="64" name="param" description="controller name" type="string" variable="$controllerName">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="64" name="param" description="action name" type="string" variable="$actionName">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="64" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="71">
+          <name>$moduleName</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="71">
+          <name>$controllerName</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="71">
+          <name>$actionName</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="88" package="Default">
+        <name>getAdapter</name>
+        <full_name>getAdapter</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="92" package="Default">
+        <name>setAdapter</name>
+        <full_name>setAdapter</full_name>
+        <argument line="92">
+          <name>$adapter</name>
+          <default><![CDATA[]]></default>
+          <type>\Zend\Authentication\Adapter\ValidatableAdapterInterface</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Service\AuthService.php</error>
+      <critical line="18" code="50019">No short description for property $adapter</critical>
+      <notice line="23" code="50013">Parameter $returnUser could not be found in __construct()</notice>
+      <error line="88" code="50010">No DocBlock was found for method getAdapter()</error>
+      <error line="92" code="50010">No DocBlock was found for method setAdapter()</error>
+    </parse_markers>
+    <source>eJydVl1r60YQfQ/kPwzBYDnEylNfmlvnuqGFQOnDvbTQYgjr1cgWrLRiP+zblvz3zq5W2pXsOJfoQdZ6z8ycOTOz0qfHdt9eX11fNaxG3TKOsC7qqtl8RXWoOD64PasRnoTUVrm1X0mFPSSBuq1fvnFsTSWbsP4bm2KztmaPjak4czubdcFag2rzJxNVwQzbCgx/PTd0K9ng7az1aJkSvb+9vb6CWyLLtIZSKmABWwY0tEpy1Bp17pAe/dmBCPub5UxDITV8ZY2hn/VWoYVPwv2f65y55eddzSqRc1mvnPH99RX3wRypQAXwmyHa5Cas/3PcgK6On7so6oEpuCBAD7zvHoi3QW6wgBnrkPATNFaIh3POn2SjjbLcUFqyBE8xRm6ZYvWl2DFG2AGqRQEk36EzIiWn7kKDwEyhsar5Q5PVr7bhXvVjJQR0G0AFce6Ur09rjXNL9dCJzz5nuxUVh7L38vLC+7yy72G/cMpDuGZmX+nlSqMJ+GyAPXSo13NKfkEK9C961ifNtGVBFi+Bb6mRJsS1anYwc+m6AXtrv6XyHKUq4n7QaiulQJZobfZKHnUcMnguT2mV1KH6HS1HRpgNFO8im3Py7aJ8i7jZX17e58L5Nf9En28hnxR6LBNZXfyQxcCLoal9aMfVdTse4e3ZH9AKtRWG8N5uuWLRhPI8TWMcrCohCy6Wq0r7NiPMOIO+k5XFh7iDQuMY56vleQ8Fy+bPjR8i6NUBNwYh83z+TjPW8oBQBYWhVLKezs7QOwdZFe80gZA7aU02LvR3qD3CLlecelQNZV8kgFOhzua19gdwP2bEaodFPCOoGtIq/ub01LKwAn93UnaPcGnW6AgxSgqBylvE5UUr5gXzFt3jBH1+Xi/Mnk83S7jfTandpVE/XiJyiISd7yxqM093vMDDS2Q0AF1d90zHqo4YpPYBvEsmP22BlASpaaSQR3f4Omtv9YX2uins4a/Tefbld6Emxcthns/pngg16k4unNEw8kGdbO4/X9ZcbH62lShQzRfL1dY9jph3SnDhzoG1cLSLzGdyF0mdynL+bHiNj+cOhUq/uDJ0qizgEW7+khaO9DnSSAOsC+6HwX0UTWTIk/TzG/gRbvzLNyg8HDMf8nZyHE17OT1JUymCDEH88KZ9z1nycv7o+z1+HM3GQaekUi7+9kgfdP8Dn41UhQ==</source>
+  </file>
+  <file path="module\Admin\src\Admin\Service\UserDAOService.php" hash="d79d5e5de3b215f9c0e76d365cbcfbad" package="Default">
+    <namespace-alias name="UserDAOInterface">Admin\Model\DAO\UserDAOInterface</namespace-alias>
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="DAOException">Core\Model\DAO\Exception\DAOException</namespace-alias>
+    <namespace-alias name="Entity">Core\Model\Entity\Entity</namespace-alias>
+    <namespace-alias name="AbstractDAOService">Core\Service\AbstractDAOService</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Service" line="16" package="Default">
+      <extends>\Core\Service\AbstractDAOService</extends>
+      <implements>\Admin\Model\DAO\UserDAOInterface</implements>
+      <name>UserDAOService</name>
+      <full_name>\Admin\Service\UserDAOService</full_name>
+      <docblock line="11">
+        <description><![CDATA[Service used by manage user entity]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="11" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="21" namespace="Admin\Service" package="Default">
+        <name>$dao</name>
+        <default><![CDATA[]]></default>
+        <docblock line="18">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="18" name="var" description="" type="\Admin\Model\DAO\UserDAOInterface">
+            <type by_reference="false">\Admin\Model\DAO\UserDAOInterface</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="23" package="Default">
+        <name>save</name>
+        <full_name>save</full_name>
+        <argument line="23">
+          <name>$ent</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\Entity\Entity</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="47" package="Default">
+        <name>findById</name>
+        <full_name>findById</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="56" package="Default">
+        <name>findByUsername</name>
+        <full_name>findByUsername</full_name>
+        <argument line="56">
+          <name>$username</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="60" package="Default">
+        <name>changePassword</name>
+        <full_name>changePassword</full_name>
+        <argument line="60">
+          <name>$user</name>
+          <default><![CDATA[]]></default>
+          <type>\Admin\Model\Entity\User</type>
+        </argument>
+        <argument line="60">
+          <name>$oldPassword</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="60">
+          <name>$newPassword</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Service\UserDAOService.php</error>
+      <critical line="18" code="50019">No short description for property $dao</critical>
+      <error line="23" code="50010">No DocBlock was found for method save()</error>
+      <error line="47" code="50010">No DocBlock was found for method findById()</error>
+      <error line="56" code="50010">No DocBlock was found for method findByUsername()</error>
+      <error line="60" code="50010">No DocBlock was found for method changePassword()</error>
+    </parse_markers>
+    <source>eJydVs1uGzcQvhvwO0wEIV4ZsdQeepFtJaptoAbiuKjTU10I1C6lJbpLLkiuFKHx0/SQB8mLZYbcf0mWUB6k5XDm4ze/u1fvszg7PTk9kSzlJmMhh2mUCvn8xPVKhPySznJTSh9UxJPn2+nj85+Ga/y/l5brBXOKXbU7aYXdOM3i9EZp3sC4+xLyzAolaVdttnULIP/XPC5IPk/nxmoWWoRp8h6dn5+ewDkUMkC7COYbSJlkS7fVwB0oqTnVDyy3sdLwMQ+ZgUgZeGLS4t90rnkOVwnJh2bIaPthmTKRDEOVTsh4dHoSJswYKGJTXsu/WC4jguiyBJFmCU+RQ2VUBRT+JRcAl3eDFvJbMb2lWp6O/EOmleWhRV/7EVOXJUyWzxMRwiKXIYUZDFvxwMcU+khhQDdCseo7O/c2paN603fBvAaZJ0l1Iy2xgIDQQUhjmQy5WjicQQOoYU+ql/URTwxvK9pYqzVIvoZmzQS9zzEHU0S1B0OYzW4+Tp+eZjN87oFUtsy6RUWfJlJbcjtzO0dyMGhxd6Qek4h42ViYi8lCyOjXDfGnfgmcwsUEQSpRB8K5X8K88fGBt28raGd8HwUDOqzhSDI4zvFpojmLNlhlwmAZMV/Wa2Fj90SkxiVyKRj29rCs6Vxfe7KtqqCluc21hIxpDNh47KrI2Q4u24qjEeouNYMIA64F+/7t+3+qVnlxyf1f6C/+8WVfZfssOTca8H1BiSSlGWWd6aUJtsMQqlzaAHVdRn4+LglnlH74h29AGFdrOBIyhdPmHeXAjOHMVeTD3effHm9dSZ65K4ZnbQId7ys/UPevn/4uQ3DA73Z10lMrDMUdRUHjgNhd1c7u0IVhzOSS/47ts1Y6ClwUnPU76KskKg9whyErdy02jcqj9JRFd2TPKwpv0e6N4PZck7s+SHNjYc5xJvKV4GuTbNzci17vgMqjAVxNII1+CVoOHEsPSZA0K+yKKWTDmBvfoKGSC6HTSqPLat8AopJoz4r9Q6eMKXz9Cm9qcXccH+lTneKLCZWI88mPni557H/iDCnHN2pEnaEw+gt8ueZZxKyfxFlVIgyRYgRfsSTH+LjEUXYLc8racF++6ulbjdFyttZHbQdpYURqjD9Ussveiw/Yftp996dj7r2jb4gdxoX8gPUtBvIGh6vLzjZI+/gA1hSberXLj/LgyBp58Bnb0ZZUA/K1IvAl4MdKXQPj7Te6fzXs7eKSeaOR0SnXyI25dKxD9xIJp/g9tb+TEfVgF19MTIPRrmnTsWuM6M6kLSFfnbO7Xi3OsDnW3c97/H79AUeHhek=</source>
+  </file>
+  <file path="module\Application\tests\Bootstrap.php" hash="33dd23730298c20f9dd5eadfc3c04e22" package="Default">
+    <include line="3" type="Include" package="Default">
+      <name/>
+    </include>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Application\tests\Bootstrap.php</error>
+    </parse_markers>
+    <source>eJyzsS/IKODl4uXKzEvOKU1JVYiPd/EMio9X0FNQ19fTAyHn/KJU/eKiZAgjJLW4RN8pP7+kuKQosUAPqFvdGqRfX0vBoSyxSEElCSanAFIfA1IfA1evoKXPy4WkxBabIiur9NQSz7ziksS85FQNqIN0FNQdCwpyMpMTSzLz89Q1de0y8zJLNDStAVzuP4Q=</source>
+  </file>
+  <file path="module\Application\tests\src\Application\Controller\IndexControllerTest.php" hash="6151bdf67f6a74519cc38ae1ca759a5d" package="Default">
+    <namespace-alias name="ControllerTestCase">Core\Test\ControllerTestCase</namespace-alias>
+    <class final="false" abstract="false" namespace="Application\Controller" line="7" package="Default">
+      <extends>\Core\Test\ControllerTestCase</extends>
+      <name>IndexControllerTest</name>
+      <full_name>\Application\Controller\IndexControllerTest</full_name>
+      <property final="false" static="false" visibility="protected" line="9" namespace="Application\Controller" package="Default">
+        <name>$controllerFQDN</name>
+        <default><![CDATA['Application\Controller\IndexController']]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="10" namespace="Application\Controller" package="Default">
+        <name>$controllerRoute</name>
+        <default><![CDATA['application']]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Application\Controller" line="12" package="Default">
+        <name>test404</name>
+        <full_name>test404</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Application\tests\src\Application\Controller\IndexControllerTest.php</error>
+      <error line="7" code="50000">No DocBlock was found for \Application\Controller\IndexControllerTest</error>
+      <error line="9" code="50018">No DocBlock was found for property $controllerFQDN</error>
+      <error line="10" code="50018">No DocBlock was found for property $controllerRoute</error>
+      <error line="12" code="50010">No DocBlock was found for method test404()</error>
+    </parse_markers>
+    <source>eJx9kU9LAzEQxe+Ffoc5FHYLXfDQ2+qKrAoeFK0eF8o0O7oL2yTNTKAg/e4mdfvXYk5J5r3fvGGub21jh4PhQOOS2KIiuLO2axVKa3RVGi3OdB25PIo8E5TGUfVBLEfF+CyRaStSHTLDk65pfaoAWgvpmuGvEb6jE8KxzggpoRpGai97fLt/gRtILkerznol+T+omfFCkYUHVpLvu/tF+IRPr1UsgIR806tpOo4BoT8jaVrOChdJzyiqyQomeUWHyzTBrTGZQH+bazRzWrccRhdKxvkRxxH7TkKYnnhImRV1G7YR2OmuG618CHPut0YzXSZ8kcx6QXpi+5WGJZGTh5XHjtMw4+TA23rfBcVzaerg3tk3w8HmB97puHg=</source>
+  </file>
+  <file path="module\Core\src\Core\Acl\Builder.php" hash="a3720c323bb72ecef320af1b105bcce3" package="Default">
+    <namespace-alias name="Service">Core\Service\Service</namespace-alias>
+    <namespace-alias name="Acl">Zend\Permissions\Acl\Acl</namespace-alias>
+    <namespace-alias name="Resource">Zend\Permissions\Acl\Resource\GenericResource</namespace-alias>
+    <namespace-alias name="Role">Zend\Permissions\Acl\Role\GenericRole</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Acl" line="14" package="Default">
+      <extends>\Core\Service\Service</extends>
+      <name>Builder</name>
+      <full_name>\Core\Acl\Builder</full_name>
+      <docblock line="10">
+        <description><![CDATA[Class retrieves a filled ACL.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="10" name="author" description="Lucas dos Santos abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Acl" line="20" package="Default">
+        <name>build</name>
+        <full_name>build</full_name>
+        <docblock line="16">
+          <description><![CDATA[Constroi a ACL]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="16" name="return" description="" type="\Zend\Permissions\Acl\Acl">
+            <type by_reference="false">\Zend\Permissions\Acl\Acl</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Acl\Builder.php</error>
+    </parse_markers>
+    <source>eJydk01P4zAQhu+V+h/mUClJBe19S0qhBy4c0HJb6MF1Jq0l1478UVit+t937DglqAUBvtiej3eeGSdX1822GQ6GA8V2aBvGEZba4PMNl7Ng9jYZHtHsBT/us9b1B1X1/IBmJ6wVWtmQl3I/dP9Gq70hqTtUaATv7sAsdOdP87V8y6VzzKM98k7H4+EAxrCUzFow6IzAPVpgUAspsYKb5f0EYsiCebfVBu49J4VKW3hkytHG1gY9XMlgn9hJvC42OybkhOvdPCRPhwMeK9x6ISs0gK+OWEmiHQ/8CzBAqwUKi6CoBWe0IBrCOJoXhOmNAmoOOuO0PTR+LQWH2ivuaACwDuXyIshDWiOuVS02UMLIbYW9nG/QJYo8W0ZfVsx68YzKlKDwJRTM+66aHprxLeRJ8ymj2Gz1lBkar81WYdKjcIZyDqOGGVTuHUunfzlnVRXeJA9l4oEad1rqFzR5lCiKi04CypJ4vJRw3W6/oB+d6vRBD19hTp/SkfsT0hTa0nYXyvhuzcaIvZC4wZNZdY4TCFFDTl83uvwtiPQkNZ+tipPw9+VPM2LZ5mxar+UQ2z5DeIR+l2e6PXM9D12h+vst5jbhS8gh9KfEh+5fDCv9a0E1iUT34T/zDGa9</source>
+  </file>
+  <file path="module\Core\src\Core\Authentification\Doctrine\DoctrineAdapter.php" hash="883c4e819ff5f2c54f90bab097f8c9cd" package="Default">
+    <namespace-alias name="ObjectRepository">DoctrineModule\Authentication\Adapter\ObjectRepository</namespace-alias>
+    <namespace-alias name="ValidatableAdapterInterface">Zend\Authentication\Adapter\ValidatableAdapterInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Authentification\Doctrine" line="21" package="Default">
+      <extends>\DoctrineModule\Authentication\Adapter\ObjectRepository</extends>
+      <implements>\Zend\Authentication\Adapter\ValidatableAdapterInterface</implements>
+      <name>DoctrineAdapter</name>
+      <full_name>\Core\Authentification\Doctrine\DoctrineAdapter</full_name>
+      <docblock line="13">
+        <description><![CDATA[Extension of <code>ObjectRepository</code> using <code>ValidatableAdapterInterface</code>.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="13" name="see" description="\DoctrineModule\Authentication\Adapter\ObjectRepository" refers="\DoctrineModule\Authentication\Adapter\ObjectRepository"/>
+        <tag line="13" name="see" description="\Zend\Authentication\Adapter\ValidatableAdapterInterface" refers="\Zend\Authentication\Adapter\ValidatableAdapterInterface"/>
+        <tag line="13" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Authentification\Doctrine" line="23" package="Default">
+        <name>getCredential</name>
+        <full_name>getCredential</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Authentification\Doctrine" line="27" package="Default">
+        <name>getIdentity</name>
+        <full_name>getIdentity</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Authentification\Doctrine" line="31" package="Default">
+        <name>setCredential</name>
+        <full_name>setCredential</full_name>
+        <argument line="31">
+          <name>$credential</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Authentification\Doctrine" line="36" package="Default">
+        <name>setIdentity</name>
+        <full_name>setIdentity</full_name>
+        <argument line="36">
+          <name>$identity</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Authentification\Doctrine\DoctrineAdapter.php</error>
+      <error line="23" code="50010">No DocBlock was found for method getCredential()</error>
+      <error line="27" code="50010">No DocBlock was found for method getIdentity()</error>
+      <error line="31" code="50010">No DocBlock was found for method setCredential()</error>
+      <error line="36" code="50010">No DocBlock was found for method setIdentity()</error>
+    </parse_markers>
+    <source>eJyNUstOQjEQ3ZPwD7NgoUbhAyAoURcmGhMlLgyboR2gprdz02kTjfrvtvdWEB9IF31Mz5lzptPRab2qu51ux2FFUqMiOGdPs0kMK3LBLIzCYNjNLlgFbxwNMzgKwWfghnW0G0KBTzTWgfzsdv5EKtxRzWIC+5dhS34kp/+iPKA1GgPOLZXQlUvTInlrxAdH3Q4cwZRBrdAtCcLKCASqaouBjlOUOUlMma3AG0zLhTQsdBq4JpdItOaAac+ks8d+Bg5apVbq8jmQk+QReAEjxZrG3+saDZowRDFuWTA7CinwRqqROBMi+J50c7MjVQNqkZgelD1cR4UCmgXu0YW0TOaeIoxsjvelj/l4tqzQ2L7ialzqVRZF1m0tMkC5di0/vIFJb0dV6p/scgev+SEhjTrOrVGwiE7ldsOSwrknnT8A2oPDDIQyPIXoHfRyY0/GW8AkFengcNiC33ckv2oY4eWf1J+wPRPLluueWu+3VEp6+en8K2P4u609LKxr65my+0N+u7oNeg/pZjpNn+MDlk5XFg==</source>
+  </file>
+  <file path="module\Core\src\Core\Model\DAO\DAOInterface.php" hash="8632d3f8038cb3fd3a04e477b51541b2" package="Default">
+    <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
+    <namespace-alias name="DAOException">Core\Model\DAO\Exception\DAOException</namespace-alias>
+    <namespace-alias name="Entity">Core\Model\Entity\Entity</namespace-alias>
+    <namespace-alias name="AdapterInterface">Zend\Paginator\Adapter\AdapterInterface</namespace-alias>
+    <namespace-alias name="ServiceManagerAwareInterface">Zend\ServiceManager\ServiceManagerAwareInterface</namespace-alias>
+    <interface namespace="Core\Model\DAO" line="16" package="Default">
+      <name>DAOInterface</name>
+      <full_name>\Core\Model\DAO\DAOInterface</full_name>
+      <extends>Zend\ServiceManager\ServiceManagerAwareInterface</extends>
+      <docblock line="11">
+        <description><![CDATA[Basic interface for DAO classes.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="11" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO" line="22" package="Default">
+        <name>getEntityClassName</name>
+        <full_name>getEntityClassName</full_name>
+        <docblock line="18">
+          <description><![CDATA[Retrieves the name of entity going to be managed by.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="18" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO" line="39" package="Default">
+        <name>findById</name>
+        <full_name>findById</full_name>
+        <docblock line="24">
+          <description><![CDATA[Retrieves the instance of entity based id.]]></description>
+          <long-description><![CDATA[<p>If ID of class is not-unique attribute, that that can be passed by two
+ways:</p>
+
+<p>DAOInterface::findById($id1, $id2, $id...);</p>
+
+<p>or</p>
+
+<p>DAOInterface::findById(array($id1, $id2, $id...));</p>]]></long-description>
+          <tag line="24" name="param" description="Sequence of params to identify entity." type="array|mixed" variable="$_">
+            <type by_reference="false">array</type>
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="24" name="return" description="" type="\Core\Model\Entity\Entity">
+            <type by_reference="false">\Core\Model\Entity\Entity</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO" line="48" package="Default">
+        <name>save</name>
+        <full_name>save</full_name>
+        <docblock line="41">
+          <description><![CDATA[Insert or update one entity.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="param" description="" type="\Core\Model\Entity\Entity" variable="$ent">
+            <type by_reference="false">\Core\Model\Entity\Entity</type>
+          </tag>
+          <tag line="41" name="return" description="" type="\Core\Model\Entity\Entity">
+            <type by_reference="false">\Core\Model\Entity\Entity</type>
+          </tag>
+          <tag line="41" name="throws" description="Error in entity values." type="\Core\Model\DAO\Exception\DAOException">
+            <type by_reference="false">\Core\Model\DAO\Exception\DAOException</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$ent</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\Entity\Entity</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO" line="57" package="Default">
+        <name>remove</name>
+        <full_name>remove</full_name>
+        <docblock line="50">
+          <description><![CDATA[Removes the param entity.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="50" name="param" description="" type="\Core\Model\Entity\Entity" variable="$ent">
+            <type by_reference="false">\Core\Model\Entity\Entity</type>
+          </tag>
+          <tag line="50" name="return" description="" type="\Core\Model\DAO\DAOInterface">
+            <type by_reference="false">\Core\Model\DAO\DAOInterface</type>
+          </tag>
+          <tag line="50" name="throws" description="Error of relation or state." type="\Core\Model\DAO\Exception\DAOException">
+            <type by_reference="false">\Core\Model\DAO\Exception\DAOException</type>
+          </tag>
+        </docblock>
+        <argument line="57">
+          <name>$ent</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\Entity\Entity</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO" line="63" package="Default">
+        <name>fetchAll</name>
+        <full_name>fetchAll</full_name>
+        <docblock line="59">
+          <description><![CDATA[Retrieves all entries of entity.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="59" name="return" description="Entities" type="\Core\Model\Entity\Entity[]">
+            <type by_reference="false">\Core\Model\Entity\Entity[]</type>
+          </tag>
+        </docblock>
+        <argument line="63">
+          <name>$limite</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="63">
+          <name>$initial</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO" line="72" package="Default">
+        <name>fetchByParams</name>
+        <full_name>fetchByParams</full_name>
+        <docblock line="65">
+          <description><![CDATA[Retrieves a array of entities based on params.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="65" name="param" description="" type="array" variable="$params">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="65" name="param" description="" type="integer" variable="$limite">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="65" name="param" description="" type="integer" variable="$offset">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="65" name="return" description="Entities" type="\Core\Model\Entity\Entity[]">
+            <type by_reference="false">\Core\Model\Entity\Entity[]</type>
+          </tag>
+        </docblock>
+        <argument line="72">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+        <argument line="72">
+          <name>$limite</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="72">
+          <name>$offset</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO" line="79" package="Default">
+        <name>getAdapterPaginator</name>
+        <full_name>getAdapterPaginator</full_name>
+        <docblock line="74">
+          <description><![CDATA[Returns a Paginator Adapter based on params.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="74" name="param" description="" type="array|mixed" variable="$params">
+            <type by_reference="false">array</type>
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="74" name="return" description="" type="\Zend\Paginator\Adapter\AdapterInterface">
+            <type by_reference="false">\Zend\Paginator\Adapter\AdapterInterface</type>
+          </tag>
+        </docblock>
+        <argument line="79">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="79">
+          <name>$orderBy</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Model\DAO\DAOInterface.php</error>
+      <notice line="24" code="50013">Parameter $_ could not be found in findById()</notice>
+      <error line="59" code="50015">Argument $limite is missing from the Docblock of fetchAll()</error>
+      <error line="59" code="50015">Argument $initial is missing from the Docblock of fetchAll()</error>
+      <error line="74" code="50015">Argument $orderBy is missing from the Docblock of getAdapterPaginator()</error>
+    </parse_markers>
+    <source>eJydVd9P2zAQfq/U/+Ee+tAhFrQ9Ahu0wEOlsaHxtnWarsmlteTYme20RNv+953jJA0tJbBISWzfr+++O9vnF/kqHw6GA4UZ2RxjgittaH6rE5Lz68mXMy8s7O6yf2fKkUnZ5OxJjZuHmHIntPKzdrKve6OccGX9q8XfSCXzO1wKhU6b+STBnGM1/93AlfY9mbWI6RYVLln18XSyQUNds+Hg5OhoOIAjmKIVMYhGBqk2wIAhlmgt2cgrVYqXWLgVCz8VMVpItIV7VI5/k4WhAs6lX49shH56ucxQyCjW2UdvfDIcbCN0qQN6cIyefT2DF357wMBPAO2fI/hKzghakwW3IvD1A50CVTTCUgu1BKdhQZBVPhNYlFFrfGnIFUaBZR+s2KyfhEFeLCSTkhYq9jWDJblQnitPymcONX5z1o9JKOtQxV1cC7SMRCRRG3I7mKUwu/a6FfUgLCjt3hZK/CoI0LHnReHomF2jC58YlU8w95Xy+YHb6NbdBkt7uh/lEf2np6lQybScJeORSN4dA3/fV98oinyKjdF2pM127J9ex2gMlk+57/jf1iVHgxlUNn8y8cBpjX5yczAFNZGVgvWlFYknNS1rbveLG2rWU9sW59MVnSlLxnHWUOQJOoagaD9gQB3iwYjFPVg6CbuV0RsL3TMCbozhgEI1XbNGWYSt+FwmFtc07mA41KKZbho0wP6PbLqlflVOXEBDEqsVnvL+cNSXl6kQvySzZvOhlD4rntnt3jvUH99/hAEr97UKuXg1kXI8kiIT3AsfQBVS+oZWbI+yXuiFF/q7heZhhoOBg4T+3qtGsBgF6a7Qn618akKN66BYp6mlQ735Sh6m5V2FZfwI2THscROC9lHDODwx7Z0H9V33MmKao2KXnjrB3Xuz/7ivLVo4421+2iRkpmUnob8+pwu+6P4BWdV3Uw==</source>
+  </file>
+  <file path="module\Core\src\Core\Model\DAO\Doctrine\AbstractDoctrineDAO.php" hash="865d45daa7d1dd2d8279d72b3bf74dc1" package="Default">
+    <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
+    <namespace-alias name="AbstractDoctrineDAO">Core\Model\DAO\Doctrine\AbstractDoctrineDAO</namespace-alias>
+    <namespace-alias name="Entity">Core\Model\Entity\Entity</namespace-alias>
+    <namespace-alias name="Service">Core\Service\Service</namespace-alias>
+    <namespace-alias name="EntityManager">Doctrine\ORM\EntityManager</namespace-alias>
+    <namespace-alias name="EntityRepository">Doctrine\ORM\EntityRepository</namespace-alias>
+    <namespace-alias name="QueryBuilder">Doctrine\ORM\QueryBuilder</namespace-alias>
+    <namespace-alias name="Paginator">Doctrine\ORM\Tools\Pagination\Paginator</namespace-alias>
+    <namespace-alias name="DoctrinePaginator">DoctrineORMModule\Paginator\Adapter\DoctrinePaginator</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Model\DAO\Doctrine" line="21" package="Default">
+      <extends>\Core\Service\Service</extends>
+      <implements>\Core\Model\DAO\DAOInterface</implements>
+      <name>AbstractDoctrineDAO</name>
+      <full_name>\Core\Model\DAO\Doctrine\AbstractDoctrineDAO</full_name>
+      <docblock line="15">
+        <description><![CDATA[Basic implemented abstract class for DAO based on Doctrine]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="15" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+        <tag line="15" name="abstract" description=""/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="26" namespace="Core\Model\DAO\Doctrine" package="Default">
+        <name>$_idColumns</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="23">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="31" namespace="Core\Model\DAO\Doctrine" package="Default">
+        <name>$className</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="28">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="28" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="37" package="Default">
+        <name>getEntityManager</name>
+        <full_name>getEntityManager</full_name>
+        <docblock line="33">
+          <description><![CDATA[Retrieve the instance of EntityManager]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="return" description="" type="\Doctrine\ORM\EntityManager">
+            <type by_reference="false">\Doctrine\ORM\EntityManager</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="45" package="Default">
+        <name>getRepository</name>
+        <full_name>getRepository</full_name>
+        <docblock line="41">
+          <description><![CDATA[Retrieves the Repository relative to managed entity.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="return" description="" type="\Doctrine\ORM\EntityRepository">
+            <type by_reference="false">\Doctrine\ORM\EntityRepository</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="53" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="49">
+          <description><![CDATA[Constructor of class]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="49" name="param" description="Name of class going to manage." type="string" variable="$className">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="53">
+          <name>$className</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="57" package="Default">
+        <name>fetchAll</name>
+        <full_name>fetchAll</full_name>
+        <argument line="57">
+          <name>$limite</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="57">
+          <name>$offset</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="62" package="Default">
+        <name>fetchByParams</name>
+        <full_name>fetchByParams</full_name>
+        <argument line="62">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+        <argument line="62">
+          <name>$limite</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="62">
+          <name>$offset</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Core\Model\DAO\Doctrine" line="74" package="Default">
+        <name>getQuery</name>
+        <full_name>getQuery</full_name>
+        <docblock line="67">
+          <description><![CDATA[Returns a query to execute based on params.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="67" name="param" description="" type="array|mixed" variable="$params">
+            <type by_reference="false">array</type>
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="67" name="param" description="" type="integer" variable="$limit">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="67" name="param" description="" type="integer" variable="$offset">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="67" name="return" description="" type="\Doctrine\ORM\QueryBuilder">
+            <type by_reference="false">\Doctrine\ORM\QueryBuilder</type>
+          </tag>
+        </docblock>
+        <argument line="74">
+          <name>$params</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="74">
+          <name>$limit</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="74">
+          <name>$offset</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="118" package="Default">
+        <name>getAdapterPaginator</name>
+        <full_name>getAdapterPaginator</full_name>
+        <argument line="118">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="118">
+          <name>$orderBy</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="131" package="Default">
+        <name>findById</name>
+        <full_name>findById</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Core\Model\DAO\Doctrine" line="140" package="Default">
+        <name>find</name>
+        <full_name>find</full_name>
+        <argument line="140">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="152" package="Default">
+        <name>save</name>
+        <full_name>save</full_name>
+        <argument line="152">
+          <name>$ent</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\Entity\Entity</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="158" package="Default">
+        <name>remove</name>
+        <full_name>remove</full_name>
+        <argument line="158">
+          <name>$ent</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\Entity\Entity</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Core\Model\DAO\Doctrine" line="169" package="Default">
+        <name>setEntityClassName</name>
+        <full_name>setEntityClassName</full_name>
+        <docblock line="164">
+          <description><![CDATA[Set the entity's class name going to manage.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="164" name="param" description="" type="string" variable="$className">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="164" name="return" description="" type="\Core\Model\DAO\Doctrine\AbstractDoctrineDAO">
+            <type by_reference="false">\Core\Model\DAO\Doctrine\AbstractDoctrineDAO</type>
+          </tag>
+        </docblock>
+        <argument line="169">
+          <name>$className</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\DAO\Doctrine" line="174" package="Default">
+        <name>getEntityClassName</name>
+        <full_name>getEntityClassName</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Core\Model\DAO\Doctrine" line="178" package="Default">
+        <name>getIdColumns</name>
+        <full_name>getIdColumns</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Model\DAO\Doctrine\AbstractDoctrineDAO.php</error>
+      <critical line="23" code="50019">No short description for property $_idColumns</critical>
+      <critical line="28" code="50019">No short description for property $className</critical>
+      <error line="57" code="50010">No DocBlock was found for method fetchAll()</error>
+      <error line="62" code="50010">No DocBlock was found for method fetchByParams()</error>
+      <error line="118" code="50010">No DocBlock was found for method getAdapterPaginator()</error>
+      <error line="131" code="50010">No DocBlock was found for method findById()</error>
+      <error line="140" code="50010">No DocBlock was found for method find()</error>
+      <error line="152" code="50010">No DocBlock was found for method save()</error>
+      <error line="158" code="50010">No DocBlock was found for method remove()</error>
+      <error line="174" code="50010">No DocBlock was found for method getEntityClassName()</error>
+      <error line="178" code="50010">No DocBlock was found for method getIdColumns()</error>
+    </parse_markers>
+    <source>eJytWG1P4zgQ/l6p/8G76m0TDsrymaVsYe8kpOXg4D6cRBFyE7e1Nom7tlOo7vjvN3bsxHmvOPKhL/bMeJ5nxjN2vpxv1pvhYDhIcEzEBgcEXTJO5tcsJNH82+xm/o0FktOEnCqpVNTnZzdXiSR8CbqnzRLGwny2EJLjQNoBmKxr/JZIKnfmy52+J3xLg/zbTOXGb+6ujdI1TvCK8HaBO7JhgkrGd00yf6aE7y5SGoXNNv5iLBLzW7yiCZaUJfYnq0qDMEBKI1JIzGch3gBZOSeu7nBwfHAwHKADdIEFDRCNNxGJCZAbImyoQ0GEhUBLxhGwhxZYwCRL8jWVujbxFadyDVLf0wALFDKB7nEi4Wu24CRFXyI1PhETrP5+XcWYRpOAxVOjbJZT/46Hg8rqDXFE5EWSJIRVsugUzgvkZgj6R+FE8GRY1QPrbTFHmHO8s0PH2Y8Np1ssCRo90fCSRWmcCHSGkjSKTlvtCOXTqs2QRvAHJHuXnTsCNsiWILkGJImQOAHX2RKVEqxYlhOZ8qR51jqQLiKI6TJNApU0aEVkSdzzFTXIPMbgSK6pOJqCrKHVG7fn+9g/zQy8dkESGlOxA2CpCNJYYWUo1pZCRLTdSQvAQrkfYyHbA7BChh5zlKuClzaMnt8J+5JB9HgagBEVPx39AtYGcxybhHFTQ39YcbRiajqnZ9KD+ukpsIt6hc0SeoNG1NE4ClVY1XWWRAbrWRR5o4jGVNqEPkQjtlyCafO/vPBPVdxgpuBTlzvPaGaWchO+I2H9caOnrR1NyQsJUkm8/Vy+2N0q2oWnNzwa6SCIfPH/BaNq7N2QVLYS6AiEUeYGZIbRK+px5sekmmoa8r8xfQEp42tVhEKphC1gELTOZrBqO9RtXrUSyCQJVDNxN2iJt4J7vfh+oViU4uBu+KNpwAlUXdcpbwzFRZeqwgZdotyDD2cNi1ghKp40g1bar0lZyYCliczFtNXPjcLl4FafUkt5eGyTOm6eAG5uLa+Z32XcJVmchIrInwuVhRtdAmHo7w4VOAQQHKwL7qDRjwLdJdHZVNczOI60olZPmVSj0KlhfQXvwtArubsg8pmQREd4MkYT68wh+nj+Ef6amFhSfDvuVSfQr+jE991t2snuw6MiLnP+4fPjm9ROutReEYkE6WNFcQmJAulvmTxE41/GPppC6nWrar+aSY3oD7I3o72cKRxvdoX8fD9H3hCjrgA1T722bjYF63lNODRcwNrmrBaDuqd9IXCCFQ7EBp2KG68tdLurb2rGXmuVMavFH0xdLNuzLl7jlzsi0kgKI99QYU0R7zb0O+VCZqasRtlU3jEXfd0euoG57uS3HKdBMw7d4GK3T08p9agmYMZUM7KiTFq5Sp3Uww07VFNidLw84Y14yQtwzQBUcMgzcgArI8XRw430CGfsGJ3aldArzDaHwOj3nrpoEl7srsLyCXxEVb9RQk/gHrSAlfDq3JqNTUMfQQs9QZ8+oaJf0BDKrV9hrnyyV2tbQQd6fWM0q9VPlPVDjJY1Z0nlp4vxB9mJUipd2WtkBesouQpbunSRP8CYSp0kjXXebHGU1tursvSgF35Qko+6gmnRtk1euwuVz1AZF2C193gt8JZ42Y0CjaBSN905mq5aG6hsVECYlc7pXirLKBXrmoJFAsN9vnISs7d5azTfzVml13Xcv4eaqe7M2aV4LMytUL0wa70atl4tawf2hncp/ef27otjA4/uW49Cck8yWl9dOJfw9rt9dbWurVzeoK5NXeczg+6roLbLQoNoz7sGjeWaSKipEnvj+VyfcjreOhxNaahSYknzCtyzswtvXCr0x/l0OPgPPoL2kA==</source>
+  </file>
+  <file path="module\Core\src\Core\Model\DAO\Exception\DAOException.php" hash="31423df17c60b11b4d2a6c5b6c48cb4f" package="Default">
+    <namespace-alias name="Exception">Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Model\DAO\Exception" line="14" package="Default">
+      <extends>\Exception</extends>
+      <name>DAOException</name>
+      <full_name>\Core\Model\DAO\Exception\DAOException</full_name>
+      <docblock line="9">
+        <description><![CDATA[Base class for custom DAO exceptions]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="9" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Model\DAO\Exception\DAOException.php</error>
+    </parse_markers>
+    <source>eJxVj7kOwjAMhvdIeQfPHcoDgLjZOAbWLiY1tChtojgRSIh3x+EUWaLY//FlNPGN12pQFFpBAVvsiD0agqMLQFdDPrauh0AWI9VwaWMD7nAmE8FT4JYj9YbKbB5o1X/tCxeo2riabLWc7arVJ2molVaJCf4nn/45yspYZH4CmMTRdSAJPxaGrHyqp5hiI7J1MshQO4Y99lGu2SFQgpHN85JLzM/pqcPWlsZ14zftq0fCvyzSIv+p+UcHNxHL0eqeOSfifQD3ol/c</source>
+  </file>
+  <file path="module\Core\src\Core\Model\Entity\Entity.php" hash="d2dfe010ecb25ca7ad10eaee71fc9f75" package="Default">
+    <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
+    <namespace-alias name="DAOException">Core\Model\DAO\Exception\DAOException</namespace-alias>
+    <namespace-alias name="InvalidArgumentException">InvalidArgumentException</namespace-alias>
+    <namespace-alias name="Serializable">Serializable</namespace-alias>
+    <namespace-alias name="InputFilter">Zend\InputFilter\InputFilter</namespace-alias>
+    <namespace-alias name="InputFilterAwareInterface">Zend\InputFilter\InputFilterAwareInterface</namespace-alias>
+    <namespace-alias name="InputFilterInterface">Zend\InputFilter\InputFilterInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Model\Entity" line="21" package="Default">
+      <extends/>
+      <implements>\Serializable</implements>
+      <implements>\Zend\InputFilter\InputFilterAwareInterface</implements>
+      <name>Entity</name>
+      <full_name>\Core\Model\Entity\Entity</full_name>
+      <docblock line="13">
+        <description><![CDATA[Base class for entities managed by Core\Model\DAOInterface.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="13" name="see" description="\Core\Model\DAO\DAOInterface" refers="\Core\Model\DAO\DAOInterface"/>
+        <tag line="13" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="28" namespace="Core\Model\Entity" package="Default">
+        <name>$inputFilter</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="23">
+          <description><![CDATA[Filters]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="var" description="" type="\Zend\InputFilter\InputFilter">
+            <type by_reference="false">\Zend\InputFilter\InputFilter</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="37" package="Default">
+        <name>__set</name>
+        <full_name>__set</full_name>
+        <docblock line="30">
+          <description><![CDATA[Set and validate field values]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="30" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="30" name="param" description="" type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="30" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="37">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="37">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="45" package="Default">
+        <name>__get</name>
+        <full_name>__get</full_name>
+        <docblock line="41">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="41" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="45">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="55" package="Default">
+        <name>setData</name>
+        <full_name>setData</full_name>
+        <docblock line="49">
+          <description><![CDATA[Set all entity data based in an array with data]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="49" name="param" description="" type="array" variable="$data">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="49" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="55">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="66" package="Default">
+        <name>getData</name>
+        <full_name>getData</full_name>
+        <docblock line="61">
+          <description><![CDATA[Return all entity data in array format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="61" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="78" package="Default">
+        <name>exchangeArray</name>
+        <full_name>exchangeArray</full_name>
+        <docblock line="72">
+          <description><![CDATA[Used by TableGateway]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="72" name="param" description="" type="array" variable="$data">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="72" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="78">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="88" package="Default">
+        <name>getArrayCopy</name>
+        <full_name>getArrayCopy</full_name>
+        <docblock line="82">
+          <description><![CDATA[Used by TableGateway]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="82" name="param" description="" type="array" variable="$data">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="82" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="96" package="Default">
+        <name>setInputFilter</name>
+        <full_name>setInputFilter</full_name>
+        <docblock line="92">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="92" name="param" description="" type="\Zend\InputFilter\InputFilterInterface" variable="$inputFilter">
+            <type by_reference="false">\Zend\InputFilter\InputFilterInterface</type>
+          </tag>
+          <tag line="92" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="96">
+          <name>$inputFilter</name>
+          <default><![CDATA[]]></default>
+          <type>\Zend\InputFilter\InputFilterInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Core\Model\Entity" line="105" package="Default">
+        <name>getInputFilter</name>
+        <full_name>getInputFilter</full_name>
+        <docblock line="100">
+          <description><![CDATA[Entity filters]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="100" name="return" description="" type="\Zend\InputFilter\InputFilter">
+            <type by_reference="false">\Zend\InputFilter\InputFilter</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Core\Model\Entity" line="114" package="Default">
+        <name>valid</name>
+        <full_name>valid</full_name>
+        <docblock line="107">
+          <description><![CDATA[Filter and validate data]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="107" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="107" name="param" description="" type="mixed" variable="$value">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="107" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="114">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="114">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="140" package="Default">
+        <name>toArray</name>
+        <full_name>toArray</full_name>
+        <docblock line="135">
+          <description><![CDATA[Used by TableGateway]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="135" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="144" package="Default">
+        <name>serialize</name>
+        <full_name>serialize</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Model\Entity" line="148" package="Default">
+        <name>unserialize</name>
+        <full_name>unserialize</full_name>
+        <argument line="148">
+          <name>$serialized</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Model\Entity\Entity.php</error>
+      <error line="41" code="50012">No short description for method __get()</error>
+      <notice line="82" code="50013">Parameter $data could not be found in getArrayCopy()</notice>
+      <error line="92" code="50012">No short description for method setInputFilter()</error>
+      <error line="144" code="50010">No DocBlock was found for method serialize()</error>
+      <error line="148" code="50010">No DocBlock was found for method unserialize()</error>
+    </parse_markers>
+    <source>eJzNVtuO0zAQfa/UfxhWlZqulvadwrJluWglLhILPMCiyk3c1pDYke1styA+BvEp/BjjS1OnTbIXeCDabePOeDznjD3HDx/ny7zb6XY4yajKSUzhVEh68UokNL14xjXT67GxF6pieTp5Y/7PuKZyjrPGtR7PrmKaaya4GZUD73vGL0nKkolcFBnletd8TiVD+zcySzfRP1KeXJzxvNDPWYoLh+83cJmsiKS7GbdNCH27ndHhYbcDh/CE4LQ4JUrBXEighiNGFWSEkwVNYLbeoaEMM7Tz7ceJohRCW2AihV5i4JdFTBQkQsE54Rq/JjNJC3iYmt+HakjM8GSREZYOY5EdlxFG3Q6ZKS1JrH2ero7AsjylhmtVYfcIGkmC7wY54OPQm+cQnKcqx+XLySWRYbCNYeRecik0jTVy1GNbJ3gEvEjTcd1K51QD4QnYnUI0hTmjqR0WtFx/u3xOJMkAoTO+gN5Xum4y2QBbo6S6kBwuBUt2Uy5mKYthXvDY7E2YThXVkQl95KMMDEfgn55eMnX/2NgRlh/Z5Ktzxm7KjzrMbSh8ohm7QhKvTXXhU62k6EMEmbYlYwuQpm6XrwFrQGCGByABxrEyQKQka1gxvbS2ppI4t17ochvWkfOnODWyASpo8ARSEi/BmQAPjOP+uK46QYVq6jjeOv5oYeSty3qXFLbhAjPKiN4nwqO1TtfAXXi41a1ll3lkjFMx+4LnaIqnTUUWUJh8wS004/6pH5yz/ufQK0xnOrcOnt627fBeuQb3zvSNF3ggV1sw/7jm9CpeEr6gExOmpvK+kNWt8Z/kjjWyaZ+KfB21nL6y0DfoB3W6VOmjdzxYQdzo2jUqWPRSihVwuoJQ3aOD10IDSmty0ArLa9K8qiV7IJrVpNS4GvZDUINaZfHaUxGXtg7WIiquGzdoijU26mCZc41GhFSzOUT3tpumAm9QbXCbHWaDlNBtveR6rxvONxLcENz+4kQk7I8QE226btMdDnr7nXc04r9/CTzXTFkhT7UUYBgEqsyNimS5aIdSLh+i8hBsJ/hgHKP9fu7o2zgy9cGyPdgXByqlkArpMFclvL9F/SPAv3IqkvEKs8V7nsLpFXYtww0nwlKKEnH5+ycuLB54kYK+S7U/3Kx8MGiCueEiyMSjDWrzF33vFvKkhevJd2ls+w3I3UNpbbSt1cctl742sFHBcnL5mrRJSNOUGtm0M8MU7MdjvIP/AaThwDo=</source>
+  </file>
+  <file path="module\Core\src\Core\Service\AbstractDAOService.php" hash="6f4ef7c6245b8884676262bbdfab6c87" package="Default">
+    <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
+    <namespace-alias name="Entity">Core\Model\Entity\Entity</namespace-alias>
+    <namespace-alias name="DAOServiceInterface">Core\Service\DAOServiceInterface</namespace-alias>
+    <namespace-alias name="Service">Core\Service\Service</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Service" line="15" package="Default">
+      <extends>\Core\Service\Service</extends>
+      <implements>\Core\Service\DAOServiceInterface</implements>
+      <name>AbstractDAOService</name>
+      <full_name>\Core\Service\AbstractDAOService</full_name>
+      <docblock line="10">
+        <description><![CDATA[Abstract class with basic logic to DAO Service classes]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="10" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="20" namespace="Core\Service" package="Default">
+        <name>$dao</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="17">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="17" name="var" description="" type="\Core\Model\DAO\DAOInterface">
+            <type by_reference="false">\Core\Model\DAO\DAOInterface</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="22" package="Default">
+        <name>findById</name>
+        <full_name>findById</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="26" package="Default">
+        <name>fetchAll</name>
+        <full_name>fetchAll</full_name>
+        <argument line="26">
+          <name>$limite</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="26">
+          <name>$initial</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="30" package="Default">
+        <name>fetchByParams</name>
+        <full_name>fetchByParams</full_name>
+        <argument line="30">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+        <argument line="30">
+          <name>$limite</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="30">
+          <name>$offset</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="34" package="Default">
+        <name>getAdapterPaginator</name>
+        <full_name>getAdapterPaginator</full_name>
+        <argument line="34">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="34">
+          <name>$orderBy</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="38" package="Default">
+        <name>getEntityClassName</name>
+        <full_name>getEntityClassName</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="42" package="Default">
+        <name>remove</name>
+        <full_name>remove</full_name>
+        <argument line="42">
+          <name>$ent</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\Entity\Entity</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="47" package="Default">
+        <name>save</name>
+        <full_name>save</full_name>
+        <argument line="47">
+          <name>$ent</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\Entity\Entity</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="52" package="Default">
+        <name>setDAOInterface</name>
+        <full_name>setDAOInterface</full_name>
+        <argument line="52">
+          <name>$dao</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\DAO\DAOInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="57" package="Default">
+        <name>getDAOInterface</name>
+        <full_name>getDAOInterface</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Service\AbstractDAOService.php</error>
+      <critical line="17" code="50019">No short description for property $dao</critical>
+      <error line="22" code="50010">No DocBlock was found for method findById()</error>
+      <error line="26" code="50010">No DocBlock was found for method fetchAll()</error>
+      <error line="30" code="50010">No DocBlock was found for method fetchByParams()</error>
+      <error line="34" code="50010">No DocBlock was found for method getAdapterPaginator()</error>
+      <error line="38" code="50010">No DocBlock was found for method getEntityClassName()</error>
+      <error line="42" code="50010">No DocBlock was found for method remove()</error>
+      <error line="47" code="50010">No DocBlock was found for method save()</error>
+      <error line="52" code="50010">No DocBlock was found for method setDAOInterface()</error>
+      <error line="57" code="50010">No DocBlock was found for method getDAOInterface()</error>
+    </parse_markers>
+    <source>eJydVMlu2zAQvRvwP8xBB9lo7A9w6sROcgjQJUCuAYIxNZIIUKRAjtwKRf+9pCQ7imJXbglo4XDeMtyub8q8nE6mE40FuRIFwZ2x9PJMdi8FrcJQ5brgV5OQernffA/Po2ayKTY5g4wHzZLr7tMf7lgDvPs9yXJI65tYzufTCcxhs3NsUTAIhc7BD8k57NBJAcpk/s0GPDt00DaLXIA28FusODcWvlQCHSTGwTNq9p/NzlIF1yrEF26BoXubFSjVQphiHcDL6QTfqx/MvNUD9JNJJ+5oQBalooI0OzhRNfwKtYFvbX2heZN7tNCf4sPIsv0prWESTAlECRr4DLpSanVgKqud8hORVlqwNBpSqZNt/ZjEs6AGXbPEldUQcS7d1drTXK2PiQH6mhG/os1cPJutWtjvswrEIt8oFUdKFpKpc/QJIqklS1RdYNTAgOeN4DIL2/oJLRYuRmuxhqhsep5laMukqSP+F1dH6iHpkW3Uop/QTYKlX9InzKRGNrbHZmxCdluPe/I0/a0Rz5rQOPMl/toTexf29jd/H4zumFOQMRlLhdlT3OIg8ifjnUqfvkttclanjYypObxQq0k8p+TDo0KDZel3mmN6RtkveBj9z/I+bIa/LlifrXnd+HvtD29g0uU=</source>
+  </file>
+  <file path="module\Core\src\Core\Service\DAOServiceInterface.php" hash="7d8bb4893ebef5448e37f1e55c906b41" package="Default">
+    <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
+    <namespace-alias name="DAOServiceInterface">Core\Service\DAOServiceInterface</namespace-alias>
+    <interface namespace="Core\Service" line="13" package="Default">
+      <name>DAOServiceInterface</name>
+      <full_name>\Core\Service\DAOServiceInterface</full_name>
+      <extends>Core\Model\DAO\DAOInterface</extends>
+      <docblock line="8">
+        <description><![CDATA[Base interface for DAO services.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="8" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="20" package="Default">
+        <name>setDAOInterface</name>
+        <full_name>setDAOInterface</full_name>
+        <docblock line="15">
+          <description><![CDATA[Sets the DAO object]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="15" name="param" description="" type="\Core\Model\DAO\DAOInterface" variable="$dao">
+            <type by_reference="false">\Core\Model\DAO\DAOInterface</type>
+          </tag>
+          <tag line="15" name="return" description="" type="\Core\Service\DAOServiceInterface">
+            <type by_reference="false">\Core\Service\DAOServiceInterface</type>
+          </tag>
+        </docblock>
+        <argument line="20">
+          <name>$dao</name>
+          <default><![CDATA[]]></default>
+          <type>\Core\Model\DAO\DAOInterface</type>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Service\DAOServiceInterface.php</error>
+    </parse_markers>
+    <source>eJxtUE1PwzAMvUfqf/BhB+ih/QFMrBtckIY49LqLm7o0qE2ixEFIiP9O0nZbEbOUL7/37Bdvd7a3mciExpG8RUnwZBydanKfStJDgoJfkq+mpeH0vH9L60UzuQ4nzoWxyBK+XNe0TJR5ngnI4YBRoc4QdMZBlICfNb6YSNNWYeA+wscg0UNrPNSoOR77xlGA7ZDyhS8wPav3EdVQSDM+JnGZiWuPG5aAvph062H9HfhORiHGbDZFDjWxB+6nMmCaD5J8wSqLDse/RTYtmivBEQenb1k4c8r5YkMzKAld0JKV0XEgvC5796/HfRzrTzK8iz/+BVuQjIg=</source>
+  </file>
+  <file path="module\Core\src\Core\Service\Factory\DAOServiceFactory.php" hash="3c5d8e2e825dfe5395a9b623aa76565c" package="Default">
+    <namespace-alias name="Closure">Closure</namespace-alias>
+    <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
+    <namespace-alias name="DAOServiceInterface">Core\Service\DAOServiceInterface</namespace-alias>
+    <namespace-alias name="Exception">Exception</namespace-alias>
+    <namespace-alias name="AbstractFactoryInterface">Zend\ServiceManager\AbstractFactoryInterface</namespace-alias>
+    <namespace-alias name="ServiceLocatorInterface">Zend\ServiceManager\ServiceLocatorInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Service\Factory" line="17" package="Default">
+      <extends/>
+      <implements>\Zend\ServiceManager\AbstractFactoryInterface</implements>
+      <name>DAOServiceFactory</name>
+      <full_name>\Core\Service\Factory\DAOServiceFactory</full_name>
+      <docblock line="12">
+        <description><![CDATA[Factory of DAO Service classes.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="12" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="19" namespace="Core\Service\Factory" package="Default">
+        <name>$services</name>
+        <default><![CDATA[array()]]></default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="24" namespace="Core\Service\Factory" package="Default">
+        <name>$serviceLocator</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="21">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="21" name="var" description="" type="\Zend\ServiceManager\ServiceLocatorInterface">
+            <type by_reference="false">\Zend\ServiceManager\ServiceLocatorInterface</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Core\Service\Factory" line="26" package="Default">
+        <name>getConfig</name>
+        <full_name>getConfig</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service\Factory" line="35" package="Default">
+        <name>canCreateServiceWithName</name>
+        <full_name>canCreateServiceWithName</full_name>
+        <argument line="35">
+          <name>$serviceLocator</name>
+          <default><![CDATA[]]></default>
+          <type>\Zend\ServiceManager\ServiceLocatorInterface</type>
+        </argument>
+        <argument line="35">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="35">
+          <name>$requestedName</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service\Factory" line="42" package="Default">
+        <name>createServiceWithName</name>
+        <full_name>createServiceWithName</full_name>
+        <argument line="42">
+          <name>$serviceLocator</name>
+          <default><![CDATA[]]></default>
+          <type>\Zend\ServiceManager\ServiceLocatorInterface</type>
+        </argument>
+        <argument line="42">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="42">
+          <name>$requestedName</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Core\Service\Factory" line="71" package="Default">
+        <name>returnInstanceOf</name>
+        <full_name>returnInstanceOf</full_name>
+        <docblock line="65">
+          <description><![CDATA[Retrieves a instance of param.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="65" name="param" description="" type="\Closure|string" variable="$param">
+            <type by_reference="false">\Closure</type>
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="65" name="return" description="" type="\Core\Model\DAO\DAOInterface">
+            <type by_reference="false">\Core\Model\DAO\DAOInterface</type>
+          </tag>
+          <tag line="65" name="throws" description="When the param not be a Closure or a valid class name." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="71">
+          <name>$param</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Service\Factory\DAOServiceFactory.php</error>
+      <error line="19" code="50018">No DocBlock was found for property $services</error>
+      <critical line="21" code="50019">No short description for property $serviceLocator</critical>
+      <error line="26" code="50010">No DocBlock was found for method getConfig()</error>
+      <error line="35" code="50010">No DocBlock was found for method canCreateServiceWithName()</error>
+      <error line="42" code="50010">No DocBlock was found for method createServiceWithName()</error>
+    </parse_markers>
+    <source>eJzVVm1v2jAQ/o7Ef7hVqEmqFb6P0hZ1m1SpXaf1Q6WVqjLhAEuJzWyHthr899mxEychjG3fdhIvdu6ee3l8vpxdrJarbqfbYSRFuSIxwhUXOLlHsaYxTj6TWHHxNjQqmdQPEy4zgUO3Mqq3fIbJ5OP4znyumUIx1zBVjQJMP3d/m2qfXmNcKcqZW39HNivMbgkjCxST8VQqocNxITUh2kzc8obHRJtULbqdwclJtwMn4OCAz0HHB84E4oRIibJvdHK9S5KpJRdwk8VEwoxLuCdM6Z/xVGAGZ4nZ78s+McvLRUpo0o95em6MB93OnDKSWFTwdSic03SVYIpMGbj2NOGniRq0rARXGCucQU9aGAkjIEKQtzAaFlo2PyM69jURsKcYhdJgH7gz0C5YliTD3SjmGYsNd7BAdcXZnC7CyEQLTnoLu6sRempJ5el5Hfn0XBuGgVXKBDFYgU/ECJ1DSDUfKizAHgMH8pxasoOnCI6P4aDWYzAj/LkonLaKvBsjAlUmGPwFwtADYCKxFc6zYza3ZRGzaUJjX8GYsCuBRKEj64Gq5RfdmeEe8pokvYeeaWT9I/BHhlLTY8zrdLRxYLip71Sy6sUN/ipE12hyyToOrNVjPZSnwzX4jwtgzuk7l37Ni9wpA2w2cEAHRiPbdJFv/kJ8exfi2rzlkm0qDuobRd4+PcvjNZOKsBjv5vu4LJsjKGktQVMzFv4FMje0gO1xmoKp+k0fNrhrj+YPDX/jtTrhQgvaYnGI1RKzEuW2pY8OADUbqXrjf0MlKK71ZCBAXdHNiFsRQdK+Hwz5upjqGz15KFtAL9/1Si6cavL+oVoK/iL9BIeHJTJQS7S+gHEFU9RhOCege43AmiR05sahadgypJ0xVN4Luycod1Bv7TLXxrQyYprT2pQl0RVxYdVgmlDWKmy9OKpHbZsPgCaS8Ztn+oyvVCoZBpNJAH2HGu14zr3bOEfQUB62qFZzxpci2KbqtmU4Gcn5yw1LCsOjMbgkB7aN7ctR8W6UZtJxShhnNOWZ9DTl9HpiLdN9+GqC+uCCO4oOnfwip+oZz78u9AvVLxb4PUE=</source>
+  </file>
+  <file path="module\Core\src\Core\Service\Service.php" hash="642d304fb57f1f8fcd8c01d2f23ddee5" package="Default">
+    <namespace-alias name="Service">Core\Service\Service</namespace-alias>
+    <namespace-alias name="ServiceManager">Zend\ServiceManager\ServiceManager</namespace-alias>
+    <namespace-alias name="ServiceManagerAwareInterface">Zend\ServiceManager\ServiceManagerAwareInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Service" line="14" package="Default">
+      <extends/>
+      <implements>\Zend\ServiceManager\ServiceManagerAwareInterface</implements>
+      <name>Service</name>
+      <full_name>\Core\Service\Service</full_name>
+      <docblock line="9">
+        <description><![CDATA[Service base class]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="9" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="19" namespace="Core\Service" package="Default">
+        <name>$serviceManager</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="16">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="16" name="var" description="" type="\Zend\ServiceManager\ServiceManager">
+            <type by_reference="false">\Zend\ServiceManager\ServiceManager</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="21" package="Default">
+        <name>getServiceManager</name>
+        <full_name>getServiceManager</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="25" package="Default">
+        <name>setServiceManager</name>
+        <full_name>setServiceManager</full_name>
+        <argument line="25">
+          <name>$serviceManager</name>
+          <default><![CDATA[]]></default>
+          <type>\Zend\ServiceManager\ServiceManager</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Service" line="35" package="Default">
+        <name>getService</name>
+        <full_name>getService</full_name>
+        <docblock line="30">
+          <description><![CDATA[Retrieves a service by the name.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="30" name="param" description="Name of requested service." type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="30" name="return" description="| mixed" type="\Core\Service\Service">
+            <type by_reference="false">\Core\Service\Service</type>
+          </tag>
+        </docblock>
+        <argument line="35">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Service\Service.php</error>
+      <critical line="16" code="50019">No short description for property $serviceManager</critical>
+      <error line="21" code="50010">No DocBlock was found for method getServiceManager()</error>
+      <error line="25" code="50010">No DocBlock was found for method setServiceManager()</error>
+    </parse_markers>
+    <source>eJyNUk1Pg0AQvZPwH+bAoTaR/oDW2saTiXqwN+NlClPYhF1wZxc16n93l0IFpMY5LMzXm7fzdnVd5VUYhIFCSVxhQnBTanreka5FQkufsjwM9pI+9UQq7UL3qDAjPXL/Xbh9RU23ypA+YDt8MZ+HAcyhLYQ9OqSkQGYfblIbtCYvNdzZBBnSkmGHyrjPdq/Jwqrw8Zhj9O4mkyiKOCnl2jcvwqABO+ELWRUkSZlTaJIbfHhy4OxI0JtjUqMetXW5xfGn0qJGQxDxoAquQNmiWHagld0XIoGDVYkRpYKMzBB2duEZQGuajNUKIpMLvlzzePm+5OscNP+CHrpjqoPBkxPdZaJJDmOqY2r9VT6S0YJqYkDgTvt3MDmBf6rxz84r1CiBXbnKIPJJePBHeXDDXiyxobSD6LW1RDrdP0GKN0rHcp3VYdZM+kOFCcmaYNvYv3tzXLv3+A36KBlB</source>
+  </file>
+  <file path="module\Core\src\Core\Test\Bootstrap.php" hash="9f42062b1fb4a4f143810f92a0b2a544" package="Default">
+    <namespace-alias name="AutoloaderFactory">Zend\Loader\AutoloaderFactory</namespace-alias>
+    <namespace-alias name="StandardAutoloader">Zend\Loader\StandardAutoloader</namespace-alias>
+    <namespace-alias name="Application">Zend\Mvc\Application</namespace-alias>
+    <namespace-alias name="MvcEvent">Zend\Mvc\MvcEvent</namespace-alias>
+    <namespace-alias name="ServiceManagerConfig">Zend\Mvc\Service\ServiceManagerConfig</namespace-alias>
+    <namespace-alias name="ServiceManager">Zend\ServiceManager\ServiceManager</namespace-alias>
+    <include line="93" type="Include" package="Default">
+      <name>init_autoloader.php</name>
+    </include>
+    <include line="103" type="Require Once" package="Default">
+      <name>Zend/Loader/AutoloaderFactory.php</name>
+    </include>
+    <include line="104" type="Require Once" package="Default">
+      <name>Zend/Loader/StandardAutoloader.php</name>
+    </include>
+    <include line="166" type="Include" package="Default">
+      <name/>
+    </include>
+    <include line="170" type="Include" package="Default">
+      <name/>
+    </include>
+    <include line="188" type="Include" package="Default">
+      <name>config/application.config.php</name>
+    </include>
+    <include line="192" type="Include" package="Default">
+      <name/>
+    </include>
+    <include line="205" type="Include" package="Default">
+      <name/>
+    </include>
+    <constant namespace="Core\Test" line="95" package="Default">
+      <name>ZF2_PATH</name>
+      <full_name>\Core\Test\ZF2_PATH</full_name>
+      <value><![CDATA[realpath('vendor/zendframework/zendframework/library')]]></value>
+    </constant>
+    <class final="false" abstract="false" namespace="Core\Test" line="20" package="Default">
+      <extends/>
+      <name>Bootstrap</name>
+      <full_name>\Core\Test\Bootstrap</full_name>
+      <docblock line="12">
+        <description><![CDATA[Bootstrap class for application's test.]]></description>
+        <long-description><![CDATA[<p>That class is based on concepts learned on course ZF2 na prática
+(http://code-squad.com/curso/zf2-na-pratica)</p>]]></long-description>
+        <tag line="12" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <property final="false" static="true" visibility="private" line="25" namespace="Core\Test" package="Default">
+        <name>$instance</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="22">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="22" name="var" description="" type="\Core\Test\Bootstrap">
+            <type by_reference="false">\Core\Test\Bootstrap</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="30" namespace="Core\Test" package="Default">
+        <name>$moduleName</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="27">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="27" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="35" namespace="Core\Test" package="Default">
+        <name>$rootDirectory</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="32">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="40" namespace="Core\Test" package="Default">
+        <name>$application</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="37">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="37" name="var" description="" type="\Zend\Mvc\Application">
+            <type by_reference="false">\Zend\Mvc\Application</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="45" namespace="Core\Test" package="Default">
+        <name>$serviceManager</name>
+        <default><![CDATA[]]></default>
+        <docblock line="42">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="42" name="var" description="" type="\Zend\ServiceManager\ServiceManager">
+            <type by_reference="false">\Zend\ServiceManager\ServiceManager</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="50" namespace="Core\Test" package="Default">
+        <name>$event</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="47">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="47" name="var" description="" type="\Zend\Mvc\MvcEvent">
+            <type by_reference="false">\Zend\Mvc\MvcEvent</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="55" namespace="Core\Test" package="Default">
+        <name>$routes</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="52">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="52" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="60" namespace="Core\Test" package="Default">
+        <name>$configuration</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="57">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="57" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Core\Test" line="68" package="Default">
+        <name>getInstance</name>
+        <full_name>getInstance</full_name>
+        <docblock line="62">
+          <description><![CDATA[Return the instance of <code>\Core\Test\Bootstrap</code>]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="62" name="param" description="" type="string" variable="$directory">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="62" name="param" description="" type="string" variable="$module">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="62" name="return" description="" type="\Core\Test\Bootstrap">
+            <type by_reference="false">\Core\Test\Bootstrap</type>
+          </tag>
+        </docblock>
+        <argument line="68">
+          <name>$directory</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="68">
+          <name>$module</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Core\Test" line="80" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="75">
+          <description><![CDATA[Constructor of class]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="75" name="param" description="Base directory at initilialize the Bootstrap" type="string" variable="$directory">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="75" name="param" description="Module to test" type="string" variable="$module">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="80">
+          <name>$directory</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="80">
+          <name>$module</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="90" package="Default">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="86">
+          <description><![CDATA[Initialize the tests]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="86" name="return" description="" type="\Core\Test\Bootstrap">
+            <type by_reference="false">\Core\Test\Bootstrap</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="122" package="Default">
+        <name>reset</name>
+        <full_name>reset</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="133" package="Default">
+        <name>getModuleName</name>
+        <full_name>getModuleName</full_name>
+        <docblock line="129">
+          <description><![CDATA[At test module's name]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="129" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="145" package="Default">
+        <name>getModuleRoot</name>
+        <full_name>getModuleRoot</full_name>
+        <docblock line="137">
+          <description><![CDATA[Returns a module's root directory.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="137" name="param" description="Name of module (if not set then use the Module at test)" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="137" name="see" description="\Core\Test\Bootstrap#getModuleName" refers="\Core\Test\Bootstrap#getModuleName"/>
+          <tag line="137" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="145">
+          <name>$name</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="156" package="Default">
+        <name>getRootDirectory</name>
+        <full_name>getRootDirectory</full_name>
+        <docblock line="152">
+          <description><![CDATA[Root directory of application]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="152" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="164" package="Default">
+        <name>getConfiguration</name>
+        <full_name>getConfiguration</full_name>
+        <docblock line="160">
+          <description><![CDATA[Return the processed configuration array.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="160" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="184" package="Default">
+        <name>getApplication</name>
+        <full_name>getApplication</full_name>
+        <docblock line="180">
+          <description><![CDATA[Retuns the current application.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="180" name="return" description="" type="\Zend\Mvc\Application">
+            <type by_reference="false">\Zend\Mvc\Application</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="230" package="Default">
+        <name>getServiceManager</name>
+        <full_name>getServiceManager</full_name>
+        <docblock line="226">
+          <description><![CDATA[Returns the current <code>ServiceManager</code>]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="226" name="return" description="" type="\Zend\ServiceManager\ServiceManager">
+            <type by_reference="false">\Zend\ServiceManager\ServiceManager</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="238" package="Default">
+        <name>getEvent</name>
+        <full_name>getEvent</full_name>
+        <docblock line="234">
+          <description><![CDATA[Returns the current <code>MvcEvent</code>.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="234" name="return" description="" type="\Zend\Mvc\MvcEvent">
+            <type by_reference="false">\Zend\Mvc\MvcEvent</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="246" package="Default">
+        <name>getRoutes</name>
+        <full_name>getRoutes</full_name>
+        <docblock line="242">
+          <description><![CDATA[Returns the current routes list.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="242" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Test\Bootstrap.php</error>
+      <critical line="22" code="50019">No short description for property $instance</critical>
+      <critical line="27" code="50019">No short description for property $moduleName</critical>
+      <critical line="32" code="50019">No short description for property $rootDirectory</critical>
+      <critical line="37" code="50019">No short description for property $application</critical>
+      <critical line="42" code="50019">No short description for property $serviceManager</critical>
+      <critical line="47" code="50019">No short description for property $event</critical>
+      <critical line="52" code="50019">No short description for property $routes</critical>
+      <critical line="57" code="50019">No short description for property $configuration</critical>
+      <error line="122" code="50010">No DocBlock was found for method reset()</error>
+    </parse_markers>
+    <source>eJzFWe9O3DgQ/47EO1g6pGQr2Ej3caG0Wwp36KCtgPtSqCKTeNmoIUltB46eeJh7lnuxm7GdjWMnWaCnu6hlE3v88/yfcbL3plpWmxubGwW9ZaKiCSMHJWdXF0zIXRyvBSOfWZFenZQ0ZfxqXssyV7dHNJElf9j1ac4lLVLK05bWJjq9S67mVZVnCZVZWbhT8P/wjhXSHT9n/C5LWPN7Sgt6w/hBWSyyG5u2O+88KpGiV682N8gr8q4spZCcViTJqRBkUXJCW8YCQSRoYapo1Z+LJZWGNhPkmgqWkrIgSVkkrJKC5IzyohmrOXJ09DMpKKn4339JgFUo4VLKahZFSZmyHfGtpuk0KW+jBBaU0ffFzzsF3ak4RfpJu/dbWsslMHhSJ1SQtBTknBYSfubXnNVkL8fxqZhSfHx7c0uzHGH3cXG0ubHICpob3lu5/0R1ELi0SvCCne4ob2ma4UjfVDy7o5IRIZFBspUVcAfik9ekqPN8dxAQwLLixkMrJUskqGzrtkzrnH0AL/xhKA68v884U+65Fs1yxWFIyy3WAnY9bhhT+J7Zi9cExDASw+m1fFHO6cOY1mpw9x9FSVQ81nytqs6YrHlB5JKRlQ+VC7KHUbF/tcpBVytH3FMBs99yU1FOb40zkK20MfgQgXawdpZrBgYdvb4Gizd+vqiLREl0w+SxYTds9zSCbje7mOcJBhgxV7YgoWD5Yjazgua1IWzJ8PLISMHuW06tjVc7TlZKxsvI5uDsaoLHPnNAHgXsGkHRDCpRrFU1eQcpkLSPkB2zIpNZntE8+86UcT399tuFnOofWaqkO5B1VmaI46RhuFcbtuK35DITO/udBGPodj0qN3dwRvOKyqVt7CkJounU/AsmPogGt2F60RFHk0YBPHh8jtnrGPXcahl1Jp7r2yttotHCjs6SJYgbGo7A589sxsNJ19uyIsnrlJEAcWK6KvpTaC2CDmXKoA6xMICyGH+aX/wabLcKDiCJpSWPvsPPAhyE3Zf8q/OUZ9ec8ofAYWALAUDLKjeF3VhqttruDoNMseE7VttPLALbpMIlzG6rHBJRiKDx+eGn+dn84uPZtmZi4sbhtxq0FmODQAJsTyLdIkVeG9Uoa/1Sv7vyFR1FyHhdkdYa7aS392y20DeO7vDq02lzBeNNX0Be74+ux8tfNpvNfweNHv5yfH5xeBZ/PkIYCHW2/UyUg4t4fh4fzU9O3s0PfkOUBc3Fc2FOPs7fxx/OnyKL0gmWLiU5uFhyn0JcWXGOk5HgiboJhpEm/VM9w5Ou23o1QMWwm0ncBMAZeEvYlzV7Gx+HptvIDJI5XYoz67YfHX7tzDeXKtsRrVFo0vHk4qW+/h7RERssdLrKtl3xbe09NSfrlkYQ2vKGCb8tkNOhGogiEFWaoPaaghhCw1DAarAMpviC4AkHc72plFTrYbLCbMEFs+ruTx0pe6hfpDEsCKHme6DXMZP9HU6zsq0wtiEG/bivFnlltFhnpo5NUOPUPwI8Wy0uV4O+1OkB1ruTMjk02AkTeNzs9tcqIU09nnt7dJ/lAxsr9A2o+XU6+h5rK4NqMjBp0w2MG0yTR5bmp3rIrYMW+GWgzRznmZCsYDwuK1wpgi+XgSaJdb+uKjUMr3qCJzGjTvsWF10/bNSyyIAD9gewIELXfVVUjGN6mlMCasEOhnX4VPxdH1xpIK4LscwWELMv1eV2l8uJs9Ojq6t+92lsaa1+HI72zuJ1sQKZF2MlqTnHQmO7lhchI4d+P04s4sEo6dRJO0i6SomiNlBa4zqB2O/9llsE/3H0dDqZFwdLHL8/Povjfy86ngD4f4ZDTzD4nRKc67vvi0J/SO+wpu9caV1gK7cSy+wY32qo4MuEvCHDs2RmTD7UgHrO2ScYPksjQxhY4aMlgVOf4eDpaOakEgYG9sTYCbCCoVfEDY1Z2+OixoStPQYYgAAIg1ObNvBY70Dt7OPxQa8QfkQ7La9RuUO1gCMCTZaQYhzoVTkAZEIFbP3jRQUxrDjSS9dEEga4cTd7q8tACYa+1stXn2zuSnOHSQgF/Moe8ESlWrtBTE+zl7gOs5jdErrXoz/8+PxQVj46z/Py/uMd4zxLWYgn1h6P6ztWjXmdFT2+zzkHK8gczcviIZ9TtIrbC8pxA5+htSvtetizvF/PauUZ+1ZDhu5ZpXszMz0ZxxAVJGY2DGLmx1GUo4VjmtckQSfljfQqtPNJq0Pcd0i0WxX90rub9L3X3Wa38a8LfvPiVJeRg4n3PeIFMjTuZ7j3G6+hjxk+48aNh/ll5ivhs9g0ORfL/IvPTcoxxPgZDyls3tSffwDsVnAm</source>
+  </file>
+  <file path="module\Core\src\Core\Test\ControllerTestCase.php" hash="3bd4296211b856825ad20b6a590a687f" package="Default">
+    <namespace-alias name="Request">Zend\Http\Request</namespace-alias>
+    <namespace-alias name="Response">Zend\Http\Response</namespace-alias>
+    <namespace-alias name="AbstractActionController">Zend\Mvc\Controller\AbstractActionController</namespace-alias>
+    <namespace-alias name="MvcEvent">Zend\Mvc\MvcEvent</namespace-alias>
+    <namespace-alias name="RouteMatch">Zend\Mvc\Router\RouteMatch</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Test" line="10" package="Default">
+      <extends>\Core\Test\TestCase</extends>
+      <name>ControllerTestCase</name>
+      <full_name>\Core\Test\ControllerTestCase</full_name>
+      <property final="false" static="false" visibility="protected" line="17" namespace="Core\Test" package="Default">
+        <name>$controller</name>
+        <default><![CDATA[]]></default>
+        <docblock line="12">
+          <description><![CDATA[The ActionController we are testing]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="12" name="var" description="" type="\Zend\Mvc\Controller\AbstractActionController">
+            <type by_reference="false">\Zend\Mvc\Controller\AbstractActionController</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="24" namespace="Core\Test" package="Default">
+        <name>$request</name>
+        <default><![CDATA[]]></default>
+        <docblock line="19">
+          <description><![CDATA[A request object]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="19" name="var" description="" type="\Zend\Http\Request">
+            <type by_reference="false">\Zend\Http\Request</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="31" namespace="Core\Test" package="Default">
+        <name>$response</name>
+        <default><![CDATA[]]></default>
+        <docblock line="26">
+          <description><![CDATA[A response object]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="26" name="var" description="" type="\Zend\Http\Response">
+            <type by_reference="false">\Zend\Http\Response</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="38" namespace="Core\Test" package="Default">
+        <name>$routeMatch</name>
+        <default><![CDATA[]]></default>
+        <docblock line="33">
+          <description><![CDATA[The matched route for the controller]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="var" description="" type="\Zend\Mvc\Router\RouteMatch">
+            <type by_reference="false">\Zend\Mvc\Router\RouteMatch</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="45" namespace="Core\Test" package="Default">
+        <name>$event</name>
+        <default><![CDATA[]]></default>
+        <docblock line="40">
+          <description><![CDATA[An MVC event to be assigned to the controller]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="var" description="" type="\Zend\Mvc\MvcEvent">
+            <type by_reference="false">\Zend\Mvc\MvcEvent</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="53" namespace="Core\Test" package="Default">
+        <name>$controllerFQDN</name>
+        <default><![CDATA[]]></default>
+        <docblock line="47">
+          <description><![CDATA[The Controller fully qualified domain name, so each ControllerTestCase can create an instance
+of the tested controller]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="47" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="60" namespace="Core\Test" package="Default">
+        <name>$controllerRoute</name>
+        <default><![CDATA[]]></default>
+        <docblock line="55">
+          <description><![CDATA[The route to the controller, as defined in the configuration files]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="55" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="62" package="Default">
+        <name>setup</name>
+        <full_name>setup</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="83" package="Default">
+        <name>tearDown</name>
+        <full_name>tearDown</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Test\ControllerTestCase.php</error>
+      <error line="10" code="50000">No DocBlock was found for \Core\Test\ControllerTestCase</error>
+      <error line="62" code="50010">No DocBlock was found for method setup()</error>
+      <error line="83" code="50010">No DocBlock was found for method tearDown()</error>
+    </parse_markers>
+    <source>eJylVE1v2kAQvSPxH+YQKYBScU+atIi06qFUahLl0NLDsoxhK7Pr7I6hUZX/3vGusQ1ek0i1hFjvvPl688bvP2TrrN/TYoMuExJhaizOH9DRVb/X7+UO4Qfq5fwLUTa/w6c8WI7vXWa0w6ZhtpXzqdFkTZqinU8WjqyQNJGkjK4Nxy78+7RFTcf3dyYnDuP/ZoLk2pcnyqggU+Ec1GGLBqaCA+Af4hAO9hf93t9+D/gZj0bhACN4WCMcFwY7BGERiB2VXu2xlc/HrbDQ1dUeNQ6HzBpCSbiEM9nsvF3JBGzgGMziN7vE05Zz6M5iq0HFU4RxvZIjgE4lqaYep3RTzImRthgaJMYC8a1ssXSUuBrxidSHMmi1qGH2OAUshARkYMGjdE6tNPvy61uq2OuwuwYsZRrvvSGkJE/TZ3jKRaoSxZ5LsxFKQ7FyF+AMoJDrmHSl0CAtCuaOT0o7ElpW8wCT+EYKfXLQ1/phnTZUfEqXn7/ffutsK4yyxeEF8wtLTFTBMPdWWhO1yq0oVgMSlaL739K8NKrasnyRKsn0ar994JDybDAMxnLLPY7XWNPlZWm/qi31KSjKwTWc0Vq5dzcrJJ/NdTkEWF0bu2rcte89nTAelwaHdqska1eLFVqfZxD1aaYtAftPAz8hWfkdGMSw1YbssdXFQFgrnge1S/Gcewd7Dtc3ELPXGHcSE+XG5y68Spp/xhG/2uGGh1eN12GkaSbTL+1gWBBNjZZbrLxxqj5OiNnKESngyPE+DPurkYKMbUS4P1BBHeqlS9uEwt6anT4h7xrSqCvn73NEYJ2QUmLd9haBXPLLP4HKXFo=</source>
+  </file>
+  <file path="module\Core\src\Core\Test\ModelTestCase.php" hash="0111d8a544dd67a5633d67879dc495a0" package="Default">
+    <class final="false" abstract="false" namespace="Core\Test" line="4" package="Default">
+      <extends>\Core\Test\TestCase</extends>
+      <name>ModelTestCase</name>
+      <full_name>\Core\Test\ModelTestCase</full_name>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Test\ModelTestCase.php</error>
+      <error line="4" code="50000">No DocBlock was found for \Core\Test\ModelTestCase</error>
+    </parse_markers>
+    <source>eJyzsS/IKODlykvMTS0uSExOVXDOL0qNCUktLrHm5eLlSkwqLilKTC5RSM5JLC5W8M1PSc0BSTonFqcqpFaUpOalFCvABHi5qkF6agG3/Bvh</source>
+  </file>
+  <file path="module\Core\src\Core\Test\ServiceTestCase.php" hash="7132ada2b1fb81fe4997b7b4d24ac1cd" package="Default">
+    <class final="false" abstract="false" namespace="Core\Test" line="5" package="Default">
+      <extends>\Core\Test\TestCase</extends>
+      <name>ServiceTestCase</name>
+      <full_name>\Core\Test\ServiceTestCase</full_name>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Test\ServiceTestCase.php</error>
+      <error line="5" code="50000">No DocBlock was found for \Core\Test\ServiceTestCase</error>
+    </parse_markers>
+    <source>eJyzsS/IKODl4uXKS8xNLS5ITE5VcM4vSo0JSS0usQaJJyYVlxQlJpcoJOckFhcrBKcWlWUmp4KknROLUxVSK0pS81KKFeAC1bxcCkDAy1ULAFxlHWE=</source>
+  </file>
+  <file path="module\Core\src\Core\Test\TestCase.php" hash="705e86c4cb418066d7a19762a1216e7f" package="Default">
+    <namespace-alias name="Bootstrap">Core\Test\Bootstrap</namespace-alias>
+    <namespace-alias name="Adapter">Zend\Db\Adapter\Adapter</namespace-alias>
+    <namespace-alias name="Application">Zend\Mvc\Application</namespace-alias>
+    <namespace-alias name="MvcEvent">Zend\Mvc\MvcEvent</namespace-alias>
+    <namespace-alias name="ServiceLocatorAwareInterface">Zend\ServiceManager\ServiceLocatorAwareInterface</namespace-alias>
+    <namespace-alias name="ServiceManager">Zend\ServiceManager\ServiceManager</namespace-alias>
+    <include line="60" type="Include" package="Default">
+      <name/>
+    </include>
+    <include line="82" type="Include" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="Core\Test" line="15" package="Default">
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <name>TestCase</name>
+      <full_name>\Core\Test\TestCase</full_name>
+      <docblock line="12">
+        <description><![CDATA[Base Test Case class]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="21" namespace="Core\Test" package="Default">
+        <name>$application</name>
+        <default><![CDATA[]]></default>
+        <docblock line="17">
+          <description><![CDATA[Current application]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="17" name="var" description="" type="\Zend\Mvc\Application">
+            <type by_reference="false">\Zend\Mvc\Application</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="27" package="Default">
+        <name>getBootstrap</name>
+        <full_name>getBootstrap</full_name>
+        <docblock line="23">
+          <description><![CDATA[Returns the current bootstrap instance.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="return" description="" type="\Core\Test\Bootstrap">
+            <type by_reference="false">\Core\Test\Bootstrap</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="31" package="Default">
+        <name>setup</name>
+        <full_name>setup</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="37" package="Default">
+        <name>tearDown</name>
+        <full_name>tearDown</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="47" package="Default">
+        <name>createDatabase</name>
+        <full_name>createDatabase</full_name>
+        <docblock line="44">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="44" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="70" package="Default">
+        <name>dropDatabase</name>
+        <full_name>dropDatabase</full_name>
+        <docblock line="67">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="67" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="92" package="Default">
+        <name>getAdapter</name>
+        <full_name>getAdapter</full_name>
+        <docblock line="88">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="88" name="return" description="" type="\Zend\Db\Adapter\Adapter">
+            <type by_reference="false">\Zend\Db\Adapter\Adapter</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="96" package="Default">
+        <name>getApplication</name>
+        <full_name>getApplication</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="104" package="Default">
+        <name>getServiceManager</name>
+        <full_name>getServiceManager</full_name>
+        <docblock line="100">
+          <description><![CDATA[Retrieve the current ServiceManager.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="100" name="return" description="" type="\Zend\ServiceManager\ServiceManager">
+            <type by_reference="false">\Zend\ServiceManager\ServiceManager</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="112" package="Default">
+        <name>getEvent</name>
+        <full_name>getEvent</full_name>
+        <docblock line="108">
+          <description><![CDATA[Retrieve the current MvcEvent.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="108" name="return" description="" type="\Zend\Mvc\MvcEvent">
+            <type by_reference="false">\Zend\Mvc\MvcEvent</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Test" line="120" package="Default">
+        <name>getRoutes</name>
+        <full_name>getRoutes</full_name>
+        <docblock line="116">
+          <description><![CDATA[Retrieve the list of routes.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="116" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Core\Test" line="130" package="Default">
+        <name>getService</name>
+        <full_name>getService</full_name>
+        <docblock line="124">
+          <description><![CDATA[Retrieve Service]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="124" name="param" description="" type="string" variable="$service">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="124" name="return" description="" type="\Zend\ServiceManager\ServiceLocatorAwareInterface">
+            <type by_reference="false">\Zend\ServiceManager\ServiceLocatorAwareInterface</type>
+          </tag>
+        </docblock>
+        <argument line="130">
+          <name>$service</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Test\TestCase.php</error>
+      <error line="31" code="50010">No DocBlock was found for method setup()</error>
+      <error line="37" code="50010">No DocBlock was found for method tearDown()</error>
+      <error line="44" code="50012">No short description for method createDatabase()</error>
+      <error line="67" code="50012">No short description for method dropDatabase()</error>
+      <error line="88" code="50012">No short description for method getAdapter()</error>
+      <error line="96" code="50010">No DocBlock was found for method getApplication()</error>
+    </parse_markers>
+    <source>eJzVV9tu2kAQfUfiH+YByQa10L5CaUvAJFFKQiGRmobIWuwFrJi1s16Toir/3lljG18gDmlatZai2Dsze+acnTHjD5/chVsulUuMLKnnEoNC1+F0ckk90ZLrvpdYmRw5jvAEJ25rY/lOmTnpTScdk7iC8uh/0jpYGZOO69qWQYTlsKwJ/7QVZSK5PqZ8ZRl0QBiZ46bh4xcHd3B454FwesoQZYbZFoeFjwGZRq1WLkENjgjGSELQlXeGTTxPGhrlEplKfobYLAZOgQ/9IRDDg8nwZHjFLKH3OSr24PA7Pfb5KTEArw2OvGrQ9TlHfkC2GsS2zyvCoZM3NDY3LncENQQ1oUJSCuZRRlT4nHkgFkgnRJxGhwUW8wRhBq1vkXkQAPGBZqH9KeLBzGeGxIQ5FbGrWpVMIbyyGzWb6HsaAqrV1sbzMUo6u7GH4ZkdXSLTbzZDU2trqYiF5b39mBAD2tFiOsPgOaHsrm0MTomgPSLIFE+vOFVBCe85D2x3tltrHsnkjpvD2UuI+bad98ny4xT1ySedLIrokFeOZRacb1aLJMOKOQ37OqV2uBaksHW2ZqCiUQ/aR92GBiFDm4iZw5dqtQrtNijZ10dkn4zvbUtQJZVGwK5BGZnaFNCLWnMGd3TtgSyjICDtnAS/9ylfq8pw1DkedKJoPYhuw8V5S3kDoW+z+fVKG13rg4uepmvftO7VpZY8ssfXZztYY/oHkF1K/0KuY+0S+hcj7fT4XD/TrvXuidY9GyPd9y9lW5E7W1RKZjHD9k36RPMNHNO36QhXsZrqoDRMLK6GwHdlXd7V8XdHSQBJjsRYgBqDEC8GzEmT875RNhWs3MZx62o6ZrdMG9dD9HiNdku/EP7ZZjMt7w90W79/WAH+pWbbR/Y3u+3d/9Vt65wy+3rmRpFVrNy+Su/kmijcs3gsiTtjx1Cy1Ss9DIaiqUovoqYU/vpn54n9cOlZbS9lHNlQ+RVNzWzpPPPzWtperE6W95MiZYsqG3wwm2i4z/OILMUMArcDEw9jnp2vbeGngDMD7vjYMvlsCedkXZzqKAg/MNco6FnJhicSGbaJ4hRKlgC4scXmUPHSftny2fkptffjY0c9qRHCS7oujk1SfvwFDTs55Q==</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <namespace name="Admin" full_name="Admin">
+    <namespace name="Model" full_name="Admin\Model">
+      <namespace name="DAO" full_name="Admin\Model\DAO"/>
+      <namespace name="Doctrine" full_name="Admin\Model\Doctrine"/>
+      <namespace name="Entity" full_name="Admin\Model\Entity"/>
+    </namespace>
+    <namespace name="Service" full_name="Admin\Service"/>
+  </namespace>
+  <namespace name="Application" full_name="Application">
+    <namespace name="Controller" full_name="Application\Controller"/>
+  </namespace>
+  <namespace name="Core" full_name="Core">
+    <namespace name="Acl" full_name="Core\Acl"/>
+    <namespace name="Authentification" full_name="Core\Authentification">
+      <namespace name="Doctrine" full_name="Core\Authentification\Doctrine"/>
+    </namespace>
+    <namespace name="Model" full_name="Core\Model">
+      <namespace name="DAO" full_name="Core\Model\DAO">
+        <namespace name="Doctrine" full_name="Core\Model\DAO\Doctrine"/>
+        <namespace name="Exception" full_name="Core\Model\DAO\Exception"/>
+      </namespace>
+      <namespace name="Entity" full_name="Core\Model\Entity"/>
+    </namespace>
+    <namespace name="Service" full_name="Core\Service">
+      <namespace name="Factory" full_name="Core\Service\Factory"/>
+    </namespace>
+    <namespace name="Test" full_name="Core\Test"/>
+  </namespace>
+  <marker count="0">todo</marker>
+  <deprecated count="0"/>
+</project>

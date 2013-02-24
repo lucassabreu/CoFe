@@ -4,7 +4,8 @@ namespace Core\Acl;
 
 use Core\Service\Service;
 use Zend\Permissions\Acl\Acl;
-use Zend\Permissions\Rbac\Role;
+use Zend\Permissions\Acl\Resource\GenericResource as Resource;
+use Zend\Permissions\Acl\Role\GenericRole as Role;
 
 /**
  * Class retrieves a filled ACL. 
@@ -12,38 +13,33 @@ use Zend\Permissions\Rbac\Role;
  */
 class Builder extends Service {
 
-    protected $acl = null;
-
     /**
      * Constroi a ACL
      * @return Acl 
      */
     public function build() {
-        if ($this->acl === null) {
-            $config = $this->getServiceManager()->get('Config');
-            $acl = new Acl();
-            foreach ($config['acl']['roles'] as $role => $parent) {
-                $acl->addRole(new Role($role), $parent);
-            }
-            foreach ($config['acl']['resources'] as $r) {
-                $acl->addResource(new Resource($r));
-            }
-            foreach ($config['acl']['privilege'] as $role => $privilege) {
-                if (isset($privilege['allow'])) {
-                    foreach ($privilege['allow'] as $p) {
-                        $acl->allow($role, $p);
-                    }
-                }
-                if (isset($privilege['deny'])) {
-                    foreach ($privilege['deny'] as $p) {
-                        $acl->deny($role, $p);
-                    }
-                }
-            }
-
-            $this->acl = $acl;
+        $config = $this->getService('Config');
+        $acl = new Acl();
+        foreach ($config['acl']['roles'] as $role => $parent) {
+            $acl->addRole(new Role(strtolower($role)), $parent === null ? null : strtolower($parent));
         }
-        return $this->acl;
+        foreach ($config['acl']['resources'] as $r) {
+            $acl->addResource(new Resource($r));
+        }
+        foreach ($config['acl']['privilege'] as $role => $privilege) {
+            if (isset($privilege['allow'])) {
+                foreach ($privilege['allow'] as $p) {
+                    $acl->allow($role, $p);
+                }
+            }
+            if (isset($privilege['deny'])) {
+                foreach ($privilege['deny'] as $p) {
+                    $acl->deny($role, $p);
+                }
+            }
+        }
+
+        return $acl;
     }
 
 }

@@ -2,37 +2,40 @@
 
 namespace Core\Service;
 
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Core\Service\Service;
+use Zend\ServiceManager\ServiceManager;
+use Zend\ServiceManager\ServiceManagerAwareInterface;
 
 /**
  * Service base class
  *
  * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
  */
-abstract class Service implements ServiceLocatorAwareInterface {
+class Service implements ServiceManagerAwareInterface {
 
     /**
-     * @var ServiceLocatorInterface
+     * @var ServiceManager
      */
-    private $serviceLocator = null;
+    private $serviceManager = null;
 
-    public function getServiceLocator() {
-        return $this->serviceLocator;
+    public function getServiceManager() {
+        return $this->serviceManager;
     }
 
-    public function setServiceLocator(ServiceLocatorInterface $serviceLocator) {
-        $this->serviceLocator = $serviceLocator;
+    public function setServiceManager(ServiceManager $serviceManager) {
+        $this->serviceManager = $serviceManager;
+        return $this;
     }
 
     /**
      * Retrieves a service by the name.
      * @param string $name Name of requested service.
-     * @return ServiceLocatorAwareInterface|mixed
+     * @return Service | mixed
      */
     public function getService($name) {
-        return $this->getServiceLocator()->get($name);
+        return $this->getServiceManager()->get($name);
     }
 
 }
+
 ?>

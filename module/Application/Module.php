@@ -12,6 +12,9 @@ namespace Application;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
+/**
+ * Bootstrap module class
+ */
 class Module
 {
     public function onBootstrap(MvcEvent $e)

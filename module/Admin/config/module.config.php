@@ -1,7 +1,10 @@
 <?php
 
+namespace Admin;
+
 use Admin\Service\AuthService;
-use Zend\Session\Container;
+use Core\Authentification\Doctrine\DoctrineAdapter;
+use Zend\ServiceManager\ServiceManager;
 
 return array(
     'service_manager' => array(
@@ -12,12 +15,20 @@ return array(
             ),
         ),
         'factories' => array(
-            'Session' => function($sm) {
-                return new Container('cofe');
-            },
             'Admin\Service\AuthService' => function($sm) {
-                return new AuthService($sm->get('DbAdapter'));
+                /* @var $sm ServiceManager */
+                $config = $sm->get('Config');
+                $config['doctrine']['authentication']['objectManager'] = $sm->get('EntityManager');
+                return new AuthService(new DoctrineAdapter($config['doctrine']['authentication']));
             },
+        ),
+    ),
+    'doctrine' => array(
+        'authentication' => array(
+            'object_manager' => 'Doctrine\ORM\Entity\Manager',
+            'identity_class' => 'Admin\Model\Entity\User',
+            'identity_property' => 'username',
+            'credential_property' => 'password',
         ),
     ),
 );

@@ -8,9 +8,8 @@ use Core\Model\DAO\DAOInterface;
 /**
  * Interface contract for DAO objects for class User
  * 
- * @see \Admin\Model\User
- *
  * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
+ * @see \Admin\Model\User
  */
 interface UserDAOInterface extends DAOInterface {
 

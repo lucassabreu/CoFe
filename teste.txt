@@ -1,0 +1,22 @@
+PHPUnit 3.7.14 by Sebastian Bergmann.
+
+Configuration read from D:\Documents\workspace\PHP\CoFe\module\Admin\test\phpunit.xml
+
+Fstring(54) "Resource 'Applcation\Controller\Index.index' not found"
+
+
+Time: 4 seconds, Memory: 9.25Mb
+
+There was 1 failure:
+
+1) AdminTest\Service\AuthServiceTest::testAuthorizationGuest
+Failed asserting that false is true.
+
+D:\Documents\workspace\PHP\CoFe\module\Admin\test\src\AdmimTest\Service\AuthServiceTest.php:72
+
+FAILURES!
+Tests: 1, Assertions: 1, Failures: 1.
+
+Generating code coverage report in Clover XML format ... done
+
+Generating code coverage report in HTML format ... done

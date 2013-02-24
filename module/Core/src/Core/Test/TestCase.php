@@ -9,9 +9,13 @@ use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceManager;
 
+/**
+ * Base Test Case class
+ */
 abstract class TestCase extends \PHPUnit_Framework_TestCase {
 
     /**
+     * Current application
      * @var Application
      */
     protected $application;

@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 return array(
     'service_manager' => array(
         'factories' => array(
@@ -7,6 +9,9 @@ return array(
         ),
         'abstract_factories' => array(
             'Core\Service\Factory\DAOServiceFactory'
+        ),
+        'invokables' => array(
+            'Core\Acl\Builder' => 'Core\Acl\Builder',
         ),
         'dao_services' => array(
             'Admin\Service\UserDAOService' => array(
