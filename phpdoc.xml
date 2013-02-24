@@ -8,28 +8,23 @@
         </markers>
         <extensions>
             <extension>php</extension>
-            <extension>php3</extension>
-            <extension>phtml</extension>
         </extensions>
         <visibility></visibility>
     </parser>
     <transformer>
         <target>public/docs</target>
     </transformer>
-    <logging>
-        <level>warn</level>
-        <paths>
-            <default>{APP_ROOT}/data/log/{DATE}.log</default>
-            <errors>{APP_ROOT}/data/log/{DATE}.errors.log</errors>
-        </paths>
-    </logging>
     <transformations>
         <template name="responsive" />
     </transformations>
     <files>
         <directory>.</directory>
-        <ignore>module/*/test</ignore>
-        <ignore>*.config.php</ignore>
+        <ignore>vendor/*</ignore>
+        <ignore>config/*</ignore>
+        <ignore>tests/*</ignore>
         <ignore>*.data.php</ignore>
+        <ignore>*.config.php</ignore>
+        <ignore>*/tests/*</ignore>
+        <ignore>documentation-git/*</ignore>
     </files>
 </phpdoc>

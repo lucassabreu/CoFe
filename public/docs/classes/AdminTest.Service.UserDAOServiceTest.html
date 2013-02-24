@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>CoFe » \Core\Test\ControllerTestCase</title>
+<title>CoFe » \AdminTest\Service\UserDAOServiceTest</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -71,42 +71,58 @@
 <li class="method public inherited"><a href="#getEvent" title="getEvent :: Retrieve the current MvcEvent."><span class="description">Retrieve the current MvcEvent.</span><pre>getEvent()</pre></a></li>
 <li class="method public inherited"><a href="#getRoutes" title="getRoutes :: Retrieve the list of routes."><span class="description">Retrieve the list of routes.</span><pre>getRoutes()</pre></a></li>
 <li class="method public inherited"><a href="#getServiceManager" title="getServiceManager :: Retrieve the current ServiceManager."><span class="description">Retrieve the current ServiceManager.</span><pre>getServiceManager()</pre></a></li>
-<li class="method public "><a href="#setup" title="setup :: "><span class="description">setup()
+<li class="method public inherited"><a href="#setup" title="setup :: "><span class="description">setup()
         </span><pre>setup()</pre></a></li>
-<li class="method public "><a href="#tearDown" title="tearDown :: "><span class="description">tearDown()
+<li class="method public inherited"><a href="#tearDown" title="tearDown :: "><span class="description">tearDown()
         </span><pre>tearDown()</pre></a></li>
+<li class="method public "><a href="#testChangePassword" title="testChangePassword :: "><span class="description">testChangePassword()
+        </span><pre>testChangePassword()</pre></a></li>
+<li class="method public "><a href="#testFetchAll" title="testFetchAll :: "><span class="description">testFetchAll()
+        </span><pre>testFetchAll()</pre></a></li>
+<li class="method public "><a href="#testFetchByParam" title="testFetchByParam :: "><span class="description">testFetchByParam()
+        </span><pre>testFetchByParam()</pre></a></li>
+<li class="method public "><a href="#testFindById" title="testFindById :: "><span class="description">testFindById()
+        </span><pre>testFindById()</pre></a></li>
+<li class="method public "><a href="#testFindByUsername" title="testFindByUsername :: "><span class="description">testFindByUsername()
+        </span><pre>testFindByUsername()</pre></a></li>
+<li class="method public "><a href="#testSave" title="testSave :: "><span class="description">testSave()
+        </span><pre>testSave()</pre></a></li>
 <li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#getDAOService" title="getDAOService :: "><span class="description">getDAOService()
+        </span><pre>getDAOService()</pre></a></li>
 <li class="method protected inherited"><a href="#getService" title="getService :: Retrieve Service"><span class="description">Retrieve Service</span><pre>getService()</pre></a></li>
+<li class="method protected "><a href="#newUser" title="newUser :: Makes a basic User;"><span class="description">Makes a basic User;</span><pre>newUser()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
 <li class="nav-header protected">» Protected</li>
 <li class="property protected inherited"><a href="#%24application" title="$application :: Current application"><span class="description">Current application</span><pre>$application</pre></a></li>
-<li class="property protected "><a href="#%24controller" title="$controller :: The ActionController we are testing"><span class="description">The ActionController we are testing</span><pre>$controller</pre></a></li>
-<li class="property protected "><a href="#%24controllerFQDN" title="$controllerFQDN :: The Controller fully qualified domain name, so each ControllerTestCase can create an instance
-of the tested controller"><span class="description">The Controller fully qualified domain name, so each ControllerTestCase can create an instance
-of the tested controller</span><pre>$controllerFQDN</pre></a></li>
-<li class="property protected "><a href="#%24controllerRoute" title="$controllerRoute :: The route to the controller, as defined in the configuration files"><span class="description">The route to the controller, as defined in the configuration files</span><pre>$controllerRoute</pre></a></li>
-<li class="property protected "><a href="#%24event" title="$event :: An MVC event to be assigned to the controller"><span class="description">An MVC event to be assigned to the controller</span><pre>$event</pre></a></li>
-<li class="property protected "><a href="#%24request" title="$request :: A request object"><span class="description">A request object</span><pre>$request</pre></a></li>
-<li class="property protected "><a href="#%24response" title="$response :: A response object"><span class="description">A response object</span><pre>$response</pre></a></li>
-<li class="property protected "><a href="#%24routeMatch" title="$routeMatch :: The matched route for the controller"><span class="description">The matched route for the controller</span><pre>$routeMatch</pre></a></li>
 </ul>
 </div>
 <div class="span8">
-<a name="%5CCore%5CTest%5CControllerTestCase" id="\Core\Test\ControllerTestCase"></a><ul class="breadcrumb">
+<a name="%5CAdminTest%5CService%5CUserDAOServiceTest" id="\AdminTest\Service\UserDAOServiceTest"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
-<li><a href="../namespaces/Core.html">Core</a></li>
-<span class="divider">\</span><li><a href="../namespaces/Core.Test.html">Test</a></li>
+<li><a href="../namespaces/AdminTest.html">AdminTest</a></li>
+<span class="divider">\</span><li><a href="../namespaces/AdminTest.Service.html">Service</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/Core.Test.ControllerTestCase.html">ControllerTestCase</a>
+<span class="divider">\</span><a href="../classes/AdminTest.Service.UserDAOServiceTest.html">UserDAOServiceTest</a>
 </li>
 </ul>
-<div href="../classes/Core.Test.ControllerTestCase.html" class="element class">
+<div href="../classes/AdminTest.Service.UserDAOServiceTest.html" class="element class">
 <p class="short_description">Base Test Case class</p>
 <div class="details">
 <p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="mailto:lucas.s.abreu@gmail.com">Lucas dos Santos Abreu</a></td>
+</tr>
+<tr>
+<th>group</th>
+<td>DAOService</td>
+</tr>
+</table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
 <a name="createDatabase" id="createDatabase"></a><div class="element clickable method public createDatabase" data-toggle="collapse" data-target=".createDatabase .collapse">
@@ -116,10 +132,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::createDatabase()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::createDatabase()</td>
+</tr>
+</table>
 </div></div>
 </div>
 <a name="dropDatabase" id="dropDatabase"></a><div class="element clickable method public dropDatabase" data-toggle="collapse" data-target=".dropDatabase .collapse">
@@ -129,10 +151,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::dropDatabase()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::dropDatabase()</td>
+</tr>
+</table>
 </div></div>
 </div>
 <a name="getAdapter" id="getAdapter"></a><div class="element clickable method public getAdapter" data-toggle="collapse" data-target=".getAdapter .collapse">
@@ -142,10 +170,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::getAdapter()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::getAdapter()</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code>\Zend\Db\Adapter\Adapter</code></div>
 </div></div>
@@ -157,10 +191,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::getApplication()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::getApplication()</td>
+</tr>
+</table>
 </div></div>
 </div>
 <a name="getBootstrap" id="getBootstrap"></a><div class="element clickable method public getBootstrap" data-toggle="collapse" data-target=".getBootstrap .collapse">
@@ -169,10 +209,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::getBootstrap()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::getBootstrap()</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code><a href="../classes/Core.Test.Bootstrap.html">\Core\Test\Bootstrap</a></code></div>
 </div></div>
@@ -183,10 +229,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::getEvent()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::getEvent()</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code>\Zend\Mvc\MvcEvent</code></div>
 </div></div>
@@ -197,10 +249,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::getRoutes()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::getRoutes()</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code>array</code></div>
 </div></div>
@@ -211,10 +269,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::getServiceManager()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::getServiceManager()</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code>\Zend\ServiceManager\ServiceManager</code></div>
 </div></div>
@@ -223,15 +287,92 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <h2>setup()
         </h2>
 <pre>setup() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\TestCase::setup()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::setup()</td>
+</tr>
+</table>
+</div></div>
 </div>
 <a name="tearDown" id="tearDown"></a><div class="element clickable method public tearDown" data-toggle="collapse" data-target=".tearDown .collapse">
 <h2>tearDown()
         </h2>
 <pre>tearDown() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\TestCase::tearDown()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::tearDown()</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testChangePassword" id="testChangePassword"></a><div class="element clickable method public testChangePassword" data-toggle="collapse" data-target=".testChangePassword .collapse">
+<h2>testChangePassword()
+        </h2>
+<pre>testChangePassword() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testFetchAll" id="testFetchAll"></a><div class="element clickable method public testFetchAll" data-toggle="collapse" data-target=".testFetchAll .collapse">
+<h2>testFetchAll()
+        </h2>
+<pre>testFetchAll() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testFetchByParam" id="testFetchByParam"></a><div class="element clickable method public testFetchByParam" data-toggle="collapse" data-target=".testFetchByParam .collapse">
+<h2>testFetchByParam()
+        </h2>
+<pre>testFetchByParam() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testFindById" id="testFindById"></a><div class="element clickable method public testFindById" data-toggle="collapse" data-target=".testFindById .collapse">
+<h2>testFindById()
+        </h2>
+<pre>testFindById() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testFindByUsername" id="testFindByUsername"></a><div class="element clickable method public testFindByUsername" data-toggle="collapse" data-target=".testFindByUsername .collapse">
+<h2>testFindByUsername()
+        </h2>
+<pre>testFindByUsername() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testSave" id="testSave"></a><div class="element clickable method public testSave" data-toggle="collapse" data-target=".testSave .collapse">
+<h2>testSave()
+        </h2>
+<pre>testSave() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="getDAOService" id="getDAOService"></a><div class="element clickable method protected getDAOService" data-toggle="collapse" data-target=".getDAOService .collapse">
+<h2>getDAOService()
+        </h2>
+<pre>getDAOService() : <a href="../classes/Admin.Service.UserDAOService.html">\Admin\Service\UserDAOService</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Admin.Service.UserDAOService.html">\Admin\Service\UserDAOService</a></code></div>
+</div></div>
 </div>
 <a name="getService" id="getService"></a><div class="element clickable method protected getService" data-toggle="collapse" data-target=".getService .collapse">
 <h2>Retrieve Service</h2>
@@ -239,10 +380,16 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::getService()</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::getService()</td>
+</tr>
+</table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$service</h4>
@@ -250,6 +397,21 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>\Zend\ServiceManager\ServiceLocatorAwareInterface</code></div>
+</div></div>
+</div>
+<a name="newUser" id="newUser"></a><div class="element clickable method protected newUser" data-toggle="collapse" data-target=".newUser .collapse">
+<h2>Makes a basic User;</h2>
+<pre>newUser(string $name) : <a href="../classes/Admin.Model.Entity.User.html">\Admin\Model\Entity\User</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Admin.Model.Entity.User.html">\Admin\Model\Entity\User</a></code></div>
 </div></div>
 </div>
 <h3>
@@ -260,54 +422,17 @@ of the tested controller</span><pre>$controllerFQDN</pre></a></li>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Core\Test\TestCase::$$application</td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Core\Test\ServiceTestCase::$$application</td>
+</tr>
+</table>
 </div></div>
-</div>
-<a name="%24controller" id="$controller"> </a><div class="element clickable property protected $controller" data-toggle="collapse" data-target=".$controller .collapse">
-<h2>The ActionController we are testing</h2>
-<pre>$controller : \Zend\Mvc\Controller\AbstractActionController</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="%24controllerFQDN" id="$controllerFQDN"> </a><div class="element clickable property protected $controllerFQDN" data-toggle="collapse" data-target=".$controllerFQDN .collapse">
-<h2>The Controller fully qualified domain name, so each ControllerTestCase can create an instance
-of the tested controller</h2>
-<pre>$controllerFQDN : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="%24controllerRoute" id="$controllerRoute"> </a><div class="element clickable property protected $controllerRoute" data-toggle="collapse" data-target=".$controllerRoute .collapse">
-<h2>The route to the controller, as defined in the configuration files</h2>
-<pre>$controllerRoute : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="%24event" id="$event"> </a><div class="element clickable property protected $event" data-toggle="collapse" data-target=".$event .collapse">
-<h2>An MVC event to be assigned to the controller</h2>
-<pre>$event : \Zend\Mvc\MvcEvent</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="%24request" id="$request"> </a><div class="element clickable property protected $request" data-toggle="collapse" data-target=".$request .collapse">
-<h2>A request object</h2>
-<pre>$request : \Zend\Http\Request</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="%24response" id="$response"> </a><div class="element clickable property protected $response" data-toggle="collapse" data-target=".$response .collapse">
-<h2>A response object</h2>
-<pre>$response : \Zend\Http\Response</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="%24routeMatch" id="$routeMatch"> </a><div class="element clickable property protected $routeMatch" data-toggle="collapse" data-target=".$routeMatch .collapse">
-<h2>The matched route for the controller</h2>
-<pre>$routeMatch : \Zend\Mvc\Router\RouteMatch</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 </div>
 </div>

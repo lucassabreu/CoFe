@@ -14,7 +14,48 @@
     <include line="38" type="Include" package="Default">
       <name/>
     </include>
-    <source>eJx9VNuO2zYQfTfgf5gCASQvdqWtgb5summ3l0UDBEVQb16CAA5NjSzCFCmQlBVv0H/vDHXzNkb4JNNnzpw5M8Off2mqZrnIr66WC7iCj2gKeHSixs66A6RVCM1dnpfjTfZMgEzaOl8xPsb8qpU5QDwDfK9C1e4ijPFTdM70mwNqDNY8NI1WUgRlDZTWQagQpDDW0KUGb1snERw21qtg3alPJW1zcmpfBfh9+krlCta3tz/drG9/XPcVPKGsjNV2r9DDh80DvDUym6rpum6qYzWWINF4nEu4UPGAyQ12NztfwN/YwW+bP+Bdf89E+XIxe/lUKQ+iDaRDFMrswWNoG6BLh0LrE9TWUcm27n3AgiwQBlQAg1h4CBZ2GK2prQ+RUsye+YwSIIiioMBIgl9UODG9V/TrxPEOi5ZcZGuDqpG5gziQJ8QaCakWKPCI2jboxpSNsxQW1BGho06CgNKhr8APncvgbQCqwHYv6ouEPYO0zqEMJEJaU6p9S0KuSc1euEKj92DLKEoZH4ioH4IaQ2ULENS/A2Ljez5CtdQYCuAirUc3VBuQ6G3DoUJnvdu9w76yrS4gTnCpDE7Vso/M5vw1VLajut01lIiaC0TWPsl90bgBCyfbJgVodcBs7nZOozgIe2GGKiEtlcYt9cUHnyZHGiTr8hGU0eIlqxV8JSo6r/iOOO7JFKnbAuFiwOvl4l9O++q5XL8X1Jx7KIX2+JovOeWejDHHNPn4uN6+f3j6K6aA+ZDeTds01oU4WiMMKEg5a2o0AY7CKbHT5LoD2mXw7a6mkdA4SJ1zf5uNBQKSokHMVpb7LRGmCUVtGwrrFf1Px/gnFIonh2fvKHR7MeMlyhdpld8SzeQ4iaPl3TnhTueGz5yXgKPRzDdCp9g+CU1bOrRtpj3r5c0b2k7yhsiT6ykfS2VQL/c8bGz8pCyDJD6Z+bvIlz8Mk4DuUUh+FMeRGBkY/KkHf/oGfHdX9h+pcE6c0jmMT3Ieuwm0hbSrM0cC92/gUlyM5RGl7aY5R7d9LiM4uLF741nNP1eTC2c2/yC18H7al+8Wc9bIUDnbxZfsn9bwM/fnF4nxXUiTDybOMW02R/O0Z4yCz2Tc9KCQi8KNb9FnHvoC47shvr8eWT92y8V/821UIQ==</source>
+  </file>
+  <file path="module\Admin\Module.php" hash="85961806e625877dbbee22f42f93aa94" package="Default">
+    <include line="15" type="Include" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="Admin" line="8" package="Default">
+      <extends/>
+      <name>Module</name>
+      <full_name>\Admin\Module</full_name>
+      <docblock line="4">
+        <description><![CDATA[Bootstrap module class]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="4" name="ignore" description=""/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin" line="13" package="Default">
+        <name>getConfig</name>
+        <full_name>getConfig</full_name>
+        <docblock line="10">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="10" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin" line="21" package="Default">
+        <name>getAutoloaderConfig</name>
+        <full_name>getAutoloaderConfig</full_name>
+        <docblock line="18">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="18" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\Module.php</error>
+      <error line="10" code="50012">No short description for method getConfig()</error>
+      <error line="18" code="50012">No short description for method getAutoloaderConfig()</error>
+    </parse_markers>
   </file>
   <file path="module\Admin\src\Admin\Model\DAO\UserDAOInterface.php" hash="aed0c002d9724406a8ec47de49e043aa" package="Default">
     <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
@@ -87,7 +128,6 @@
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Model\DAO\UserDAOInterface.php</error>
     </parse_markers>
-    <source>eJyNUk1PwzAMvVfqf/CBw6im7QdsgpWPAxIIBNqtlyx116A0qRKHMSH+O0m6dqtgEpHaOs/283tWl9dt3aZJmijWoG0ZR8jLRqjiSZcoi7v8eRGyzo7xe0WC9sXaoll02Vtt8NgUngdFaCrPGBnmWZYmkMGAAteKDOMElTbg60Fv3pGTjXcumbUQ+GNXfK2Yo9rnHh1nFkpt4Y0p8p98Y9DBUgZ8ZmcsXFfbhgk547q56potIhSnHnryeZqIQVQAT7UDfhKq0sII/AqOwJ/OVTgZvCIZgR9opyAq3ycs+ZDqjjQGflEmLBoqoxtomWHN0L6KV7CeRG3hoi895g2SM6rfSQTnXdC6jRQcKqc4Ca2gEqq82a8PDJOB63Lxl+5c0kFe63e+06YEXY3G9Nqij8h2TrWW5cuB5FyJwt3vkv974zVTW+wZJkdJ09H06WhQMP4dvF/7n+EH4//njw==</source>
   </file>
   <file path="module\Admin\src\Admin\Model\Doctrine\UserDAODoctrine.php" hash="8b3ad6b9b0f0b9339ce0735357defe68" package="Default">
     <namespace-alias name="UserDAOInterface">Admin\Model\DAO\UserDAOInterface</namespace-alias>
@@ -142,7 +182,6 @@
       <error line="20" code="50010">No DocBlock was found for method changePassword()</error>
       <error line="24" code="50010">No DocBlock was found for method findByUsername()</error>
     </parse_markers>
-    <source>eJyFU01v2zAMvRvwf+AhgJ2gWe/Jli7ddiiwLV2L3QIUikzXAhTJpaSlwbD/PkqpmrpZMR0sy++Dj4T8/qLv+rIoCyO26HohEZbNVpn1N9ugXn+20pMyOI+U4F6By9X6p0Pi/cp4pJbV81PaF+OV3yfmE/rJEr7wyEXWy43zJKTPHxhMhc8nk7KACVxte41bNF54ZQ3YFl6Xh9YSZHnUJN1HEXzHwNcghYPGOrgVxvO23BCGSDkvC6mFc9kwWwA+ejRNZJ5EA5XjuNMcv2Nu4NWHjVYS2mBkCn13J61hryB9PY40eFq9ILaazV4SqjfmWI3nB+Gft8rITph7vOaWdpaaOopgxLOnMxhZ3WSATwZ3+TTIQ+gDGRj5TrnpwolfWCeD/5ZulWku97FivFMHUXwbuI8eNvAhm9+jv8HeOuUt7evxdCEJhccfAWl/GZRukOoqpKYHDhwLNcY5MXhE8poudh0SJ4hMfOwpWuMDs9/lTNUZVLPnw/ifJg79tSDGfYpxVB47GwaLn2NzsSy3ltqIpfl9ZXBF34PWN+iC5hswUOaRh8Ov8jzl9LhYlMVfh3khew==</source>
   </file>
   <file path="module\Admin\src\Admin\Model\Entity\User.php" hash="5ffd8a2c021a1e72919649c5a4e0dc9f" package="Default">
     <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
@@ -534,7 +573,6 @@
       <error line="252" code="50010">No DocBlock was found for method getInputFilter()</error>
       <error line="256" code="50010">No DocBlock was found for method __construct()</error>
     </parse_markers>
-    <source>eJztWmtPIzcU/Y7Ef3ARUiYIRHZZVtXSsEt5bJGArni0ahUJmRknWJ0Zz3o8sKja/14/J+NkXnEgBVoLQYLvtc+x72PGvj99TG6T5aXlpRhGKE2gj8BeEOF4cEoCFA4OY4bZw44QyNKyrsFViuiO6t0nFNmdubroPoAMXeIIma/EZxTHaPDr+engFCYJjkcApoB/1RJ/ojgYHMdJxo5wyBAdHEGfEfpQ1V34fBzzX0PORkLfXFtbXgJrQMEBArL4Lv/3CWbsllBwkvl88oCk4ALGjP/Zu6EokyJKTsBUA4y/X8KbEHli6forHBJd6Yq+zeUlP4RpKicC6BvjQFMz+d8CEOBNgRKND3YHKSiDbyQ21YeEEoZ8hgKQMsiwD1av8VgL9EGcheFO2QxXMf6aIYADxGEMMRcmQ7MQBQw4ZiD/z7hLcD0O1N99EmZR7LGHhJPm8mikeRdkP6MYUb7dwW8wzKpJrOKgFjOHJ9YW8KUNODQQkhGObcCpsKFRBWQLqpJcWQchikfstr/dWweZXJU+oxlalzjEfvaHMExRtxp1ZnDVYP/C9/+e0MAsM/D2KU6E+unBdvexOGy9zTlI0DOQSAzAGhLnJERghO+4PCMl1uIO/E3PGTjloErRnoktKbVqd5zv3XE2WcjhRgRx+NiA3207A0YSTw1iEcBze+bmzCMQmXDHgIu0gS3kVuqR8u8yrgbs2tdzrdSgFyMaTHUkjkI4AngI2C1SRDAP9T7jRm4zuSHczmDchowWbeBTgx3K+TlqKZjDnor2wyz2Jb/rEWKFdOF1RVoBunFyXorC4YcPE9mhr5bFEhZtdajyqlg2dA90lvW6O7ZY6Zi58sauTxHfgyIsW980SCl8qOgTrYODDujvNspJWWEjUlporTcIDyWstPXoY7SFeXhu7nTr9Wq6uzUYOyaxuNDPdZsWgaKvGaZIrbHMfItYtQsZpy4pjjp1S9CkT07IPaLuQySXcJQ2qjf1d+5giHnAIfOuyhlhh1HCHmYg1CwnEY7n2AvjLGqyilyPJCLAzEYrV4ZhSO5/v8UMXYg3CTmIioXtBmmzCk+4UsrGTmQiXcyCRfibVNxuOZtSglqp13ZZ51/Vuv7akGYeM11CWq774kPaqwoo/4abxFLxRxc32Xq7uODj7CbipcbFRaTei3ePSv126bpuenKVJC0eGJ6zg07l8lfm28pNO2/azqfUoFHrdRaXBR29W75Zu7i3Uvyv+/dzds4X4WEqe265+Ne77YV5l2hTW3IoPGAvCChK5zOUWgd1fel+5S/cc6TfX1gUyhsPjP538Gb1R3HwNy4O/r737NNn8WjXxUst/WfkrTOb1j4Mwxvo/7UYs/LNbPIYRx89e6t34kpv6gy5qYlD6R+0MsBxymDsIzLML4W7LexrsunR1Km1GcgA3JltvNmk1Rwbuylics7eOhA/3fzovm2jiGU01uPNAPn783inFe1FBWdhJYvxniGhEWRq1j82oo3gEV9TnibMqlsolwCrNV9yaP1Z3eEtxjbEtWFBU5ybtzL6fAAfpow/ZLRdSNOe6iFdXok9wbP5BN5iTP9ejLQ6ipZcUGqNXDrJbsLiRWrdPao16tSNa9PI19c+tw++OT6zh11ltziVqeOg8FziWTmsE5P7TndqjuI99gVi4Pgg//opgRRGQNfjiMqacZcmUiwz2CwHzUEdBx5XLkMsi3X0ZxnzPXnnKuYq7oxJaUKwiYC5tJykoaoaxpU2jlxMAZGXD1TGq1DOY7MbX6mOkbgyzcttPLv+x+ZrpBz5mqIjLx+ojG+h8sfmO75vGSNx5SsOpqtY2n0zMRQVSZ4coIyZ+P8UK3VErmZ1ZVNno3PY55m0zSq7LLVJY4+utshnBUhWHlXxQXbnTITkaY2nhiijZEqMbE76lFNP7bpHga5O8qcKk2x+xbdBR5pW4LYGLCM9UZlkc7ffTW10riuhy4lE0VCWgsl10NVKpurIcQlUyZSnBymjnRc12YTNs6KZ34XkOeJ7eYdSKwFqZZ0BGxiMZKIrS/d5smsF4KoqQdkVfNUo8hRVg8XknlaIvlSlkLaI8iRSg8hkh1aISsN9WzQy4Ncg0dWgzSjm2qWzhh1qvTuToXdGHCq+1gCREbQVElH/KCv2ROBJ7cJNA8s8jzYDsyJiDb5ieGsN04pnUyAnCjWrMeqQVYNOTVTEJX993F1e+geXUc7U</source>
   </file>
   <file path="module\Admin\src\Admin\Service\AuthService.php" hash="8fc1cc6d5d85af900395bbbd65cdfa2a" package="Default">
     <namespace-alias name="Closure">Closure</namespace-alias>
@@ -678,7 +716,6 @@
       <error line="88" code="50010">No DocBlock was found for method getAdapter()</error>
       <error line="92" code="50010">No DocBlock was found for method setAdapter()</error>
     </parse_markers>
-    <source>eJydVl1r60YQfQ/kPwzBYDnEylNfmlvnuqGFQOnDvbTQYgjr1cgWrLRiP+zblvz3zq5W2pXsOJfoQdZ6z8ycOTOz0qfHdt9eX11fNaxG3TKOsC7qqtl8RXWoOD64PasRnoTUVrm1X0mFPSSBuq1fvnFsTSWbsP4bm2KztmaPjak4czubdcFag2rzJxNVwQzbCgx/PTd0K9ng7az1aJkSvb+9vb6CWyLLtIZSKmABWwY0tEpy1Bp17pAe/dmBCPub5UxDITV8ZY2hn/VWoYVPwv2f65y55eddzSqRc1mvnPH99RX3wRypQAXwmyHa5Cas/3PcgK6On7so6oEpuCBAD7zvHoi3QW6wgBnrkPATNFaIh3POn2SjjbLcUFqyBE8xRm6ZYvWl2DFG2AGqRQEk36EzIiWn7kKDwEyhsar5Q5PVr7bhXvVjJQR0G0AFce6Ur09rjXNL9dCJzz5nuxUVh7L38vLC+7yy72G/cMpDuGZmX+nlSqMJ+GyAPXSo13NKfkEK9C961ifNtGVBFi+Bb6mRJsS1anYwc+m6AXtrv6XyHKUq4n7QaiulQJZobfZKHnUcMnguT2mV1KH6HS1HRpgNFO8im3Py7aJ8i7jZX17e58L5Nf9En28hnxR6LBNZXfyQxcCLoal9aMfVdTse4e3ZH9AKtRWG8N5uuWLRhPI8TWMcrCohCy6Wq0r7NiPMOIO+k5XFh7iDQuMY56vleQ8Fy+bPjR8i6NUBNwYh83z+TjPW8oBQBYWhVLKezs7QOwdZFe80gZA7aU02LvR3qD3CLlecelQNZV8kgFOhzua19gdwP2bEaodFPCOoGtIq/ub01LKwAn93UnaPcGnW6AgxSgqBylvE5UUr5gXzFt3jBH1+Xi/Mnk83S7jfTandpVE/XiJyiISd7yxqM093vMDDS2Q0AF1d90zHqo4YpPYBvEsmP22BlASpaaSQR3f4Omtv9YX2uins4a/Tefbld6Emxcthns/pngg16k4unNEw8kGdbO4/X9ZcbH62lShQzRfL1dY9jph3SnDhzoG1cLSLzGdyF0mdynL+bHiNj+cOhUq/uDJ0qizgEW7+khaO9DnSSAOsC+6HwX0UTWTIk/TzG/gRbvzLNyg8HDMf8nZyHE17OT1JUymCDEH88KZ9z1nycv7o+z1+HM3GQaekUi7+9kgfdP8Dn41UhQ==</source>
   </file>
   <file path="module\Admin\src\Admin\Service\UserDAOService.php" hash="d79d5e5de3b215f9c0e76d365cbcfbad" package="Default">
     <namespace-alias name="UserDAOInterface">Admin\Model\DAO\UserDAOInterface</namespace-alias>
@@ -757,44 +794,414 @@
       <error line="56" code="50010">No DocBlock was found for method findByUsername()</error>
       <error line="60" code="50010">No DocBlock was found for method changePassword()</error>
     </parse_markers>
-    <source>eJydVs1uGzcQvhvwO0wEIV4ZsdQeepFtJaptoAbiuKjTU10I1C6lJbpLLkiuFKHx0/SQB8mLZYbcf0mWUB6k5XDm4ze/u1fvszg7PTk9kSzlJmMhh2mUCvn8xPVKhPySznJTSh9UxJPn2+nj85+Ga/y/l5brBXOKXbU7aYXdOM3i9EZp3sC4+xLyzAolaVdttnULIP/XPC5IPk/nxmoWWoRp8h6dn5+ewDkUMkC7COYbSJlkS7fVwB0oqTnVDyy3sdLwMQ+ZgUgZeGLS4t90rnkOVwnJh2bIaPthmTKRDEOVTsh4dHoSJswYKGJTXsu/WC4jguiyBJFmCU+RQ2VUBRT+JRcAl3eDFvJbMb2lWp6O/EOmleWhRV/7EVOXJUyWzxMRwiKXIYUZDFvxwMcU+khhQDdCseo7O/c2paN603fBvAaZJ0l1Iy2xgIDQQUhjmQy5WjicQQOoYU+ql/URTwxvK9pYqzVIvoZmzQS9zzEHU0S1B0OYzW4+Tp+eZjN87oFUtsy6RUWfJlJbcjtzO0dyMGhxd6Qek4h42ViYi8lCyOjXDfGnfgmcwsUEQSpRB8K5X8K88fGBt28raGd8HwUDOqzhSDI4zvFpojmLNlhlwmAZMV/Wa2Fj90SkxiVyKRj29rCs6Vxfe7KtqqCluc21hIxpDNh47KrI2Q4u24qjEeouNYMIA64F+/7t+3+qVnlxyf1f6C/+8WVfZfssOTca8H1BiSSlGWWd6aUJtsMQqlzaAHVdRn4+LglnlH74h29AGFdrOBIyhdPmHeXAjOHMVeTD3effHm9dSZ65K4ZnbQId7ys/UPevn/4uQ3DA73Z10lMrDMUdRUHjgNhd1c7u0IVhzOSS/47ts1Y6ClwUnPU76KskKg9whyErdy02jcqj9JRFd2TPKwpv0e6N4PZck7s+SHNjYc5xJvKV4GuTbNzci17vgMqjAVxNII1+CVoOHEsPSZA0K+yKKWTDmBvfoKGSC6HTSqPLat8AopJoz4r9Q6eMKXz9Cm9qcXccH+lTneKLCZWI88mPni557H/iDCnHN2pEnaEw+gt8ueZZxKyfxFlVIgyRYgRfsSTH+LjEUXYLc8racF++6ulbjdFyttZHbQdpYURqjD9Ussveiw/Yftp996dj7r2jb4gdxoX8gPUtBvIGh6vLzjZI+/gA1hSberXLj/LgyBp58Bnb0ZZUA/K1IvAl4MdKXQPj7Te6fzXs7eKSeaOR0SnXyI25dKxD9xIJp/g9tb+TEfVgF19MTIPRrmnTsWuM6M6kLSFfnbO7Xi3OsDnW3c97/H79AUeHhek=</source>
   </file>
-  <file path="module\Application\tests\Bootstrap.php" hash="33dd23730298c20f9dd5eadfc3c04e22" package="Default">
+  <file path="module\Admin\test\Bootstrap.php" hash="3648e0ca6212869f5cfbc62a0814592c" package="Default">
     <include line="3" type="Include" package="Default">
       <name/>
     </include>
     <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file module\Application\tests\Bootstrap.php</error>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\test\Bootstrap.php</error>
     </parse_markers>
-    <source>eJyzsS/IKODl4uXKzEvOKU1JVYiPd/EMio9X0FNQ19fTAyHn/KJU/eKiZAgjJLW4RN8pP7+kuKQosUAPqFvdGqRfX0vBoSyxSEElCSanAFIfA1IfA1evoKXPy4WkxBabIiur9NQSz7ziksS85FQNqIN0FNQdCwpyMpMTSzLz89Q1de0y8zJLNDStAVzuP4Q=</source>
   </file>
-  <file path="module\Application\tests\src\Application\Controller\IndexControllerTest.php" hash="6151bdf67f6a74519cc38ae1ca759a5d" package="Default">
-    <namespace-alias name="ControllerTestCase">Core\Test\ControllerTestCase</namespace-alias>
-    <class final="false" abstract="false" namespace="Application\Controller" line="7" package="Default">
-      <extends>\Core\Test\ControllerTestCase</extends>
-      <name>IndexControllerTest</name>
-      <full_name>\Application\Controller\IndexControllerTest</full_name>
-      <property final="false" static="false" visibility="protected" line="9" namespace="Application\Controller" package="Default">
-        <name>$controllerFQDN</name>
-        <default><![CDATA['Application\Controller\IndexController']]></default>
+  <file path="module\Admin\test\src\AdmimTest\Model\Entity\UserTest.php" hash="3b087ccffcf3fd39301d00f4d774903f" package="Default">
+    <namespace-alias name="UserDAOInterface">Admin\Model\DAO\UserDAOInterface</namespace-alias>
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="ModelTestCase">Core\Test\ModelTestCase</namespace-alias>
+    <namespace-alias name="DateTime">DateTime</namespace-alias>
+    <namespace-alias name="InputFilter">Zend\InputFilter\InputFilter</namespace-alias>
+    <class final="false" abstract="false" namespace="AdminTest\Model\Entity" line="18" package="Default">
+      <extends>\Core\Test\ModelTestCase</extends>
+      <name>UserTest</name>
+      <full_name>\AdminTest\Model\Entity\UserTest</full_name>
+      <docblock line="11">
+        <description><![CDATA[Tests for Model Service UserDAO]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="11" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+        <tag line="11" name="group" description="Entity"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="20" namespace="AdminTest\Model\Entity" package="Default">
+        <name>$daoName</name>
+        <default><![CDATA['Admin\Model\DAO\UserDAO']]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="10" namespace="Application\Controller" package="Default">
-        <name>$controllerRoute</name>
-        <default><![CDATA['application']]></default>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Application\Controller" line="12" package="Default">
-        <name>test404</name>
-        <full_name>test404</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Model\Entity" line="26" package="Default">
+        <name>retrieveUser</name>
+        <full_name>retrieveUser</full_name>
+        <docblock line="22">
+          <description><![CDATA[Retrieve a filled user.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="22" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="26">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Model\Entity" line="44" package="Default">
+        <name>getDAO</name>
+        <full_name>getDAO</full_name>
+        <docblock line="40">
+          <description><![CDATA[Retrieves the DAO.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="return" description="" type="\Admin\Model\DAO\UserDAOInterface">
+            <type by_reference="false">\Admin\Model\DAO\UserDAOInterface</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Model\Entity" line="51" package="Default">
+        <name>testInputFilterImplementation</name>
+        <full_name>testInputFilterImplementation</full_name>
+        <docblock line="48">
+          <description><![CDATA[Test implementation of InputFilter to attributes.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Model\Entity" line="76" package="Default">
+        <name>testAttributesFilterRules</name>
+        <full_name>testAttributesFilterRules</full_name>
+        <docblock line="73">
+          <description><![CDATA[Test implmentation of filters to attributes.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Model\Entity" line="107" package="Default">
+        <name>testAtributesValidationRules</name>
+        <full_name>testAtributesValidationRules</full_name>
+        <docblock line="104">
+          <description><![CDATA[Test implementation of validation to attributes.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
       </method>
     </class>
     <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file module\Application\tests\src\Application\Controller\IndexControllerTest.php</error>
-      <error line="7" code="50000">No DocBlock was found for \Application\Controller\IndexControllerTest</error>
-      <error line="9" code="50018">No DocBlock was found for property $controllerFQDN</error>
-      <error line="10" code="50018">No DocBlock was found for property $controllerRoute</error>
-      <error line="12" code="50010">No DocBlock was found for method test404()</error>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\test\src\AdmimTest\Model\Entity\UserTest.php</error>
+      <error line="20" code="50018">No DocBlock was found for property $daoName</error>
+      <error line="22" code="50015">Argument $name is missing from the Docblock of retrieveUser()</error>
     </parse_markers>
-    <source>eJx9kU9LAzEQxe+Ffoc5FHYLXfDQ2+qKrAoeFK0eF8o0O7oL2yTNTKAg/e4mdfvXYk5J5r3fvGGub21jh4PhQOOS2KIiuLO2axVKa3RVGi3OdB25PIo8E5TGUfVBLEfF+CyRaStSHTLDk65pfaoAWgvpmuGvEb6jE8KxzggpoRpGai97fLt/gRtILkerznol+T+omfFCkYUHVpLvu/tF+IRPr1UsgIR806tpOo4BoT8jaVrOChdJzyiqyQomeUWHyzTBrTGZQH+bazRzWrccRhdKxvkRxxH7TkKYnnhImRV1G7YR2OmuG618CHPut0YzXSZ8kcx6QXpi+5WGJZGTh5XHjtMw4+TA23rfBcVzaerg3tk3w8HmB97puHg=</source>
+  </file>
+  <file path="module\Admin\test\src\AdmimTest\Service\AuthServiceTest.php" hash="afea57f232b2edc05f9bb5b50b16e86d" package="Default">
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="AuthService">Admin\Service\AuthService</namespace-alias>
+    <namespace-alias name="ServiceTestCase">Core\Test\ServiceTestCase</namespace-alias>
+    <namespace-alias name="DateTime">DateTime</namespace-alias>
+    <namespace-alias name="AuthenticationService">Zend\Authentication\AuthenticationService</namespace-alias>
+    <class final="false" abstract="false" namespace="AdminTest\Service" line="15" package="Default">
+      <extends>\Core\Test\ServiceTestCase</extends>
+      <name>AuthServiceTest</name>
+      <full_name>\AdminTest\Service\AuthServiceTest</full_name>
+      <docblock line="11">
+        <description><![CDATA[]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="11" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+        <tag line="11" name="group" description="Service"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="20" package="Default">
+        <name>getAuthService</name>
+        <full_name>getAuthService</full_name>
+        <docblock line="17">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="17" name="return" description="" type="\Admin\Service\AuthService">
+            <type by_reference="false">\Admin\Service\AuthService</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="24" package="Default">
+        <name>testAuthentication</name>
+        <full_name>testAuthentication</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="41" package="Default">
+        <name>testAuthenticationInvalidPassword</name>
+        <full_name>testAuthenticationInvalidPassword</full_name>
+        <docblock line="37">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="37" name="expectedException" description="Exception"/>
+          <tag line="37" name="expectedExceptionMessage" description="Invalid username or password."/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="52" package="Default">
+        <name>testAuthenticationUserNorExists</name>
+        <full_name>testAuthenticationUserNorExists</full_name>
+        <docblock line="48">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="expectedException" description="Exception"/>
+          <tag line="48" name="expectedExceptionMessage" description="Invalid username or password."/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="60" package="Default">
+        <name>testAuthorizationNotAutheticatedGuest</name>
+        <full_name>testAuthorizationNotAutheticatedGuest</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="73" package="Default">
+        <name>testAuthorizationNotAutheticatedGuestNotAllowedResource</name>
+        <full_name>testAuthorizationNotAutheticatedGuestNotAllowedResource</full_name>
+        <docblock line="69">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="69" name="expectedException" description="Exception"/>
+          <tag line="69" name="expectedExceptionMessage" description="You was not allowed for use Admin\Controller\Index.index."/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="81" package="Default">
+        <name>testAuthorizationAuthenficatedGuest</name>
+        <full_name>testAuthorizationAuthenficatedGuest</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="98" package="Default">
+        <name>testAuthorizationAuthenficatedGuestNotAllowedResource</name>
+        <full_name>testAuthorizationAuthenficatedGuestNotAllowedResource</full_name>
+        <docblock line="94">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="94" name="expectedException" description="Exception"/>
+          <tag line="94" name="expectedExceptionMessage" description="User guest was not allowed for use Admin\Controller\Index.index."/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="110" package="Default">
+        <name>testAuthorizationAdminUser</name>
+        <full_name>testAuthorizationAdminUser</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="127" package="Default">
+        <name>testLogout</name>
+        <full_name>testLogout</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="142" package="Default">
+        <name>returnUser</name>
+        <full_name>returnUser</full_name>
+        <argument line="142">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="142">
+          <name>$role</name>
+          <default><![CDATA['admin']]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="161" package="Default">
+        <name>getAlterConfig</name>
+        <full_name>getAlterConfig</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\test\src\AdmimTest\Service\AuthServiceTest.php</error>
+      <critical line="11" code="50005">No short description for class \AdminTest\Service\AuthServiceTest</critical>
+      <error line="17" code="50012">No short description for method getAuthService()</error>
+      <error line="24" code="50010">No DocBlock was found for method testAuthentication()</error>
+      <error line="37" code="50012">No short description for method testAuthenticationInvalidPassword()</error>
+      <error line="48" code="50012">No short description for method testAuthenticationUserNorExists()</error>
+      <error line="60" code="50010">No DocBlock was found for method testAuthorizationNotAutheticatedGuest()</error>
+      <error line="69" code="50012">No short description for method testAuthorizationNotAutheticatedGuestNotAllowedResource()</error>
+      <error line="81" code="50010">No DocBlock was found for method testAuthorizationAuthenficatedGuest()</error>
+      <error line="94" code="50012">No short description for method testAuthorizationAuthenficatedGuestNotAllowedResource()</error>
+      <error line="110" code="50010">No DocBlock was found for method testAuthorizationAdminUser()</error>
+      <error line="127" code="50010">No DocBlock was found for method testLogout()</error>
+      <error line="142" code="50010">No DocBlock was found for method returnUser()</error>
+      <error line="161" code="50010">No DocBlock was found for method getAlterConfig()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Admin\test\src\AdmimTest\Service\UserDAOServiceTest.php" hash="77de64a0f02babf55b0d27c7a871a528" package="Default">
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="UserDAOService">Admin\Service\UserDAOService</namespace-alias>
+    <namespace-alias name="EntityTest">AdminTest\Service\EntityTest</namespace-alias>
+    <namespace-alias name="DAOException">Core\Model\DAO\Exception\DAOException</namespace-alias>
+    <namespace-alias name="Entity">Core\Model\Entity\Entity</namespace-alias>
+    <namespace-alias name="ServiceTestCase">Core\Test\ServiceTestCase</namespace-alias>
+    <namespace-alias name="DateTime">DateTime</namespace-alias>
+    <class final="false" abstract="false" namespace="AdminTest\Service" line="18" package="Default">
+      <extends>\Core\Test\ServiceTestCase</extends>
+      <name>UserDAOServiceTest</name>
+      <full_name>\AdminTest\Service\UserDAOServiceTest</full_name>
+      <docblock line="13">
+        <description><![CDATA[]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="13" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+        <tag line="13" name="group" description="DAOService"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="AdminTest\Service" line="24" package="Default">
+        <name>getDAOService</name>
+        <full_name>getDAOService</full_name>
+        <docblock line="20">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="20" name="return" description="" type="\Admin\Service\UserDAOService">
+            <type by_reference="false">\Admin\Service\UserDAOService</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="28" package="Default">
+        <name>testSave</name>
+        <full_name>testSave</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="58" package="Default">
+        <name>testFindById</name>
+        <full_name>testFindById</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="78" package="Default">
+        <name>testFindByUsername</name>
+        <full_name>testFindByUsername</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="96" package="Default">
+        <name>testChangePassword</name>
+        <full_name>testChangePassword</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="177" package="Default">
+        <name>testFetchAll</name>
+        <full_name>testFetchAll</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="219" package="Default">
+        <name>testFetchByParam</name>
+        <full_name>testFetchByParam</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="AdminTest\Service" line="259" package="Default">
+        <name>newUser</name>
+        <full_name>newUser</full_name>
+        <docblock line="254">
+          <description><![CDATA[Makes a basic User;]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="254" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="254" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="259">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <class final="false" abstract="false" namespace="AdminTest\Service" line="273" package="Default">
+      <extends>\Core\Model\Entity\Entity</extends>
+      <name>EntityTest</name>
+      <full_name>\AdminTest\Service\EntityTest</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="AdminTest\Service" line="275" package="Default">
+        <name>getInputFilter</name>
+        <full_name>getInputFilter</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\test\src\AdmimTest\Service\UserDAOServiceTest.php</error>
+      <critical line="13" code="50005">No short description for class \AdminTest\Service\UserDAOServiceTest</critical>
+      <error line="20" code="50012">No short description for method getDAOService()</error>
+      <error line="28" code="50010">No DocBlock was found for method testSave()</error>
+      <error line="58" code="50010">No DocBlock was found for method testFindById()</error>
+      <error line="78" code="50010">No DocBlock was found for method testFindByUsername()</error>
+      <error line="96" code="50010">No DocBlock was found for method testChangePassword()</error>
+      <error line="177" code="50010">No DocBlock was found for method testFetchAll()</error>
+      <error line="219" code="50010">No DocBlock was found for method testFetchByParam()</error>
+      <error line="273" code="50000">No DocBlock was found for \AdminTest\Service\EntityTest</error>
+      <error line="275" code="50010">No DocBlock was found for method getInputFilter()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Application\Module.php" hash="523514c4930d08ccb1885d04c6e45713" package="Default">
+    <namespace-alias name="ModuleRouteListener">Zend\Mvc\ModuleRouteListener</namespace-alias>
+    <namespace-alias name="MvcEvent">Zend\Mvc\MvcEvent</namespace-alias>
+    <include line="30" type="Include" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="Application" line="18" package="Default">
+      <extends/>
+      <name>Module</name>
+      <full_name>\Application\Module</full_name>
+      <docblock line="15">
+        <description><![CDATA[Bootstrap module class]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Application" line="20" package="Default">
+        <name>onBootstrap</name>
+        <full_name>onBootstrap</full_name>
+        <argument line="20">
+          <name>$e</name>
+          <default><![CDATA[]]></default>
+          <type>\Zend\Mvc\MvcEvent</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Application" line="28" package="Default">
+        <name>getConfig</name>
+        <full_name>getConfig</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Application" line="33" package="Default">
+        <name>getAutoloaderConfig</name>
+        <full_name>getAutoloaderConfig</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Application\Module.php</error>
+      <error line="20" code="50010">No DocBlock was found for method onBootstrap()</error>
+      <error line="28" code="50010">No DocBlock was found for method getConfig()</error>
+      <error line="33" code="50010">No DocBlock was found for method getAutoloaderConfig()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Application\src\ApplicationTest\Controller\IndexController.php" hash="8cf36dd2824521a48ac91969f4c37129" package="Default">
+    <namespace-alias name="AbstractActionController">Zend\Mvc\Controller\AbstractActionController</namespace-alias>
+    <namespace-alias name="ViewModel">Zend\View\Model\ViewModel</namespace-alias>
+    <class final="false" abstract="false" namespace="ApplicationTest\Controller" line="16" package="Default">
+      <extends>\Zend\Mvc\Controller\AbstractActionController</extends>
+      <name>IndexController</name>
+      <full_name>\ApplicationTest\Controller\IndexController</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ApplicationTest\Controller" line="18" package="Default">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="ApplicationTest\Controller" line="27" package="Default">
+        <name>varargs</name>
+        <full_name>varargs</full_name>
+        <argument line="27">
+          <name>$args</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Application\src\ApplicationTest\Controller\IndexController.php</error>
+      <error line="16" code="50000">No DocBlock was found for \ApplicationTest\Controller\IndexController</error>
+      <error line="18" code="50010">No DocBlock was found for method indexAction()</error>
+      <error line="27" code="50010">No DocBlock was found for method varargs()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Core\Module.php" hash="936eb5e1d8ce8b38f946f514cdad54e0" package="Default">
+    <namespace-alias name="ModuleRouteListener">Zend\Mvc\ModuleRouteListener</namespace-alias>
+    <namespace-alias name="AbstractValidator">Zend\Validator\AbstractValidator</namespace-alias>
+    <include line="20" type="Include" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="Core" line="8" package="Default">
+      <extends/>
+      <name>Module</name>
+      <full_name>\Core\Module</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core" line="10" package="Default">
+        <name>onBootstrap</name>
+        <full_name>onBootstrap</full_name>
+        <argument line="10">
+          <name>$e</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core" line="19" package="Default">
+        <name>getConfig</name>
+        <full_name>getConfig</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core" line="23" package="Default">
+        <name>getAutoloaderConfig</name>
+        <full_name>getAutoloaderConfig</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\Module.php</error>
+      <error line="8" code="50000">No DocBlock was found for \Core\Module</error>
+      <error line="10" code="50010">No DocBlock was found for method onBootstrap()</error>
+      <error line="19" code="50010">No DocBlock was found for method getConfig()</error>
+      <error line="23" code="50010">No DocBlock was found for method getAutoloaderConfig()</error>
+    </parse_markers>
   </file>
   <file path="module\Core\src\Core\Acl\Builder.php" hash="a3720c323bb72ecef320af1b105bcce3" package="Default">
     <namespace-alias name="Service">Core\Service\Service</namespace-alias>
@@ -825,7 +1232,6 @@
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Acl\Builder.php</error>
     </parse_markers>
-    <source>eJydk01P4zAQhu+V+h/mUClJBe19S0qhBy4c0HJb6MF1Jq0l1478UVit+t937DglqAUBvtiej3eeGSdX1822GQ6GA8V2aBvGEZba4PMNl7Ng9jYZHtHsBT/us9b1B1X1/IBmJ6wVWtmQl3I/dP9Gq70hqTtUaATv7sAsdOdP87V8y6VzzKM98k7H4+EAxrCUzFow6IzAPVpgUAspsYKb5f0EYsiCebfVBu49J4VKW3hkytHG1gY9XMlgn9hJvC42OybkhOvdPCRPhwMeK9x6ISs0gK+OWEmiHQ/8CzBAqwUKi6CoBWe0IBrCOJoXhOmNAmoOOuO0PTR+LQWH2ivuaACwDuXyIshDWiOuVS02UMLIbYW9nG/QJYo8W0ZfVsx68YzKlKDwJRTM+66aHprxLeRJ8ymj2Gz1lBkar81WYdKjcIZyDqOGGVTuHUunfzlnVRXeJA9l4oEad1rqFzR5lCiKi04CypJ4vJRw3W6/oB+d6vRBD19hTp/SkfsT0hTa0nYXyvhuzcaIvZC4wZNZdY4TCFFDTl83uvwtiPQkNZ+tipPw9+VPM2LZ5mxar+UQ2z5DeIR+l2e6PXM9D12h+vst5jbhS8gh9KfEh+5fDCv9a0E1iUT34T/zDGa9</source>
   </file>
   <file path="module\Core\src\Core\Authentification\Doctrine\DoctrineAdapter.php" hash="883c4e819ff5f2c54f90bab097f8c9cd" package="Default">
     <namespace-alias name="ObjectRepository">DoctrineModule\Authentication\Adapter\ObjectRepository</namespace-alias>
@@ -876,7 +1282,6 @@
       <error line="31" code="50010">No DocBlock was found for method setCredential()</error>
       <error line="36" code="50010">No DocBlock was found for method setIdentity()</error>
     </parse_markers>
-    <source>eJyNUstOQjEQ3ZPwD7NgoUbhAyAoURcmGhMlLgyboR2gprdz02kTjfrvtvdWEB9IF31Mz5lzptPRab2qu51ux2FFUqMiOGdPs0kMK3LBLIzCYNjNLlgFbxwNMzgKwWfghnW0G0KBTzTWgfzsdv5EKtxRzWIC+5dhS34kp/+iPKA1GgPOLZXQlUvTInlrxAdH3Q4cwZRBrdAtCcLKCASqaouBjlOUOUlMma3AG0zLhTQsdBq4JpdItOaAac+ks8d+Bg5apVbq8jmQk+QReAEjxZrG3+saDZowRDFuWTA7CinwRqqROBMi+J50c7MjVQNqkZgelD1cR4UCmgXu0YW0TOaeIoxsjvelj/l4tqzQ2L7ialzqVRZF1m0tMkC5di0/vIFJb0dV6p/scgev+SEhjTrOrVGwiE7ldsOSwrknnT8A2oPDDIQyPIXoHfRyY0/GW8AkFengcNiC33ckv2oY4eWf1J+wPRPLluueWu+3VEp6+en8K2P4u609LKxr65my+0N+u7oNeg/pZjpNn+MDlk5XFg==</source>
   </file>
   <file path="module\Core\src\Core\Model\DAO\DAOInterface.php" hash="8632d3f8038cb3fd3a04e477b51541b2" package="Default">
     <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
@@ -1059,7 +1464,6 @@ ways:</p>
       <error line="59" code="50015">Argument $initial is missing from the Docblock of fetchAll()</error>
       <error line="74" code="50015">Argument $orderBy is missing from the Docblock of getAdapterPaginator()</error>
     </parse_markers>
-    <source>eJydVd9P2zAQfq/U/+Ee+tAhFrQ9Ahu0wEOlsaHxtnWarsmlteTYme20RNv+953jJA0tJbBISWzfr+++O9vnF/kqHw6GA4UZ2RxjgittaH6rE5Lz68mXMy8s7O6yf2fKkUnZ5OxJjZuHmHIntPKzdrKve6OccGX9q8XfSCXzO1wKhU6b+STBnGM1/93AlfY9mbWI6RYVLln18XSyQUNds+Hg5OhoOIAjmKIVMYhGBqk2wIAhlmgt2cgrVYqXWLgVCz8VMVpItIV7VI5/k4WhAs6lX49shH56ucxQyCjW2UdvfDIcbCN0qQN6cIyefT2DF357wMBPAO2fI/hKzghakwW3IvD1A50CVTTCUgu1BKdhQZBVPhNYlFFrfGnIFUaBZR+s2KyfhEFeLCSTkhYq9jWDJblQnitPymcONX5z1o9JKOtQxV1cC7SMRCRRG3I7mKUwu/a6FfUgLCjt3hZK/CoI0LHnReHomF2jC58YlU8w95Xy+YHb6NbdBkt7uh/lEf2np6lQybScJeORSN4dA3/fV98oinyKjdF2pM127J9ex2gMlk+57/jf1iVHgxlUNn8y8cBpjX5yczAFNZGVgvWlFYknNS1rbveLG2rWU9sW59MVnSlLxnHWUOQJOoagaD9gQB3iwYjFPVg6CbuV0RsL3TMCbozhgEI1XbNGWYSt+FwmFtc07mA41KKZbho0wP6PbLqlflVOXEBDEqsVnvL+cNSXl6kQvySzZvOhlD4rntnt3jvUH99/hAEr97UKuXg1kXI8kiIT3AsfQBVS+oZWbI+yXuiFF/q7heZhhoOBg4T+3qtGsBgF6a7Qn618akKN66BYp6mlQ735Sh6m5V2FZfwI2THscROC9lHDODwx7Z0H9V33MmKao2KXnjrB3Xuz/7ivLVo4421+2iRkpmUnob8+pwu+6P4BWdV3Uw==</source>
   </file>
   <file path="module\Core\src\Core\Model\DAO\Doctrine\AbstractDoctrineDAO.php" hash="865d45daa7d1dd2d8279d72b3bf74dc1" package="Default">
     <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
@@ -1298,7 +1702,6 @@ ways:</p>
       <error line="174" code="50010">No DocBlock was found for method getEntityClassName()</error>
       <error line="178" code="50010">No DocBlock was found for method getIdColumns()</error>
     </parse_markers>
-    <source>eJytWG1P4zgQ/l6p/8G76m0TDsrymaVsYe8kpOXg4D6cRBFyE7e1Nom7tlOo7vjvN3bsxHmvOPKhL/bMeJ5nxjN2vpxv1pvhYDhIcEzEBgcEXTJO5tcsJNH82+xm/o0FktOEnCqpVNTnZzdXiSR8CbqnzRLGwny2EJLjQNoBmKxr/JZIKnfmy52+J3xLg/zbTOXGb+6ujdI1TvCK8HaBO7JhgkrGd00yf6aE7y5SGoXNNv5iLBLzW7yiCZaUJfYnq0qDMEBKI1JIzGch3gBZOSeu7nBwfHAwHKADdIEFDRCNNxGJCZAbImyoQ0GEhUBLxhGwhxZYwCRL8jWVujbxFadyDVLf0wALFDKB7nEi4Wu24CRFXyI1PhETrP5+XcWYRpOAxVOjbJZT/46Hg8rqDXFE5EWSJIRVsugUzgvkZgj6R+FE8GRY1QPrbTFHmHO8s0PH2Y8Np1ssCRo90fCSRWmcCHSGkjSKTlvtCOXTqs2QRvAHJHuXnTsCNsiWILkGJImQOAHX2RKVEqxYlhOZ8qR51jqQLiKI6TJNApU0aEVkSdzzFTXIPMbgSK6pOJqCrKHVG7fn+9g/zQy8dkESGlOxA2CpCNJYYWUo1pZCRLTdSQvAQrkfYyHbA7BChh5zlKuClzaMnt8J+5JB9HgagBEVPx39AtYGcxybhHFTQ39YcbRiajqnZ9KD+ukpsIt6hc0SeoNG1NE4ClVY1XWWRAbrWRR5o4jGVNqEPkQjtlyCafO/vPBPVdxgpuBTlzvPaGaWchO+I2H9caOnrR1NyQsJUkm8/Vy+2N0q2oWnNzwa6SCIfPH/BaNq7N2QVLYS6AiEUeYGZIbRK+px5sekmmoa8r8xfQEp42tVhEKphC1gELTOZrBqO9RtXrUSyCQJVDNxN2iJt4J7vfh+oViU4uBu+KNpwAlUXdcpbwzFRZeqwgZdotyDD2cNi1ghKp40g1bar0lZyYCliczFtNXPjcLl4FafUkt5eGyTOm6eAG5uLa+Z32XcJVmchIrInwuVhRtdAmHo7w4VOAQQHKwL7qDRjwLdJdHZVNczOI60olZPmVSj0KlhfQXvwtArubsg8pmQREd4MkYT68wh+nj+Ef6amFhSfDvuVSfQr+jE991t2snuw6MiLnP+4fPjm9ROutReEYkE6WNFcQmJAulvmTxE41/GPppC6nWrar+aSY3oD7I3o72cKRxvdoX8fD9H3hCjrgA1T722bjYF63lNODRcwNrmrBaDuqd9IXCCFQ7EBp2KG68tdLurb2rGXmuVMavFH0xdLNuzLl7jlzsi0kgKI99QYU0R7zb0O+VCZqasRtlU3jEXfd0euoG57uS3HKdBMw7d4GK3T08p9agmYMZUM7KiTFq5Sp3Uww07VFNidLw84Y14yQtwzQBUcMgzcgArI8XRw430CGfsGJ3aldArzDaHwOj3nrpoEl7srsLyCXxEVb9RQk/gHrSAlfDq3JqNTUMfQQs9QZ8+oaJf0BDKrV9hrnyyV2tbQQd6fWM0q9VPlPVDjJY1Z0nlp4vxB9mJUipd2WtkBesouQpbunSRP8CYSp0kjXXebHGU1tursvSgF35Qko+6gmnRtk1euwuVz1AZF2C193gt8JZ42Y0CjaBSN905mq5aG6hsVECYlc7pXirLKBXrmoJFAsN9vnISs7d5azTfzVml13Xcv4eaqe7M2aV4LMytUL0wa70atl4tawf2hncp/ef27otjA4/uW49Cck8yWl9dOJfw9rt9dbWurVzeoK5NXeczg+6roLbLQoNoz7sGjeWaSKipEnvj+VyfcjreOhxNaahSYknzCtyzswtvXCr0x/l0OPgPPoL2kA==</source>
   </file>
   <file path="module\Core\src\Core\Model\DAO\Exception\DAOException.php" hash="31423df17c60b11b4d2a6c5b6c48cb4f" package="Default">
     <namespace-alias name="Exception">Exception</namespace-alias>
@@ -1315,7 +1718,6 @@ ways:</p>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Model\DAO\Exception\DAOException.php</error>
     </parse_markers>
-    <source>eJxVj7kOwjAMhvdIeQfPHcoDgLjZOAbWLiY1tChtojgRSIh3x+EUWaLY//FlNPGN12pQFFpBAVvsiD0agqMLQFdDPrauh0AWI9VwaWMD7nAmE8FT4JYj9YbKbB5o1X/tCxeo2riabLWc7arVJ2molVaJCf4nn/45yspYZH4CmMTRdSAJPxaGrHyqp5hiI7J1MshQO4Y99lGu2SFQgpHN85JLzM/pqcPWlsZ14zftq0fCvyzSIv+p+UcHNxHL0eqeOSfifQD3ol/c</source>
   </file>
   <file path="module\Core\src\Core\Model\Entity\Entity.php" hash="d2dfe010ecb25ca7ad10eaee71fc9f75" package="Default">
     <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
@@ -1547,7 +1949,6 @@ ways:</p>
       <error line="144" code="50010">No DocBlock was found for method serialize()</error>
       <error line="148" code="50010">No DocBlock was found for method unserialize()</error>
     </parse_markers>
-    <source>eJzNVtuO0zAQfa/UfxhWlZqulvadwrJluWglLhILPMCiyk3c1pDYke1styA+BvEp/BjjS1OnTbIXeCDabePOeDznjD3HDx/ny7zb6XY4yajKSUzhVEh68UokNL14xjXT67GxF6pieTp5Y/7PuKZyjrPGtR7PrmKaaya4GZUD73vGL0nKkolcFBnletd8TiVD+zcySzfRP1KeXJzxvNDPWYoLh+83cJmsiKS7GbdNCH27ndHhYbcDh/CE4LQ4JUrBXEighiNGFWSEkwVNYLbeoaEMM7Tz7ceJohRCW2AihV5i4JdFTBQkQsE54Rq/JjNJC3iYmt+HakjM8GSREZYOY5EdlxFG3Q6ZKS1JrH2ero7AsjylhmtVYfcIGkmC7wY54OPQm+cQnKcqx+XLySWRYbCNYeRecik0jTVy1GNbJ3gEvEjTcd1K51QD4QnYnUI0hTmjqR0WtFx/u3xOJMkAoTO+gN5Xum4y2QBbo6S6kBwuBUt2Uy5mKYthXvDY7E2YThXVkQl95KMMDEfgn55eMnX/2NgRlh/Z5Ktzxm7KjzrMbSh8ohm7QhKvTXXhU62k6EMEmbYlYwuQpm6XrwFrQGCGByABxrEyQKQka1gxvbS2ppI4t17ochvWkfOnODWyASpo8ARSEi/BmQAPjOP+uK46QYVq6jjeOv5oYeSty3qXFLbhAjPKiN4nwqO1TtfAXXi41a1ll3lkjFMx+4LnaIqnTUUWUJh8wS004/6pH5yz/ufQK0xnOrcOnt627fBeuQb3zvSNF3ggV1sw/7jm9CpeEr6gExOmpvK+kNWt8Z/kjjWyaZ+KfB21nL6y0DfoB3W6VOmjdzxYQdzo2jUqWPRSihVwuoJQ3aOD10IDSmty0ArLa9K8qiV7IJrVpNS4GvZDUINaZfHaUxGXtg7WIiquGzdoijU26mCZc41GhFSzOUT3tpumAm9QbXCbHWaDlNBtveR6rxvONxLcENz+4kQk7I8QE226btMdDnr7nXc04r9/CTzXTFkhT7UUYBgEqsyNimS5aIdSLh+i8hBsJ/hgHKP9fu7o2zgy9cGyPdgXByqlkArpMFclvL9F/SPAv3IqkvEKs8V7nsLpFXYtww0nwlKKEnH5+ycuLB54kYK+S7U/3Kx8MGiCueEiyMSjDWrzF33vFvKkhevJd2ls+w3I3UNpbbSt1cctl742sFHBcnL5mrRJSNOUGtm0M8MU7MdjvIP/AaThwDo=</source>
   </file>
   <file path="module\Core\src\Core\Service\AbstractDAOService.php" hash="6f4ef7c6245b8884676262bbdfab6c87" package="Default">
     <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
@@ -1675,7 +2076,6 @@ ways:</p>
       <error line="52" code="50010">No DocBlock was found for method setDAOInterface()</error>
       <error line="57" code="50010">No DocBlock was found for method getDAOInterface()</error>
     </parse_markers>
-    <source>eJydVMlu2zAQvRvwP8xBB9lo7A9w6sROcgjQJUCuAYIxNZIIUKRAjtwKRf+9pCQ7imJXbglo4XDeMtyub8q8nE6mE40FuRIFwZ2x9PJMdi8FrcJQ5brgV5OQernffA/Po2ayKTY5g4wHzZLr7tMf7lgDvPs9yXJI65tYzufTCcxhs3NsUTAIhc7BD8k57NBJAcpk/s0GPDt00DaLXIA28FusODcWvlQCHSTGwTNq9p/NzlIF1yrEF26BoXubFSjVQphiHcDL6QTfqx/MvNUD9JNJJ+5oQBalooI0OzhRNfwKtYFvbX2heZN7tNCf4sPIsv0prWESTAlECRr4DLpSanVgKqud8hORVlqwNBpSqZNt/ZjEs6AGXbPEldUQcS7d1drTXK2PiQH6mhG/os1cPJutWtjvswrEIt8oFUdKFpKpc/QJIqklS1RdYNTAgOeN4DIL2/oJLRYuRmuxhqhsep5laMukqSP+F1dH6iHpkW3Uop/QTYKlX9InzKRGNrbHZmxCdluPe/I0/a0Rz5rQOPMl/toTexf29jd/H4zumFOQMRlLhdlT3OIg8ifjnUqfvkttclanjYypObxQq0k8p+TDo0KDZel3mmN6RtkveBj9z/I+bIa/LlifrXnd+HvtD29g0uU=</source>
   </file>
   <file path="module\Core\src\Core\Service\DAOServiceInterface.php" hash="7d8bb4893ebef5448e37f1e55c906b41" package="Default">
     <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
@@ -1712,7 +2112,6 @@ ways:</p>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Service\DAOServiceInterface.php</error>
     </parse_markers>
-    <source>eJxtUE1PwzAMvUfqf/BhB+ih/QFMrBtckIY49LqLm7o0qE2ixEFIiP9O0nZbEbOUL7/37Bdvd7a3mciExpG8RUnwZBydanKfStJDgoJfkq+mpeH0vH9L60UzuQ4nzoWxyBK+XNe0TJR5ngnI4YBRoc4QdMZBlICfNb6YSNNWYeA+wscg0UNrPNSoOR77xlGA7ZDyhS8wPav3EdVQSDM+JnGZiWuPG5aAvph062H9HfhORiHGbDZFDjWxB+6nMmCaD5J8wSqLDse/RTYtmivBEQenb1k4c8r5YkMzKAld0JKV0XEgvC5796/HfRzrTzK8iz/+BVuQjIg=</source>
   </file>
   <file path="module\Core\src\Core\Service\Factory\DAOServiceFactory.php" hash="3c5d8e2e825dfe5395a9b623aa76565c" package="Default">
     <namespace-alias name="Closure">Closure</namespace-alias>
@@ -1820,7 +2219,6 @@ ways:</p>
       <error line="35" code="50010">No DocBlock was found for method canCreateServiceWithName()</error>
       <error line="42" code="50010">No DocBlock was found for method createServiceWithName()</error>
     </parse_markers>
-    <source>eJzVVm1v2jAQ/o7Ef7hVqEmqFb6P0hZ1m1SpXaf1Q6WVqjLhAEuJzWyHthr899mxEychjG3fdhIvdu6ee3l8vpxdrJarbqfbYSRFuSIxwhUXOLlHsaYxTj6TWHHxNjQqmdQPEy4zgUO3Mqq3fIbJ5OP4znyumUIx1zBVjQJMP3d/m2qfXmNcKcqZW39HNivMbgkjCxST8VQqocNxITUh2kzc8obHRJtULbqdwclJtwMn4OCAz0HHB84E4oRIibJvdHK9S5KpJRdwk8VEwoxLuCdM6Z/xVGAGZ4nZ78s+McvLRUpo0o95em6MB93OnDKSWFTwdSic03SVYIpMGbj2NOGniRq0rARXGCucQU9aGAkjIEKQtzAaFlo2PyM69jURsKcYhdJgH7gz0C5YliTD3SjmGYsNd7BAdcXZnC7CyEQLTnoLu6sRempJ5el5Hfn0XBuGgVXKBDFYgU/ECJ1DSDUfKizAHgMH8pxasoOnCI6P4aDWYzAj/LkonLaKvBsjAlUmGPwFwtADYCKxFc6zYza3ZRGzaUJjX8GYsCuBRKEj64Gq5RfdmeEe8pokvYeeaWT9I/BHhlLTY8zrdLRxYLip71Sy6sUN/ipE12hyyToOrNVjPZSnwzX4jwtgzuk7l37Ni9wpA2w2cEAHRiPbdJFv/kJ8exfi2rzlkm0qDuobRd4+PcvjNZOKsBjv5vu4LJsjKGktQVMzFv4FMje0gO1xmoKp+k0fNrhrj+YPDX/jtTrhQgvaYnGI1RKzEuW2pY8OADUbqXrjf0MlKK71ZCBAXdHNiFsRQdK+Hwz5upjqGz15KFtAL9/1Si6cavL+oVoK/iL9BIeHJTJQS7S+gHEFU9RhOCege43AmiR05sahadgypJ0xVN4Luycod1Bv7TLXxrQyYprT2pQl0RVxYdVgmlDWKmy9OKpHbZsPgCaS8Ztn+oyvVCoZBpNJAH2HGu14zr3bOEfQUB62qFZzxpci2KbqtmU4Gcn5yw1LCsOjMbgkB7aN7ctR8W6UZtJxShhnNOWZ9DTl9HpiLdN9+GqC+uCCO4oOnfwip+oZz78u9AvVLxb4PUE=</source>
   </file>
   <file path="module\Core\src\Core\Service\Service.php" hash="642d304fb57f1f8fcd8c01d2f23ddee5" package="Default">
     <namespace-alias name="Service">Core\Service\Service</namespace-alias>
@@ -1886,7 +2284,6 @@ ways:</p>
       <error line="21" code="50010">No DocBlock was found for method getServiceManager()</error>
       <error line="25" code="50010">No DocBlock was found for method setServiceManager()</error>
     </parse_markers>
-    <source>eJyNUk1Pg0AQvZPwH+bAoTaR/oDW2saTiXqwN+NlClPYhF1wZxc16n93l0IFpMY5LMzXm7fzdnVd5VUYhIFCSVxhQnBTanreka5FQkufsjwM9pI+9UQq7UL3qDAjPXL/Xbh9RU23ypA+YDt8MZ+HAcyhLYQ9OqSkQGYfblIbtCYvNdzZBBnSkmGHyrjPdq/Jwqrw8Zhj9O4mkyiKOCnl2jcvwqABO+ELWRUkSZlTaJIbfHhy4OxI0JtjUqMetXW5xfGn0qJGQxDxoAquQNmiWHagld0XIoGDVYkRpYKMzBB2duEZQGuajNUKIpMLvlzzePm+5OscNP+CHrpjqoPBkxPdZaJJDmOqY2r9VT6S0YJqYkDgTvt3MDmBf6rxz84r1CiBXbnKIPJJePBHeXDDXiyxobSD6LW1RDrdP0GKN0rHcp3VYdZM+kOFCcmaYNvYv3tzXLv3+A36KBlB</source>
   </file>
   <file path="module\Core\src\Core\Test\Bootstrap.php" hash="9f42062b1fb4a4f143810f92a0b2a544" package="Default">
     <namespace-alias name="AutoloaderFactory">Zend\Loader\AutoloaderFactory</namespace-alias>
@@ -2198,7 +2595,6 @@ ways:</p>
       <critical line="57" code="50019">No short description for property $configuration</critical>
       <error line="122" code="50010">No DocBlock was found for method reset()</error>
     </parse_markers>
-    <source>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</source>
   </file>
   <file path="module\Core\src\Core\Test\ControllerTestCase.php" hash="3bd4296211b856825ad20b6a590a687f" package="Default">
     <namespace-alias name="Request">Zend\Http\Request</namespace-alias>
@@ -2303,7 +2699,6 @@ of the tested controller]]></description>
       <error line="62" code="50010">No DocBlock was found for method setup()</error>
       <error line="83" code="50010">No DocBlock was found for method tearDown()</error>
     </parse_markers>
-    <source>eJylVE1v2kAQvSPxH+YQKYBScU+atIi06qFUahLl0NLDsoxhK7Pr7I6hUZX/3vGusQ1ek0i1hFjvvPl688bvP2TrrN/TYoMuExJhaizOH9DRVb/X7+UO4Qfq5fwLUTa/w6c8WI7vXWa0w6ZhtpXzqdFkTZqinU8WjqyQNJGkjK4Nxy78+7RFTcf3dyYnDuP/ZoLk2pcnyqggU+Ec1GGLBqaCA+Af4hAO9hf93t9+D/gZj0bhACN4WCMcFwY7BGERiB2VXu2xlc/HrbDQ1dUeNQ6HzBpCSbiEM9nsvF3JBGzgGMziN7vE05Zz6M5iq0HFU4RxvZIjgE4lqaYep3RTzImRthgaJMYC8a1ssXSUuBrxidSHMmi1qGH2OAUshARkYMGjdE6tNPvy61uq2OuwuwYsZRrvvSGkJE/TZ3jKRaoSxZ5LsxFKQ7FyF+AMoJDrmHSl0CAtCuaOT0o7ElpW8wCT+EYKfXLQ1/phnTZUfEqXn7/ffutsK4yyxeEF8wtLTFTBMPdWWhO1yq0oVgMSlaL739K8NKrasnyRKsn0ar994JDybDAMxnLLPY7XWNPlZWm/qi31KSjKwTWc0Vq5dzcrJJ/NdTkEWF0bu2rcte89nTAelwaHdqska1eLFVqfZxD1aaYtAftPAz8hWfkdGMSw1YbssdXFQFgrnge1S/Gcewd7Dtc3ELPXGHcSE+XG5y68Spp/xhG/2uGGh1eN12GkaSbTL+1gWBBNjZZbrLxxqj5OiNnKESngyPE+DPurkYKMbUS4P1BBHeqlS9uEwt6anT4h7xrSqCvn73NEYJ2QUmLd9haBXPLLP4HKXFo=</source>
   </file>
   <file path="module\Core\src\Core\Test\ModelTestCase.php" hash="0111d8a544dd67a5633d67879dc495a0" package="Default">
     <class final="false" abstract="false" namespace="Core\Test" line="4" package="Default">
@@ -2315,7 +2710,6 @@ of the tested controller]]></description>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Test\ModelTestCase.php</error>
       <error line="4" code="50000">No DocBlock was found for \Core\Test\ModelTestCase</error>
     </parse_markers>
-    <source>eJyzsS/IKODlykvMTS0uSExOVXDOL0qNCUktLrHm5eLlSkwqLilKTC5RSM5JLC5W8M1PSc0BSTonFqcqpFaUpOalFCvABHi5qkF6agG3/Bvh</source>
   </file>
   <file path="module\Core\src\Core\Test\ServiceTestCase.php" hash="7132ada2b1fb81fe4997b7b4d24ac1cd" package="Default">
     <class final="false" abstract="false" namespace="Core\Test" line="5" package="Default">
@@ -2327,7 +2721,6 @@ of the tested controller]]></description>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Test\ServiceTestCase.php</error>
       <error line="5" code="50000">No DocBlock was found for \Core\Test\ServiceTestCase</error>
     </parse_markers>
-    <source>eJyzsS/IKODl4uXKS8xNLS5ITE5VcM4vSo0JSS0usQaJJyYVlxQlJpcoJOckFhcrBKcWlWUmp4KknROLUxVSK0pS81KKFeAC1bxcCkDAy1ULAFxlHWE=</source>
   </file>
   <file path="module\Core\src\Core\Test\TestCase.php" hash="705e86c4cb418066d7a19762a1216e7f" package="Default">
     <namespace-alias name="Bootstrap">Core\Test\Bootstrap</namespace-alias>
@@ -2479,7 +2872,17 @@ of the tested controller]]></description>
       <error line="88" code="50012">No short description for method getAdapter()</error>
       <error line="96" code="50010">No DocBlock was found for method getApplication()</error>
     </parse_markers>
-    <source>eJzVV9tu2kAQfUfiH+YByQa10L5CaUvAJFFKQiGRmobIWuwFrJi1s16Toir/3lljG18gDmlatZai2Dsze+acnTHjD5/chVsulUuMLKnnEoNC1+F0ckk90ZLrvpdYmRw5jvAEJ25rY/lOmTnpTScdk7iC8uh/0jpYGZOO69qWQYTlsKwJ/7QVZSK5PqZ8ZRl0QBiZ46bh4xcHd3B454FwesoQZYbZFoeFjwGZRq1WLkENjgjGSELQlXeGTTxPGhrlEplKfobYLAZOgQ/9IRDDg8nwZHjFLKH3OSr24PA7Pfb5KTEArw2OvGrQ9TlHfkC2GsS2zyvCoZM3NDY3LncENQQ1oUJSCuZRRlT4nHkgFkgnRJxGhwUW8wRhBq1vkXkQAPGBZqH9KeLBzGeGxIQ5FbGrWpVMIbyyGzWb6HsaAqrV1sbzMUo6u7GH4ZkdXSLTbzZDU2trqYiF5b39mBAD2tFiOsPgOaHsrm0MTomgPSLIFE+vOFVBCe85D2x3tltrHsnkjpvD2UuI+bad98ny4xT1ySedLIrokFeOZRacb1aLJMOKOQ37OqV2uBaksHW2ZqCiUQ/aR92GBiFDm4iZw5dqtQrtNijZ10dkn4zvbUtQJZVGwK5BGZnaFNCLWnMGd3TtgSyjICDtnAS/9ylfq8pw1DkedKJoPYhuw8V5S3kDoW+z+fVKG13rg4uepmvftO7VpZY8ssfXZztYY/oHkF1K/0KuY+0S+hcj7fT4XD/TrvXuidY9GyPd9y9lW5E7W1RKZjHD9k36RPMNHNO36QhXsZrqoDRMLK6GwHdlXd7V8XdHSQBJjsRYgBqDEC8GzEmT875RNhWs3MZx62o6ZrdMG9dD9HiNdku/EP7ZZjMt7w90W79/WAH+pWbbR/Y3u+3d/9Vt65wy+3rmRpFVrNy+Su/kmijcs3gsiTtjx1Cy1Ss9DIaiqUovoqYU/vpn54n9cOlZbS9lHNlQ+RVNzWzpPPPzWtperE6W95MiZYsqG3wwm2i4z/OILMUMArcDEw9jnp2vbeGngDMD7vjYMvlsCedkXZzqKAg/MNco6FnJhicSGbaJ4hRKlgC4scXmUPHSftny2fkptffjY0c9qRHCS7oujk1SfvwFDTs55Q==</source>
+  </file>
+  <file path="public\index.php" hash="ec9c8b8d6edc6c602870019c9a6f85b9" package="Default">
+    <include line="9" type="Require" package="Default">
+      <name>init_autoloader.php</name>
+    </include>
+    <include line="12" type="Require" package="Default">
+      <name>config/application.config.php</name>
+    </include>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file public\index.php</error>
+    </parse_markers>
   </file>
   <package name="Default" full_name="Default"/>
   <namespace name="Admin" full_name="Admin">
@@ -2490,8 +2893,15 @@ of the tested controller]]></description>
     </namespace>
     <namespace name="Service" full_name="Admin\Service"/>
   </namespace>
-  <namespace name="Application" full_name="Application">
-    <namespace name="Controller" full_name="Application\Controller"/>
+  <namespace name="AdminTest" full_name="AdminTest">
+    <namespace name="Model" full_name="AdminTest\Model">
+      <namespace name="Entity" full_name="AdminTest\Model\Entity"/>
+    </namespace>
+    <namespace name="Service" full_name="AdminTest\Service"/>
+  </namespace>
+  <namespace name="Application" full_name="Application"/>
+  <namespace name="ApplicationTest" full_name="ApplicationTest">
+    <namespace name="Controller" full_name="ApplicationTest\Controller"/>
   </namespace>
   <namespace name="Core" full_name="Core">
     <namespace name="Acl" full_name="Core\Acl"/>
@@ -2511,5 +2921,6 @@ of the tested controller]]></description>
     <namespace name="Test" full_name="Core\Test"/>
   </namespace>
   <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
   <deprecated count="0"/>
 </project>
