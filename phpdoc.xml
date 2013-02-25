@@ -2,7 +2,7 @@
 <phpdoc>
     <title>CoFe</title>
     <parser>
-        <target>public/docs</target>
+        <target>documents/docs</target>
         <markers>
             <item>TODO</item>
         </markers>
@@ -12,10 +12,10 @@
         <visibility></visibility>
     </parser>
     <transformer>
-        <target>public/docs</target>
+        <target>documents/docs</target>
     </transformer>
     <transformations>
-        <template name="responsive" />
+        <template name="CoFe" />
     </transformations>
     <files>
         <directory>.</directory>
@@ -25,6 +25,6 @@
         <ignore>*.data.php</ignore>
         <ignore>*.config.php</ignore>
         <ignore>*/tests/*</ignore>
-        <ignore>documentation-git/*</ignore>
+        <ignore>documents/*</ignore>
     </files>
 </phpdoc>
