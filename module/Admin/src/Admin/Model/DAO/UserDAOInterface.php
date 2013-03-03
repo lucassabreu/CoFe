@@ -17,6 +17,7 @@ interface UserDAOInterface extends DAOInterface {
      * Retrieves, if exists, the User the username from param
      * @param string $username
      * @return User
+     * @deprecated since version 1.0
      */
     public function findByUsername($username);
 

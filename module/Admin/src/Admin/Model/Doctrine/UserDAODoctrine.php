@@ -13,7 +13,12 @@ use Core\Model\DAO\Doctrine\AbstractDoctrineDAO;
  */
 class UserDAODoctrine extends AbstractDoctrineDAO implements UserDAOInterface {
 
+    /**
+     * @todo something
+     * @fixme aksdjaldj
+     */
     public function __construct() {
+        // @TODO: Some day
         parent::__construct('Admin\Model\Entity\User');
     }
 
