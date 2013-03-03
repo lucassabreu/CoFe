@@ -18,12 +18,7 @@ function initializeContents()
     // we do not use CSS for this because when JS is disabled this behaviour does not
     // apply and we do not want the hover
     $(".element.method,.element.function,.element.class.clickable,.element.interface.clickable")
-        .css("cursor", "pointer")
-        .hover(function() {
-            $(this).css('backgroundColor', '#F8FDF6')
-        }, function(){
-            $(this).css('backgroundColor', 'white')}
-        );
+        .css("cursor", "pointer");
 
     // do not show tooltips on iPad; it will cause the user having to click twice
     if (!$.browser.ipad) {
