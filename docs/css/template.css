@@ -153,7 +153,6 @@ h2:first-of-type
 div.element
 {
     border-left:    10px solid #55A72F;
-    border-radius:  5px;
     padding:        7px 7px 2px 7px;
     margin-bottom:  15px;
     margin-left:    0;
@@ -172,6 +171,7 @@ div.element.private
 div.element.class, div.element.interface
 {
     border-left-color: #e0e0e0;
+    background-color: #434343;
 }
 
 div.element.class.abstract h1, div.element.interface.abstract h1
@@ -442,6 +442,16 @@ div.labels
     text-transform: uppercase;
     font-size: 0.7em;
     font-weight: bold;
+}
+
+div.element .table {
+    background-color: #93bd20;
+    border-bottom: 0;
+}
+
+div.element .table th, div.element .table td {
+    border-top: 0;
+    border-bottom-color: #5d910b;
 }
 
 @media (min-width: 980px)
