@@ -57,7 +57,7 @@
       <error line="18" code="50012">No short description for method getAutoloaderConfig()</error>
     </parse_markers>
   </file>
-  <file path="module\Admin\src\Admin\Model\DAO\UserDAOInterface.php" hash="aed0c002d9724406a8ec47de49e043aa" package="Default">
+  <file path="module\Admin\src\Admin\Model\DAO\UserDAOInterface.php" hash="5af59d6403b95dd389fb226dd1de795f" package="Default">
     <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
     <namespace-alias name="DAOInterface">Core\Model\DAO\DAOInterface</namespace-alias>
     <interface namespace="Admin\Model\DAO" line="14" package="Default">
@@ -70,7 +70,7 @@
         <tag line="8" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
         <tag line="8" name="see" description="\Admin\Model\User" refers="\Admin\Model\User"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\DAO" line="21" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\DAO" line="22" package="Default">
         <name>findByUsername</name>
         <full_name>findByUsername</full_name>
         <docblock line="16">
@@ -82,43 +82,44 @@
           <tag line="16" name="return" description="" type="\Admin\Model\Entity\User">
             <type by_reference="false">\Admin\Model\Entity\User</type>
           </tag>
+          <tag line="16" name="deprecated" description="since version 1.0"/>
         </docblock>
-        <argument line="21">
+        <argument line="22">
           <name>$username</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\DAO" line="30" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\DAO" line="31" package="Default">
         <name>changePassword</name>
         <full_name>changePassword</full_name>
-        <docblock line="23">
+        <docblock line="24">
           <description><![CDATA[Alter the password of User]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="23" name="param" description="" type="\Admin\Model\Entity\User" variable="$user">
+          <tag line="24" name="param" description="" type="\Admin\Model\Entity\User" variable="$user">
             <type by_reference="false">\Admin\Model\Entity\User</type>
           </tag>
-          <tag line="23" name="param" description="" type="string" variable="$oldPassword">
+          <tag line="24" name="param" description="" type="string" variable="$oldPassword">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="23" name="param" description="" type="string" variable="$newPassword">
+          <tag line="24" name="param" description="" type="string" variable="$newPassword">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="23" name="return" description="" type="\Admin\Model\Entity\User">
+          <tag line="24" name="return" description="" type="\Admin\Model\Entity\User">
             <type by_reference="false">\Admin\Model\Entity\User</type>
           </tag>
         </docblock>
-        <argument line="30">
+        <argument line="31">
           <name>$user</name>
           <default><![CDATA[]]></default>
           <type>\Admin\Model\Entity\User</type>
         </argument>
-        <argument line="30">
+        <argument line="31">
           <name>$oldPassword</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="30">
+        <argument line="31">
           <name>$newPassword</name>
           <default><![CDATA[]]></default>
           <type/>
@@ -129,7 +130,7 @@
       <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Model\DAO\UserDAOInterface.php</error>
     </parse_markers>
   </file>
-  <file path="module\Admin\src\Admin\Model\Doctrine\UserDAODoctrine.php" hash="8b3ad6b9b0f0b9339ce0735357defe68" package="Default">
+  <file path="module\Admin\src\Admin\Model\Doctrine\UserDAODoctrine.php" hash="08db44a028e53c1abf62605e7db739c5" package="Default">
     <namespace-alias name="UserDAOInterface">Admin\Model\DAO\UserDAOInterface</namespace-alias>
     <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
     <namespace-alias name="AbstractDoctrineDAO">Core\Model\DAO\Doctrine\AbstractDoctrineDAO</namespace-alias>
@@ -143,33 +144,39 @@
         <long-description><![CDATA[]]></long-description>
         <tag line="9" name="author" description="Lucas dos Santos Abreu"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="16" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="20" package="Default">
         <name>__construct</name>
         <full_name>__construct</full_name>
+        <docblock line="16">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="16" name="todo" description="something"/>
+          <tag line="16" name="fixme" description="aksdjaldj"/>
+        </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="20" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="25" package="Default">
         <name>changePassword</name>
         <full_name>changePassword</full_name>
-        <argument line="20">
+        <argument line="25">
           <name>$user</name>
           <default><![CDATA[]]></default>
           <type>\Admin\Model\Entity\User</type>
         </argument>
-        <argument line="20">
+        <argument line="25">
           <name>$oldPassword</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="20">
+        <argument line="25">
           <name>$newPassword</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="24" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Model\Doctrine" line="29" package="Default">
         <name>findByUsername</name>
         <full_name>findByUsername</full_name>
-        <argument line="24">
+        <argument line="29">
           <name>$username</name>
           <default><![CDATA[]]></default>
           <type/>
@@ -178,9 +185,9 @@
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Model\Doctrine\UserDAODoctrine.php</error>
-      <error line="16" code="50010">No DocBlock was found for method __construct()</error>
-      <error line="20" code="50010">No DocBlock was found for method changePassword()</error>
-      <error line="24" code="50010">No DocBlock was found for method findByUsername()</error>
+      <error line="16" code="50012">No short description for method __construct()</error>
+      <error line="25" code="50010">No DocBlock was found for method changePassword()</error>
+      <error line="29" code="50010">No DocBlock was found for method findByUsername()</error>
     </parse_markers>
   </file>
   <file path="module\Admin\src\Admin\Model\Entity\User.php" hash="5ffd8a2c021a1e72919649c5a4e0dc9f" package="Default">
@@ -2920,7 +2927,7 @@ of the tested controller]]></description>
     </namespace>
     <namespace name="Test" full_name="Core\Test"/>
   </namespace>
-  <marker count="0">todo</marker>
-  <marker count="0">fixme</marker>
-  <deprecated count="0"/>
+  <marker count="1">todo</marker>
+  <marker count="1">fixme</marker>
+  <deprecated count="1"/>
 </project>

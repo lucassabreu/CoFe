@@ -318,9 +318,6 @@
     padding: 6px 15px;
     font-weight: bold;
     color: #999999;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
   }
   .navbar .dropdown-menu li + li a {
     margin-bottom: 2px;
