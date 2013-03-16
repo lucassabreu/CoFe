@@ -4,6 +4,7 @@ namespace Admin\Controller;
 
 use Admin\Form\Login;
 use Core\Controller\AbstractController;
+use Zend\View\Model\ViewModel;
 
 /**
  * Authentification Controller

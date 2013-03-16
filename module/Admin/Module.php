@@ -2,6 +2,11 @@
 
 namespace Admin;
 
+use Admin\Service\Exception\Auth\NotAuthorizedAuthException;
+use Zend\EventManager\SharedEventManager;
+use Zend\ModuleManager\ModuleManager;
+use Zend\Mvc\MvcEvent;
+
 /**
  * Bootstrap module class
  * @ignore
@@ -34,13 +39,13 @@ class Module {
      * @param MvcEvent $e
      */
     public function onBootstrap($e) {
-        /** @var \Zend\ModuleManager\ModuleManager $moduleManager */
+        /** @var ModuleManager $moduleManager */
         $moduleManager = $e->getApplication()->getServiceManager()->get('modulemanager');
-        /** @var \Zend\EventManager\SharedEventManager $sharedEvents */
+        /** @var SharedEventManager $sharedEvents */
         $sharedEvents = $moduleManager->getEventManager()->getSharedManager();
 
         //adiciona eventos ao módulo
-        $sharedEvents->attach('Zend\Mvc\Controller\AbstractActionController', \Zend\Mvc\MvcEvent::EVENT_DISPATCH, array($this, 'mvcPreDispatch'), 100);
+        $sharedEvents->attach('Zend\Mvc\Controller\AbstractActionController', MvcEvent::EVENT_DISPATCH, array($this, 'mvcPreDispatch'), 100);
     }
 
     /**
@@ -56,13 +61,18 @@ class Module {
         $actionName = $routeMatch->getParam('action');
 
         $authService = $di->get('Admin\Service\AuthService');
-        
+
         try {
             $authService->authorize($moduleName, $controllerName, $actionName);
-        } catch(\Exception $e) {
-            
-        }    
-        
+        } catch (NotAuthorizedAuthException $e) {
+            /**
+             * @var $res \Zend\Http\PhpEnvironment\Response
+             */
+            $res = $event->getResponse();
+            $res->setStatusCode(302);
+            $res->getHeaders()->addHeaderLine('Location', '/admin/auth');
+        }
+
         return true;
     }
 

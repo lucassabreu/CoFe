@@ -3,6 +3,9 @@
 namespace Admin\Service;
 
 use Admin\Model\Entity\User;
+use Admin\Service\Exception\Auth\InactiveUserAuthException;
+use Admin\Service\Exception\Auth\InvalidUserAuthException;
+use Admin\Service\Exception\Auth\NotAuthorizedAuthException;
 use Closure;
 use Core\Service\Service;
 use Exception;
@@ -35,7 +38,8 @@ class AuthService extends Service {
      * @param string $username
      * @param string $password
      * @return boolean
-     * @throws Exception If authentification fails
+     * @throws Exception\Auth\InvalidUserAuthException If user and/or password aren't correct
+     * @throws Exception\Auth\InactiveUserAuthException If user and password are correct, but user inactive
      */
     public function authentificate($username, $password) {
         $this->getAdapter()
@@ -47,13 +51,14 @@ class AuthService extends Service {
         $result = $auth->authenticate($this->getAdapter());
 
         if ($result->isValid()) {
-            /**
-             * @var $user User
-             */
             $user = $auth->getIdentity();
-            return true;
+
+            if (!$user->getActive())
+                throw new InactiveUserAuthException($user);
+            else
+                return true;
         } else
-            throw new Exception\Auth\InvalidUserAuthException();
+            throw new InvalidUserAuthException();
     }
 
     /**
@@ -90,7 +95,8 @@ class AuthService extends Service {
         if ($acl->isAllowed($role, $resource)) {
             return true;
         }
-        throw new Exception(is_null($user) ? "You was not allowed for use $controllerName.$actionName." : "User $user->username was not allowed for use $controllerName.$actionName.");
+        
+        throw new NotAuthorizedAuthException($user, $controllerName, $actionName);
     }
 
     public function getAdapter() {
