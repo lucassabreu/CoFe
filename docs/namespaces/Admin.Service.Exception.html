@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>CoFe » Core\Service</title>
+<title>CoFe » Admin\Service\Exception</title>
 <meta name="author" content="Lucas dos Santos Abreu">
 <meta name="description" content="">
 <link href="../stylesheets/pygment_trac.css" rel="stylesheet">
@@ -69,8 +69,8 @@
 <li class="nav-header">
 <i class="icon-map-marker icon-white"></i> Namespaces</li>
 <li>
-<a href="../namespaces/Core.Service.html" title="Service"><i class="icon-th icon-white"></i>Service</a><ul class="nav nav-list nav-namespaces"><li>
-<a href="../namespaces/Core.Service.Factory.html" title="Factory"><i class="icon-th icon-white"></i>Factory</a><ul class="nav nav-list nav-namespaces"></ul>
+<a href="../namespaces/Admin.Service.Exception.html" title="Exception"><i class="icon-th icon-white"></i>Exception</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/Admin.Service.Exception.Auth.html" title="Auth"><i class="icon-th icon-white"></i>Auth</a><ul class="nav nav-list nav-namespaces"></ul>
 </li></ul>
 </li>
 </ul>
@@ -80,50 +80,45 @@
 <li>
 <a href="../index.html"><i class="icon-th icon-white"></i></a><span class="divider">\</span>
 </li>
-<li><a href="../namespaces/Core.html">Core</a></li>
-<span class="divider">\</span><li class="active"><a href="../namespaces/Core.Service.html">Service</a></li>
+<li><a href="../namespaces/Admin.html">Admin</a></li>
+<span class="divider">\</span><li><a href="../namespaces/Admin.Service.html">Service</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/Admin.Service.Exception.html">Exception</a></li>
 </ul>
 <div class="namespace-indent">
 <h3>
 <i class="icon-custom icon-class"></i> Classes and interfaces</h3>
-<a name="DAOServiceInterface" id="DAOServiceInterface"></a><div class="element ajax clickable interface" href="../classes/Core.Service.DAOServiceInterface.html">
-<h1>DAOServiceInterface<a href="../classes/Core.Service.DAOServiceInterface.html">¶</a>
+<a name="AuthException" id="AuthException"></a><div class="element ajax clickable class" href="../classes/Admin.Service.Exception.AuthException.html">
+<h1>AuthException<a href="../classes/Admin.Service.Exception.AuthException.html">¶</a>
 </h1>
-<p class="short_description">Base interface for DAO services.</p>
+<p class="short_description">Base Exception class for invalid access.</p>
 <div class="details collapse"></div>
-<a href="../classes/Core.Service.DAOServiceInterface.html" class="more">« More »</a>
-</div>
-<a name="AbstractDAOService" id="AbstractDAOService"></a><div class="element ajax clickable class" href="../classes/Core.Service.AbstractDAOService.html">
-<h1>AbstractDAOService<a href="../classes/Core.Service.AbstractDAOService.html">¶</a>
-</h1>
-<p class="short_description">Abstract class with basic logic to DAO Service classes</p>
-<div class="details collapse"></div>
-<a href="../classes/Core.Service.AbstractDAOService.html" class="more">« More »</a>
-</div>
-<a name="Service" id="Service"></a><div class="element ajax clickable class" href="../classes/Core.Service.Service.html">
-<h1>Service<a href="../classes/Core.Service.Service.html">¶</a>
-</h1>
-<p class="short_description">Service base class</p>
-<div class="details collapse"></div>
-<a href="../classes/Core.Service.Service.html" class="more">« More »</a>
+<a href="../classes/Admin.Service.Exception.AuthException.html" class="more">« More »</a>
 </div>
 <ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-th icon-white"></i></a><span class="divider">\</span>
 </li>
-<li><a href="../namespaces/Core.html">Core</a></li>
-<span class="divider">\</span><li><a href="../namespaces/Core.Service.html">Service</a></li>
-<span class="divider">\</span><li class="active"><a href="../namespaces/Core.Service.Factory.html">Factory</a></li>
+<li><a href="../namespaces/Admin.html">Admin</a></li>
+<span class="divider">\</span><li><a href="../namespaces/Admin.Service.html">Service</a></li>
+<span class="divider">\</span><li><a href="../namespaces/Admin.Service.Exception.html">Exception</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/Admin.Service.Exception.Auth.html">Auth</a></li>
 </ul>
 <div class="namespace-indent">
 <h3>
 <i class="icon-custom icon-class"></i> Classes and interfaces</h3>
-<a name="DAOServiceFactory" id="DAOServiceFactory"></a><div class="element ajax clickable class" href="../classes/Core.Service.Factory.DAOServiceFactory.html">
-<h1>DAOServiceFactory<a href="../classes/Core.Service.Factory.DAOServiceFactory.html">¶</a>
+<a name="InactiveUserAuthException" id="InactiveUserAuthException"></a><div class="element ajax clickable class" href="../classes/Admin.Service.Exception.Auth.InactiveUserAuthException.html">
+<h1>InactiveUserAuthException<a href="../classes/Admin.Service.Exception.Auth.InactiveUserAuthException.html">¶</a>
 </h1>
-<p class="short_description">Factory of DAO Service classes.</p>
+<p class="short_description">Lanched when try to authentificate with a user not active.</p>
 <div class="details collapse"></div>
-<a href="../classes/Core.Service.Factory.DAOServiceFactory.html" class="more">« More »</a>
+<a href="../classes/Admin.Service.Exception.Auth.InactiveUserAuthException.html" class="more">« More »</a>
+</div>
+<a name="InvalidUserAuthException" id="InvalidUserAuthException"></a><div class="element ajax clickable class" href="../classes/Admin.Service.Exception.Auth.InvalidUserAuthException.html">
+<h1>InvalidUserAuthException<a href="../classes/Admin.Service.Exception.Auth.InvalidUserAuthException.html">¶</a>
+</h1>
+<p class="short_description">Exception related with a invalid information for authentification</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Service.Exception.Auth.InvalidUserAuthException.html" class="more">« More »</a>
 </div>
 </div>
 </div>

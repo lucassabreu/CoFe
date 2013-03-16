@@ -15,26 +15,26 @@
       <name/>
     </include>
   </file>
-  <file path="module\Admin\Module.php" hash="85961806e625877dbbee22f42f93aa94" package="Default">
+  <file path="module\Admin\Module.php" hash="ff38843d3ba190c9f55688f2e79b48cd" package="Default">
     <include line="15" type="Include" package="Default">
       <name/>
     </include>
-    <class final="false" abstract="false" namespace="Admin" line="8" package="Default">
+    <class final="false" abstract="false" namespace="Admin" line="9" package="Default">
       <extends/>
       <name>Module</name>
       <full_name>\Admin\Module</full_name>
-      <docblock line="4">
+      <docblock line="5">
         <description><![CDATA[Bootstrap module class]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="4" name="ignore" description=""/>
+        <tag line="5" name="ignore" description=""/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin" line="13" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin" line="14" package="Default">
         <name>getConfig</name>
         <full_name>getConfig</full_name>
-        <docblock line="10">
+        <docblock line="11">
           <description><![CDATA[]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="10" name="return" description="" type="array">
+          <tag line="11" name="return" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
@@ -50,11 +50,85 @@
           </tag>
         </docblock>
       </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin" line="36" package="Default">
+        <name>onBootstrap</name>
+        <full_name>onBootstrap</full_name>
+        <docblock line="31">
+          <description><![CDATA[Realize the boot of module]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="31" name="param" description="" type="\Admin\MvcEvent" variable="$e">
+            <type by_reference="false">\Admin\MvcEvent</type>
+          </tag>
+        </docblock>
+        <argument line="36">
+          <name>$e</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin" line="51" package="Default">
+        <name>mvcPreDispatch</name>
+        <full_name>mvcPreDispatch</full_name>
+        <docblock line="46">
+          <description><![CDATA[Autorize the access at system resources]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="46" name="param" description="Event" type="\Admin\MvcEvent" variable="$event">
+            <type by_reference="false">\Admin\MvcEvent</type>
+          </tag>
+          <tag line="46" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="51">
+          <name>$event</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\Module.php</error>
-      <error line="10" code="50012">No short description for method getConfig()</error>
+      <error line="11" code="50012">No short description for method getConfig()</error>
       <error line="18" code="50012">No short description for method getAutoloaderConfig()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Admin\src\Admin\Controller\AuthController.php" hash="b06552ca094e773d03965d8fa68d4bb7" package="Default">
+    <namespace-alias name="Login">Admin\Form\Login</namespace-alias>
+    <namespace-alias name="AbstractController">Core\Controller\AbstractController</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Controller" line="13" package="Default">
+      <extends>\Core\Controller\AbstractController</extends>
+      <name>AuthController</name>
+      <full_name>\Admin\Controller\AuthController</full_name>
+      <docblock line="8">
+        <description><![CDATA[Authentification Controller]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="8" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Controller" line="14" package="Default">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Controller\AuthController.php</error>
+      <error line="14" code="50010">No DocBlock was found for method indexAction()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Admin\src\Admin\Form\Login.php" hash="1fc5f55bf34a44db9664ffc2d6c42ad8" package="Default">
+    <namespace-alias name="Form">Zend\Form\Form</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Form" line="7" package="Default">
+      <extends>\Zend\Form\Form</extends>
+      <name>Login</name>
+      <full_name>\Admin\Form\Login</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Form" line="9" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Form\Login.php</error>
+      <error line="7" code="50000">No DocBlock was found for \Admin\Form\Login</error>
+      <error line="9" code="50010">No DocBlock was found for method __construct()</error>
     </parse_markers>
   </file>
   <file path="module\Admin\src\Admin\Model\DAO\UserDAOInterface.php" hash="5af59d6403b95dd389fb226dd1de795f" package="Default">
@@ -581,135 +655,136 @@
       <error line="256" code="50010">No DocBlock was found for method __construct()</error>
     </parse_markers>
   </file>
-  <file path="module\Admin\src\Admin\Service\AuthService.php" hash="8fc1cc6d5d85af900395bbbd65cdfa2a" package="Default">
+  <file path="module\Admin\src\Admin\Service\AuthService.php" hash="4c0f92143a6c33d03994311a7d810fe3" package="Default">
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
     <namespace-alias name="Closure">Closure</namespace-alias>
     <namespace-alias name="Service">Core\Service\Service</namespace-alias>
     <namespace-alias name="Exception">Exception</namespace-alias>
     <namespace-alias name="ValidatableAdapterInterface">Zend\Authentication\Adapter\ValidatableAdapterInterface</namespace-alias>
     <namespace-alias name="AuthenticationService">Zend\Authentication\AuthenticationService</namespace-alias>
-    <class final="false" abstract="false" namespace="Admin\Service" line="16" package="Default">
+    <class final="false" abstract="false" namespace="Admin\Service" line="17" package="Default">
       <extends>\Core\Service\Service</extends>
       <name>AuthService</name>
       <full_name>\Admin\Service\AuthService</full_name>
-      <docblock line="11">
+      <docblock line="12">
         <description><![CDATA[Class for authentification processes.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="11" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+        <tag line="12" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="21" namespace="Admin\Service" package="Default">
+      <property final="false" static="false" visibility="protected" line="22" namespace="Admin\Service" package="Default">
         <name>$adapter</name>
         <default><![CDATA[null]]></default>
-        <docblock line="18">
+        <docblock line="19">
           <description><![CDATA[]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="18" name="var" description="" type="\Zend\Authentication\Adapter\ValidatableAdapterInterface">
+          <tag line="19" name="var" description="" type="\Zend\Authentication\Adapter\ValidatableAdapterInterface">
             <type by_reference="false">\Zend\Authentication\Adapter\ValidatableAdapterInterface</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="28" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="29" package="Default">
         <name>__construct</name>
         <full_name>__construct</full_name>
-        <docblock line="23">
+        <docblock line="24">
           <description><![CDATA[Constructor of class]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="23" name="param" description="Adapter used on validation" type="\Zend\Authentication\Adapter\ValidatableAdapterInterface" variable="$adapter">
+          <tag line="24" name="param" description="Adapter used on validation" type="\Zend\Authentication\Adapter\ValidatableAdapterInterface" variable="$adapter">
             <type by_reference="false">\Zend\Authentication\Adapter\ValidatableAdapterInterface</type>
           </tag>
-          <tag line="23" name="param" description="Function will return the user for put on session" type="\Closure" variable="$returnUser">
+          <tag line="24" name="param" description="Function will return the user for put on session" type="\Closure" variable="$returnUser">
             <type by_reference="false">\Closure</type>
           </tag>
         </docblock>
-        <argument line="28">
+        <argument line="29">
           <name>$adapter</name>
           <default><![CDATA[]]></default>
           <type>\Zend\Authentication\Adapter\ValidatableAdapterInterface</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="39" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="40" package="Default">
         <name>authentificate</name>
         <full_name>authentificate</full_name>
-        <docblock line="32">
+        <docblock line="33">
           <description><![CDATA[Realize the authentification based on params.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="32" name="param" description="" type="string" variable="$username">
+          <tag line="33" name="param" description="" type="string" variable="$username">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="32" name="param" description="" type="string" variable="$password">
+          <tag line="33" name="param" description="" type="string" variable="$password">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="32" name="return" description="" type="boolean">
+          <tag line="33" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="32" name="throws" description="If authentification fails" type="\Exception">
+          <tag line="33" name="throws" description="If authentification fails" type="\Exception">
             <type by_reference="false">\Exception</type>
           </tag>
         </docblock>
-        <argument line="39">
+        <argument line="40">
           <name>$username</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="39">
+        <argument line="40">
           <name>$password</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="58" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="63" package="Default">
         <name>logout</name>
         <full_name>logout</full_name>
-        <docblock line="54">
+        <docblock line="59">
           <description><![CDATA[Remove identity from session]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="54" name="return" description="" type="void">
+          <tag line="59" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="71" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="76" package="Default">
         <name>authorize</name>
         <full_name>authorize</full_name>
-        <docblock line="64">
+        <docblock line="69">
           <description><![CDATA[Authorize the logged user for resource]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="64" name="param" description="module name" type="string" variable="$moduleName">
+          <tag line="69" name="param" description="module name" type="string" variable="$moduleName">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="64" name="param" description="controller name" type="string" variable="$controllerName">
+          <tag line="69" name="param" description="controller name" type="string" variable="$controllerName">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="64" name="param" description="action name" type="string" variable="$actionName">
+          <tag line="69" name="param" description="action name" type="string" variable="$actionName">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="64" name="return" description="" type="boolean">
+          <tag line="69" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="71">
+        <argument line="76">
           <name>$moduleName</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="71">
+        <argument line="76">
           <name>$controllerName</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="71">
+        <argument line="76">
           <name>$actionName</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="88" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="96" package="Default">
         <name>getAdapter</name>
         <full_name>getAdapter</full_name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="92" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service" line="100" package="Default">
         <name>setAdapter</name>
         <full_name>setAdapter</full_name>
-        <argument line="92">
+        <argument line="100">
           <name>$adapter</name>
           <default><![CDATA[]]></default>
           <type>\Zend\Authentication\Adapter\ValidatableAdapterInterface</type>
@@ -718,10 +793,179 @@
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Service\AuthService.php</error>
-      <critical line="18" code="50019">No short description for property $adapter</critical>
-      <notice line="23" code="50013">Parameter $returnUser could not be found in __construct()</notice>
-      <error line="88" code="50010">No DocBlock was found for method getAdapter()</error>
-      <error line="92" code="50010">No DocBlock was found for method setAdapter()</error>
+      <critical line="19" code="50019">No short description for property $adapter</critical>
+      <notice line="24" code="50013">Parameter $returnUser could not be found in __construct()</notice>
+      <error line="96" code="50010">No DocBlock was found for method getAdapter()</error>
+      <error line="100" code="50010">No DocBlock was found for method setAdapter()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Admin\src\Admin\Service\Exception\Auth\InactiveUserAuthException.php" hash="d6805eafdb857b8317b31553c1f99275" package="Default">
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="AuthException">Admin\Service\Exception\AuthException</namespace-alias>
+    <namespace-alias name="InvalidArgumentException">InvalidArgumentException</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Service\Exception\Auth" line="14" package="Default">
+      <extends>\Admin\Service\Exception\AuthException</extends>
+      <name>InactiveUserAuthException</name>
+      <full_name>\Admin\Service\Exception\Auth\InactiveUserAuthException</full_name>
+      <docblock line="9">
+        <description><![CDATA[Lanched when try to authentificate with a user not active.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="9" name="author" description="Lucas dos Santos Abreu &lt;lucas.a.abreu@gmail.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service\Exception\Auth" line="16" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <argument line="16">
+          <name>$user</name>
+          <default><![CDATA[]]></default>
+          <type>\Admin\Model\Entity\User</type>
+        </argument>
+        <argument line="16">
+          <name>$message</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="16">
+          <name>$code</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="16">
+          <name>$previous</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Service\Exception\Auth\InactiveUserAuthException.php</error>
+      <error line="16" code="50010">No DocBlock was found for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Admin\src\Admin\Service\Exception\Auth\InvalidUserAuthException.php" hash="9808f2951a0afe4347766620e6bc3dd5" package="Default">
+    <namespace-alias name="AuthException">Admin\Service\Exception\AuthException</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Service\Exception\Auth" line="12" package="Default">
+      <extends>\Admin\Service\Exception\AuthException</extends>
+      <name>InvalidUserAuthException</name>
+      <full_name>\Admin\Service\Exception\Auth\InvalidUserAuthException</full_name>
+      <docblock line="7">
+        <description><![CDATA[Exception related with a invalid information for authentification]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="7" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service\Exception\Auth" line="14" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <argument line="14">
+          <name>$user</name>
+          <default><![CDATA[null]]></default>
+          <type>\Admin\Model\Entity\User</type>
+        </argument>
+        <argument line="14">
+          <name>$message</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="14">
+          <name>$code</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="14">
+          <name>$previous</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Service\Exception\Auth\InvalidUserAuthException.php</error>
+      <error line="14" code="50010">No DocBlock was found for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Admin\src\Admin\Service\Exception\AuthException.php" hash="ea6191e1886c3de4477417262d02a8e9" package="Default">
+    <namespace-alias name="User">Admin\Model\Entity\User</namespace-alias>
+    <namespace-alias name="Exception">Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Admin\Service\Exception" line="13" package="Default">
+      <extends>\Exception</extends>
+      <name>AuthException</name>
+      <full_name>\Admin\Service\Exception\AuthException</full_name>
+      <docblock line="8">
+        <description><![CDATA[Base Exception class for invalid access.]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="8" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="19" namespace="Admin\Service\Exception" package="Default">
+        <name>$user</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="15">
+          <description><![CDATA[User related with the exception]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="15" name="var" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service\Exception" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="21">
+          <description><![CDATA[Build a generic AuthException]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="21" name="param" description="Message of exception" type="string" variable="$message">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="21" name="param" description="Code Error of exception" type="string" variable="$code">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="21" name="param" description="Previus Throwable lanched causing this exception" type="\Exception|mixed" variable="$previous">
+            <type by_reference="false">\Exception</type>
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="21" name="param" description="User related with the exception" type="\Admin\Model\Entity\User" variable="$user">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+        <argument line="28">
+          <name>$user</name>
+          <default><![CDATA[null]]></default>
+          <type>\Admin\Model\Entity\User</type>
+        </argument>
+        <argument line="28">
+          <name>$message</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="28">
+          <name>$code</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="28">
+          <name>$previous</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Admin\Service\Exception" line="37" package="Default">
+        <name>getUser</name>
+        <full_name>getUser</full_name>
+        <docblock line="33">
+          <description><![CDATA[Retrieves the user related.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="return" description="" type="\Admin\Model\Entity\User">
+            <type by_reference="false">\Admin\Model\Entity\User</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Admin\src\Admin\Service\Exception\AuthException.php</error>
+      <error line="21" code="50014">Name of argument $user does not match with the DocBlock's name $message in __construct()</error>
+      <error line="21" code="50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $user in __construct()</error>
+      <error line="21" code="50014">Name of argument $message does not match with the DocBlock's name $code in __construct()</error>
+      <error line="21" code="50014">Name of argument $code does not match with the DocBlock's name $previous in __construct()</error>
+      <error line="21" code="50014">Name of argument $previous does not match with the DocBlock's name $user in __construct()</error>
     </parse_markers>
   </file>
   <file path="module\Admin\src\Admin\Service\UserDAOService.php" hash="d79d5e5de3b215f9c0e76d365cbcfbad" package="Default">
@@ -1146,32 +1390,22 @@
       <error line="33" code="50010">No DocBlock was found for method getAutoloaderConfig()</error>
     </parse_markers>
   </file>
-  <file path="module\Application\src\ApplicationTest\Controller\IndexController.php" hash="8cf36dd2824521a48ac91969f4c37129" package="Default">
+  <file path="module\Application\src\Application\Controller\IndexController.php" hash="fc7222fbfe61905432a5ac63c78c5f36" package="Default">
     <namespace-alias name="AbstractActionController">Zend\Mvc\Controller\AbstractActionController</namespace-alias>
     <namespace-alias name="ViewModel">Zend\View\Model\ViewModel</namespace-alias>
-    <class final="false" abstract="false" namespace="ApplicationTest\Controller" line="16" package="Default">
+    <class final="false" abstract="false" namespace="Application\Controller" line="16" package="Default">
       <extends>\Zend\Mvc\Controller\AbstractActionController</extends>
       <name>IndexController</name>
-      <full_name>\ApplicationTest\Controller\IndexController</full_name>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="ApplicationTest\Controller" line="18" package="Default">
+      <full_name>\Application\Controller\IndexController</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Application\Controller" line="18" package="Default">
         <name>indexAction</name>
         <full_name>indexAction</full_name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="ApplicationTest\Controller" line="27" package="Default">
-        <name>varargs</name>
-        <full_name>varargs</full_name>
-        <argument line="27">
-          <name>$args</name>
-          <default><![CDATA[]]></default>
-          <type/>
-        </argument>
-      </method>
     </class>
     <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file module\Application\src\ApplicationTest\Controller\IndexController.php</error>
-      <error line="16" code="50000">No DocBlock was found for \ApplicationTest\Controller\IndexController</error>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Application\src\Application\Controller\IndexController.php</error>
+      <error line="16" code="50000">No DocBlock was found for \Application\Controller\IndexController</error>
       <error line="18" code="50010">No DocBlock was found for method indexAction()</error>
-      <error line="27" code="50010">No DocBlock was found for method varargs()</error>
     </parse_markers>
   </file>
   <file path="module\Core\Module.php" hash="936eb5e1d8ce8b38f946f514cdad54e0" package="Default">
@@ -1288,6 +1522,51 @@
       <error line="27" code="50010">No DocBlock was found for method getIdentity()</error>
       <error line="31" code="50010">No DocBlock was found for method setCredential()</error>
       <error line="36" code="50010">No DocBlock was found for method setIdentity()</error>
+    </parse_markers>
+  </file>
+  <file path="module\Core\src\Core\Controller\AbstractController.php" hash="062101b7c84dfa892ed656b69c716fb4" package="Default">
+    <namespace-alias name="AbstractActionController">Zend\Mvc\Controller\AbstractActionController</namespace-alias>
+    <namespace-alias name="ServiceLocatorAwareInterface">Zend\ServiceManager\ServiceLocatorAwareInterface</namespace-alias>
+    <namespace-alias name="ServiceManagerAwareInterface">Zend\ServiceManager\ServiceManagerAwareInterface</namespace-alias>
+    <namespace-alias name="ViewModel">Zend\View\Model\ViewModel</namespace-alias>
+    <class final="false" abstract="false" namespace="Core\Controller" line="23" package="Default">
+      <extends>\Zend\Mvc\Controller\AbstractActionController</extends>
+      <name>AbstractController</name>
+      <full_name>\Core\Controller\AbstractController</full_name>
+      <docblock line="18">
+        <description><![CDATA[Base class for controller at application]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="18" name="author" description="Lucas dos Santos Abreu &lt;lucas.s.abreu@gmail.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Controller" line="30" package="Default">
+        <name>getService</name>
+        <full_name>getService</full_name>
+        <docblock line="25">
+          <description><![CDATA[Retrieves the of requested service by name]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="25" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="25" name="return" description="" type="mixed|\Zend\ServiceManager\ServiceManagerAwareInterface|\Zend\ServiceManager\ServiceLocatorAwareInterface">
+            <type by_reference="false">mixed</type>
+            <type by_reference="false">\Zend\ServiceManager\ServiceManagerAwareInterface</type>
+            <type by_reference="false">\Zend\ServiceManager\ServiceLocatorAwareInterface</type>
+          </tag>
+        </docblock>
+        <argument line="30">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Core\Controller" line="34" package="Default">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file module\Core\src\Core\Controller\AbstractController.php</error>
+      <error line="34" code="50010">No DocBlock was found for method indexAction()</error>
     </parse_markers>
   </file>
   <file path="module\Core\src\Core\Model\DAO\DAOInterface.php" hash="8632d3f8038cb3fd3a04e477b51541b2" package="Default">
@@ -2893,12 +3172,18 @@ of the tested controller]]></description>
   </file>
   <package name="Default" full_name="Default"/>
   <namespace name="Admin" full_name="Admin">
+    <namespace name="Controller" full_name="Admin\Controller"/>
+    <namespace name="Form" full_name="Admin\Form"/>
     <namespace name="Model" full_name="Admin\Model">
       <namespace name="DAO" full_name="Admin\Model\DAO"/>
       <namespace name="Doctrine" full_name="Admin\Model\Doctrine"/>
       <namespace name="Entity" full_name="Admin\Model\Entity"/>
     </namespace>
-    <namespace name="Service" full_name="Admin\Service"/>
+    <namespace name="Service" full_name="Admin\Service">
+      <namespace name="Exception" full_name="Admin\Service\Exception">
+        <namespace name="Auth" full_name="Admin\Service\Exception\Auth"/>
+      </namespace>
+    </namespace>
   </namespace>
   <namespace name="AdminTest" full_name="AdminTest">
     <namespace name="Model" full_name="AdminTest\Model">
@@ -2906,15 +3191,15 @@ of the tested controller]]></description>
     </namespace>
     <namespace name="Service" full_name="AdminTest\Service"/>
   </namespace>
-  <namespace name="Application" full_name="Application"/>
-  <namespace name="ApplicationTest" full_name="ApplicationTest">
-    <namespace name="Controller" full_name="ApplicationTest\Controller"/>
+  <namespace name="Application" full_name="Application">
+    <namespace name="Controller" full_name="Application\Controller"/>
   </namespace>
   <namespace name="Core" full_name="Core">
     <namespace name="Acl" full_name="Core\Acl"/>
     <namespace name="Authentification" full_name="Core\Authentification">
       <namespace name="Doctrine" full_name="Core\Authentification\Doctrine"/>
     </namespace>
+    <namespace name="Controller" full_name="Core\Controller"/>
     <namespace name="Model" full_name="Core\Model">
       <namespace name="DAO" full_name="Core\Model\DAO">
         <namespace name="Doctrine" full_name="Core\Model\DAO\Doctrine"/>

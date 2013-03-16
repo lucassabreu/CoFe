@@ -29,8 +29,6 @@
                 AdminTest</a></li>
 <li><a href="../namespaces/Application.html"><i class="icon-th icon-white"></i> 
                 Application</a></li>
-<li><a href="../namespaces/ApplicationTest.html"><i class="icon-th icon-white"></i> 
-                ApplicationTest</a></li>
 <li><a href="../namespaces/Core.html"><i class="icon-th icon-white"></i> 
                 Core</a></li>
 </ul>
@@ -80,9 +78,14 @@
 <li><a href="#DAOServiceInterface" title="Base interface for DAO services.">DAOServiceInterface</a></li>
 <li class="nav-header">
 <i class="icon-custom icon-class"></i> Classes</li>
+<li><a href="#AuthController" title="Authentification Controller">AuthController</a></li>
+<li><a href="#Login" title="">Login</a></li>
 <li><a href="#UserDAODoctrine" title="Implementation of UserDAOInterface for Doctrine">UserDAODoctrine</a></li>
 <li><a href="#User" title="Entity User">User</a></li>
 <li><a href="#AuthService" title="Class for authentification processes.">AuthService</a></li>
+<li><a href="#InactiveUserAuthException" title="Lanched when try to authentificate with a user not active.">InactiveUserAuthException</a></li>
+<li><a href="#InvalidUserAuthException" title="Exception related with a invalid information for authentification">InvalidUserAuthException</a></li>
+<li><a href="#AuthException" title="Base Exception class for invalid access.">AuthException</a></li>
 <li><a href="#UserDAOService" title="Service used by manage user entity">UserDAOService</a></li>
 <li><a href="#UserTest" title="Tests for Model Service UserDAO">UserTest</a></li>
 <li><a href="#AuthServiceTest" title="Base Test Case class">AuthServiceTest</a></li>
@@ -93,6 +96,7 @@
 <li><a href="#Module" title="">Module</a></li>
 <li><a href="#Builder" title="Class retrieves a filled ACL.">Builder</a></li>
 <li><a href="#DoctrineAdapter" title="Extension of &lt;code&gt;ObjectRepository&lt;/code&gt; using &lt;code&gt;ValidatableAdapterInterface&lt;/code&gt;.">DoctrineAdapter</a></li>
+<li><a href="#AbstractController" title="Base class for controller at application">AbstractController</a></li>
 <li><a href="#AbstractDoctrineDAO" title="Basic implemented abstract class for DAO based on Doctrine">AbstractDoctrineDAO</a></li>
 <li><a href="#DAOException" title="Base class for custom DAO exceptions">DAOException</a></li>
 <li><a href="#Entity" title="Base class for entities managed by Core\Model\DAOInterface.">Entity</a></li>
@@ -168,6 +172,20 @@
 <div class="details collapse"></div>
 <a href="../classes/AdminTest.Service.UserDAOServiceTest.html" class="more">« More »</a>
 </div>
+<a name="AuthController" id="AuthController"></a><div class="element ajax clickable class" href="../classes/Admin.Controller.AuthController.html">
+<h1>AuthController<a href="../classes/Admin.Controller.AuthController.html">¶</a>
+</h1>
+<p class="short_description">Authentification Controller</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Controller.AuthController.html" class="more">« More »</a>
+</div>
+<a name="Login" id="Login"></a><div class="element ajax clickable class" href="../classes/Admin.Form.Login.html">
+<h1>Login<a href="../classes/Admin.Form.Login.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Form.Login.html" class="more">« More »</a>
+</div>
 <a name="UserDAODoctrine" id="UserDAODoctrine"></a><div class="element ajax clickable class" href="../classes/Admin.Model.Doctrine.UserDAODoctrine.html">
 <h1>UserDAODoctrine<a href="../classes/Admin.Model.Doctrine.UserDAODoctrine.html">¶</a>
 </h1>
@@ -189,6 +207,27 @@
 <div class="details collapse"></div>
 <a href="../classes/Admin.Service.AuthService.html" class="more">« More »</a>
 </div>
+<a name="AuthException" id="AuthException"></a><div class="element ajax clickable class" href="../classes/Admin.Service.Exception.AuthException.html">
+<h1>AuthException<a href="../classes/Admin.Service.Exception.AuthException.html">¶</a>
+</h1>
+<p class="short_description">Base Exception class for invalid access.</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Service.Exception.AuthException.html" class="more">« More »</a>
+</div>
+<a name="InactiveUserAuthException" id="InactiveUserAuthException"></a><div class="element ajax clickable class" href="../classes/Admin.Service.Exception.Auth.InactiveUserAuthException.html">
+<h1>InactiveUserAuthException<a href="../classes/Admin.Service.Exception.Auth.InactiveUserAuthException.html">¶</a>
+</h1>
+<p class="short_description">Lanched when try to authentificate with a user not active.</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Service.Exception.Auth.InactiveUserAuthException.html" class="more">« More »</a>
+</div>
+<a name="InvalidUserAuthException" id="InvalidUserAuthException"></a><div class="element ajax clickable class" href="../classes/Admin.Service.Exception.Auth.InvalidUserAuthException.html">
+<h1>InvalidUserAuthException<a href="../classes/Admin.Service.Exception.Auth.InvalidUserAuthException.html">¶</a>
+</h1>
+<p class="short_description">Exception related with a invalid information for authentification</p>
+<div class="details collapse"></div>
+<a href="../classes/Admin.Service.Exception.Auth.InvalidUserAuthException.html" class="more">« More »</a>
+</div>
 <a name="UserDAOService" id="UserDAOService"></a><div class="element ajax clickable class" href="../classes/Admin.Service.UserDAOService.html">
 <h1>UserDAOService<a href="../classes/Admin.Service.UserDAOService.html">¶</a>
 </h1>
@@ -196,12 +235,12 @@
 <div class="details collapse"></div>
 <a href="../classes/Admin.Service.UserDAOService.html" class="more">« More »</a>
 </div>
-<a name="IndexController" id="IndexController"></a><div class="element ajax clickable class" href="../classes/ApplicationTest.Controller.IndexController.html">
-<h1>IndexController<a href="../classes/ApplicationTest.Controller.IndexController.html">¶</a>
+<a name="IndexController" id="IndexController"></a><div class="element ajax clickable class" href="../classes/Application.Controller.IndexController.html">
+<h1>IndexController<a href="../classes/Application.Controller.IndexController.html">¶</a>
 </h1>
 <p class="short_description"></p>
 <div class="details collapse"></div>
-<a href="../classes/ApplicationTest.Controller.IndexController.html" class="more">« More »</a>
+<a href="../classes/Application.Controller.IndexController.html" class="more">« More »</a>
 </div>
 <a name="Module" id="Module"></a><div class="element ajax clickable class" href="../classes/Application.Module.html">
 <h1>Module<a href="../classes/Application.Module.html">¶</a>
@@ -223,6 +262,13 @@
 <p class="short_description">Extension of <code>ObjectRepository</code> using <code>ValidatableAdapterInterface</code>.</p>
 <div class="details collapse"></div>
 <a href="../classes/Core.Authentification.Doctrine.DoctrineAdapter.html" class="more">« More »</a>
+</div>
+<a name="AbstractController" id="AbstractController"></a><div class="element ajax clickable class" href="../classes/Core.Controller.AbstractController.html">
+<h1>AbstractController<a href="../classes/Core.Controller.AbstractController.html">¶</a>
+</h1>
+<p class="short_description">Base class for controller at application</p>
+<div class="details collapse"></div>
+<a href="../classes/Core.Controller.AbstractController.html" class="more">« More »</a>
 </div>
 <a name="AbstractDoctrineDAO" id="AbstractDoctrineDAO"></a><div class="element ajax clickable class" href="../classes/Core.Model.DAO.Doctrine.AbstractDoctrineDAO.html">
 <h1>AbstractDoctrineDAO<a href="../classes/Core.Model.DAO.Doctrine.AbstractDoctrineDAO.html">¶</a>
@@ -329,7 +375,7 @@
                 2.0.0a8</a> and
             <br>
             generated on 
-            2013-03-03T20:00:49-03:00.
+            2013-03-16T09:48:33-03:00.
             <br></footer></div>
 </div>
 </body>
