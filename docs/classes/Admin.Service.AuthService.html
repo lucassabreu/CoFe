@@ -38,16 +38,9 @@
                                     Reports 
                                     <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../markers.html"><i class="icon-map-marker icon-white"></i> Markers 
-                <ul>
-<li>todo 
-                <span class="label label-info">1</span>
-</li>
-<li>fixme 
-                <span class="label label-info">1</span>
-</li>
-</ul></a></li>
+                <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop icon-white"></i> Deprecated elements 
-                <span class="label label-info">1</span></a></li>
+                <span class="label label-info">0</span></a></li>
 </ul>
 </li>
 </ul></div>
@@ -138,10 +131,16 @@
 <code>string</code>
 </div>
 <h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
-<td>If authentification fails</td>
-</tr></table>
+<table class="table table-bordered">
+<tr>
+<th><code>\Exception\Auth\InvalidUserAuthException</code></th>
+<td>If user and/or password aren't correct</td>
+</tr>
+<tr>
+<th><code>\Exception\Auth\InactiveUserAuthException</code></th>
+<td>If user and password are correct, but user inactive</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
@@ -277,7 +276,7 @@
                 2.0.0a8</a> and
             <br>
             generated on 
-            2013-03-16T09:48:33-03:00.
+            2013-03-16T14:14:29-03:00.
             <br></footer></div>
 </div>
 </body>
