@@ -2,6 +2,7 @@
 
 namespace Admin\Service;
 
+use Admin\Model\Entity\User;
 use Closure;
 use Core\Service\Service;
 use Exception;
@@ -45,10 +46,14 @@ class AuthService extends Service {
 
         $result = $auth->authenticate($this->getAdapter());
 
-        if ($result->isValid())
+        if ($result->isValid()) {
+            /**
+             * @var $user User
+             */
+            $user = $auth->getIdentity();
             return true;
-        else
-            throw new Exception('Invalid username or password.');
+        } else
+            throw new Exception\Auth\InvalidUserAuthException();
     }
 
     /**
@@ -73,6 +78,9 @@ class AuthService extends Service {
         $role = 'guest';
         $user = null;
         if ($auth->hasIdentity()) {
+            /**
+             * @var $user User
+             */
             $user = $auth->getIdentity();
             $role = strtolower($user->getRole());
         }

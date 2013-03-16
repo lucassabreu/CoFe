@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Controller;
+namespace ApplicationTest\Controller;
 
 use Core\Test\ControllerTestCase;
 

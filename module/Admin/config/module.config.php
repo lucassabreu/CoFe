@@ -4,10 +4,14 @@ namespace Admin;
 
 use Admin\Service\AuthService;
 use Core\Authentification\Doctrine\DoctrineAdapter;
-use Zend\ServiceManager\ServiceManager;
 
 return array(
     'service_manager' => array(
+        'controllers' => array(
+            'invokables' => array(
+                'Admin\Controller\Auth' => 'Admin\Controller\AuthController',
+            ),
+        ),
         'dao_factory' => array(
             'Admin\Service\UserDAOService' => array(
                 'service' => 'Admin\Service\UserDAOService',
@@ -29,6 +33,55 @@ return array(
             'identity_class' => 'Admin\Model\Entity\User',
             'identity_property' => 'username',
             'credential_property' => 'password',
+        ),
+    ),
+    'controllers' => array(
+        'invokables' => array(
+            'Admin\Controller\Auth' => 'Admin\Controller\AuthController',
+        ),
+    ),
+    'view_manager' => array(//the module can have a specific layout
+        // 'template_map' => array(
+        //     'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+        // ),
+        'template_path_stack' => array(
+            'admin' => __DIR__ . '/../view',
+        ),
+    ),
+    'router' => array(
+        'routes' => array(
+            'admin' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/admin',
+                    'defaults' => array(
+                        'controller' => 'Index',
+                        'action' => 'index',
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'module' => 'admin'
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/[:controller[/[:action[/]]]]',
+                            'constraints' => array(
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                            ),
+                        ),
+                        'child_routes' => array(//permite mandar dados pela url 
+                            'wildcard' => array(
+                                'type' => 'Wildcard'
+                            ),
+                        ),
+                    ),
+                ),
+            ),
         ),
     ),
 );
