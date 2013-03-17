@@ -35,8 +35,8 @@ class AuthServiceTest extends ServiceTestCase {
     }
 
     /**
-     * @expectedException Exception
-     * @expectedExceptionMessage Invalid username or password.
+     * @expectedException Admin\Service\Exception\Auth\InvalidUserAuthException
+     * @expectedExceptionMessage You're trying login in with a invalid user or password.
      */
     public function testAuthenticationInvalidPassword() {
         $auth = $this->getService('Admin\Service\AuthService');
@@ -46,10 +46,20 @@ class AuthServiceTest extends ServiceTestCase {
     }
 
     /**
-     * @expectedException Exception
-     * @expectedExceptionMessage Invalid username or password.
+     * @expectedException Admin\Service\Exception\Auth\InactiveUserAuthException
      */
-    public function testAuthenticationUserNorExists() {
+    public function testAuthenticationInactiveUser() {
+        $auth = $this->getService('Admin\Service\AuthService');
+        $user = $this->returnUser('admin', 'ADMIN', false);
+        /* @var $auth AuthService */
+        $auth->authentificate('admin', 'admin');
+    }
+
+    /**
+     * @expectedException Admin\Service\Exception\Auth\InvalidUserAuthException
+     * @expectedExceptionMessage You're trying login in with a invalid user or password.
+     */
+    public function testAuthenticationUserNotExists() {
         $auth = $this->getService('Admin\Service\AuthService');
         /* @var $auth AuthService */
         $auth->authentificate('admin', 'admin');
@@ -123,6 +133,23 @@ class AuthServiceTest extends ServiceTestCase {
         $result = $auth->authorize('Admin', 'Admin\Controller\Index', 'index');
         $this->assertTrue($result);
     }
+    
+    /**
+     * @expectedException Admin\Service\Exception\Auth\NotAuthorizedAuthException
+     * @expectedExceptionMessage User admin was not allowed for use NotExistentController.index.
+     */
+    public function testAuthorizationInvalidResource() {
+        $auth = $this->getService('Admin\Service\AuthService');
+        $this->getAlterConfig();
+        $user = $this->returnUser('admin', 'admin');
+
+        /* @var $result boolean */
+        /* @var $auth AuthService */
+        $result = $auth->authentificate($user->getUsername(), 'admin');
+        $this->assertTrue($result);
+
+        $result = $auth->authorize('Application', 'NotExistentController', 'index');
+    }
 
     public function testLogout() {
         $auth = $this->getService('Admin\Service\AuthService');
@@ -139,14 +166,14 @@ class AuthServiceTest extends ServiceTestCase {
         $this->assertNull($zauth->getIdentity());
     }
 
-    public function returnUser($name, $role = 'admin') {
+    public function returnUser($name, $role = 'admin', $active = true) {
         $dao = $this->getService('Admin\Service\UserDAOService');
 
         $user = new User();
         $user->setData(array(
             'username' => $name,
             'password' => md5($name),
-            'active' => 1,
+            'active' => $active,
             'email' => "$name@localhost.net",
             'dateCriation' => new DateTime,
             'name' => $name,

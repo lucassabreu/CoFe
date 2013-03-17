@@ -11,7 +11,8 @@ return array(
     'modules' => array(
         'Application',
         'Core',
-        'Admin'
+        'Admin',
+        'ZfcTwitterBootstrap'
     ),
     'module_listener_options' => array(
         'module_paths' => array(

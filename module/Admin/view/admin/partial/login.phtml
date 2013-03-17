@@ -1,0 +1,7 @@
+<div class="well form-login">
+    <h3>Login in</h3>
+    <?php if (isset($error)): ?>
+        <?php echo $this->ztbAlert()->error($error, true); ?>
+    <?php endif; ?>
+    <?php echo $this->ztbForm($form); ?>
+</div>

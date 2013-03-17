@@ -24,12 +24,14 @@ return array(
             'Application\Controller\Index.index',
             'Admin\Controller\Index.index',
             'Admin\Controller\Auth.index',
+            'Admin\Controller\Auth.login',
             'Admin\Controller\Auth.logout',
         ),
         'privilege' => array(
             'guest' => array(
                 'allow' => array(
-                    'Admin\Controller\Auth.index',
+                    'Admin\Controller\Auth.index', 
+                    'Admin\Controller\Auth.login',
                     'Admin\Controller\Auth.logout',
                 ),
             ),

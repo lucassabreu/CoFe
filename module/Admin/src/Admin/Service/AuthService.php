@@ -2,7 +2,6 @@
 
 namespace Admin\Service;
 
-use Admin\Model\Entity\User;
 use Admin\Service\Exception\Auth\InactiveUserAuthException;
 use Admin\Service\Exception\Auth\InvalidUserAuthException;
 use Admin\Service\Exception\Auth\NotAuthorizedAuthException;
@@ -42,6 +41,10 @@ class AuthService extends Service {
      * @throws Exception\Auth\InactiveUserAuthException If user and password are correct, but user inactive
      */
     public function authentificate($username, $password) {
+
+        if ($username === '' || $username === null || $password === '' || $password === null)
+            throw new InvalidUserAuthException();
+
         $this->getAdapter()
                 ->setIdentity($username)
                 ->setCredential(md5($password));
@@ -92,10 +95,14 @@ class AuthService extends Service {
 
         $resource = $controllerName . '.' . $actionName;
         $acl = $this->getService('Core\Acl\Builder')->build();
-        if ($acl->isAllowed($role, $resource)) {
-            return true;
+
+        try {
+            if ($acl->isAllowed($role, $resource))
+                return true;
+        } catch (Exception $e) {
+            throw new NotAuthorizedAuthException($user, $controllerName, $actionName, $e);
         }
-        
+
         throw new NotAuthorizedAuthException($user, $controllerName, $actionName);
     }
 

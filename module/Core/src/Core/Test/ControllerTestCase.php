@@ -24,13 +24,6 @@ abstract class ControllerTestCase extends TestCase
     protected $request;
 
     /**
-     * A response object
-     *
-     * @var Response
-     */
-    protected $response;
-
-    /**
      * The matched route for the controller
      *
      * @var RouteMatch
@@ -50,7 +43,7 @@ abstract class ControllerTestCase extends TestCase
      *
      * @var string
      */
-    protected $controllerFQDN;
+    protected $controllerName;
 
     /**
      * The route to the controller, as defined in the configuration files
@@ -65,8 +58,10 @@ abstract class ControllerTestCase extends TestCase
         
         $routes = $this->getRoutes();
         
-        $this->controller = new $this->controllerFQDN; //$this->serviceManager->get($this->controllerFQDN);
+        $this->controller = new $this->controllerName; //$this->serviceManager->get($this->controllerName);
         $this->request    = new Request();
+        $this->routeMatch = $this->getEvent()->getRouteMatch();
+        
         $this->routeMatch = new RouteMatch(array(
             'router' => array(
                 'routes' => array(
@@ -74,9 +69,10 @@ abstract class ControllerTestCase extends TestCase
                 )
             )
         ));
-        $this->getEvent()->setRouteMatch($this->routeMatch);
+        $this->event = $this->getEvent(); 
+        $this->event->setRouteMatch($this->routeMatch);
         
-        $this->controller->setEvent($this->getEvent());
+        $this->controller->setEvent($this->event);
         $this->controller->setServiceLocator($this->getServiceManager());
     }
 

@@ -1,6 +1,1 @@
-<?php
-
-echo $this->form()->openTag($form);
-echo $this->formCollection($form);
-echo $this->form()->closeTag();
-?>
+<?php echo $this->partial('admin/partial/login.phtml', array('form' => $form));?>

@@ -89,7 +89,7 @@ class User extends Entity {
      */
     protected $active = false;
 
-    protected static function _getInputFilter() {
+    public static function _getInputFilter() {
         if (self::$_inputFilter === null) {
             $factory = new Factory();
             self::$_inputFilter = $factory->createInputFilter(

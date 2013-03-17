@@ -17,6 +17,7 @@ class Module {
      * @return array
      */
     public function getConfig() {
+        //throw new \Excetion();
         return include __DIR__ . '/config/module.config.php';
     }
 
@@ -70,7 +71,7 @@ class Module {
              */
             $res = $event->getResponse();
             $res->setStatusCode(302);
-            $res->getHeaders()->addHeaderLine('Location', '/admin/auth');
+            $res->getHeaders()->addHeaderLine('Location', '/admin/auth/');
         }
 
         return true;

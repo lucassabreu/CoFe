@@ -2,6 +2,7 @@
 
 namespace Core\Test;
 
+use Core\Test\Bootstrap;
 use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
 use Zend\Mvc\Application;
@@ -138,11 +139,9 @@ final class Bootstrap {
      * Returns a module's root directory.
      * @param string $name Name of module (if not set then use the Module at test)
      * 
-     * @see Bootstrap#getModuleName
-     * 
      * @return string
      */
-    public function getModuleRoot($name = null) {
+    public function getModuleRoot($name = null, $config = null) {
         if ($name === null)
             $name = $this->getModuleName();
 
@@ -163,14 +162,13 @@ final class Bootstrap {
      */
     public function getConfiguration() {
         if ($this->configuration == null) {
-            $config = include $this->getRootDirectory() . '/config/application.config.php';
-            $config['module_listener_options']['config_static_paths'] = array($this->getRootDirectory() . '/config/test.config.php');
+            $config = include 'config/application.config.php';
+            $config['module_listener_options']['config_static_paths'] = array(getcwd() . '/config/test.config.php');
 
-            if (file_exists($this->getModuleRoot() . '/config/test.config.php')) {
-                $moduleConfig = include $this->getModuleRoot() . '/config/test.config.php';
+            if (file_exists(__DIR__ . '/config/test.config.php')) {
+                $moduleConfig = include __DIR__ . '/config/test.config.php';
                 array_unshift($config['module_listener_options']['config_static_paths'], $moduleConfig);
             }
-
             $this->configuration = $config;
         }
 
@@ -182,16 +180,10 @@ final class Bootstrap {
      * @return Application
      */
     public function getApplication() {
+
         if ($this->application === null) {
+            $config = $this->getConfiguration();
 
-            //$config = $this->getConfiguration();
-            $config = include 'config/application.config.php';
-            $config['module_listener_options']['config_static_paths'] = array(getcwd() . '/config/test.config.php');
-
-            if (file_exists(__DIR__ . '/config/test.config.php')) {
-                $moduleConfig = include __DIR__ . '/config/test.config.php';
-                array_unshift($config['module_listener_options']['config_static_paths'], $moduleConfig);
-            }
             $this->serviceManager = new ServiceManager(new ServiceManagerConfig(
                                     isset($config['service_manager']) ? $config['service_manager'] : array()
                     ));
@@ -201,8 +193,9 @@ final class Bootstrap {
             $moduleManager = $this->serviceManager->get('ModuleManager');
             $moduleManager->loadModules();
             $this->routes = array();
-            foreach ($moduleManager->getModules() as $m) {
-                $moduleConfig = include $this->getModuleRoot($m) . '/config/module.config.php';
+            foreach ($moduleManager->getLoadedModules() as $m) {
+                //$moduleConfig = include __DIR__ . '/../../../../' . ucfirst($m) . '/config/module.config.php';
+                $moduleConfig = $m->getConfig();
                 if (isset($moduleConfig['router'])) {
                     foreach ($moduleConfig['router']['routes'] as $key => $name) {
                         $this->routes[$key] = $name;
@@ -218,6 +211,10 @@ final class Bootstrap {
                     ->setRequest($this->application->getRequest())
                     ->setResponse($this->application->getResponse())
                     ->setRouter($this->serviceManager->get('Router'));
+
+//            $this->application = Application::init($this->getConfiguration());
+//            $this->serviceManager = $this->application->getServiceManager();
+//            $this->event = $this->application->getMvcEvent();
         }
 
         return $this->application;
