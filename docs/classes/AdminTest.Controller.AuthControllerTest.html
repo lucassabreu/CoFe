@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>CoFe » \AdminTest\Service\UserDAOServiceTest</title>
+<title>CoFe » \AdminTest\Controller\AuthControllerTest</title>
 <meta name="author" content="Lucas dos Santos Abreu">
 <meta name="description" content="">
 <link href="../stylesheets/pygment_trac.css" rel="stylesheet">
@@ -77,41 +77,48 @@
         </span><pre>setup()</pre></a></li>
 <li class="method public inherited"><a href="#tearDown" title="tearDown :: "><span class="description">tearDown()
         </span><pre>tearDown()</pre></a></li>
-<li class="method public "><a href="#testChangePassword" title="testChangePassword :: "><span class="description">testChangePassword()
-        </span><pre>testChangePassword()</pre></a></li>
-<li class="method public "><a href="#testFetchAll" title="testFetchAll :: "><span class="description">testFetchAll()
-        </span><pre>testFetchAll()</pre></a></li>
-<li class="method public "><a href="#testFetchByParam" title="testFetchByParam :: "><span class="description">testFetchByParam()
-        </span><pre>testFetchByParam()</pre></a></li>
-<li class="method public "><a href="#testFindById" title="testFindById :: "><span class="description">testFindById()
-        </span><pre>testFindById()</pre></a></li>
-<li class="method public "><a href="#testFindByUsername" title="testFindByUsername :: "><span class="description">testFindByUsername()
-        </span><pre>testFindByUsername()</pre></a></li>
-<li class="method public "><a href="#testSave" title="testSave :: "><span class="description">testSave()
-        </span><pre>testSave()</pre></a></li>
+<li class="method public "><a href="#test404" title="test404 :: Valid if the controller will response with 404."><span class="description">Valid if the controller will response with 404.</span><pre>test404()</pre></a></li>
+<li class="method public "><a href="#testIndexPage" title="testIndexPage :: Valid return of index action"><span class="description">Valid return of index action</span><pre>testIndexPage()</pre></a></li>
+<li class="method public "><a href="#testInvalidLoginData" title="testInvalidLoginData :: "><span class="description">testInvalidLoginData()
+        </span><pre>testInvalidLoginData()</pre></a></li>
+<li class="method public "><a href="#testLoginInvalidMethod" title="testLoginInvalidMethod :: "><span class="description">testLoginInvalidMethod()
+        </span><pre>testLoginInvalidMethod()</pre></a></li>
+<li class="method public "><a href="#testLoginWithoutData" title="testLoginWithoutData :: "><span class="description">testLoginWithoutData()
+        </span><pre>testLoginWithoutData()</pre></a></li>
+<li class="method public "><a href="#testLogout" title="testLogout :: "><span class="description">testLogout()
+        </span><pre>testLogout()</pre></a></li>
+<li class="method public "><a href="#testValidLoginData" title="testValidLoginData :: "><span class="description">testValidLoginData()
+        </span><pre>testValidLoginData()</pre></a></li>
 <li class="nav-header protected">» Protected</li>
-<li class="method protected "><a href="#getDAOService" title="getDAOService :: "><span class="description">getDAOService()
-        </span><pre>getDAOService()</pre></a></li>
+<li class="method protected "><a href="#addUser" title="addUser :: "><span class="description">addUser()
+        </span><pre>addUser()</pre></a></li>
 <li class="method protected inherited"><a href="#getService" title="getService :: Retrieve Service"><span class="description">Retrieve Service</span><pre>getService()</pre></a></li>
-<li class="method protected "><a href="#newUser" title="newUser :: Makes a basic User;"><span class="description">Makes a basic User;</span><pre>newUser()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
 <li class="nav-header protected">» Protected</li>
 <li class="property protected inherited"><a href="#%24application" title="$application :: Current application"><span class="description">Current application</span><pre>$application</pre></a></li>
+<li class="property protected inherited"><a href="#%24controller" title="$controller :: The ActionController we are testing"><span class="description">The ActionController we are testing</span><pre>$controller</pre></a></li>
+<li class="property protected "><a href="#%24controllerName" title="$controllerName :: The Controller fully qualified domain name, so each ControllerTestCase can create an instance
+of the tested controller"><span class="description">The Controller fully qualified domain name, so each ControllerTestCase can create an instance
+of the tested controller</span><pre>$controllerName</pre></a></li>
+<li class="property protected "><a href="#%24controllerRoute" title="$controllerRoute :: The route to the controller, as defined in the configuration files"><span class="description">The route to the controller, as defined in the configuration files</span><pre>$controllerRoute</pre></a></li>
+<li class="property protected inherited"><a href="#%24event" title="$event :: An MVC event to be assigned to the controller"><span class="description">An MVC event to be assigned to the controller</span><pre>$event</pre></a></li>
+<li class="property protected inherited"><a href="#%24request" title="$request :: A request object"><span class="description">A request object</span><pre>$request</pre></a></li>
+<li class="property protected inherited"><a href="#%24routeMatch" title="$routeMatch :: The matched route for the controller"><span class="description">The matched route for the controller</span><pre>$routeMatch</pre></a></li>
 </ul>
 </div>
 <div class="span8">
-<a name="%5CAdminTest%5CService%5CUserDAOServiceTest" id="\AdminTest\Service\UserDAOServiceTest"></a><ul class="breadcrumb">
+<a name="%5CAdminTest%5CController%5CAuthControllerTest" id="\AdminTest\Controller\AuthControllerTest"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/AdminTest.html">AdminTest</a></li>
-<span class="divider">\</span><li><a href="../namespaces/AdminTest.Service.html">Service</a></li>
+<span class="divider">\</span><li><a href="../namespaces/AdminTest.Controller.html">Controller</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/AdminTest.Service.UserDAOServiceTest.html">UserDAOServiceTest</a>
+<span class="divider">\</span><a href="../classes/AdminTest.Controller.AuthControllerTest.html">AuthControllerTest</a>
 </li>
 </ul>
-<div href="../classes/AdminTest.Service.UserDAOServiceTest.html" class="element class">
+<div href="../classes/AdminTest.Controller.AuthControllerTest.html" class="element class">
 <p class="short_description">Base Test Case class</p>
 <div class="details">
 <p class="long_description"></p>
@@ -122,7 +129,7 @@
 </tr>
 <tr>
 <th>group</th>
-<td>DAOService</td>
+<td>Controller</td>
 </tr>
 </table>
 <h3>
@@ -141,7 +148,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::createDatabase()</td>
+<td>\Core\Test\ControllerTestCase::createDatabase()</td>
 </tr>
 </table>
 </div></div>
@@ -160,7 +167,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::dropDatabase()</td>
+<td>\Core\Test\ControllerTestCase::dropDatabase()</td>
 </tr>
 </table>
 </div></div>
@@ -179,7 +186,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::getAdapter()</td>
+<td>\Core\Test\ControllerTestCase::getAdapter()</td>
 </tr>
 </table>
 <h3>Returns</h3>
@@ -200,7 +207,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::getApplication()</td>
+<td>\Core\Test\ControllerTestCase::getApplication()</td>
 </tr>
 </table>
 </div></div>
@@ -218,7 +225,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::getBootstrap()</td>
+<td>\Core\Test\ControllerTestCase::getBootstrap()</td>
 </tr>
 </table>
 <h3>Returns</h3>
@@ -238,7 +245,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::getEvent()</td>
+<td>\Core\Test\ControllerTestCase::getEvent()</td>
 </tr>
 </table>
 <h3>Returns</h3>
@@ -258,7 +265,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::getRoutes()</td>
+<td>\Core\Test\ControllerTestCase::getRoutes()</td>
 </tr>
 </table>
 <h3>Returns</h3>
@@ -278,7 +285,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::getServiceManager()</td>
+<td>\Core\Test\ControllerTestCase::getServiceManager()</td>
 </tr>
 </table>
 <h3>Returns</h3>
@@ -292,16 +299,10 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\Core\Test\TestCase::setup()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::setup()</td>
-</tr>
-</table>
+<td>\Core\Test\ControllerTestCase::setup()</td>
+</tr></table>
 </div></div>
 </div>
 <a name="tearDown" id="tearDown"></a><div class="element clickable method public tearDown" data-toggle="collapse" data-target=".tearDown .collapse">
@@ -311,69 +312,83 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\Core\Test\TestCase::tearDown()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::tearDown()</td>
-</tr>
-</table>
+<td>\Core\Test\ControllerTestCase::tearDown()</td>
+</tr></table>
 </div></div>
 </div>
-<a name="testChangePassword" id="testChangePassword"></a><div class="element clickable method public testChangePassword" data-toggle="collapse" data-target=".testChangePassword .collapse">
-<h2>testChangePassword()
-        </h2>
-<pre>testChangePassword() </pre>
+<a name="test404" id="test404"></a><div class="element clickable method public test404" data-toggle="collapse" data-target=".test404 .collapse">
+<h2>Valid if the controller will response with 404.</h2>
+<pre>test404() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
-<a name="testFetchAll" id="testFetchAll"></a><div class="element clickable method public testFetchAll" data-toggle="collapse" data-target=".testFetchAll .collapse">
-<h2>testFetchAll()
-        </h2>
-<pre>testFetchAll() </pre>
+<a name="testIndexPage" id="testIndexPage"></a><div class="element clickable method public testIndexPage" data-toggle="collapse" data-target=".testIndexPage .collapse">
+<h2>Valid return of index action</h2>
+<pre>testIndexPage() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
-<a name="testFetchByParam" id="testFetchByParam"></a><div class="element clickable method public testFetchByParam" data-toggle="collapse" data-target=".testFetchByParam .collapse">
-<h2>testFetchByParam()
+<a name="testInvalidLoginData" id="testInvalidLoginData"></a><div class="element clickable method public testInvalidLoginData" data-toggle="collapse" data-target=".testInvalidLoginData .collapse">
+<h2>testInvalidLoginData()
         </h2>
-<pre>testFetchByParam() </pre>
+<pre>testInvalidLoginData() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
-<a name="testFindById" id="testFindById"></a><div class="element clickable method public testFindById" data-toggle="collapse" data-target=".testFindById .collapse">
-<h2>testFindById()
+<a name="testLoginInvalidMethod" id="testLoginInvalidMethod"></a><div class="element clickable method public testLoginInvalidMethod" data-toggle="collapse" data-target=".testLoginInvalidMethod .collapse">
+<h2>testLoginInvalidMethod()
         </h2>
-<pre>testFindById() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="testFindByUsername" id="testFindByUsername"></a><div class="element clickable method public testFindByUsername" data-toggle="collapse" data-target=".testFindByUsername .collapse">
-<h2>testFindByUsername()
-        </h2>
-<pre>testFindByUsername() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="testSave" id="testSave"></a><div class="element clickable method public testSave" data-toggle="collapse" data-target=".testSave .collapse">
-<h2>testSave()
-        </h2>
-<pre>testSave() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="getDAOService" id="getDAOService"></a><div class="element clickable method protected getDAOService" data-toggle="collapse" data-target=".getDAOService .collapse">
-<h2>getDAOService()
-        </h2>
-<pre>getDAOService() : <a href="../classes/Admin.Service.UserDAOService.html">\Admin\Service\UserDAOService</a></pre>
+<pre>testLoginInvalidMethod() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
-<h3>Returns</h3>
-<div class="subelement response"><code><a href="../classes/Admin.Service.UserDAOService.html">\Admin\Service\UserDAOService</a></code></div>
+<table class="table table-bordered"><tr>
+<th>expectedException</th>
+<td>Exception</td>
+</tr></table>
+</div></div>
+</div>
+<a name="testLoginWithoutData" id="testLoginWithoutData"></a><div class="element clickable method public testLoginWithoutData" data-toggle="collapse" data-target=".testLoginWithoutData .collapse">
+<h2>testLoginWithoutData()
+        </h2>
+<pre>testLoginWithoutData() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="testLogout" id="testLogout"></a><div class="element clickable method public testLogout" data-toggle="collapse" data-target=".testLogout .collapse">
+<h2>testLogout()
+        </h2>
+<pre>testLogout() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>depends</th>
+<td>testValidLoginData</td>
+</tr></table>
+</div></div>
+</div>
+<a name="testValidLoginData" id="testValidLoginData"></a><div class="element clickable method public testValidLoginData" data-toggle="collapse" data-target=".testValidLoginData .collapse">
+<h2>testValidLoginData()
+        </h2>
+<pre>testValidLoginData() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="addUser" id="addUser"></a><div class="element clickable method protected addUser" data-toggle="collapse" data-target=".addUser .collapse">
+<h2>addUser()
+        </h2>
+<pre>addUser($username) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code></code>
+</div>
 </div></div>
 </div>
 <a name="getService" id="getService"></a><div class="element clickable method protected getService" data-toggle="collapse" data-target=".getService .collapse">
@@ -389,7 +404,7 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::getService()</td>
+<td>\Core\Test\ControllerTestCase::getService()</td>
 </tr>
 </table>
 <h3>Parameters</h3>
@@ -399,21 +414,6 @@
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>\Zend\ServiceManager\ServiceLocatorAwareInterface</code></div>
-</div></div>
-</div>
-<a name="newUser" id="newUser"></a><div class="element clickable method protected newUser" data-toggle="collapse" data-target=".newUser .collapse">
-<h2>Makes a basic User;</h2>
-<pre>newUser(string $name) : <a href="../classes/Admin.Model.Entity.User.html">\Admin\Model\Entity\User</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$name</h4>
-<code>string</code>
-</div>
-<h3>Returns</h3>
-<div class="subelement response"><code><a href="../classes/Admin.Model.Entity.User.html">\Admin\Model\Entity\User</a></code></div>
 </div></div>
 </div>
 <h3>
@@ -431,9 +431,70 @@
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\Core\Test\ServiceTestCase::$$application</td>
+<td>\Core\Test\ControllerTestCase::$$application</td>
 </tr>
 </table>
+</div></div>
+</div>
+<a name="%24controller" id="$controller"> </a><div class="element clickable property protected $controller" data-toggle="collapse" data-target=".$controller .collapse">
+<h2>The ActionController we are testing</h2>
+<pre>$controller : \Zend\Mvc\Controller\AbstractActionController</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Core\Test\ControllerTestCase::$$controller</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24controllerName" id="$controllerName"> </a><div class="element clickable property protected $controllerName" data-toggle="collapse" data-target=".$controllerName .collapse">
+<h2>The Controller fully qualified domain name, so each ControllerTestCase can create an instance
+of the tested controller</h2>
+<pre>$controllerName : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24controllerRoute" id="$controllerRoute"> </a><div class="element clickable property protected $controllerRoute" data-toggle="collapse" data-target=".$controllerRoute .collapse">
+<h2>The route to the controller, as defined in the configuration files</h2>
+<pre>$controllerRoute : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24event" id="$event"> </a><div class="element clickable property protected $event" data-toggle="collapse" data-target=".$event .collapse">
+<h2>An MVC event to be assigned to the controller</h2>
+<pre>$event : \Zend\Mvc\MvcEvent</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Core\Test\ControllerTestCase::$$event</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24request" id="$request"> </a><div class="element clickable property protected $request" data-toggle="collapse" data-target=".$request .collapse">
+<h2>A request object</h2>
+<pre>$request : \Zend\Http\Request</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Core\Test\ControllerTestCase::$$request</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24routeMatch" id="$routeMatch"> </a><div class="element clickable property protected $routeMatch" data-toggle="collapse" data-target=".$routeMatch .collapse">
+<h2>The matched route for the controller</h2>
+<pre>$routeMatch : \Zend\Mvc\Router\RouteMatch</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Core\Test\ControllerTestCase::$$routeMatch</td>
+</tr></table>
 </div></div>
 </div>
 </div>

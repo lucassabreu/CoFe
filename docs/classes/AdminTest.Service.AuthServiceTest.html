@@ -85,16 +85,20 @@
         </span><pre>tearDown()</pre></a></li>
 <li class="method public "><a href="#testAuthentication" title="testAuthentication :: "><span class="description">testAuthentication()
         </span><pre>testAuthentication()</pre></a></li>
+<li class="method public "><a href="#testAuthenticationInactiveUser" title="testAuthenticationInactiveUser :: "><span class="description">testAuthenticationInactiveUser()
+        </span><pre>testAuthenticationInactiveUser()</pre></a></li>
 <li class="method public "><a href="#testAuthenticationInvalidPassword" title="testAuthenticationInvalidPassword :: "><span class="description">testAuthenticationInvalidPassword()
         </span><pre>testAuthenticationInvalidPassword()</pre></a></li>
-<li class="method public "><a href="#testAuthenticationUserNorExists" title="testAuthenticationUserNorExists :: "><span class="description">testAuthenticationUserNorExists()
-        </span><pre>testAuthenticationUserNorExists()</pre></a></li>
+<li class="method public "><a href="#testAuthenticationUserNotExists" title="testAuthenticationUserNotExists :: "><span class="description">testAuthenticationUserNotExists()
+        </span><pre>testAuthenticationUserNotExists()</pre></a></li>
 <li class="method public "><a href="#testAuthorizationAdminUser" title="testAuthorizationAdminUser :: "><span class="description">testAuthorizationAdminUser()
         </span><pre>testAuthorizationAdminUser()</pre></a></li>
 <li class="method public "><a href="#testAuthorizationAuthenficatedGuest" title="testAuthorizationAuthenficatedGuest :: "><span class="description">testAuthorizationAuthenficatedGuest()
         </span><pre>testAuthorizationAuthenficatedGuest()</pre></a></li>
 <li class="method public "><a href="#testAuthorizationAuthenficatedGuestNotAllowedResource" title="testAuthorizationAuthenficatedGuestNotAllowedResource :: "><span class="description">testAuthorizationAuthenficatedGuestNotAllowedResource()
         </span><pre>testAuthorizationAuthenficatedGuestNotAllowedResource()</pre></a></li>
+<li class="method public "><a href="#testAuthorizationInvalidResource" title="testAuthorizationInvalidResource :: "><span class="description">testAuthorizationInvalidResource()
+        </span><pre>testAuthorizationInvalidResource()</pre></a></li>
 <li class="method public "><a href="#testAuthorizationNotAutheticatedGuest" title="testAuthorizationNotAutheticatedGuest :: "><span class="description">testAuthorizationNotAutheticatedGuest()
         </span><pre>testAuthorizationNotAutheticatedGuest()</pre></a></li>
 <li class="method public "><a href="#testAuthorizationNotAutheticatedGuestNotAllowedResource" title="testAuthorizationNotAutheticatedGuestNotAllowedResource :: "><span class="description">testAuthorizationNotAutheticatedGuestNotAllowedResource()
@@ -315,7 +319,7 @@
 <a name="returnUser" id="returnUser"></a><div class="element clickable method public returnUser" data-toggle="collapse" data-target=".returnUser .collapse">
 <h2>returnUser()
         </h2>
-<pre>returnUser($name, $role) </pre>
+<pre>returnUser($name, $role, $active) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -326,6 +330,10 @@
 </div>
 <div class="subelement argument">
 <h4>$role</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$active</h4>
 <code></code>
 </div>
 </div></div>
@@ -375,6 +383,19 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
+<a name="testAuthenticationInactiveUser" id="testAuthenticationInactiveUser"></a><div class="element clickable method public testAuthenticationInactiveUser" data-toggle="collapse" data-target=".testAuthenticationInactiveUser .collapse">
+<h2>testAuthenticationInactiveUser()
+        </h2>
+<pre>testAuthenticationInactiveUser() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>expectedException</th>
+<td>Admin\Service\Exception\Auth\InactiveUserAuthException</td>
+</tr></table>
+</div></div>
+</div>
 <a name="testAuthenticationInvalidPassword" id="testAuthenticationInvalidPassword"></a><div class="element clickable method public testAuthenticationInvalidPassword" data-toggle="collapse" data-target=".testAuthenticationInvalidPassword .collapse">
 <h2>testAuthenticationInvalidPassword()
         </h2>
@@ -385,30 +406,30 @@
 <table class="table table-bordered">
 <tr>
 <th>expectedException</th>
-<td>Exception</td>
+<td>Admin\Service\Exception\Auth\InvalidUserAuthException</td>
 </tr>
 <tr>
 <th>expectedExceptionMessage</th>
-<td>Invalid username or password.</td>
+<td>You're trying login in with a invalid user or password.</td>
 </tr>
 </table>
 </div></div>
 </div>
-<a name="testAuthenticationUserNorExists" id="testAuthenticationUserNorExists"></a><div class="element clickable method public testAuthenticationUserNorExists" data-toggle="collapse" data-target=".testAuthenticationUserNorExists .collapse">
-<h2>testAuthenticationUserNorExists()
+<a name="testAuthenticationUserNotExists" id="testAuthenticationUserNotExists"></a><div class="element clickable method public testAuthenticationUserNotExists" data-toggle="collapse" data-target=".testAuthenticationUserNotExists .collapse">
+<h2>testAuthenticationUserNotExists()
         </h2>
-<pre>testAuthenticationUserNorExists() </pre>
+<pre>testAuthenticationUserNotExists() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
 <table class="table table-bordered">
 <tr>
 <th>expectedException</th>
-<td>Exception</td>
+<td>Admin\Service\Exception\Auth\InvalidUserAuthException</td>
 </tr>
 <tr>
 <th>expectedExceptionMessage</th>
-<td>Invalid username or password.</td>
+<td>You're trying login in with a invalid user or password.</td>
 </tr>
 </table>
 </div></div>
@@ -442,6 +463,25 @@
 <tr>
 <th>expectedExceptionMessage</th>
 <td>User guest was not allowed for use Admin\Controller\Index.index.</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testAuthorizationInvalidResource" id="testAuthorizationInvalidResource"></a><div class="element clickable method public testAuthorizationInvalidResource" data-toggle="collapse" data-target=".testAuthorizationInvalidResource .collapse">
+<h2>testAuthorizationInvalidResource()
+        </h2>
+<pre>testAuthorizationInvalidResource() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>expectedException</th>
+<td>Admin\Service\Exception\Auth\NotAuthorizedAuthException</td>
+</tr>
+<tr>
+<th>expectedExceptionMessage</th>
+<td>User admin was not allowed for use NotExistentController.index.</td>
 </tr>
 </table>
 </div></div>
@@ -538,7 +578,7 @@
                 2.0.0a8</a> and
             <br>
             generated on 
-            2013-03-16T14:20:27-03:00.
+            2013-03-17T16:51:38-03:00.
             <br></footer></div>
 </div>
 </body>
