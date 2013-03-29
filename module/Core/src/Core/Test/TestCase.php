@@ -57,7 +57,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase {
             $dbAdapter->query('SET FOREIGN_KEY_CHECKS = 1;', Adapter::QUERY_MODE_EXECUTE);
         }
 
-        $queries = include $this->getBootstrap()->getModuleRoot() . '/data/test.data.php';
+        $queries = $this->getBootstrap()->getTestConfig();
         foreach ($queries as $queries) {
             foreach ($queries['create'] as $query)
                 $dbAdapter->query($query, Adapter::QUERY_MODE_EXECUTE);
@@ -79,7 +79,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase {
             $dbAdapter->query('SET FOREIGN_KEY_CHECKS = 0;', Adapter::QUERY_MODE_EXECUTE);
         }
 
-        $queries = include $this->getBootstrap()->getModuleRoot() . '/data/test.data.php';
+        $queries = $this->getBootstrap()->getTestConfig();
         foreach ($queries as $query) {
             $dbAdapter->query($query['drop'], Adapter::QUERY_MODE_EXECUTE);
         }

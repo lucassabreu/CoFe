@@ -4,6 +4,8 @@ namespace Admin;
 
 use Admin\Service\Exception\Auth\NotAuthorizedAuthException;
 use Zend\EventManager\SharedEventManager;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\ModuleManager;
 use Zend\Mvc\MvcEvent;
 
@@ -11,13 +13,12 @@ use Zend\Mvc\MvcEvent;
  * Bootstrap module class
  * @ignore
  */
-class Module {
+class Module implements ConfigProviderInterface, AutoloaderProviderInterface {
 
     /**
      * @return array
      */
     public function getConfig() {
-        //throw new \Excetion();
         return include __DIR__ . '/config/module.config.php';
     }
 

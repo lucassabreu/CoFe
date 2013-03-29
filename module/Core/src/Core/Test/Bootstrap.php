@@ -26,9 +26,9 @@ final class Bootstrap {
     private static $instance = null;
 
     /**
-     * @var string
+     * @var array
      */
-    protected $moduleName = null;
+    protected $modules = null;
 
     /**
      * @var string
@@ -61,27 +61,30 @@ final class Bootstrap {
     protected $configuration = null;
 
     /**
+     * @var array
+     */
+    protected $testConfiguration = null;
+
+    /**
      * Return the instance of <code>\Core\Test\Bootstrap</code>
      * @param string $directory
      * @param string $module
      * @return Bootstrap
      */
-    public static function getInstance($directory = null, $module = null) {
+    public static function getInstance($modules = null) {
         if (self::$instance === null)
-            self::$instance = new Bootstrap($directory, $module);
+            self::$instance = new Bootstrap($modules);
 
         return self::$instance;
     }
 
     /**
      * Constructor of class
-     * @param string $directory Base directory at initilialize the Bootstrap
-     * @param string $module Module to test
+     * @param string $modules Modules to test or NULL for all.
      */
-    private function __construct($directory, $module) {
-        $this->moduleName = $module;
-        $this->rootDirectory = realpath($directory . '/../../../');
-        $this->moduleDirectory = $this->rootDirectory . '/module/' . $this->moduleName;
+    private function __construct($modules = null) {
+        $this->modules = $modules;
+        $this->rootDirectory = realpath(substr(__DIR__, 0, strlen(__DIR__) - strlen(__NAMESPACE__)) . '../../../');
     }
 
     /**
@@ -193,8 +196,7 @@ final class Bootstrap {
             $moduleManager = $this->serviceManager->get('ModuleManager');
             $moduleManager->loadModules();
             $this->routes = array();
-            foreach ($moduleManager->getLoadedModules() as $m) {
-                //$moduleConfig = include __DIR__ . '/../../../../' . ucfirst($m) . '/config/module.config.php';
+            foreach ($moduleManager->getLoadedModules() as $key => $m) {
                 $moduleConfig = $m->getConfig();
                 if (isset($moduleConfig['router'])) {
                     foreach ($moduleConfig['router']['routes'] as $key => $name) {
@@ -202,6 +204,27 @@ final class Bootstrap {
                     }
                 }
             }
+
+            if ($this->testConfiguration === null) {
+                $this->testConfiguration = array();
+                $moduleKeys = array();
+                foreach ($this->modules as $value)
+                    $moduleKeys[$value] = 0;
+                
+                $testModuleConfig = array();
+                foreach ($moduleManager->getModules() as $module) {
+                    if (array_key_exists($module, $moduleKeys)) {
+                        if (file_exists($this->getRootDirectory() . "/module/$module/data/test.data.php")) {
+                            $testModuleConfig =
+                                    include_once $this->getRootDirectory() . "/module/$module/data/test.data.php";
+                            foreach ($testModuleConfig as $table => $values) {
+                                $this->testConfiguration[$table] = $values;
+                            }
+                        }
+                    }
+                }
+            }
+
             $this->serviceManager->setAllowOverride(true);
 
             $this->application = $this->serviceManager->get('Application');
@@ -218,6 +241,14 @@ final class Bootstrap {
         }
 
         return $this->application;
+    }
+
+    /**
+     * Retrieves the test configuration
+     * @return array
+     */
+    public function getTestConfig() {
+        return $this->testConfiguration;
     }
 
     /**
@@ -242,6 +273,14 @@ final class Bootstrap {
      */
     public function getRoutes() {
         return $this->routes;
+    }
+
+    /**
+     * Retrieves a array with test configuration.
+     * @return array
+     */
+    public function getTestConfiguration() {
+        return $this->testConfiguration;
     }
 
 }

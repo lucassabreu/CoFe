@@ -15,7 +15,7 @@ return array(
                 `dt_criation` DATE NOT NULL ,
                 PRIMARY KEY (`id`) )
               ENGINE = InnoDB;",
-            "CREATE UNIQUE INDEX `idx_username` USING BTREE ON `user` (`username` ASC) ;",
+            "CREATE UNIQUE INDEX `idx_username` USING BTREE ON `user` (`username` ASC) ;"
         ),
         'drop' => "DROP TABLE `user`;"
     ),
