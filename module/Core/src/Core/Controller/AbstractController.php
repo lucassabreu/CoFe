@@ -10,6 +10,7 @@
 
 namespace Core\Controller;
 
+use Core\Model\DAO\DAOInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceManagerAwareInterface;
@@ -23,12 +24,40 @@ use Zend\View\Model\ViewModel;
 abstract class AbstractController extends AbstractActionController {
 
     /**
+     * DAO instance for controller
+     * 
+     * @var DAOInterface
+     */
+    private $dao = null;
+
+    /**
+     * Class name of default DAO
+     * @var string
+     */
+    protected $daoName = null;
+
+    /**
      * Retrieves the of requested service by name
      * @param string $name
      * @return mixed|ServiceManagerAwareInterface|ServiceLocatorAwareInterface
      */
     public function getService($name) {
         return $this->getServiceLocator()->get($name);
+    }
+
+    /**
+     * Retrieves a DAO instance
+     * @return DAOInterface
+     */
+    public function dao($name = null) {
+
+        if ($name === null) {
+            if ($this->dao === null)
+                $this->dao = $this->getService($this->daoName);
+
+            return $this->dao;
+        } else
+            return $this->getService($name);
     }
 
     public function indexAction() {

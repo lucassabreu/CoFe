@@ -4,12 +4,14 @@ namespace Admin;
 
 use Admin\Service\AuthService;
 use Core\Authentification\Doctrine\DoctrineAdapter;
+use Zend\ServiceManager\ServiceManager;
 
 return array(
     'service_manager' => array(
         'controllers' => array(
             'invokables' => array(
                 'Admin\Controller\Auth' => 'Admin\Controller\AuthController',
+                'Admin\Controller\User' => 'Admin\Controller\UserController',
             ),
         ),
         'dao_factory' => array(
@@ -41,9 +43,6 @@ return array(
         ),
     ),
     'view_manager' => array(//the module can have a specific layout
-        // 'template_map' => array(
-        //     'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-        // ),
         'template_path_stack' => array(
             'admin' => __DIR__ . '/../view',
         ),

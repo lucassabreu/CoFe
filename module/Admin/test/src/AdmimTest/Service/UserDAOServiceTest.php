@@ -269,11 +269,3 @@ class UserDAOServiceTest extends ServiceTestCase {
     }
 
 }
-
-class EntityTest extends Entity {
-
-    public function getInputFilter() {
-        return null;
-    }
-
-}
