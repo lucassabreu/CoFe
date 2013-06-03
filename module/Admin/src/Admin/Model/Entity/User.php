@@ -12,7 +12,7 @@ use Zend\InputFilter\InputFilterInterface;
 /**
  * Entity User
  *
- * @author Lucas dos Santos Abreu
+ * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
  * 
  * @ORM\Entity
  * @ORM\Table(name="user")
@@ -210,7 +210,7 @@ class User extends Entity {
                                         'callback' => function($value) {
                                             if (!($value instanceof DateTime))
                                                 $value = new DateTime($value);
-                                            
+
                                             $value->setTime(0, 0, 0);
 
                                             return $value;
@@ -253,8 +253,46 @@ class User extends Entity {
         return self::_getInputFilter();
     }
 
-    public function __construct() {
-        $this->setDateCriation(new DateTime('now'));
+    /**
+     * Construct a new User
+     * 
+     * @param string $id
+     * @param string $username
+     * @param string $criptPassword Cripted with MD5 password
+     * @param string $role
+     * @param string $name
+     * @param string $email
+     * @param DateTime $dateCriation Criation's date of User, if null then will be use now
+     * @param string $active Default its TRUE
+     */
+    public function __construct($id = null, $username = null, $criptPassword = null, $role = null, $name = null, $email = null, DateTime $dateCriation = null, $active = null) {
+        if (!is_null($id))
+            $this->setId($id);
+
+        if (!is_null($username))
+            $this->setUsername($username);
+
+        if (!is_null($criptPassword))
+            $this->setPassword($criptPassword);
+
+        if (!is_null($role))
+            $this->setRole($role);
+
+        if (!is_null($name))
+            $this->setName($name);
+
+        if (!is_null($email))
+            $this->setEmail($email);
+
+        if (!is_null($dateCriation))
+            $this->setDateCriation($dateCriation);
+        else
+            $this->setDateCriation(new DateTime('now'));
+
+        if (!is_null($active))
+            $this->setActive($active);
+        else
+            $this->setActive(true);
     }
 
     /**
@@ -401,6 +439,9 @@ class User extends Entity {
         return $this->active;
     }
 
+    public function __toString() {
+        return __CLASS__ . "{id : {$this->id}, username : {$this->username}}";
+    }
 }
 
 ?>

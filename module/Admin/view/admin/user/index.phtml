@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Usuário</th>
+            <th>Data Criação</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <?php foreach ($users as $user): ?>
+        <?php /** @var $user \Admin\Model\Entity\User */ ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($user->getName()); ?></td>
+            <td><?php echo $this->escapeHtml($user->getUsername()); ?></td>            
+            <td><?php echo $this->dateFormat($user->getDateCriation(), IntlDateFormatter::MEDIUM); ?></td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-info" href="/admin/user/detail/id/<?php echo $user->getId(); ?>"><span class="icon icon-book icon-white"></span></a>
+                    <a class="btn btn-warning" href="/admin/user/update/id/<?php echo $user->getId(); ?>"><span class="icon icon-edit icon-white"></span></a>
+                    <a class="btn btn-danger" href="/admin/user/remove/id/<?php echo $user->getId(); ?>"><span class="icon icon-remove icon-white"></span></a>
+                </div>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

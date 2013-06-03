@@ -38,14 +38,6 @@ class UserTest extends ModelTestCase {
     }
 
     /**
-     * Retrieves the DAO.
-     * @return UserDAOInterface
-     */
-    public function getDAO() {
-        return $this->getService($this->daoName);
-    }
-
-    /**
      * Test implementation of InputFilter to attributes.
      */
     public function testInputFilterImplementation() {

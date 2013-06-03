@@ -7,68 +7,113 @@ CREATE SCHEMA IF NOT EXISTS `cofe` DEFAULT CHARACTER SET latin1 ;
 USE `cofe` ;
 
 -- -----------------------------------------------------
--- Table `cofe`.`user`
+-- Table `user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cofe`.`user` ;
+DROP TABLE IF EXISTS `user` ;
 
-CREATE  TABLE IF NOT EXISTS `cofe`.`user` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+CREATE  TABLE IF NOT EXISTS `user` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `username` VARCHAR(50) NOT NULL ,
   `password` CHAR(32) NOT NULL ,
-  `active` TINYINT(1) NOT NULL DEFAULT 0 ,
+  `active` TINYINT(1) NOT NULL DEFAULT '0' ,
   `role` VARCHAR(10) NOT NULL DEFAULT 'common' ,
   `name` VARCHAR(60) NOT NULL ,
   `email` VARCHAR(45) NOT NULL ,
   `dt_criation` DATE NOT NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = latin1;
 
-CREATE UNIQUE INDEX `idx_username` USING BTREE ON `cofe`.`user` (`username` ASC) ;
+CREATE UNIQUE INDEX `idx_username` USING BTREE ON `user` (`username` ASC) ;
 
 
 -- -----------------------------------------------------
--- Table `cofe`.`category`
+-- Table `category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cofe`.`category` ;
+DROP TABLE IF EXISTS `category` ;
 
-CREATE  TABLE IF NOT EXISTS `cofe`.`category` (
-  `user_id` INT UNSIGNED NOT NULL ,
+CREATE  TABLE IF NOT EXISTS `category` (
+  `user_id` INT(10) UNSIGNED NOT NULL ,
   `code` CHAR(6) NOT NULL ,
   `description` VARCHAR(100) NOT NULL ,
-  `flow_type` TINYINT(1) NOT NULL DEFAULT 0 ,
-  PRIMARY KEY (`code`, `user_id`) ,
-  CONSTRAINT `fk_category_user`
-    FOREIGN KEY (`user_id` )
-    REFERENCES `cofe`.`user` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  `flow_type` TINYINT(1) NOT NULL DEFAULT '0' ,
+  `user_id_parent` INT(10) UNSIGNED NULL DEFAULT NULL ,
+  `code_parent` CHAR(6) NULL DEFAULT NULL ,
+  PRIMARY KEY (`user_id`, `code`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `cofe`.`moviment`
+-- Table `moviment`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cofe`.`moviment` ;
+DROP TABLE IF EXISTS `moviment` ;
 
-CREATE  TABLE IF NOT EXISTS `cofe`.`moviment` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+CREATE  TABLE IF NOT EXISTS `moviment` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `cat_code` CHAR(6) NOT NULL ,
-  `user_id` INT UNSIGNED NOT NULL ,
+  `user_id` INT(10) UNSIGNED NOT NULL ,
   `value` DECIMAL(18,2) UNSIGNED NOT NULL ,
   `dt_emission` DATE NOT NULL ,
   `descritption` VARCHAR(50) NOT NULL ,
   `notes` TEXT NOT NULL ,
-  PRIMARY KEY (`id`) ,
-  CONSTRAINT `fk_moviment_category`
-    FOREIGN KEY (`cat_code` , `user_id` )
-    REFERENCES `cofe`.`category` (`code` , `user_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
-CREATE INDEX `idx_moviment` ON `cofe`.`moviment` (`user_id` ASC, `cat_code` ASC, `id` ASC) ;
+CREATE INDEX `idx_moviment` ON `moviment` (`user_id` ASC, `cat_code` ASC, `id` ASC) ;
 
 USE `cofe` ;
+USE `cofe`;
+
+DELIMITER $$
+
+USE `cofe`$$
+DROP TRIGGER IF EXISTS `category_BUPD` $$
+USE `cofe`$$
+
+
+CREATE TRIGGER `category_BUPD` BEFORE UPDATE ON `category`
+ FOR EACH ROW BEGIN
+    IF (NEW.user_id <> NEW.user_id_parent) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories from diferent users!';
+    END IF;
+
+    IF (NEW.flow_type <> (SELECT p.flow_type FROM category p
+                            WHERE p.user_id = NEW.user_id_parent
+                            AND   p.code    = NEW.code_parent)) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories with diferent flow types!';
+    END IF;
+
+    IF (NEW.flow_type <> OLD.flow_type) THEN
+        UPDATE category SET category.flow_type = NEW.flow_type
+            WHERE category.user_id_parent = NEW.user_id
+            AND   category.code_parent    = NEW.code;
+    END IF;
+END
+$$
+
+
+USE `cofe`$$
+DROP TRIGGER IF EXISTS `category_BUIN` $$
+USE `cofe`$$
+CREATE TRIGGER `category_BUIN` BEFORE INSERT ON `category`
+ FOR EACH ROW BEGIN
+    IF (NEW.user_id <> NEW.user_id_parent) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories from diferent users!';
+    END IF;
+
+    IF (NEW.flow_type <> (SELECT p.flow_type FROM category p
+                            WHERE p.user_id = NEW.user_id_parent
+                            AND   p.code    = NEW.code_parent)) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories with diferent flow types!';
+    END IF;
+END
+$$
+
+
+DELIMITER ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -76,10 +121,10 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `cofe`.`user`
+-- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cofe`;
-INSERT INTO `cofe`.`user` (`id`, `username`, `password`, `active`, `role`, `name`, `email`, `dt_criation`) VALUES (NULL, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 'admin', 'Administrator', 'admin@localhost', '2000-01-01');
+INSERT INTO `user` (`id`, `username`, `password`, `active`, `role`, `name`, `email`, `dt_criation`) VALUES (NULL, 'admin', md5('admin'), 1, 'admin', 'Administrator', 'admin@localhost.net', curdate());
 
 COMMIT;

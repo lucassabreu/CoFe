@@ -17,6 +17,7 @@ use Zend\View\Model\ViewModel;
  * 
  * @group Controller
  * @group UserController
+ * @group User
  */
 class UserControllerTest extends ControllerTestCase {
 
@@ -95,7 +96,7 @@ class UserControllerTest extends ControllerTestCase {
         /* @var $responce Response */
 
         $this->assertEquals(302, $responce->getStatusCode());
-        $this->assertEquals('/admin/index', $responce->getHeaders()->get('Location'));
+        $this->assertEquals('/admin/user', $responce->getHeaders()->get('Location'));
     }
 
     public function testDetailUser() {
@@ -113,7 +114,7 @@ class UserControllerTest extends ControllerTestCase {
 
         $form = $variables['form'];
         /* @var $form Form */
-        $this->assertInstanceOf('Admin\Form\User', $form);
+        $this->assertInstanceOf('Admin\Form\UserDetail', $form);
 
         $this->assertEquals(1, $form->getData()->id);
     }
@@ -125,7 +126,7 @@ class UserControllerTest extends ControllerTestCase {
         /* @var $responce Response */
 
         $this->assertEquals(302, $responce->getStatusCode());
-        $this->assertEquals('/admin/index', $responce->getHeaders()->get('Location'));
+        $this->assertEquals('/admin/user', $responce->getHeaders()->get('Location'));
     }
 
     public function testUpdateFormValidUser() {
@@ -143,11 +144,30 @@ class UserControllerTest extends ControllerTestCase {
 
         $form = $variables['form'];
         /* @var $form Form */
-        $this->assertInstanceOf('Admin\Form\User', $form);
+        $this->assertInstanceOf('Admin\Form\UserUpdate', $form);
 
         $this->assertEquals(1, $form->getData()->id);
     }
 
+    public function testUpdateInvalidUserValues() {
+        $params = array(
+            'post' => array(
+                'id' => 1,
+                'name' => 'User02',
+                'username' => 'user',
+                'password'
+            ),
+        );
+
+        $result = $this->dispath('update', $params, Request::METHOD_POST);
+        /* @var $result ViewModel */
+        $responce = $this->controller->getResponse();
+        /* @var $responce Response */
+
+        $this->assertEquals(302, $responce->getStatusCode());
+        $this->assertEquals('/admin/user', $responce->getHeaders()->get('Location'));
+    }
+    
     public function testUpdateUserValues() {
         $user = $this->returnUser('user');
 
@@ -165,16 +185,16 @@ class UserControllerTest extends ControllerTestCase {
         $responce = $this->controller->getResponse();
         /* @var $responce Response */
 
-        $this->assertInstanceOf('Zend\View\Model\ViewModel', $result);
+        $this->assertEquals(302, $responce->getStatusCode());
+        $this->assertEquals('/admin/user', $responce->getHeaders()->get('Location'));
 
-        $variables = $result->getVariables();
-        $this->assertArrayHasKey('form', $variables);
+        $dao = $this->getService('Admin\Service\UserDAOService');
+        /* @var $dao UserDAOService */
 
-        $form = $variables['form'];
-        /* @var $form Form */
-        $this->assertInstanceOf('Admin\Form\User', $form);
+        $user = $dao->findById(1);
+        /* @var $user \Admin\Model\Entity\User */
 
-        $this->assertEquals(1, $form->getData()->id);
+        $this->assertEquals('User02', $user->getName());
     }
 
     public function returnUser($name, $role = 'admin', $active = true) {

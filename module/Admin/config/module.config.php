@@ -7,13 +7,13 @@ use Core\Authentification\Doctrine\DoctrineAdapter;
 use Zend\ServiceManager\ServiceManager;
 
 return array(
-    'service_manager' => array(
-        'controllers' => array(
-            'invokables' => array(
-                'Admin\Controller\Auth' => 'Admin\Controller\AuthController',
-                'Admin\Controller\User' => 'Admin\Controller\UserController',
-            ),
+    'controllers' => array(
+        'invokables' => array(
+            'Admin\Controller\Auth' => 'Admin\Controller\AuthController',
+            'Admin\Controller\User' => 'Admin\Controller\UserController',
         ),
+    ),
+    'service_manager' => array(
         'dao_factory' => array(
             'Admin\Service\UserDAOService' => array(
                 'service' => 'Admin\Service\UserDAOService',
@@ -37,11 +37,6 @@ return array(
             'credential_property' => 'password',
         ),
     ),
-    'controllers' => array(
-        'invokables' => array(
-            'Admin\Controller\Auth' => 'Admin\Controller\AuthController',
-        ),
-    ),
     'view_manager' => array(//the module can have a specific layout
         'template_path_stack' => array(
             'admin' => __DIR__ . '/../view',
@@ -54,7 +49,7 @@ return array(
                 'options' => array(
                     'route' => '/admin',
                     'defaults' => array(
-                        'controller' => 'Index',
+                        'controller' => 'User',
                         'action' => 'index',
                         '__NAMESPACE__' => 'Admin\Controller',
                         'module' => 'admin'
@@ -75,7 +70,8 @@ return array(
                         ),
                         'child_routes' => array(//permite mandar dados pela url 
                             'wildcard' => array(
-                                'type' => 'Wildcard'
+                                'type' => 'Zend\Mvc\Router\Http\Wildcard',
+                                'may_terminate' => true,
                             ),
                         ),
                     ),

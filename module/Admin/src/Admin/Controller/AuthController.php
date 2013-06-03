@@ -41,7 +41,7 @@ class AuthController extends AbstractController {
 
         /** @var AuthService */
         $authService = $this->getService('Admin\Service\AuthService');
-
+        
         try {
             if ($authService->authentificate($username, $password))
                 $this->redirect()->toUrl('/');

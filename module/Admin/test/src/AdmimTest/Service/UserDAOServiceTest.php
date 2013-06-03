@@ -14,6 +14,7 @@ use DateTime;
  * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
  * 
  * @group DAOService
+ * @group UserDAOService
  */
 class UserDAOServiceTest extends ServiceTestCase {
 
@@ -35,14 +36,14 @@ class UserDAOServiceTest extends ServiceTestCase {
             $this->assertEquals("The service " . get_class($dao) . " not manage the class " . get_class($ent), $e->getMessage());
         }
 
-        $user = $this->newUser('user01');
+        $user = self::newUser('user01');
 
         $user = $dao->save($user);
 
         $this->assertEquals(1, $user->getId());
         $this->assertEquals('user01', $user->getUsername());
 
-        $user02 = $this->newUser('user02');
+        $user02 = self::newUser('user02');
         $user02->setUsername('user01');
 
         try {
@@ -57,9 +58,9 @@ class UserDAOServiceTest extends ServiceTestCase {
 
     public function testFindById() {
         $user = array();
-        $user[] = $this->newUser('user01');
-        $user[] = $this->newUser('user02');
-        $user[] = $this->newUser('user03');
+        $user[] = self::newUser('user01');
+        $user[] = self::newUser('user02');
+        $user[] = self::newUser('user03');
 
         $dao = $this->getDAOService();
 
@@ -78,11 +79,11 @@ class UserDAOServiceTest extends ServiceTestCase {
     public function testFindByUsername() {
         $dao = $this->getDAOService();
 
-        $user1 = $this->newUser('test');
+        $user1 = self::newUser('test');
         $user1->setName('Another thing');
         $dao->save($user1);
 
-        $user2 = $this->newUser('test2');
+        $user2 = self::newUser('test2');
         $user2->setName('One');
         $dao->save($user2);
 
@@ -94,7 +95,7 @@ class UserDAOServiceTest extends ServiceTestCase {
     }
 
     public function testChangePassword() {
-        $user = $this->newUser('test');
+        $user = self::newUser('test');
 
         $dao = $this->getDAOService();
 
@@ -114,7 +115,7 @@ class UserDAOServiceTest extends ServiceTestCase {
             $this->assertEquals("The new password not matches with confirm password.", $e->getMessage());
         }
 
-        $user = $this->newUser('test');
+        $user = self::newUser('test');
         $user->setId(2);
         try {
             $dao->changePassword($user, 'test', 'test');
@@ -123,7 +124,7 @@ class UserDAOServiceTest extends ServiceTestCase {
             $this->assertEquals("User test not exists.", $e->getMessage());
         }
 
-        $user = $this->newUser('test');
+        $user = self::newUser('test');
         $user->setId(1);
 
         $values = $user->getInputFilter()->getRawValues();
@@ -157,7 +158,7 @@ class UserDAOServiceTest extends ServiceTestCase {
             $user->$key = $value;
         }
 
-        $user = $this->newUser('test');
+        $user = self::newUser('test');
         $user->setId(1);
 
         try {
@@ -177,15 +178,15 @@ class UserDAOServiceTest extends ServiceTestCase {
     public function testFetchAll() {
         $dao = $this->getDAOService();
 
-        $dao->save($this->newUser('user01'));
-        $dao->save($this->newUser('user02'));
-        $dao->save($this->newUser('user03'));
-        $dao->save($this->newUser('user04'));
-        $dao->save($this->newUser('user05'));
-        $dao->save($this->newUser('user06'));
-        $dao->save($this->newUser('user07'));
-        $dao->save($this->newUser('user08'));
-        $dao->save($this->newUser('user09'));
+        $dao->save(self::newUser('user01'));
+        $dao->save(self::newUser('user02'));
+        $dao->save(self::newUser('user03'));
+        $dao->save(self::newUser('user04'));
+        $dao->save(self::newUser('user05'));
+        $dao->save(self::newUser('user06'));
+        $dao->save(self::newUser('user07'));
+        $dao->save(self::newUser('user08'));
+        $dao->save(self::newUser('user09'));
 
         $users = $dao->fetchAll();
 
@@ -219,15 +220,15 @@ class UserDAOServiceTest extends ServiceTestCase {
     public function testFetchByParam() {
         $dao = $this->getDAOService();
 
-        $dao->save($this->newUser('user01'));
-        $dao->save($this->newUser('user02'));
-        $dao->save($this->newUser('user03'));
-        $dao->save($this->newUser('user04'));
-        $dao->save($this->newUser('user05'));
-        $dao->save($this->newUser('user06'));
-        $dao->save($this->newUser('user07'));
-        $dao->save($this->newUser('user08'));
-        $dao->save($this->newUser('user09'));
+        $dao->save(self::newUser('user01'));
+        $dao->save(self::newUser('user02'));
+        $dao->save(self::newUser('user03'));
+        $dao->save(self::newUser('user04'));
+        $dao->save(self::newUser('user05'));
+        $dao->save(self::newUser('user06'));
+        $dao->save(self::newUser('user07'));
+        $dao->save(self::newUser('user08'));
+        $dao->save(self::newUser('user09'));
 
         /* @var $user User[] */
         $users = $dao->fetchByParams(array('username' => 'user01'));
@@ -256,7 +257,7 @@ class UserDAOServiceTest extends ServiceTestCase {
      * @param string $name
      * @return User
      */
-    protected function newUser($name) {
+    public static function newUser($name) {
         $user = new User();
         $user->setUsername($name);
         $user->setPassword(md5($name));

@@ -16,6 +16,9 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+msgid "The parent of this category must have the some user!"
+msgstr "O pai desta categoria deve ser do mesmo usuário!"
+
 #: ../view/layout/layout.phtml:6
 #: ../view/layout/layout.phtml:33
 msgid "Skeleton Application"

@@ -28,6 +28,22 @@ class UserController extends AbstractController {
         return new ViewModel(array('users' => $paginator));
     }
 
+    public function detailAction() {
+        return null;
+    }
+
+    public function detailCreate() {
+        return null;
+    }
+
+    public function detailUpdate() {
+        return null;
+    }
+
+    public function detailRemove() {
+        return null;
+    }
+
 }
 
 ?>

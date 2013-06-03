@@ -6,8 +6,10 @@ use Core\Test\ControllerTestCase;
 
 class IndexControllerTest extends ControllerTestCase {
 
-    protected $controllerFQDN = 'Application\Controller\IndexController';
-    protected $controllerRoute = 'application';
+    public function __construct() {
+        $this->controllerRoute = 'application';
+        $this->controllerName = 'Application\Controller\IndexController';
+    }
 
     public function test404() {
         $this->routeMatch->setParam('action', 'action_nao_existente');
@@ -15,4 +17,5 @@ class IndexControllerTest extends ControllerTestCase {
         $response = $this->controller->getResponse();
         $this->assertEquals(404, $response->getStatusCode());
     }
+
 }

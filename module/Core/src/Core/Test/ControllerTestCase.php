@@ -59,7 +59,7 @@ abstract class ControllerTestCase extends TestCase {
 
         $routes = $this->getRoutes();
 
-        $this->controller = new $this->controllerName; //$this->serviceManager->get($this->controllerName);
+        $this->controller = new $this->controllerName; //$this->getServiceManager()->get($this->controllerName);
         $this->request = new Request();
         $this->routeMatch = $this->getEvent()->getRouteMatch();
 

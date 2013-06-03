@@ -26,11 +26,16 @@ return array(
             'Admin\Controller\Auth.index',
             'Admin\Controller\Auth.login',
             'Admin\Controller\Auth.logout',
+            'Admin\Controller\User.index',
+            'Admin\Controller\User.detail',
+            'Admin\Controller\User.create',
+            'Admin\Controller\User.update',
+            'Admin\Controller\User.remove',
         ),
         'privilege' => array(
             'guest' => array(
                 'allow' => array(
-                    'Admin\Controller\Auth.index', 
+                    'Admin\Controller\Auth.index',
                     'Admin\Controller\Auth.login',
                     'Admin\Controller\Auth.logout',
                 ),
@@ -43,6 +48,11 @@ return array(
             'admin' => array(
                 'allow' => array(
                     'Admin\Controller\Index.index',
+                    'Admin\Controller\User.index',
+                    'Admin\Controller\User.detail',
+                    'Admin\Controller\User.create',
+                    'Admin\Controller\User.update',
+                    'Admin\Controller\User.remove',
                 ),
             ),
         ),
