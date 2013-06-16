@@ -2,6 +2,7 @@
 
 namespace Admin\Controller;
 
+use Admin\Form\User;
 use Core\Controller\AbstractController;
 use Zend\Paginator\Paginator;
 use Zend\View\Model\ViewModel;
@@ -29,18 +30,47 @@ class UserController extends AbstractController {
     }
 
     public function detailAction() {
+
+        $id = $this->params('id');
+
+        if ($id == null)
+            return $this->redirect()->toRoute('user');
+        else {
+            $user = $this->dao()->findById($id);
+            /** @var $user \Admin\Model\Entity\User */
+            if ($user == null)
+                return $this->redirect()->toRoute('user');
+
+            $form = new User();
+            $form->setData($user->getData());
+
+            return new ViewModel(array('form' => $form));
+        }
+    }
+
+    public function createAction() {
         return null;
     }
 
-    public function detailCreate() {
-        return null;
+    public function updateAction() {
+        $id = $this->params('id');
+
+        if ($id == null)
+            return $this->redirect()->toRoute('user');
+        else {
+            $user = $this->dao()->findById($id);
+            /** @var $user \Admin\Model\Entity\User */
+            if ($user == null)
+                return $this->redirect()->toRoute('user');
+
+            $form = new User();
+            $form->setData($user->getData());
+
+            return new ViewModel(array('form' => $form));
+        }
     }
 
-    public function detailUpdate() {
-        return null;
-    }
-
-    public function detailRemove() {
+    public function removeAction() {
         return null;
     }
 

@@ -74,7 +74,7 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
                 || $user->getRole() != $userOld->getRole()
                 || $user->getName() != $userOld->getName()
                 || $user->getEmail() != $userOld->getEmail()
-                || $user->getDateCriation() != $userOld->getDateCriation()
+                || $user->getDateCreation() != $userOld->getDateCreation()
                 || $user->getActive() != $userOld->getActive())
             throw new DAOException("Method " . __METHOD__ . " is only for update the password, other changes must use: " . __CLASS__ . "::save.");
 

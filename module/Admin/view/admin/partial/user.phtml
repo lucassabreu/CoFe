@@ -1,0 +1,49 @@
+<?php $form->setAttribute('class', 'form-horizontal'); ?>
+<?php if ($action == 'update'): ?>
+    <?php $form->get('password')->setValue('****'); ?>
+    <?php $form->get('confirmPassword')->setValue('****'); ?>
+    <?php $form->get('dateCreation')->setAttribute('readonly', 'readonly'); ?>
+    <?php $form->setAttribute('action', $this->url('user', array('action' => 'update', 'id' => $form->get('id')->getValue()))); ?>
+<?php endif; ?>
+<?php foreach ($form as $element): ?>
+    <?php $element->setLabelAttributes(array('class' => 'control-label')) ?>
+
+    <?php if ($element instanceof \Zend\Form\Element\Button) : ?>
+        <?php $element->setAttribute('class', 'btn'); ?>
+    <?php endif; ?>
+
+    <?php if ($action == 'detail'): ?>
+        <?php if ($element->getAttribute('type') == 'select' || $element->getAttribute('type') == 'checkbox'): ?>
+            <?php $element->setAttribute('disabled', 'disabled'); ?>
+        <?php else: ?>
+            <?php $element->setAttribute('readonly', 'readonly'); ?>
+        <?php endif; ?>
+    <?php endif; ?>
+    <?php //echo var_dump($element); ?>
+<?php endforeach; ?>
+<div class="well">
+    <h3 class="entity-title">
+        <?php echo $this->escapeHtml($this->translate("User detail:")); ?>
+        <?php if ($action == 'detail'): ?>
+            <div class="btn-group">
+                <a class="btn btn-warning" href="<?php echo $this->url('user', array('action' => 'update', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-edit icon-white"></span></a>
+                <a class="btn btn-danger" href="<?php echo $this->url('user', array('action' => 'remove', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-remove icon-white"></span></a>
+            </div>
+        <?php endif; ?>
+    </h3>
+    <?php echo $this->form()->openTag($form); ?>
+    <?php echo $this->formHidden($form->get('id')); ?>
+    <div class="control-group"><?php echo $this->formLabel($form->get('name')); ?><div class="controls"><?php echo $this->formInput($form->get('name')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('email')); ?><div class="controls"><?php echo $this->formInput($form->get('email')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('username')); ?><div class="controls"><?php echo $this->formInput($form->get('username')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('active')); ?><div class="controls"><?php echo $this->formCheckbox($form->get('active')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('role')); ?><div class="controls"><?php echo $this->formSelect($form->get('role')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('dateCreation')); ?><div class="controls"><?php echo $this->formInput($form->get('dateCreation')); ?></div></div>
+    <?php if ($action == 'update'): ?>
+        <div class="controls">
+            <?php echo $this->formButton()->render($form->get('submit'), 'Update'); ?>
+            <?php echo $this->formButton()->render($form->get('reset'), 'Reset'); ?>
+        </div>
+    <?php endif; ?>
+    <?php echo $this->form()->closeTag($form); ?>
+</div>

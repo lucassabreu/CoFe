@@ -2,12 +2,13 @@
 
 namespace Admin\Form;
 
-use Zend\Form\Form;
+use Core\Form\Form;
 use Zend\InputFilter\Factory;
 
 class Login extends Form {
 
     public function __construct() {
+
         parent::__construct('login');
         $this->setAttribute('method', 'post');
         $this->setAttribute('action', '/admin/auth/login');

@@ -47,7 +47,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface {
         $sharedEvents = $moduleManager->getEventManager()->getSharedManager();
 
         //adiciona eventos ao módulo
-        $sharedEvents->attach('Zend\Mvc\Controller\AbstractActionController', MvcEvent::EVENT_DISPATCH, array($this, 'mvcPreDispatch'), 100);
+        $sharedEvents->attach('Zend\Mvc\Controller\AbstractActionController', MvcEvent::EVENT_DISPATCH, array($this, 'mvcPreDispatch'), -100);
     }
 
     /**
@@ -56,13 +56,16 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface {
      * @return boolean
      */
     public function mvcPreDispatch($event) {
-        $di = $event->getTarget()->getServiceLocator();
+        $sl = $event->getTarget()->getServiceLocator();
         $routeMatch = $event->getRouteMatch();
         $moduleName = $routeMatch->getParam('module');
         $controllerName = $routeMatch->getParam('controller');
         $actionName = $routeMatch->getParam('action');
 
-        $authService = $di->get('Admin\Service\AuthService');
+        if ($actionName == 'not-found')
+            return true;
+        
+        $authService = $sl->get('Admin\Service\AuthService');
 
         try {
             $authService->authorize($moduleName, $controllerName, $actionName);
@@ -73,6 +76,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface {
              */
             $res = $event->getResponse();
             $res->setStatusCode(302);
+            var_dump($e);
             $res->getHeaders()->addHeaderLine('Location', '/admin/auth/');
         }
 

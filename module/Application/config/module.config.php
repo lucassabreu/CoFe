@@ -19,6 +19,7 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
+            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
             'Doctrine\ORM\EntityManager' => function($sm) {
                 $config = $sm->get('Configuration');
 
@@ -54,12 +55,21 @@ return array(
             'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Model')
         ),
     ),
+    'navigation' => array(
+        // The DefaultNavigationFactory we configured in (1) uses 'default' as the sitemap key
+        'default' => array(
+            array(
+                'label' => 'Home',
+                'route' => 'home'
+            ),
+        ),
+    ),
     'translator' => array(
         'locale' => 'pt_BR',
         'translation_file_patterns' => array(
             array(
                 'type' => 'gettext',
-                'base_dir' => __DIR__ . '/../language',
+                'base_dir' => __DIR__ . '/../../../language',
                 'pattern' => '%s.mo',
             ),
         ),
@@ -77,6 +87,28 @@ return array(
                     'route' => '/[page/:page]',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
+                        'action' => 'index',
+                        'module' => 'application',
+                    ),
+                ),
+            ),
+            'moviment' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/moviment[[/]:action[[/]:id]]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Moviment',
+                        'action' => 'index',
+                        'module' => 'application',
+                    ),
+                ),
+            ),
+            'category' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/category[[/]:action[[/]:id]]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Category',
                         'action' => 'index',
                         'module' => 'application',
                     ),

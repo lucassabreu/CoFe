@@ -12,12 +12,12 @@
         <tr>
             <td><?php echo $this->escapeHtml($user->getName()); ?></td>
             <td><?php echo $this->escapeHtml($user->getUsername()); ?></td>            
-            <td><?php echo $this->dateFormat($user->getDateCriation(), IntlDateFormatter::MEDIUM); ?></td>
+            <td><?php echo $this->dateFormat($user->getDateCreation(), IntlDateFormatter::MEDIUM); ?></td>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-info" href="/admin/user/detail/id/<?php echo $user->getId(); ?>"><span class="icon icon-book icon-white"></span></a>
-                    <a class="btn btn-warning" href="/admin/user/update/id/<?php echo $user->getId(); ?>"><span class="icon icon-edit icon-white"></span></a>
-                    <a class="btn btn-danger" href="/admin/user/remove/id/<?php echo $user->getId(); ?>"><span class="icon icon-remove icon-white"></span></a>
+                    <a class="btn btn-info" href="<?php echo $this->url('user', array('action' => 'detail', 'id' => $user->getId())); ?>"><span class="icon icon-book icon-white"></span></a>
+                    <a class="btn btn-warning" href="<?php echo $this->url('user', array('action' => 'update', 'id' => $user->getId())); ?>"><span class="icon icon-edit icon-white"></span></a>
+                    <a class="btn btn-danger" href="<?php echo $this->url('user', array('action' => 'remove', 'id' => $user->getId())); ?>"><span class="icon icon-remove icon-white"></span></a>
                 </div>
             </td>
         </tr>

@@ -79,7 +79,7 @@ class User extends Entity {
      * 
      * @ORM\Column(type="date", unique=false, nullable=false, name="dt_criation")
      */
-    protected $dateCriation = null;
+    protected $dateCreation = null;
 
     /**
      * Flag if the User is Active
@@ -200,8 +200,8 @@ class User extends Entity {
                                 ),
                             )
                         ),
-                        'dateCriation' => array(
-                            'name' => 'dateCriation',
+                        'dateCreation' => array(
+                            'name' => 'dateCreation',
                             'required' => true,
                             'filters' => array(
                                 array(
@@ -285,9 +285,9 @@ class User extends Entity {
             $this->setEmail($email);
 
         if (!is_null($dateCriation))
-            $this->setDateCriation($dateCriation);
+            $this->setDateCreation($dateCriation);
         else
-            $this->setDateCriation(new DateTime('now'));
+            $this->setDateCreation(new DateTime('now'));
 
         if (!is_null($active))
             $this->setActive($active);
@@ -357,11 +357,11 @@ class User extends Entity {
 
     /**
      * Set date of criation
-     * @param string $dateCriation
+     * @param string $dateCreation
      * @return User
      */
-    public function setDateCriation($dateCriation) {
-        $this->dateCriation = $this->valid('dateCriation', $dateCriation);
+    public function setDateCreation($dateCreation) {
+        $this->dateCreation = $this->valid('dateCriation', $dateCreation);
         return $this;
     }
 
@@ -427,8 +427,8 @@ class User extends Entity {
      * Retrives the creation's date
      * @return DateTime
      */
-    public function getDateCriation() {
-        return $this->dateCriation;
+    public function getDateCreation() {
+        return $this->dateCreation;
     }
 
     /**
@@ -442,6 +442,7 @@ class User extends Entity {
     public function __toString() {
         return __CLASS__ . "{id : {$this->id}, username : {$this->username}}";
     }
+
 }
 
 ?>

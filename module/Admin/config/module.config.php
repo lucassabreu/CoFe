@@ -29,6 +29,17 @@ return array(
             },
         ),
     ),
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'User',
+                'route' => 'user',
+                'module' => 'admin',
+                'controller' => 'user',
+                'action' => 'index',
+            ),
+        ),
+    ),
     'doctrine' => array(
         'authentication' => array(
             'object_manager' => 'Doctrine\ORM\Entity\Manager',
@@ -44,6 +55,17 @@ return array(
     ),
     'router' => array(
         'routes' => array(
+            'user' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/user[/[:action]][/:id]',
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\User',
+                        'action' => 'index',
+                        'module' => 'admin',
+                    ),
+                ),
+            ),
             'admin' => array(
                 'type' => 'Literal',
                 'options' => array(
