@@ -1,33 +1,30 @@
-<!--
-See http://developer.yahoo.com/ypatterns/pattern.php?pattern=searchpagination
--->
-
 <?php if ($this->pageCount): ?>
-    <div class="pagination">
+    <span class="pagination">
         <ul>
-            <!-- Previous page link -->
-
+            <?php /*  Previous page link */ ?>
             <li>
                 <a <?php if (isset($this->previous)): ?> href="<?php echo $this->url($this->route, array('page' => $this->previous)); ?>" <?php endif; ?>>
                     <?php echo $this->escapeHtml('«'); ?>
                 </a>
             </li>
-
-            <!-- Numbered page links -->
+            <?php /*  Numbered page links */ ?>
             <?php foreach ($this->pagesInRange as $page): ?>
-                <?php if ($page != $this->current): ?>
-                    <li><a href="<?php echo $this->url($this->route, array('page' => $page)); ?>"><?php echo $page; ?></a></li>
-                <?php else: ?>
-                    <li><a><?php echo $page; ?></a></li>
-                <?php endif; ?>
+                <li>
+                    <?php if ($page != $this->current): ?>
+                        <a href="<?php echo $this->url($this->route, array('page' => $page)); ?>"><?php echo $page; ?></a>
+                    <?php else: ?>
+                        <a><?php echo $page; ?></a>
+                    <?php endif; ?>
+                </li>
             <?php endforeach; ?>
-
-            <!-- Next page link -->
+            <?php /* Next page link */ ?>
             <li>
-                <a <?php if (isset($this->next)): ?> href="<?php echo $this->url($this->route, array('page' => $this->next)); ?>"<?php endif; ?>>
-                    <?php echo $this->escapeHtml('»'); ?>
-                </a>
+                <?php if (isset($this->next)): ?>
+                    <a href="<?php echo $this->url($this->route, array('page' => $this->next)); ?>"><?php echo $this->escapeHtml('»'); ?></a>
+                <?php else: ?>
+                    <a><?php echo $this->escapeHtml('»'); ?></a>
+                <?php endif; ?>
             </li>
         </ul>
-    </div>
+    </span>
 <?php endif; ?>

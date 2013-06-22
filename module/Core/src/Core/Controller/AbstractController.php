@@ -11,6 +11,7 @@
 namespace Core\Controller;
 
 use Core\Model\DAO\DAOInterface;
+use Zend\Http\Request;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceManagerAwareInterface;
@@ -56,12 +57,28 @@ abstract class AbstractController extends AbstractActionController {
                 $this->dao = $this->getService($this->daoName);
 
             return $this->dao;
-        } else
+        }
+        else
             return $this->getService($name);
     }
 
     public function indexAction() {
         return new ViewModel();
+    }
+
+    public function redirectBack($route, $param = array()) {
+        echo "<pre>";
+        $request = $this->getRequest();
+        /* @var $request Request */
+        $return = $request->getHeader('Referer');
+
+        if ($return === null) {
+            return $this->redirect()->toRoute($route, $param);
+        } else {
+            return $this->redirect()->toUrl($return);
+        }
+
+        echo "</pre>";
     }
 
 }

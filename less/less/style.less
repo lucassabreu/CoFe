@@ -17,18 +17,47 @@
     }
 }
 
-.well h3 {
+.entity-title {
+    position: relative;
     border-bottom: 1px solid darken(@wellBackground, 7%);
     color: darken(@wellBackground, 50%);
     margin-top: -5px;
-    margin-bottom: 20px;
     padding: 0 10px;
-}
-
-.entity-title {
-    position: relative;
+    margin-bottom: 0;
 
     .btn-group {
         float: right;
+    }
+
+
+    .pagination {
+        font-size: @baseFontSize;
+    }
+}
+
+h3 {
+}
+
+.well .entity-title {
+    margin-bottom: 20px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.btn {
+    .float-right, .float-left {
+        margin-top: 2.5px;
+    }
+}
+
+table {
+    input[type="radio"], input[type="checkbox"] {
+        margin-top: 0;
     }
 }

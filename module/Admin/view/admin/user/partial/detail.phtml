@@ -5,8 +5,6 @@
 
 $form->setAttribute('class', 'form-horizontal');
 if ($action == 'update'):
-    $form->get('password')->setValue('****');
-    $form->get('confirmPassword')->setValue('****');
     $form->get('dateCreation')->setAttribute('readonly', 'readonly');
     $form->get('active')->setAttribute('disabled', 'disabled');
     if ($this->auth('role') != 'admin'):
@@ -26,10 +24,9 @@ endforeach;
 ?>
 <div class="well">
     <h3 class="entity-title">
-        <?php echo $this->escapeHtml($this->translate("User") . " {$form->get('name')->getValue()}:"); ?>
         <?php if ($this->auth('role') === 'admin'): ?>
             <div class="btn-group">
-                <a class="btn btn-info" title="<?php echo $this->escapeHtml($this->translate('List users')) ?>"  href="<?php echo $this->url('user', array('action' => 'index')); ?>"><span class="icon icon-th-list icon-white"></span></a>
+                <a class="btn btn-primary" title="<?php echo $this->escapeHtml($this->translate('List users')) ?>"  href="<?php echo $this->url('user', array('action' => 'index')); ?>"><span class="icon icon-th-list icon-white"></span></a>
                 <?php if ($action != 'detail'): ?>
                     <a class="btn btn-info" title="<?php echo $this->escapeHtml($this->translate('Detail user')) ?>" href="<?php echo $this->url('user', array('action' => 'detail', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-book icon-white"></span></a>
                 <?php endif; ?>
@@ -39,9 +36,20 @@ endforeach;
                 <a class="btn btn-danger" title="<?php echo $this->escapeHtml($this->translate('Remove user')) ?>" href="<?php echo $this->url('user', array('action' => 'remove', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-remove icon-white"></span></a>
             </div>
         <?php endif; ?>
+        <?php echo $this->escapeHtml($this->translate("User") . ": {$form->get('name')->getValue()}"); ?>
     </h3>
 
-    <?php if ($action == 'update' && !$form->isValid()): ?>
+    <?php if ($action == 'update'): ?>
+        <?php if (count($form->getExceptionMessages()) > 0): ?>
+            <div class="alert alert-error">
+                <b><?php echo $this->escapeHtml($this->translate("Exceptions")); ?>:</b><br/>
+                <ul class="alert-block alert-warning">
+                    <?php foreach ($form->getExceptionMessages() as $message): ?>
+                        <li><?php echo $this->escapeHtml($message); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
         <?php foreach ($form->getMessages() as $key => $messages): ?>
             <div class="alert alert-error">
                 <b><?php echo $this->escapeHtml($this->translate($form->get($key)->getLabel())); ?>:</b><br/>
@@ -66,7 +74,7 @@ endforeach;
     <div class="control-group">
         <?php echo $this->formLabel($form->get('email')); ?>
         <div class="controls">
-            <?php echo $this->formInput($form->get('email')); ?>
+            <?php echo $this->formInput($form->get('email')->setAttribute('class', 'input-xlarge')); ?>
         </div>
     </div>
     <div class="control-group">
@@ -99,8 +107,9 @@ endforeach;
     </div>
     <?php if ($action == 'update'): ?>
         <div class="form-actions">
-            <?php echo $this->formButton()->render($form->get('submit')->setAttribute('class', 'btn btn-primary'), 'Update'); ?>
-            <?php echo $this->formButton()->render($form->get('reset')->setAttribute('class', 'btn btn-warning'), 'Reset'); ?>
+            <?php echo $this->formButton()->render($form->get('submit')->setAttribute('class', 'btn btn-primary input-large'), 'Update'); ?>
+            <?php echo $this->formButton()->render($form->get('cancel')->setAttribute('class', 'btn btn-inverse input-large')->setAttribute('formaction', $this->url('userList')), 'Cancel'); ?>
+            <button class="btn btn-warning input-large" title="<?php echo $this->escapeHtml($this->translate('Alter password')) ?>" formaction="<?php echo $this->url('user', array('action' => 'alterPassword', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-lock icon-white float-left"></span> <?php echo $this->escapeHtml($this->translate('Alter password')) ?></button>
         </div>
     <?php endif; ?>
     <?php echo $this->form()->closeTag($form); ?>

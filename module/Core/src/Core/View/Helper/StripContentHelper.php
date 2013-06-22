@@ -11,8 +11,8 @@ use Zend\View\Helper\AbstractHelper;
 class StripContentHelper extends AbstractHelper {
 
     public function __invoke($content) {
-        return $content;
-        return str_replace('> <', '><', preg_replace('(\\s+)', ' ', $content));
+        //return $content;
+        return str_replace(' &nbsp; ', "&nbsp;", str_replace('> <', '><', preg_replace('(\\s+)', ' ', $content)));
     }
 
 }

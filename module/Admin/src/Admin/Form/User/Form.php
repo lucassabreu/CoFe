@@ -3,18 +3,22 @@
 namespace Admin\Form\User;
 
 use Admin\Model\Entity\User as UserEntity;
-use Core\Form\Form;
+use Core\Form\Form as FormBase;
 use Zend\InputFilter\Factory;
 
-class User extends Form {
+class Form extends FormBase {
 
-    public function __construct() {
+    public function __construct($enablePassword = false) {
         parent::__construct('user_' . ($time = time()));
         $this->setAttribute('method', 'post');
 
         $factory = new Factory();
         $user = new UserEntity();
         $if = $user->getInputFilter();
+
+        if ($enablePassword === false)
+            $if->remove('password');
+
         $this->setInputFilter($if);
 
         $this->add(array(
@@ -48,30 +52,33 @@ class User extends Form {
             ),
         ));
 
-        $this->add(array(
-            'name' => 'password',
-            'type' => 'Zend\Form\Element\Password',
-            'attributes' => array(
-                'id' => "password_$time",
-                'type' => 'password',
-            ),
-            'options' => array(
-                'label' => 'Password',
-            ),
-        ));
+
+        if ($enablePassword) {
+            $this->add(array(
+                'name' => 'password',
+                'type' => 'Zend\Form\Element\Password',
+                'attributes' => array(
+                    'id' => "password_$time",
+                    'type' => 'password',
+                ),
+                'options' => array(
+                    'label' => 'Password',
+                ),
+            ));
 
 
-        $this->add(array(
-            'name' => 'confirmPassword',
-            'type' => 'Zend\Form\Element\Password',
-            'attributes' => array(
-                'id' => "confirmPassword_$time",
-                'type' => 'password',
-            ),
-            'options' => array(
-                'label' => 'Confirm Password',
-            ),
-        ));
+            $this->add(array(
+                'name' => 'confirmPassword',
+                'type' => 'Zend\Form\Element\Password',
+                'attributes' => array(
+                    'id' => "confirmPassword_$time",
+                    'type' => 'password',
+                ),
+                'options' => array(
+                    'label' => 'Confirm Password',
+                ),
+            ));
+        }
 
         $this->add(array(
             'name' => 'dateCreation',
@@ -79,7 +86,7 @@ class User extends Form {
             'attributes' => array(
                 'id' => "dateCreation_$time",
                 'type' => 'date',
-                'step' => 1,
+                'step' => 'any',
             ),
             'options' => array(
                 'label' => 'Date Creation',
@@ -131,18 +138,16 @@ class User extends Form {
             'type' => 'Zend\Form\Element\Button',
             'attributes' => array(
                 'type' => 'submit',
-                'value' => 'Send',
                 'id' => "submitbutton_$time",
             ),
         ));
 
         $this->add(array(
-            'name' => 'reset',
+            'name' => 'cancel',
             'type' => 'Zend\Form\Element\Button',
             'attributes' => array(
-                'type' => 'reset',
-                'value' => 'Reset',
-                'id' => "resetbutton_$time",
+                'type' => 'submit',
+                'id' => "cancelbutton_$time",
             ),
         ));
     }

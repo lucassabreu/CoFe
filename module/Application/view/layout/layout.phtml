@@ -20,31 +20,35 @@
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar icon-user"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
                     <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('CoFe') ?></a>
                     <div class="nav-collapse collapse">
                         <?php echo $this->navigation('navigation')->menu()->setUlClass('nav'); ?>
-                    </div><!--/.nav-collapse -->
-                    <?php if (!is_null($this->auth())): ?>
-                        <div class="user-controls btn-group">
-                            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-                                <span class="icon icon-user"></span>
-                                <span><?php echo $this->escapeHtml($this->auth('username')); ?></span>
-                            </button>
-                            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="<?php echo $this->url('user', array('action' => 'detail', 'id' => $this->auth('id'))); ?>"><?php echo $this->escapeHtml($this->translate('User details')); ?></a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $this->url('auth', array('action' => 'logout')); ?>"><?php echo $this->escapeHtml($this->translate('Logout')); ?></a>
+                        <?php if (!is_null($this->auth())): ?>
+                            <ul class="nav pull-right">
+                                <li class="divider-vertical"></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <b class="icon icon-user"></b>
+                                        <?php echo $this->escapeHtml($this->auth('username')); ?>
+                                        <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="<?php echo $this->url('user', array('action' => 'detail', 'id' => $this->auth('id'))); ?>"><?php echo $this->escapeHtml($this->translate('User details')); ?></a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="<?php echo $this->url('auth', array('action' => 'logout')); ?>"><?php echo $this->escapeHtml($this->translate('Logout')); ?></a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
-                        </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
+                    </div><!--/.nav-collapse -->
                 </div>
             </div>
         </div>

@@ -21,15 +21,14 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
     protected $dao;
 
     public function save(Entity $ent) {
-        /**
-         * @var User
-         */
+
         $user = null;
 
         if ($ent instanceof User)
             $user = $ent;
         else
             throw new DAOException("The service " . __CLASS__ . " not manage the class " . get_class($ent));
+        /* @var $user User */
 
         $userOld = $this->findByUsername($user->getUsername());
 
@@ -42,12 +41,12 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
             // regra de criação
         } else {
             $old = $this->findById($user->getId());
-            /** @var $old User */
+            /* @var $old User */
             if ($old->getPassword() !== $user->getPassword()) {
                 throw new DAOException("To change password you must use changePassword method.");
             }
 
-            if ($old->getActive() != $user->isActive()) {
+            if ($old->isActive() != $user->isActive()) {
                 throw new DAOException("To change active you must use lock or unlock method.");
             }
 
@@ -96,7 +95,7 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
 
     public function lock(User $user) {
         $old = null;
-        /** @var $old User */
+        /* @var $old User */
         if ($user != null && $user->getId() != null) {
             $old = $this->findById($user->getId());
 
@@ -117,7 +116,7 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
 
     public function unlock(User $user) {
         $old = null;
-        /** @var $old User */
+        /* @var $old User */
         if ($user != null && $user->getId() != null) {
             $old = $this->findById($user->getId());
 
@@ -137,4 +136,5 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
     }
 
 }
+
 ?>
