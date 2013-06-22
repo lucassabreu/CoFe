@@ -38,10 +38,11 @@ return array(
         'default' => array(
             array(
                 'label' => 'User',
-                'route' => 'user',
+                'route' => 'userList',
                 'module' => 'admin',
                 'controller' => 'user',
                 'action' => 'index',
+                'page' => 1,
             ),
         ),
     ),
@@ -64,6 +65,17 @@ return array(
                 'type' => 'Segment',
                 'options' => array(
                     'route' => '/user[/[:action]][/:id]',
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\User',
+                        'action' => 'index',
+                        'module' => 'admin',
+                    ),
+                ),
+            ),
+            'userList' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/user/page[[/]:page]',
                     'defaults' => array(
                         'controller' => 'Admin\Controller\User',
                         'action' => 'index',

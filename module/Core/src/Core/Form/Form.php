@@ -13,7 +13,11 @@ class Form extends ZendForm {
 
     public function readonly() {
         foreach ($this as $element) {
-            $element->setAttribute('readonly', 'readonly');
+            if ($element->getAttribute('type') == 'select' || $element->getAttribute('type') == 'checkbox'):
+                $element->setAttribute('disabled', 'disabled');
+            else:
+                $element->setAttribute('readonly', 'readonly');
+            endif;
         }
     }
 

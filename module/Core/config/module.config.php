@@ -20,4 +20,9 @@ return array(
             ),
         ),
     ),
+    'view_helpers' => array(
+        'invokables' => array(
+            'stripContent' => 'Core\View\Helper\StripContentHelper',
+        ),
+    ),
 );

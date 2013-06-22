@@ -3,6 +3,7 @@
 namespace Admin\Controller;
 
 use Admin\Form\User\User as UserForm;
+use Admin\Model\Entity\User;
 use Core\Controller\AbstractController;
 use Exception;
 use Zend\Paginator\Paginator;
@@ -41,7 +42,7 @@ class UserController extends AbstractController {
             return $this->redirect()->toRoute('user');
         else {
             $user = $this->dao()->findById($id);
-            /** @var $user \Admin\Model\Entity\User */
+            /* @var $user User */
             if ($user == null)
                 return $this->redirect()->toRoute('user');
 
@@ -58,23 +59,26 @@ class UserController extends AbstractController {
 
     public function updateAction() {
         $id = $this->params('id');
+        $valid = true;
 
-        if ($id == null)
+        if ($id == null) {
             $id = $this->getRequest()->getPost('id');
+            $valid = false;
+        }
 
         if ($id == null)
             return $this->redirect()->toRoute('user');
         else {
             $user = $this->dao()->findById($id);
-            /** @var $user \Admin\Model\Entity\User */
+            /* @var $user User */
             if ($user == null)
                 return $this->redirect()->toRoute('user');
 
             $request = $this->getRequest();
-            /* @var $request \Zend\Http\Request */
+            /* @var $request Request */
             $form = new UserForm();
 
-            if ($request->isPost()) {
+            if ($request->isPost() && $valid) {
                 $form->setData($request->getPost());
                 $form->isValid();
                 /* echo '<pre>';
@@ -100,18 +104,26 @@ class UserController extends AbstractController {
         if ($id == null)
             $id = $this->getRequest()->getPost('id');
 
+        $request = $this->getRequest();
+        /* @var $request Request */
+
+        $returnTo = $request->getPost('returnTo');
+
+        if (is_null($returnTo))
+            $returnTo = $this->url()->fromRoute('userList');
+
         if ($id == null)
-            return $this->redirect()->toRoute('user');
+            return $this->redirect()->toUrl($returnTo);
         else {
             $user = $this->dao()->findById($id);
-            /** @var $user \Admin\Model\Entity\User */
+            /* @var $user User */
             if ($user == null)
-                return $this->redirect()->toRoute('user');
+                return $this->redirect()->toRoute('userList');
             try {
                 $this->dao()->lock($user);
-                return $this->redirect()->toRoute('user');
+                return $this->redirect()->toUrl($returnTo);
             } catch (Exception $e) {
-                return new ViewModel(array('form' => $form));
+                return $this->forward()->dispatch('user', array('action' => 'detail', 'id' => $id, 'exception' => $e));
             }
         }
     }
@@ -122,16 +134,24 @@ class UserController extends AbstractController {
         if ($id == null)
             $id = $this->getRequest()->getPost('id');
 
+        $request = $this->getRequest();
+        /* @var $request Request */
+
+        $returnTo = $request->getPost('returnTo');
+
+        if (is_null($returnTo))
+            $returnTo = $this->url()->fromRoute('userList');
+
         if ($id == null)
-            return $this->redirect()->toRoute('user');
+            return $this->redirect()->toUrl($returnTo);
         else {
             $user = $this->dao()->findById($id);
-            /** @var $user \Admin\Model\Entity\User */
+            /* @var $user User */
             if ($user == null)
-                return $this->redirect()->toRoute('user');
+                return $this->redirect()->toRoute('userList');
             try {
                 $this->dao()->unlock($user);
-                return $this->redirect()->toRoute('user');
+                return $this->redirect()->toUrl($returnTo);
             } catch (Exception $e) {
                 return $this->forward()->dispatch('user', array('action' => 'detail', 'id' => $id, 'exception' => $e));
             }
