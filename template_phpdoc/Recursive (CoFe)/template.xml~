@@ -18,7 +18,6 @@
     </description>
     <transformations>
         <!-- transformation query="copy" writer="FileIo" source="images" artifact="img"/ -->
-        <transformation query="copy" writer="FileIo" source="Structure.xml" artifact="Structure.xml"/>
         <transformation query="copy" writer="FileIo" source="templates/Recursive (CoFe)/img" artifact="img"/>
         <transformation query="copy" writer="FileIo" source="templates/Recursive (CoFe)/css" artifact="css"/>
         <transformation query="copy" writer="FileIo" source="js" artifact="js"/>

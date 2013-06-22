@@ -1,7 +1,19 @@
+<?php /* @var $form \Admin\Form\Login */ ?>
+<?php $form->setAttribute('action', $this->url('auth', array('action' => 'login'))); ?>
+<?php $form->get('password')->setValue(null); ?>
+<?php
+foreach ($form as $element):
+    $element->setLabelAttributes(array('class' => 'control-label'));
+endforeach;
+?>
 <div class="well form-login">
     <h3>Login in</h3>
     <?php if (isset($error)): ?>
         <?php echo $this->ztbAlert()->error($error, true); ?>
     <?php endif; ?>
-    <?php echo $this->ztbForm($form); ?>
+    <?php echo $this->form()->openTag($form->setAttribute('class', 'form-horizontal')); ?>
+    <div class="control-group"><?php echo $this->formLabel($form->get('username')); ?><div class="controls"><?php echo $this->formInput($form->get('username')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('password')); ?><div class="controls"><?php echo $this->formPassword($form->get('password')); ?></div></div>
+    <div class="control-group"><div class="controls"><?php echo $this->formButton()->render($form->get('submit')->setAttribute('class', 'btn btn-primary input-large'), 'Login'); ?></div></div>
+    <?php echo $this->form()->closeTag(); ?>
 </div>

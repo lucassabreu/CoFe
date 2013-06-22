@@ -30,6 +30,8 @@ return array(
             'Admin\Controller\User.detail',
             'Admin\Controller\User.create',
             'Admin\Controller\User.update',
+            'Admin\Controller\User.lock',
+            'Admin\Controller\User.unlock',
             'Admin\Controller\User.remove',
         ),
         'privilege' => array(
@@ -52,6 +54,8 @@ return array(
                     'Admin\Controller\User.detail',
                     'Admin\Controller\User.create',
                     'Admin\Controller\User.update',
+                    'Admin\Controller\User.lock',
+                    'Admin\Controller\User.unlock',
                     'Admin\Controller\User.remove',
                 ),
             ),

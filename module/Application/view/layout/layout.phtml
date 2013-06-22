@@ -14,14 +14,6 @@
                 ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
                 ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
         ?>
-
-        <!-- Scripts -->
-        <?php
-        echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-                ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-                ->prependFile($this->basePath() . '/js/jquery.min.js')
-        ?>
-
     </head>
     <body>
         <div class="navbar navbar-fixed-top">
@@ -36,6 +28,23 @@
                     <div class="nav-collapse collapse">
                         <?php echo $this->navigation('navigation')->menu()->setUlClass('nav'); ?>
                     </div><!--/.nav-collapse -->
+                    <?php if (!is_null($this->auth())): ?>
+                        <div class="user-controls btn-group">
+                            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                                <span class="icon icon-user"></span>
+                                <span><?php echo $this->escapeHtml($this->auth('username')); ?></span>
+                            </button>
+                            <button class="btn btn-small dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="<?php echo $this->url('user', array('action' => 'detail', 'id' => $this->auth('id'))); ?>"><?php echo $this->escapeHtml($this->translate('User details')); ?></a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url('auth', array('action' => 'logout')); ?>"><?php echo $this->escapeHtml($this->translate('Logout')); ?></a>
+                                </li>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -46,6 +55,12 @@
                 <p>&copy; 2005 - 2012 by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
             </footer>
         </div> <!-- /container -->
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                ->prependFile($this->basePath() . '/js/jquery.min.js')
+        ?>
         <?php echo $this->inlineScript() ?>
     </body>
 </html>

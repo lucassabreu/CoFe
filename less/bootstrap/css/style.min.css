@@ -1,2 +1,4 @@
-.form-login{margin-left:auto;margin-right:auto;width:50ex;}
+.form-login{margin-left:auto;margin-right:auto;width:60ex;}
+.navbar-inner .user-controls{float:right;margin-top:6px;}
 .well h3{border-bottom:1px solid #e3e3e3;color:#767676;margin-top:-5px;margin-bottom:20px;padding:0 10px;}
+.entity-title{position:relative;}.entity-title .btn-group{float:right;}

@@ -15,9 +15,9 @@
     <transformer>
         <target>documents/docs</target>
     </transformer>
-    <!-- transformations>
+    <transformations>
         <template name="CoFe" />
-    </transformations -->
+    </transformations>
     <files>
         <directory>.</directory>
         <ignore>vendor/*</ignore>
@@ -25,8 +25,6 @@
         <ignore>tests/*</ignore>
         <ignore>*.data.php</ignore>
         <ignore>*test_*.php</ignore>
-        <ignore>*_test*.php</ignore>
-        <ignore>test.php</ignore>
         <ignore>*.config.php</ignore>
         <ignore>*/tests/*</ignore>
         <ignore>documents/*</ignore>

@@ -20,11 +20,6 @@ use Zend\InputFilter\InputFilterInterface;
 class User extends Entity {
 
     /**
-     * @var InputFilterInterface
-     */
-    protected static $_inputFilter = null;
-
-    /**
      * Unique identifier of User
      * @var int 
      * 
@@ -89,10 +84,10 @@ class User extends Entity {
      */
     protected $active = false;
 
-    public static function _getInputFilter() {
-        if (self::$_inputFilter === null) {
+    public function getInputFilter() {
+        if ($this->inputFilter === null) {
             $factory = new Factory();
-            self::$_inputFilter = $factory->createInputFilter(
+            $this->inputFilter = $factory->createInputFilter(
                     array(
                         'id' => array(
                             'name' => 'id',
@@ -148,7 +143,7 @@ class User extends Entity {
                             'filters' => array(
                                 array('name' => 'StringTrim'),
                                 array('name' => 'StripTags'),
-                                array('name' => 'StringToUpper'),
+                                array('name' => 'StringToLower'),
                             ),
                             'validators' => array(
                                 array('name' => 'NotEmpty'),
@@ -159,6 +154,12 @@ class User extends Entity {
                                         'mix' => '1',
                                         'max' => '10'
                                     )
+                                ),
+                                array(
+                                    'name' => 'InArray',
+                                    'options' => array(
+                                        'haystack' => array('admin', 'commun', 'guest')
+                                    ),
                                 ),
                             )
                         ),
@@ -246,11 +247,7 @@ class User extends Entity {
             );
         }
 
-        return self::$_inputFilter;
-    }
-
-    public function getInputFilter() {
-        return self::_getInputFilter();
+        return $this->inputFilter;
     }
 
     /**
@@ -435,7 +432,7 @@ class User extends Entity {
      * Retrives the active status
      * @return boolean
      */
-    public function getActive() {
+    public function isActive() {
         return $this->active;
     }
 

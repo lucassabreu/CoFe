@@ -13,6 +13,11 @@ return array(
             'Admin\Controller\User' => 'Admin\Controller\UserController',
         ),
     ),
+    'view_helpers' => array(
+        'invokables' => array(
+            'auth' => 'Admin\View\Helper\AuthHelper',
+        ),
+    ),
     'service_manager' => array(
         'dao_factory' => array(
             'Admin\Service\UserDAOService' => array(
@@ -61,6 +66,17 @@ return array(
                     'route' => '/user[/[:action]][/:id]',
                     'defaults' => array(
                         'controller' => 'Admin\Controller\User',
+                        'action' => 'index',
+                        'module' => 'admin',
+                    ),
+                ),
+            ),
+            'auth' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/auth[[/]:action]',
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Auth',
                         'action' => 'index',
                         'module' => 'admin',
                     ),

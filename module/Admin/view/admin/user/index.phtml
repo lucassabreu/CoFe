@@ -1,25 +1,36 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Usuário</th>
-            <th>Data Criação</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <?php foreach ($users as $user): ?>
-        <?php /** @var $user \Admin\Model\Entity\User */ ?>
-        <tr>
-            <td><?php echo $this->escapeHtml($user->getName()); ?></td>
-            <td><?php echo $this->escapeHtml($user->getUsername()); ?></td>            
-            <td><?php echo $this->dateFormat($user->getDateCreation(), IntlDateFormatter::MEDIUM); ?></td>
-            <td>
-                <div class="btn-group">
-                    <a class="btn btn-info" href="<?php echo $this->url('user', array('action' => 'detail', 'id' => $user->getId())); ?>"><span class="icon icon-book icon-white"></span></a>
-                    <a class="btn btn-warning" href="<?php echo $this->url('user', array('action' => 'update', 'id' => $user->getId())); ?>"><span class="icon icon-edit icon-white"></span></a>
-                    <a class="btn btn-danger" href="<?php echo $this->url('user', array('action' => 'remove', 'id' => $user->getId())); ?>"><span class="icon icon-remove icon-white"></span></a>
-                </div>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-</table>
+<form method="post">
+    <table class="table table-striped">
+        <caption class="caption left">
+            <div class="btn-group">
+                <button class="btn btn-info" title="<?php echo $this->escapeHtml($this->translate('Detail user')) ?>"   type="submit" formaction="<?php echo $this->url('user', array('action' => 'detail')); ?>"><span class="icon icon-book icon-white"></span> <?php echo $this->escapeHtml($this->translate("Detail")); ?></button>
+                <button class="btn btn-warning" title="<?php echo $this->escapeHtml($this->translate('Alter user')) ?>" type="submit" formaction="<?php echo $this->url('user', array('action' => 'update')); ?>"><span class="icon icon-edit icon-white"></span> <?php echo $this->escapeHtml($this->translate("Alter")); ?></button>
+                <button class="btn btn-danger" title="<?php echo $this->escapeHtml($this->translate('Remove user')) ?>" type="submit" formaction="<?php echo $this->url('user', array('action' => 'remove')); ?>"><span class="icon icon-remove icon-white"></span> <?php echo $this->escapeHtml($this->translate("Remove")); ?></button>
+            </div>
+        </caption>
+        <thead>
+            <tr>
+                <th />
+                <th><?php echo $this->escapeHtml($this->translate('Name')); ?></th>
+                <th><?php echo $this->escapeHtml($this->translate('User')); ?></th>
+                <th><?php echo $this->escapeHtml($this->translate('Active')); ?></th>
+                <th><?php echo $this->escapeHtml($this->translate('Date Creation')); ?></th>
+            </tr>
+        </thead>
+        <?php foreach ($users as $user): ?>
+            <?php /* @var $user \Admin\Model\Entity\User */ ?>
+            <tr>
+                <td><input type="radio" name="id" value="<?php echo $this->escapeHtml($user->getId()); ?>" /></td>
+                <td><?php echo $this->escapeHtml($user->getName()); ?></td>
+                <td><?php echo $this->escapeHtml($user->getUsername()); ?></td>
+                <td>
+                    <?php if ($user->isActive()): ?>
+                        <a class="btn btn-mini btn-success" title="<?php echo $this->escapeHtml($this->translate('Lock user')); ?>"   href="<?php echo $this->url('user', array('action' => 'lock', 'id' => $user->getId())); ?>"><span class="icon icon-eye-open icon-white"></span></a>
+                    <?php else: ?>
+                        <a class="btn btn-mini btn-inverse" title="<?php echo $this->escapeHtml($this->translate('Unlock user')); ?>" href="<?php echo $this->url('user', array('action' => 'unlock', 'id' => $user->getId())); ?>"><span class="icon icon-eye-close icon-white"></span></a>
+                        <?php endif; ?>
+                </td>
+                <td><?php echo $this->dateFormat($user->getDateCreation(), IntlDateFormatter::MEDIUM); ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</form>

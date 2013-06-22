@@ -64,7 +64,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface {
 
         if ($actionName == 'not-found')
             return true;
-        
+
         $authService = $sl->get('Admin\Service\AuthService');
 
         try {
@@ -76,8 +76,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface {
              */
             $res = $event->getResponse();
             $res->setStatusCode(302);
-            var_dump($e);
-            $res->getHeaders()->addHeaderLine('Location', '/admin/auth/');
+            $res->getHeaders()->addHeaderLine('Location', '/auth');
         }
 
         return true;

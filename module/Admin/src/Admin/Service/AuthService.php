@@ -56,12 +56,16 @@ class AuthService extends Service {
         if ($result->isValid()) {
             $user = $auth->getIdentity();
 
-            if (!$user->getActive())
+            if (!$user->isActive()) {
+                $this->logout();
                 throw new InactiveUserAuthException($user);
-            else
+            } else {
                 return true;
-        } else
+            }
+        } else {
+            $this->logout();
             throw new InvalidUserAuthException();
+        }
     }
 
     /**

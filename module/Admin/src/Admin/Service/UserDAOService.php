@@ -37,9 +37,20 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
             throw new DAOException("Already exists a user with username: $user->username.");
 
         if ($user->getId() === null) {
+            $user->validate();
             return parent::save($user);
             // regra de criação
         } else {
+            $old = $this->findById($user->getId());
+            /** @var $old User */
+            if ($old->getPassword() !== $user->getPassword()) {
+                throw new DAOException("To change password you must use changePassword method.");
+            }
+
+            if ($old->getActive() != $user->isActive()) {
+                throw new DAOException("To change active you must use lock or unlock method.");
+            }
+
             return parent::save($user);
         }
     }
@@ -70,12 +81,7 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
             throw new DAOException("User $user->name not exists.");
 
         // this method is oly for update the password, another values must use method save.
-        if ($user->getUsername() != $userOld->getUsername()
-                || $user->getRole() != $userOld->getRole()
-                || $user->getName() != $userOld->getName()
-                || $user->getEmail() != $userOld->getEmail()
-                || $user->getDateCreation() != $userOld->getDateCreation()
-                || $user->getActive() != $userOld->getActive())
+        if ($user->getUsername() != $userOld->getUsername() || $user->getRole() != $userOld->getRole() || $user->getName() != $userOld->getName() || $user->getEmail() != $userOld->getEmail() || $user->getDateCreation() != $userOld->getDateCreation() || $user->isActive() != $userOld->isActive())
             throw new DAOException("Method " . __METHOD__ . " is only for update the password, other changes must use: " . __CLASS__ . "::save.");
 
         if ($userOld->getPassword() != md5($oldPassword))
@@ -83,11 +89,52 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
 
         $userOld->setPassword($user->getPassword());
 
-        $this->dao->changePassword($userOld, $oldPassword, $newPassword);
+        $user = $this->dao->changePassword($userOld, $oldPassword, $newPassword);
+
+        return $user;
+    }
+
+    public function lock(User $user) {
+        $old = null;
+        /** @var $old User */
+        if ($user != null && $user->getId() != null) {
+            $old = $this->findById($user->getId());
+
+            if ($old === null)
+                throw new DAOException("The user must exists to use this method, use save method first.");
+
+            if ($old->isActive()) {
+                $old->setActive(false);
+                $old = $this->dao->lock($old);
+
+                $user->setData($old->getData());
+                return $user;
+            }
+        }
+
+        return $user;
+    }
+
+    public function unlock(User $user) {
+        $old = null;
+        /** @var $old User */
+        if ($user != null && $user->getId() != null) {
+            $old = $this->findById($user->getId());
+
+            if ($old === null)
+                throw new DAOException("The user must exists to use this method, use save method first.");
+
+            if (!$old->isActive()) {
+                $old->setActive(true);
+                $old = $this->dao->unlock($old);
+
+                $user->setData($old->getData());
+                return $user;
+            }
+        }
 
         return $user;
     }
 
 }
-
 ?>

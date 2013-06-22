@@ -11,8 +11,6 @@ class Login extends Form {
 
         parent::__construct('login');
         $this->setAttribute('method', 'post');
-        $this->setAttribute('action', '/admin/auth/login');
-        $this->setAttribute('class', 'form-horizontal');
 
         $factory = new Factory();
 
@@ -41,6 +39,7 @@ class Login extends Form {
             'name' => 'username',
             'required' => true,
             'attributes' => array(
+                'id' => 'username',
                 'type' => 'text',
             ),
             'options' => array(
@@ -51,6 +50,7 @@ class Login extends Form {
             'name' => 'password',
             'required' => true,
             'attributes' => array(
+                'id' => 'password',
                 'type' => 'password',
             ),
             'options' => array(
@@ -59,11 +59,11 @@ class Login extends Form {
         ));
         $this->add(array(
             'name' => 'submit',
+            'type' => 'Zend\Form\Element\Button',
             'attributes' => array(
                 'type' => 'submit',
                 'value' => 'Login',
                 'id' => 'submitbutton',
-                'class' => 'btn'
             ),
         ));
     }

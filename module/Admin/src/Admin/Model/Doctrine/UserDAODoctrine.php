@@ -33,6 +33,14 @@ class UserDAODoctrine extends AbstractDoctrineDAO implements UserDAOInterface {
         return $user;
     }
 
+    public function lock(User $user) {
+        return $this->save($user);
+    }
+
+    public function unlock(User $user) {
+        return $this->save($user);
+    }
+
 }
 
 ?>

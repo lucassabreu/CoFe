@@ -1,48 +1,87 @@
-<?php $form->setAttribute('class', 'form-horizontal'); ?>
-<?php if ($action == 'update'): ?>
-    <?php $form->get('password')->setValue('****'); ?>
-    <?php $form->get('confirmPassword')->setValue('****'); ?>
-    <?php $form->get('dateCreation')->setAttribute('readonly', 'readonly'); ?>
-    <?php $form->setAttribute('action', $this->url('user', array('action' => 'update', 'id' => $form->get('id')->getValue()))); ?>
-<?php endif; ?>
-<?php foreach ($form as $element): ?>
-    <?php $element->setLabelAttributes(array('class' => 'control-label')) ?>
+<?php
+/* @var $form \Admin\Form\User\User */
+/* @var $action string */
 
-    <?php if ($element instanceof \Zend\Form\Element\Button) : ?>
-        <?php $element->setAttribute('class', 'btn'); ?>
-    <?php endif; ?>
+$form->setAttribute('class', 'form-horizontal');
+if ($action == 'update'):
+    $form->get('password')->setValue('****');
+    $form->get('confirmPassword')->setValue('****');
+    $form->get('dateCreation')->setAttribute('readonly', 'readonly');
+    $form->get('active')->setAttribute('disabled', 'disabled');
+    if ($this->auth('role') != 'ADMIN'):
+        $form->get('role')->setAttribute('disabled', 'disabled');
+    endif;
+    $form->setAttribute('action', $this->url('user', array('action' => 'update', 'id' => $form->get('id')->getValue())));
+endif;
+foreach ($form as $element):
+    $element->setLabelAttributes(array('class' => 'control-label'));
 
-    <?php if ($action == 'detail'): ?>
-        <?php if ($element->getAttribute('type') == 'select' || $element->getAttribute('type') == 'checkbox'): ?>
-            <?php $element->setAttribute('disabled', 'disabled'); ?>
-        <?php else: ?>
-            <?php $element->setAttribute('readonly', 'readonly'); ?>
-        <?php endif; ?>
-    <?php endif; ?>
-    <?php //echo var_dump($element); ?>
-<?php endforeach; ?>
+    if (($element instanceof \Zend\Form\Element\Button)) :
+        $element->setAttribute('class', 'btn');
+    endif;
+
+    if ($action == 'detail'):
+        if ($element->getAttribute('type') == 'select' || $element->getAttribute('type') == 'checkbox'):
+            $element->setAttribute('disabled', 'disabled');
+        else:
+            $element->setAttribute('readonly', 'readonly');
+        endif;
+    endif;
+endforeach;
+?>
 <div class="well">
     <h3 class="entity-title">
         <?php echo $this->escapeHtml($this->translate("User detail:")); ?>
-        <?php if ($action == 'detail'): ?>
+        <?php if ($this->auth('role') === 'admin'): ?>
             <div class="btn-group">
-                <a class="btn btn-warning" href="<?php echo $this->url('user', array('action' => 'update', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-edit icon-white"></span></a>
-                <a class="btn btn-danger" href="<?php echo $this->url('user', array('action' => 'remove', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-remove icon-white"></span></a>
+                <a class="btn btn-info" title="<?php echo $this->escapeHtml($this->translate('List users')) ?>"  href="<?php echo $this->url('user', array('action' => 'index')); ?>"><span class="icon icon-th-list icon-white"></span></a>
+                <?php if ($action != 'detail'): ?>
+                    <a class="btn btn-info" title="<?php echo $this->escapeHtml($this->translate('Detail user')) ?>" href="<?php echo $this->url('user', array('action' => 'detail', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-book icon-white"></span></a>
+                <?php endif; ?>
+                <?php if ($form->get('active')->getValue()): ?>
+                    <a class="btn btn-inverse" title="<?php echo $this->escapeHtml($this->translate('Lock user')) ?>" href="<?php echo $this->url('user', array('action' => 'lock', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-eye-close icon-white"></span></a>
+                <?php else: ?>
+                    <a class="btn btn-success" title="<?php echo $this->escapeHtml($this->translate('Unlock user')) ?>" href="<?php echo $this->url('user', array('action' => 'unlock', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-eye-open icon-white"></span></a>
+                <?php endif; ?>
+                <?php if ($action != 'update'): ?>
+                    <a class="btn btn-warning" title="<?php echo $this->escapeHtml($this->translate('Alter user')) ?>" href="<?php echo $this->url('user', array('action' => 'update', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-edit icon-white"></span></a>
+                <?php endif; ?>
+                <a class="btn btn-danger" title="<?php echo $this->escapeHtml($this->translate('Remove user')) ?>" href="<?php echo $this->url('user', array('action' => 'remove', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-remove icon-white"></span></a>
             </div>
         <?php endif; ?>
     </h3>
+
+    <?php if ($action = 'update' && !$form->isValid()): ?>
+        <?php foreach ($form->getMessages() as $key => $messages): ?>
+            <div class="alert alert-error">
+                <b><?php echo $this->escapeHtml($this->translate($form->get($key)->getLabel())); ?>:</b><br/>
+                <ul class="alert-block alert-warning">
+                    <?php foreach ($messages as $message): ?>
+                        <li><?php echo $this->escapeHtml($message); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
     <?php echo $this->form()->openTag($form); ?>
     <?php echo $this->formHidden($form->get('id')); ?>
-    <div class="control-group"><?php echo $this->formLabel($form->get('name')); ?><div class="controls"><?php echo $this->formInput($form->get('name')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('name')); ?><div class="controls"><?php echo $this->formInput($form->get('name')->setAttribute('class', 'input-xxlarge')); ?><?php echo $this->formElementErrors($form->get('name'), array('class' => 'alert alert-error')); ?></div></div>
     <div class="control-group"><?php echo $this->formLabel($form->get('email')); ?><div class="controls"><?php echo $this->formInput($form->get('email')); ?></div></div>
-    <div class="control-group"><?php echo $this->formLabel($form->get('username')); ?><div class="controls"><?php echo $this->formInput($form->get('username')); ?></div></div>
-    <div class="control-group"><?php echo $this->formLabel($form->get('active')); ?><div class="controls"><?php echo $this->formCheckbox($form->get('active')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('username')); ?><div class="controls"><?php echo $this->formInput($form->get('username')); ?><?php echo $this->formElementErrors($form->get('username'), array('class' => 'alert alert-error')); ?></div></div>
     <div class="control-group"><?php echo $this->formLabel($form->get('role')); ?><div class="controls"><?php echo $this->formSelect($form->get('role')); ?></div></div>
+    <div class="control-group"><?php echo $this->formLabel($form->get('active')); ?><div class="controls"><?php
+            echo $this->formText((new \Zend\Form\Element\Text('active'))
+                            ->setValue($this->translate($form->get('active')->getValue() ? "Yes" : "No"))
+                            ->setAttribute('id', $form->get('active')->getAttribute('id'))
+                            ->setAttribute('disabled', $form->get('active')->getAttribute('disabled'))
+            );
+            ?></div></div>
     <div class="control-group"><?php echo $this->formLabel($form->get('dateCreation')); ?><div class="controls"><?php echo $this->formInput($form->get('dateCreation')); ?></div></div>
     <?php if ($action == 'update'): ?>
-        <div class="controls">
-            <?php echo $this->formButton()->render($form->get('submit'), 'Update'); ?>
-            <?php echo $this->formButton()->render($form->get('reset'), 'Reset'); ?>
+        <div class="controls btn-group">
+            <?php echo $this->formButton()->render($form->get('submit')->setAttribute('class', 'btn btn-primary'), 'Update'); ?>
+            <?php echo $this->formButton()->render($form->get('reset')->setAttribute('class', 'btn btn-warning'), 'Reset'); ?>
         </div>
     <?php endif; ?>
     <?php echo $this->form()->closeTag($form); ?>

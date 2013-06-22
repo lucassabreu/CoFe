@@ -9,7 +9,7 @@ use Core\Model\DAO\DAOInterface;
  * Interface contract for DAO objects for class User
  * 
  * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
- * @see \Admin\Model\User
+ * @see User
  */
 interface UserDAOInterface extends DAOInterface {
 
@@ -28,6 +28,20 @@ interface UserDAOInterface extends DAOInterface {
      * @return User
      */
     public function changePassword(User $user, $oldPassword, $newPassword);
+
+    /**
+     * Alter the <code>active</code> status of User to inactive (locked).
+     * @param User $user
+     * @return User User updated
+     */
+    public function lock(User $user);
+
+    /**
+     * Alter the <code>active</code> status of User to active (unlocked).
+     * @param User $user
+     * @return User User updated
+     */
+    public function unlock(User $user);
 }
 
 ?>

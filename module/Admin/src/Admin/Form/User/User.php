@@ -1,14 +1,21 @@
 <?php
 
-namespace Admin\Form;
+namespace Admin\Form\User;
 
+use Admin\Model\Entity\User as UserEntity;
 use Core\Form\Form;
+use Zend\InputFilter\Factory;
 
 class User extends Form {
 
     public function __construct() {
         parent::__construct('user_' . ($time = time()));
         $this->setAttribute('method', 'post');
+
+        $factory = new Factory();
+        $user = new UserEntity();
+        $if = $user->getInputFilter();
+        $this->setInputFilter($if);
 
         $this->add(array(
             'name' => 'id',
@@ -52,8 +59,8 @@ class User extends Form {
                 'label' => 'Password',
             ),
         ));
-        
-        
+
+
         $this->add(array(
             'name' => 'confirmPassword',
             'type' => 'Zend\Form\Element\Password',
@@ -72,6 +79,7 @@ class User extends Form {
             'attributes' => array(
                 'id' => "dateCreation_$time",
                 'type' => 'date',
+                'step' => 1,
             ),
             'options' => array(
                 'label' => 'Date Creation',
@@ -109,8 +117,8 @@ class User extends Form {
                 'id' => "role_$time",
                 'options' => array(
                     'guest' => 'Guest',
-                    'admin' => 'Adminstrator',
-                    'common' => 'Common',
+                    'admin' => 'Administrator',
+                    'commun' => 'Common',
                 ),
             ),
             'options' => array(
@@ -127,7 +135,6 @@ class User extends Form {
                 'id' => "submitbutton_$time",
             ),
         ));
-
 
         $this->add(array(
             'name' => 'reset',
