@@ -83,6 +83,14 @@ class UserController extends AbstractController {
 
         $exception = $this->params('exception');
 
+        $request = $this->getRequest();
+        /* @var $request Request */
+
+        $returnTo = $request->getPost('returnTo');
+
+        if (is_null($returnTo))
+            $returnTo = $this->url()->fromRoute('userList');
+
         if (!is_null($exception))
             $valid = false;
 
@@ -124,6 +132,8 @@ class UserController extends AbstractController {
 
             if (!is_null($exception))
                 $form->addExceptionMessage($exception);
+
+            $form->get('cancel')->setAttribute('formaction', $returnTo);
 
             return new ViewModel(array('form' => $form));
         }

@@ -10,9 +10,8 @@
     </h4>
     <?php echo $this->formHidden($form->get('id')); ?>
     <div class="form-actions">
-        <?php echo $this->formButton($form->get('submitRemove')->setAttribute('class', 'btn btn-danger')); ?>
-        &nbsp;
-        <a class="btn pull-right" href="<?php echo $form->get('submitCancel')->getAttribute('formaction'); ?>">
+        <?php echo $this->ztbFormButton($form->get('submitRemove')->setAttribute('class', 'input-medium'), null, array('btn_type' => 'danger')); ?>
+        <a class="btn pull-right input-medium" href="<?php echo $form->get('submitCancel')->getAttribute('formaction'); ?>">
             <?php echo $this->escapeHtml($this->translate($form->get('submitCancel')->getLabel())); ?>
         </a>
     </div>

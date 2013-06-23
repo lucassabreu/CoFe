@@ -10,3 +10,4 @@
 .float-right{float:right;}
 .btn .float-right,.btn .float-left{margin-top:2.5px;}
 table input[type="radio"],table input[type="checkbox"]{margin-top:0;}
+@media (max-width:480px){.well .form-actions,.well .form-horizontal .form-actions{padding-left:10px;padding-right:10px;}}

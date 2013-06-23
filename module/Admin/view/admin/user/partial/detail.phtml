@@ -23,20 +23,19 @@ foreach ($form as $element):
 endforeach;
 ?>
 <div class="well">
-    <?php echo $this->form()->openTag($form); ?>
+    <?php echo $this->form()->openTag($form); // <form %s>  ?>
     <?php echo $this->formHidden((new \Zend\Form\Element\Hidden('returnTo'))->setValue($this->url('user', array('action' => $action, 'id' => $form->get('id')->getValue())))); ?>
     <?php echo $this->formHidden($form->get('id')); ?>
-
 
     <h3 class="entity-title">
         <?php if ($this->auth('role') === 'admin'): ?>
             <div class="btn-group pull-right">
-                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="icon icon-wrench icon-white"></span> Config <i class="caret"></i></button>
+                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="icon icon-wrench icon-white"></span> <?php echo $this->escapeHtml($this->translate('Options')) ?> <i class="caret"></i></button>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="<?php echo $this->url('user', array('action' => 'index')); ?>">
                             <span class="icon icon-th-list"></span>
-                            <?php echo $this->escapeHtml($this->translate('List users')); ?>
+                            <?php echo $this->escapeHtml($this->translate('List all users')); ?>
                         </a>
                     </li>
                     <?php if ($action != 'detail'): ?>
@@ -49,17 +48,23 @@ endforeach;
                     <?php endif; ?>
                     <?php if ($action != 'update'): ?>
                         <li>
-                            <a href="<?php echo $this->url('user', array('action' => 'update', 'id' => $form->get('id')->getValue())); ?>">
-                                <span class="icon icon-edit"></span>
-                                <?php echo $this->escapeHtml($this->translate('Alter user')); ?>
-                            </a>
+                            <?php
+                            echo $this->ztbFormButton((new \Zend\Form\Element\Button('updateUser_' . time()))->setAttributes(
+                                            array(
+                                                'type' => 'submit',
+                                                'formaction' => $this->url('user', array('action' => 'update'))
+                                    )), 'Alter user', array('icon' => 'edit', 'btn_type' => 'link',));
+                            ?>
                         </li>
                     <?php endif; ?>
                     <li>
-                        <button class="btn btn-link" type="submit" formaction="<?php echo $this->url('user', array('action' => 'remove', 'id' => $form->get('id')->getValue())); ?>">
-                            <span class="icon icon-remove "></span>
-                            <?php echo $this->escapeHtml($this->translate('Remove user')) ?>
-                        </button>
+                        <?php
+                        echo $this->ztbFormButton((new \Zend\Form\Element\Button('removeUser_' . time()))->setAttributes(
+                                        array(
+                                            'type' => 'submit',
+                                            'formaction' => $this->url('user', array('action' => 'remove', 'id' => $form->get('id')->getValue()))
+                                )), 'Remove user', array('icon' => 'remove', 'btn_type' => 'link',));
+                        ?>
                     </li>
                 </ul>
             </div><!-- /btn-group -->
@@ -134,14 +139,21 @@ endforeach;
     </div>
     <?php if ($action == 'update'): ?>
         <div class="form-actions">
-            <?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-warning input-medium'), 'Update'); ?>
+            <?php echo $this->ztbFormButton($form->get('submit')->setAttribute('class', 'input-medium'), 'Update', array('btn_type' => 'warning')); ?>
             &nbsp;
-            <?php echo $this->formButton($form->get('cancel')->setAttribute('class', 'btn input-medium')->setAttribute('formaction', $this->url('userList')), 'Cancel'); ?>
+            <?php echo $this->ztbFormButton($form->get('cancel')->setAttributes(array('class' => 'input-medium', 'formaction' => $this->url('userList')))); ?>
             &nbsp;
-            <button class="btn input-medium" title="<?php echo $this->escapeHtml($this->translate('Alter password')) ?>" formaction="<?php echo $this->url('user', array('action' => 'alterPassword', 'id' => $form->get('id')->getValue())); ?>"><span class="icon icon-lock"></span> <?php echo $this->escapeHtml($this->translate('Alter password')) ?></button>
+            <?php
+            echo $this->ztbFormButton($form->get('changePassword')->setAttributes(array(
+                        'class' => 'input-large',
+                        'type' => 'submit',
+                        'formaction' => $this->url('user', array('action' => 'changePassword')),
+                    )), null, array('icon' => 'lock'));
+            ?>
         </div>
     <?php endif; ?>
-    <?php echo $this->form()->closeTag($form); ?>
+    <?php echo $this->form()->closeTag($form); // </form>  ?>
 </div>
 <?php $this->placeholder('content')->captureEnd(); ?>
+<?php /* echo ($this->placeholder('content')); */ ?>
 <?php echo $this->stripContent($this->placeholder('content')); ?>

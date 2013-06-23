@@ -140,6 +140,9 @@ class Form extends FormBase {
                 'type' => 'submit',
                 'id' => "submitbutton_$time",
             ),
+            'options' => array(
+                'label' => 'Update',
+            ),
         ));
 
         $this->add(array(
@@ -148,6 +151,21 @@ class Form extends FormBase {
             'attributes' => array(
                 'type' => 'submit',
                 'id' => "cancelbutton_$time",
+            ),
+            'options' => array(
+                'label' => 'Cancel',
+            ),
+        ));
+
+        $this->add(array(
+            'name' => 'changePassword',
+            'type' => 'Zend\Form\Element\Button',
+            'attributes' => array(
+                'type' => 'button',
+                'id' => "cancelbutton_$time",
+            ),
+            'options' => array(
+                'label' => 'Change Password',
             ),
         ));
     }

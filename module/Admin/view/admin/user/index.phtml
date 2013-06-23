@@ -47,9 +47,9 @@
             <?php echo $this->escapeHtml($this->translate("Alter")); ?>
         </button>
         &nbsp;
-        <button class="btn input-medium" type="submit" formaction="<?php echo $this->url('user', array('action' => 'alterPassword')); ?>">
+        <button class="btn input-large" type="submit" formaction="<?php echo $this->url('user', array('action' => 'changePassword')); ?>">
             <span class="icon icon-lock"></span>   
-            <?php echo $this->escapeHtml($this->translate('Reset password')) ?>
+            <?php echo $this->escapeHtml($this->translate('Change Password')) ?>
         </button>
         &nbsp;
         <button class="btn input-medium"  type="submit" formaction="<?php echo $this->url('user', array('action' => 'remove')); ?>">       
