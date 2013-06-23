@@ -2,29 +2,26 @@
     <span class="pagination">
         <ul>
             <?php /*  Previous page link */ ?>
-            <li>
-                <a <?php if (isset($this->previous)): ?> href="<?php echo $this->url($this->route, array('page' => $this->previous)); ?>" <?php endif; ?>>
-                    <?php echo $this->escapeHtml('«'); ?>
-                </a>
-            </li>
+            <?php if (isset($this->previous)): ?>             
+                <li><a href="<?php echo $this->url($this->route, array('page' => $this->previous)); ?>" ><?php echo $this->escapeHtml('«'); ?></a></li>
+            <?php else: ?>
+                <li class="disabled"><a><?php echo $this->escapeHtml('«'); ?></a></li>
+            <?php endif; ?>
+
             <?php /*  Numbered page links */ ?>
             <?php foreach ($this->pagesInRange as $page): ?>
-                <li>
-                    <?php if ($page != $this->current): ?>
-                        <a href="<?php echo $this->url($this->route, array('page' => $page)); ?>"><?php echo $page; ?></a>
-                    <?php else: ?>
-                        <a><?php echo $page; ?></a>
-                    <?php endif; ?>
-                </li>
+                <?php if ($page != $this->current): ?>
+                    <li><a href="<?php echo $this->url($this->route, array('page' => $page)); ?>"><?php echo $page; ?></a></li>
+                <?php else: ?>
+                    <li class="active"><a><?php echo $page; ?></a></li>
+                <?php endif; ?>
             <?php endforeach; ?>
             <?php /* Next page link */ ?>
-            <li>
-                <?php if (isset($this->next)): ?>
-                    <a href="<?php echo $this->url($this->route, array('page' => $this->next)); ?>"><?php echo $this->escapeHtml('»'); ?></a>
-                <?php else: ?>
-                    <a><?php echo $this->escapeHtml('»'); ?></a>
-                <?php endif; ?>
-            </li>
+            <?php if (isset($this->next)): ?>
+                <li><a href="<?php echo $this->url($this->route, array('page' => $this->next)); ?>"><?php echo $this->escapeHtml('»'); ?></a></li>
+            <?php else: ?>
+                <li class="disabled"><a><?php echo $this->escapeHtml('»'); ?></a></li>
+            <?php endif; ?>
         </ul>
     </span>
 <?php endif; ?>

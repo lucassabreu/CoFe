@@ -1971,7 +1971,23 @@ table th[class*="span"],
 .dropdown-submenu:hover > a > [class^="icon-"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
-.dropdown-submenu:focus > a > [class*=" icon-"] {
+.dropdown-submenu:focus > a > [class*=" icon-"],
+.nav-pills > .active > button.btn-link > [class^="icon-"],
+.nav-pills > .active > button.btn-link > [class*=" icon-"],
+.nav-list > .active > button.btn-link > [class^="icon-"],
+.nav-list > .active > button.btn-link > [class*=" icon-"],
+.navbar-inverse .nav > .active > button.btn-link > [class^="icon-"],
+.navbar-inverse .nav > .active > button.btn-link > [class*=" icon-"],
+.dropdown-menu > li > button.btn-link:hover > [class^="icon-"],
+.dropdown-menu > li > button.btn-link:focus > [class^="icon-"],
+.dropdown-menu > li > button.btn-link:hover > [class*=" icon-"],
+.dropdown-menu > li > button.btn-link:focus > [class*=" icon-"],
+.dropdown-menu > .active > button.btn-link > [class^="icon-"],
+.dropdown-menu > .active > button.btn-link > [class*=" icon-"],
+.dropdown-submenu:hover > button.btn-link > [class^="icon-"],
+.dropdown-submenu:focus > button.btn-link > [class^="icon-"],
+.dropdown-submenu:hover > button.btn-link > [class*=" icon-"],
+.dropdown-submenu:focus > button.btn-link > [class*=" icon-"] {
   background-image: url("../img/glyphicons-halflings-white.png");
 }
 .icon-glass {
@@ -2461,7 +2477,8 @@ table th[class*="span"],
   background-color: #e5e5e5;
   border-bottom: 1px solid #ffffff;
 }
-.dropdown-menu > li > a {
+.dropdown-menu > li > a,
+.dropdown-menu > li > button {
   display: block;
   padding: 3px 20px;
   clear: both;
@@ -2470,10 +2487,21 @@ table th[class*="span"],
   color: #333333;
   white-space: nowrap;
 }
+.dropdown-menu > li > button.btn-link {
+  line-height: 18px;
+  background-position: 0 0;
+  text-shadow: none;
+  width: 100%;
+  text-align: left;
+}
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
-.dropdown-submenu:focus > a {
+.dropdown-submenu:focus > a,
+.dropdown-menu > li > button:hover,
+.dropdown-menu > li > button:focus,
+.dropdown-submenu:hover > button,
+.dropdown-submenu:focus > button {
   text-decoration: none;
   color: #ffffff;
   background-color: #0081c2;
@@ -2487,7 +2515,10 @@ table th[class*="span"],
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
+.dropdown-menu > .active > a:focus,
+.dropdown-menu > .active > button,
+.dropdown-menu > .active > button:hover,
+.dropdown-menu > .active > button:focus {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
@@ -2502,11 +2533,16 @@ table th[class*="span"],
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:focus,
+.dropdown-menu > .disabled > button,
+.dropdown-menu > .disabled > button:hover,
+.dropdown-menu > .disabled > button:focus {
   color: #999999;
 }
 .dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:focus,
+.dropdown-menu > .disabled > button:hover,
+.dropdown-menu > .disabled > button:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
@@ -2567,7 +2603,8 @@ table th[class*="span"],
   -moz-border-radius: 5px 5px 5px 0;
   border-radius: 5px 5px 5px 0;
 }
-.dropdown-submenu > a:after {
+.dropdown-submenu > a:after,
+.dropdown-submenu > button:after {
   display: block;
   content: " ";
   float: right;
@@ -2580,7 +2617,8 @@ table th[class*="span"],
   margin-top: 5px;
   margin-right: -10px;
 }
-.dropdown-submenu:hover > a:after {
+.dropdown-submenu:hover > a:after,
+.dropdown-submenu:hover > button:after {
   border-left-color: #ffffff;
 }
 .dropdown-submenu.pull-left {

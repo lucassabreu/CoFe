@@ -3,6 +3,7 @@
 namespace Admin\Controller;
 
 use Admin\Form\User\Form as UserForm;
+use Admin\Form\User\Remove as RemoveForm;
 use Admin\Model\Entity\User;
 use Core\Controller\AbstractController;
 use Core\Model\DAO\Exception\DAOException;
@@ -190,15 +191,51 @@ class UserController extends AbstractController {
 
     public function removeAction() {
 
-        $id = $this->params('id');
+        $id = $this->params()->fromRoute('id');
+
+        $request = $this->getRequest();
+        /* @var $request Request */
 
         if ($id == null)
-            $id = $this->getRequest()->getPost('id');
+            $id = $request->getPost('id');
 
-        
+        $returnTo = $request->getPost('returnTo');
 
+        if (is_null($returnTo))
+            $returnTo = $this->url()->fromRoute('userList');
 
-        return null;
+        if ($id == null)
+            return $this->redirect()->toUrl($returnTo);
+        else {
+            $user = $this->dao()->findById($id);
+            /* @var $user User */
+            if ($user == null)
+                return $this->redirect()->toRoute('userList');
+
+            $submitRemove = null;
+            if ($request->isPost())
+                $submitRemove = $request->getPost('submitRemove', null);
+
+            $form = new RemoveForm();
+
+            if ($submitRemove === null) {
+                $form->setData($user->getData());
+                $form->get('submitCancel')->setAttribute('formaction', $returnTo);
+
+                return array(
+                    'form' => $form,
+                );
+            } else {
+                $form->setData($request->getPost());
+
+                try {
+                    $this->dao()->remove($user);
+                    return $this->redirect()->toRoute('userList');
+                } catch (Exception $e) {
+                    return $this->forward()->dispatch('user', array('action' => 'detail', 'id' => $id, 'exception' => $e));
+                }
+            }
+        }
     }
 
 }

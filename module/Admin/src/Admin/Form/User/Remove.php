@@ -10,8 +10,6 @@ class Remove extends Form {
         parent::__construct('userRemove_' . ($time = time()));
         $this->setAttribute('method', 'post');
 
-        $this->setInputFilter($if);
-
         $this->add(array(
             'name' => 'id',
             'type' => 'Zend\Form\Element\Hidden',
@@ -44,20 +42,27 @@ class Remove extends Form {
         ));
 
         $this->add(array(
-            'name' => 'submit',
+            'name' => 'submitRemove',
             'type' => 'Zend\Form\Element\Button',
             'attributes' => array(
                 'type' => 'submit',
-                'id' => "submitbutton_$time",
+                'id' => "submitRemove_$time",
+                'value' => 'true',
+            ),
+            'options' => array(
+                'label' => 'Remove',
             ),
         ));
 
         $this->add(array(
-            'name' => 'cancel',
+            'name' => 'submitCancel',
             'type' => 'Zend\Form\Element\Button',
             'attributes' => array(
                 'type' => 'submit',
-                'id' => "cancelbutton_$time",
+                'id' => "submitCancel_$time",
+            ),
+            'options' => array(
+                'label' => 'Cancel',
             ),
         ));
     }

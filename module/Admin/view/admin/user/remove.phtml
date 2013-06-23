@@ -1,1 +1,22 @@
-<?php ?>
+<?php $this->placeholder('content')->captureStart(); ?>
+<?php /* @var $form \Admin\Form\User\Remove */ ?>
+<?php $form->setAttribute('action', $this->url('user', array('action' => 'remove', 'id' => $form->get('id')->getValue()))); ?>
+<div class="well well-message">
+    <?php echo $this->form()->openTag($form); ?>
+    <h4>
+        <?php
+        echo $this->escapeHtml(sprintf($this->translate('You really want to remove user %s (%s)?'), $form->get('name')->getValue(), $form->get('username')->getValue()));
+        ?>
+    </h4>
+    <?php echo $this->formHidden($form->get('id')); ?>
+    <div class="form-actions">
+        <?php echo $this->formButton($form->get('submitRemove')->setAttribute('class', 'btn btn-danger')); ?>
+        &nbsp;
+        <a class="btn pull-right" href="<?php echo $form->get('submitCancel')->getAttribute('formaction'); ?>">
+            <?php echo $this->escapeHtml($this->translate($form->get('submitCancel')->getLabel())); ?>
+        </a>
+    </div>
+    <?php echo $this->form()->closeTag($form); ?>
+</div>
+<?php $this->placeholder('content')->captureEnd(); ?>
+<?php echo $this->stripContent($this->placeholder('content')); ?>

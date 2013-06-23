@@ -72,14 +72,24 @@
   }
 
   // Links within the dropdown menu
-  > li > a {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: normal;
-    line-height: @baseLineHeight;
-    color: @dropdownLinkColor;
-    white-space: nowrap;
+  > li {
+    > a, > button {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: normal;
+      line-height: @baseLineHeight;
+      color: @dropdownLinkColor;
+      white-space: nowrap;
+    }
+
+    > button.btn-link {
+      line-height: (@baseLineHeight - 2px);
+      background-position: 0 0;
+      text-shadow: none;
+      width: 100%;
+      text-align: left;
+    }
   }
 }
 
@@ -88,7 +98,12 @@
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
-.dropdown-submenu:focus > a {
+.dropdown-submenu:focus > a,
+
+.dropdown-menu > li > button:hover,
+.dropdown-menu > li > button:focus,
+.dropdown-submenu:hover > button,
+.dropdown-submenu:focus > button {
   text-decoration: none;
   color: @dropdownLinkColorHover;
   #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
@@ -98,7 +113,11 @@
 // ------------
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
+.dropdown-menu > .active > a:focus,
+
+.dropdown-menu > .active > button,
+.dropdown-menu > .active > button:hover,
+.dropdown-menu > .active > button:focus {
   color: @dropdownLinkColorActive;
   text-decoration: none;
   outline: 0;
@@ -110,12 +129,18 @@
 // Gray out text and ensure the hover/focus state remains gray
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:focus,
+
+.dropdown-menu > .disabled > button,
+.dropdown-menu > .disabled > button:hover,
+.dropdown-menu > .disabled > button:focus {
   color: @grayLight;
 }
 // Nuke hover/focus effects
 .dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:focus,
+.dropdown-menu > .disabled > button:hover,
+.dropdown-menu > .disabled > button:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none; // Remove CSS gradient
@@ -200,7 +225,8 @@
 }
 
 // Caret to indicate there is a submenu
-.dropdown-submenu > a:after {
+.dropdown-submenu > a:after,
+.dropdown-submenu > button:after {
   display: block;
   content: " ";
   float: right;
@@ -213,7 +239,8 @@
   margin-top: 5px;
   margin-right: -10px;
 }
-.dropdown-submenu:hover > a:after {
+.dropdown-submenu:hover > a:after,
+.dropdown-submenu:hover > button:after {
   border-left-color: @dropdownLinkColorHover;
 }
 
