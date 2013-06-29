@@ -1,325 +1,327 @@
-<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-<meta charset="utf-8">
-<title>CoFe » \Core\Test\ControllerTestCase</title>
-<meta name="author" content="Lucas dos Santos Abreu">
-<meta name="description" content="">
-<link href="../stylesheets/pygment_trac.css" rel="stylesheet">
-<link href="../css/template.css" rel="stylesheet" media="all">
-<link href="../stylesheets/styles.css" rel="stylesheet">
-<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
-<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; \Core\Test\ControllerTestCase
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.js" type="text/javascript"></script>
+    <script src="../js/template.js" type="text/javascript"></script>
+    <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+
+    <link rel="shortcut icon" href="../img/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
 </head>
 <body>
+
 <div class="navbar navbar-fixed-top">
-<div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">CoFe</a><div class="nav-collapse"><ul class="nav">
-<li class="dropdown">
-<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
-                                    API Documentation 
-                                    <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a>Namespaces</a></li>
-<li><a href="../namespaces/Admin.html"><i class="icon-th icon-white"></i> 
-                Admin</a></li>
-<li><a href="../namespaces/AdminTest.html"><i class="icon-th icon-white"></i> 
-                AdminTest</a></li>
-<li><a href="../namespaces/Application.html"><i class="icon-th icon-white"></i> 
-                Application</a></li>
-<li><a href="../namespaces/Core.html"><i class="icon-th icon-white"></i> 
-                Core</a></li>
-</ul>
-</li>
-<li class="dropdown" id="reports-menu">
-<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
-                                    Reports 
-                                    <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a href="../markers.html"><i class="icon-map-marker icon-white"></i> Markers 
-                <ul></ul></a></li>
-<li><a href="../deprecated.html"><i class="icon-stop icon-white"></i> Deprecated elements 
-                <span class="label label-info">0</span></a></li>
-</ul>
-</li>
-</ul></div>
-</div></div>
-<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  
-                    <i class="icon-upload icon-white"></i></a></div>
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span> </a>
+            <a class="brand" href="../index.html">CoFe</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                                                </ul>
+                    </li>
+                    <li class="dropdown" id="charts-menu">
+                        <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graph_class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../errors.html"><i class="icon-list-alt"></i>&#160;Errors</a></li>
+                            <li><a href="../markers.html"><i class="icon-list-alt"></i>&#160;Markers</a></li>
+                            <li><a href="../deprecated.html"><i class="icon-list-alt"></i>&#160;Deprecated</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="go_to_top">
+        <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+    </div>
 </div>
-<div id="___" class="container section">
-<noscript><div class="alert alert-warning">
-                            Javascript is disabled; several features are only available
-                            if Javascript is enabled.
-                        </div></noscript>
-<div class="row">
-<div class="span4">
-<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
-<button class="btn details" title="Show descriptions and method names"><i class="icon-list icon-white"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify icon-white"></i></button>
+
+<div id="___" class="container">
+    <noscript>
+        <div class="alert alert-warning">
+            Javascript is disabled; several features are only available if Javascript is enabled.
+        </div>
+    </noscript>
+
+        
+    <div class="row">
+        <div class="span4">
+            <span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+                <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+            </div>
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">
+                    <i class="icon-custom icon-method"></i> Methods
+                    <ul>
+                                                                                                                                                                                                        </ul>
+                </li>
+                <li class="nav-header protected">» Protected
+                    <ul>
+                                                                                                                                                                                                        </ul>
+                </li>
+                <li class="nav-header private">» Private
+                    <ul>
+                                                                                                                                                                                                        </ul>
+                </li>
+                <li class="nav-header">
+                    <i class="icon-custom icon-constant"></i> Constants
+                    <ul>
+                                            </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>ControllerTestCase</h1>
+                <small style="display: block; text-align: right">
+                                            Extends <a href="../classes/Core.Test.TestCase.html">\Core\Test\TestCase</a>
+                                                        </small>
+                <p class="short_description">Base Test Case class</p>
+                <div class="details">
+                    <div class="long_description">
+                        
+
+                    </div>
+                    <table class="table table-bordered">
+                                            </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                            <a id="method_setup"></a>
+                        <div class="element clickable method  method_setup inherited" data-toggle="collapse" data-target=".method_setup .collapse">
+                            <h2>setup</h2>
+                            <pre>setup() </pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<ul class="side-nav nav nav-list">
-<li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods</li>
-<li class="method public inherited"><a href="#createDatabase" title="createDatabase :: "><span class="description">createDatabase()
-        </span><pre>createDatabase()</pre></a></li>
-<li class="method public inherited"><a href="#dropDatabase" title="dropDatabase :: "><span class="description">dropDatabase()
-        </span><pre>dropDatabase()</pre></a></li>
-<li class="method public inherited"><a href="#getAdapter" title="getAdapter :: "><span class="description">getAdapter()
-        </span><pre>getAdapter()</pre></a></li>
-<li class="method public inherited"><a href="#getApplication" title="getApplication :: "><span class="description">getApplication()
-        </span><pre>getApplication()</pre></a></li>
-<li class="method public inherited"><a href="#getBootstrap" title="getBootstrap :: Returns the current bootstrap instance."><span class="description">Returns the current bootstrap instance.</span><pre>getBootstrap()</pre></a></li>
-<li class="method public inherited"><a href="#getEvent" title="getEvent :: Retrieve the current MvcEvent."><span class="description">Retrieve the current MvcEvent.</span><pre>getEvent()</pre></a></li>
-<li class="method public inherited"><a href="#getRoutes" title="getRoutes :: Retrieve the list of routes."><span class="description">Retrieve the list of routes.</span><pre>getRoutes()</pre></a></li>
-<li class="method public inherited"><a href="#getServiceManager" title="getServiceManager :: Retrieve the current ServiceManager."><span class="description">Retrieve the current ServiceManager.</span><pre>getServiceManager()</pre></a></li>
-<li class="method public "><a href="#setup" title="setup :: "><span class="description">setup()
-        </span><pre>setup()</pre></a></li>
-<li class="method public "><a href="#tearDown" title="tearDown :: "><span class="description">tearDown()
-        </span><pre>tearDown()</pre></a></li>
-<li class="nav-header protected">» Protected</li>
-<li class="method protected inherited"><a href="#getService" title="getService :: Retrieve Service"><span class="description">Retrieve Service</span><pre>getService()</pre></a></li>
-<li class="nav-header">
-<i class="icon-custom icon-property"></i> Properties</li>
-<li class="nav-header protected">» Protected</li>
-<li class="property protected inherited"><a href="#%24application" title="$application :: Current application"><span class="description">Current application</span><pre>$application</pre></a></li>
-<li class="property protected "><a href="#%24controller" title="$controller :: The ActionController we are testing"><span class="description">The ActionController we are testing</span><pre>$controller</pre></a></li>
-<li class="property protected "><a href="#%24controllerName" title="$controllerName :: The Controller fully qualified domain name, so each ControllerTestCase can create an instance
-of the tested controller"><span class="description">The Controller fully qualified domain name, so each ControllerTestCase can create an instance
-of the tested controller</span><pre>$controllerName</pre></a></li>
-<li class="property protected "><a href="#%24controllerRoute" title="$controllerRoute :: The route to the controller, as defined in the configuration files"><span class="description">The route to the controller, as defined in the configuration files</span><pre>$controllerRoute</pre></a></li>
-<li class="property protected "><a href="#%24event" title="$event :: An MVC event to be assigned to the controller"><span class="description">An MVC event to be assigned to the controller</span><pre>$event</pre></a></li>
-<li class="property protected "><a href="#%24request" title="$request :: A request object"><span class="description">A request object</span><pre>$request</pre></a></li>
-<li class="property protected "><a href="#%24routeMatch" title="$routeMatch :: The matched route for the controller"><span class="description">The matched route for the controller</span><pre>$routeMatch</pre></a></li>
-</ul>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_dispath"></a>
+                        <div class="element clickable method  method_dispath inherited" data-toggle="collapse" data-target=".method_dispath .collapse">
+                            <h2>Dispath the controller</h2>
+                            <pre>dispath(string $action = null, array $params = null, string $method = null) </pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<div class="span8">
-<a name="%5CCore%5CTest%5CControllerTestCase" id="\Core\Test\ControllerTestCase"></a><ul class="breadcrumb">
-<li>
-<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
-</li>
-<li><a href="../namespaces/Core.html">Core</a></li>
-<span class="divider">\</span><li><a href="../namespaces/Core.Test.html">Test</a></li>
-<li class="active">
-<span class="divider">\</span><a href="../classes/Core.Test.ControllerTestCase.html">ControllerTestCase</a>
-</li>
-</ul>
-<div href="../classes/Core.Test.ControllerTestCase.html" class="element class">
-<p class="short_description">Base Test Case class</p>
-<div class="details">
-<p class="long_description"></p>
-<h3>
-<i class="icon-custom icon-method"></i> Methods</h3>
-<a name="createDatabase" id="createDatabase"></a><div class="element clickable method public createDatabase" data-toggle="collapse" data-target=".createDatabase .collapse">
-<h2>createDatabase()
-        </h2>
-<pre>createDatabase() : void</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::createDatabase()</td>
-</tr></table>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$action</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$params</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$method</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_tearDown"></a>
+                        <div class="element clickable method  method_tearDown inherited" data-toggle="collapse" data-target=".method_tearDown .collapse">
+                            <h2>tearDown</h2>
+                            <pre>tearDown() </pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a name="dropDatabase" id="dropDatabase"></a><div class="element clickable method public dropDatabase" data-toggle="collapse" data-target=".dropDatabase .collapse">
-<h2>dropDatabase()
-        </h2>
-<pre>dropDatabase() : void</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::dropDatabase()</td>
-</tr></table>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                    
+                    
+                                            <h3><i class="icon-custom icon-property"></i> Properties</h3>
+                                                    <a id="property_controller"> </a>
+                            <div class="element clickable property protected property_controller" data-toggle="collapse" data-target=".property_controller .collapse">
+                                <h2>The ActionController we are testing</h2>
+                                <pre>controller</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<a name="getAdapter" id="getAdapter"></a><div class="element clickable method public getAdapter" data-toggle="collapse" data-target=".getAdapter .collapse">
-<h2>getAdapter()
-        </h2>
-<pre>getAdapter() : \Zend\Db\Adapter\Adapter</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::getAdapter()</td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>\Zend\Db\Adapter\Adapter</code></div>
-</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_request"> </a>
+                            <div class="element clickable property protected property_request" data-toggle="collapse" data-target=".property_request .collapse">
+                                <h2>A request object</h2>
+                                <pre>request</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<a name="getApplication" id="getApplication"></a><div class="element clickable method public getApplication" data-toggle="collapse" data-target=".getApplication .collapse">
-<h2>getApplication()
-        </h2>
-<pre>getApplication() </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::getApplication()</td>
-</tr></table>
-</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_routeMatch"> </a>
+                            <div class="element clickable property protected property_routeMatch" data-toggle="collapse" data-target=".property_routeMatch .collapse">
+                                <h2>The matched route for the controller</h2>
+                                <pre>routeMatch</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<a name="getBootstrap" id="getBootstrap"></a><div class="element clickable method public getBootstrap" data-toggle="collapse" data-target=".getBootstrap .collapse">
-<h2>Returns the current bootstrap instance.</h2>
-<pre>getBootstrap() : <a href="../classes/Core.Test.Bootstrap.html">\Core\Test\Bootstrap</a></pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::getBootstrap()</td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code><a href="../classes/Core.Test.Bootstrap.html">\Core\Test\Bootstrap</a></code></div>
-</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_event"> </a>
+                            <div class="element clickable property protected property_event" data-toggle="collapse" data-target=".property_event .collapse">
+                                <h2>An MVC event to be assigned to the controller</h2>
+                                <pre>event</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<a name="getEvent" id="getEvent"></a><div class="element clickable method public getEvent" data-toggle="collapse" data-target=".getEvent .collapse">
-<h2>Retrieve the current MvcEvent.</h2>
-<pre>getEvent() : \Zend\Mvc\MvcEvent</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::getEvent()</td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>\Zend\Mvc\MvcEvent</code></div>
-</div></div>
-</div>
-<a name="getRoutes" id="getRoutes"></a><div class="element clickable method public getRoutes" data-toggle="collapse" data-target=".getRoutes .collapse">
-<h2>Retrieve the list of routes.</h2>
-<pre>getRoutes() : array</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::getRoutes()</td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>array</code></div>
-</div></div>
-</div>
-<a name="getServiceManager" id="getServiceManager"></a><div class="element clickable method public getServiceManager" data-toggle="collapse" data-target=".getServiceManager .collapse">
-<h2>Retrieve the current ServiceManager.</h2>
-<pre>getServiceManager() : \Zend\ServiceManager\ServiceManager</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::getServiceManager()</td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>\Zend\ServiceManager\ServiceManager</code></div>
-</div></div>
-</div>
-<a name="setup" id="setup"></a><div class="element clickable method public setup" data-toggle="collapse" data-target=".setup .collapse">
-<h2>setup()
-        </h2>
-<pre>setup() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="tearDown" id="tearDown"></a><div class="element clickable method public tearDown" data-toggle="collapse" data-target=".tearDown .collapse">
-<h2>tearDown()
-        </h2>
-<pre>tearDown() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="getService" id="getService"></a><div class="element clickable method protected getService" data-toggle="collapse" data-target=".getService .collapse">
-<h2>Retrieve Service</h2>
-<pre>getService(string $service) : \Zend\ServiceManager\ServiceLocatorAwareInterface</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::getService()</td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$service</h4>
-<code>string</code>
-</div>
-<h3>Returns</h3>
-<div class="subelement response"><code>\Zend\ServiceManager\ServiceLocatorAwareInterface</code></div>
-</div></div>
-</div>
-<h3>
-<i class="icon-custom icon-property"></i> Properties</h3>
-<a name="%24application" id="$application"> </a><div class="element clickable property protected $application" data-toggle="collapse" data-target=".$application .collapse">
-<h2>Current application</h2>
-<pre>$application : \Zend\Mvc\Application</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\Core\Test\TestCase::$$application</td>
-</tr></table>
-</div></div>
-</div>
-<a name="%24controller" id="$controller"> </a><div class="element clickable property protected $controller" data-toggle="collapse" data-target=".$controller .collapse">
-<h2>The ActionController we are testing</h2>
-<pre>$controller : \Zend\Mvc\Controller\AbstractActionController</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="%24controllerName" id="$controllerName"> </a><div class="element clickable property protected $controllerName" data-toggle="collapse" data-target=".$controllerName .collapse">
-<h2>The Controller fully qualified domain name, so each ControllerTestCase can create an instance
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_controllerName"> </a>
+                            <div class="element clickable property protected property_controllerName" data-toggle="collapse" data-target=".property_controllerName .collapse">
+                                <h2>The Controller fully qualified domain name, so each ControllerTestCase can create an instance
 of the tested controller</h2>
-<pre>$controllerName : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+                                <pre>controllerName</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<a name="%24controllerRoute" id="$controllerRoute"> </a><div class="element clickable property protected $controllerRoute" data-toggle="collapse" data-target=".$controllerRoute .collapse">
-<h2>The route to the controller, as defined in the configuration files</h2>
-<pre>$controllerRoute : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_controllerRoute"> </a>
+                            <div class="element clickable property protected property_controllerRoute" data-toggle="collapse" data-target=".property_controllerRoute .collapse">
+                                <h2>The route to the controller, as defined in the configuration files</h2>
+                                <pre>controllerRoute</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<a name="%24event" id="$event"> </a><div class="element clickable property protected $event" data-toggle="collapse" data-target=".$event .collapse">
-<h2>An MVC event to be assigned to the controller</h2>
-<pre>$event : \Zend\Mvc\MvcEvent</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            <a id="\Core\Test\ControllerTestCase"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li>
+        <span class="divider">\</span><a href="../namespaces/Core.Test.html">Test</a>
+    </li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/Core.Test.ControllerTestCase.html">ControllerTestCase</a></li>
+            </ul>
+        </div>
+    </div>
+
 </div>
-<a name="%24request" id="$request"> </a><div class="element clickable property protected $request" data-toggle="collapse" data-target=".$request .collapse">
-<h2>A request object</h2>
-<pre>$request : \Zend\Http\Request</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="%24routeMatch" id="$routeMatch"> </a><div class="element clickable property protected $routeMatch" data-toggle="collapse" data-target=".$routeMatch .collapse">
-<h2>The matched route for the controller</h2>
-<pre>$routeMatch : \Zend\Mvc\Router\RouteMatch</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="row"><footer class="span12">
-            Template is built using 
-            <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by 
-            <a href="http://glyphicons.com/">Glyphicons</a>.
-            <br>
-            Documentation is powered by 
-            <a href="http://www.phpdoc.org/">phpDocumentor 
-                2.0.0a8</a> and
-            <br>
-            generated on 
-            2013-03-17T16:51:38-03:00.
-            <br></footer></div>
-</div>
+
+<footer class="span12">
+    Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+    <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+    generated on Sat, 29 Jun 2013 12:44:59 -0300.<br/>
+</footer>
 </body>
 </html>

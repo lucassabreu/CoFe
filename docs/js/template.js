@@ -10,7 +10,7 @@ function initializeContents()
     $(".element a.more").hide();
 
     $(".clickable.class,.clickable.interface").click(function() {
-        document.location = $(this).attr('href');
+        document.location = $("a.more", this).attr('href');
     });
 
     // change the cursor to a pointer to make it more explicit that this it clickable
@@ -18,7 +18,12 @@ function initializeContents()
     // we do not use CSS for this because when JS is disabled this behaviour does not
     // apply and we do not want the hover
     $(".element.method,.element.function,.element.class.clickable,.element.interface.clickable")
-        .css("cursor", "pointer");
+        .css("cursor", "pointer")
+        .hover(function() {
+            $(this).css('backgroundColor', '#F8FDF6')
+        }, function(){
+            $(this).css('backgroundColor', 'white')}
+        );
 
     // do not show tooltips on iPad; it will cause the user having to click twice
     if (!$.browser.ipad) {
@@ -135,7 +140,10 @@ $(document).ready(function() {
             var thisPath = filterPath(this.pathname) || locationPath;
             if (locationPath == thisPath && (location.hostname == this.hostname || !this.hostname) && this.hash.replace(/#/, ''))
             {
-                var $target = $(this.hash), target = this.hash;
+                var target = decodeURIComponent(this.hash.replace(/#/,''));
+                // note: I'm using attribute selector, because id selector can't match elements with '$' 
+                var $target = $('[id="'+target+'"]');
+
                 if ($target.length > 0)
                 {
                     $(this).click(function (event)
