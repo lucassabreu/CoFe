@@ -19,7 +19,7 @@
         <template name="CoFe" />
     </transformations -->
     <files>
-        <directory>.</directory>
+        <directory>./module/</directory>
         <ignore>vendor/*</ignore>
         <ignore>config/*</ignore>
         <ignore>tests/*</ignore>

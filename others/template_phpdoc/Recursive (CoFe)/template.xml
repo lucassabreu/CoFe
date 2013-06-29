@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <author>Lucas dos Santos Abreu</author>
+    <description><![CDATA[
+      This is the 'Recursive (CoFe)' look and feel for phpDocumentor.
+
+      This is a Recursive (CoFe) template that is optimized to make the user's
+      experience paramount.
+
+      To improve performance you can add the following to your .htaccess:
+
+      <ifModule mod_deflate.c>
+          <filesMatch "\.(js|css|html)$">
+              SetOutputFilter DEFLATE
+          </filesMatch>
+      </ifModule>
+  ]]>
+    </description>
+    <transformations>
+        <!-- transformation query="copy" writer="FileIo" source="images" artifact="img"/ -->
+        <transformation query="copy" writer="FileIo" source="Structure.xml" artifact="Structure.xml"/>
+        <transformation query="copy" writer="FileIo" source="templates/Recursive (CoFe)/img" artifact="img"/>
+        <transformation query="copy" writer="FileIo" source="templates/Recursive (CoFe)/css" artifact="css"/>
+        <transformation query="copy" writer="FileIo" source="js" artifact="js"/>
+        <transformation query="copy" writer="FileIo" source="templates/Recursive (CoFe)/js" artifact="js"/>   
+        <transformation query="copy" writer="FileIo" source="templates/Recursive (CoFe)/stylesheets" artifact="stylesheets"/>
+        <transformation query="" writer="xsl" source="templates/Recursive (CoFe)/index.xsl" artifact="index.html"/>
+        <transformation query="//namespace/@full_name" writer="xsl" source="templates/Recursive (CoFe)/namespaces.xsl" artifact="namespaces/{$full_name}"/>
+        <transformation query="//package/@full_name" writer="xsl" source="templates/Recursive (CoFe)/packages.xsl" artifact="packages/{$full_name}"/>
+        <transformation query="//class/full_name|//interface/full_name" writer="xsl" source="templates/Recursive (CoFe)/class.xsl" artifact="classes/{$full_name}"/>
+        <transformation query="" writer="xsl" source="templates/Recursive (CoFe)/reports/markers.xsl" artifact="markers.html"/>
+        <!-- transformation query="" writer="xsl" source="templates/Recursive (CoFe)/reports/errors.xsl" artifact="errors.html"/ -->
+        <transformation query="" writer="xsl" source="templates/Recursive (CoFe)/reports/deprecated.xsl" artifact="deprecated.html"/>
+        <!-- transformation query="" writer="xsl" source="templates/Recursive (CoFe)/graphs/class.xsl" artifact="graph_class.html"/ -->
+        <!-- transformation query="" writer="Graph" source="Class" artifact="classes.svg" / -->
+    </transformations>
+</template>
