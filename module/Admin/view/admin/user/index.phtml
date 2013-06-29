@@ -18,8 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $user): ?>
-                <?php /* @var $user \Admin\Model\Entity\User */ ?>
+            <?php foreach ($users as $user): ?><?php /* @var $user \Admin\Model\Entity\User */ ?>
                 <tr>
                     <td><input type="radio" name="id" value="<?php echo $this->escapeHtml($user->getId()); ?>" /></td>
                     <td><?php echo $this->escapeHtml($user->getName()); ?></td>
@@ -37,25 +36,45 @@
         </tbody>
     </table>
     <div class="form-actions">
-        <button class="btn  input-medium"    type="submit" formaction="<?php echo $this->url('user', array('action' => 'detail')); ?>">
-            <span class="icon icon-book"></span>
-            <?php echo $this->escapeHtml($this->translate("Detail")); ?>
-        </button>
+        <?php
+        echo $this->ztbFormButton((new \Zend\Form\Element\Button('btn_create_' . time(), array('icon' => 'plus',)))->setAttributes(array(
+                    'type' => 'submit',
+                    'formaction' => $this->url('user', array('action' => 'create')),
+                    'class' => 'input-medium',
+                )), 'Create');
+        ?>
         &nbsp;
-        <button class="btn input-medium" type="submit" formaction="<?php echo $this->url('user', array('action' => 'update')); ?>">
-            <span class="icon icon-edit"></span>   
-            <?php echo $this->escapeHtml($this->translate("Alter")); ?>
-        </button>
+        <?php
+        echo $this->ztbFormButton((new \Zend\Form\Element\Button('btn_detail_' . time(), array('icon' => 'book',)))->setAttributes(array(
+                    'type' => 'submit',
+                    'formaction' => $this->url('user', array('action' => 'detail')),
+                    'class' => 'input-medium',
+                )), 'Detail');
+        ?>
         &nbsp;
-        <button class="btn input-large" type="submit" formaction="<?php echo $this->url('user', array('action' => 'changePassword')); ?>">
-            <span class="icon icon-lock"></span>   
-            <?php echo $this->escapeHtml($this->translate('Change Password')) ?>
-        </button>
+        <?php
+        echo $this->ztbFormButton((new \Zend\Form\Element\Button('btn_edit_' . time(), array('icon' => 'edit',)))->setAttributes(array(
+                    'type' => 'submit',
+                    'formaction' => $this->url('user', array('action' => 'update')),
+                    'class' => 'input-medium',
+                )), 'Edit');
+        ?>
         &nbsp;
-        <button class="btn input-medium"  type="submit" formaction="<?php echo $this->url('user', array('action' => 'remove')); ?>">       
-            <span class="icon icon-remove"></span> 
-            <?php echo $this->escapeHtml($this->translate("Remove")); ?>
-        </button>
+        <?php
+        echo $this->ztbFormButton((new \Zend\Form\Element\Button('btn_changePassword_' . time(), array('icon' => 'lock',)))->setAttributes(array(
+                    'type' => 'submit',
+                    'formaction' => $this->url('user', array('action' => 'changePassword')),
+                    'class' => 'input-large',
+                )), 'Change Password');
+        ?>
+        &nbsp;
+        <?php
+        echo $this->ztbFormButton((new \Zend\Form\Element\Button('btn_remove_' . time(), array('icon' => 'remove',)))->setAttributes(array(
+                    'type' => 'submit',
+                    'formaction' => $this->url('user', array('action' => 'remove')),
+                    'class' => 'input-medium',
+                )), 'Remove');
+        ?>
     </div>
 </form>
 <?php $this->placeholder('content')->captureEnd(); ?>

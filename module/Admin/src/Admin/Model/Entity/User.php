@@ -16,6 +16,15 @@ use Zend\InputFilter\InputFilterInterface;
  * 
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * 
+ * @property int $id Unique identifier of User
+ * @property string $username Username used in login
+ * @property string $password Password of User (Cripted MD5)
+ * @property string $role Role gived to User
+ * @property string $name Name of User
+ * @property string $email E-mail of User
+ * @property string $dateCreation Date of User Criation
+ * @property string $active Flag if the User is Active
  */
 class User extends Entity {
 
@@ -158,7 +167,7 @@ class User extends Entity {
                                 array(
                                     'name' => 'InArray',
                                     'options' => array(
-                                        'haystack' => array('admin', 'commun', 'guest')
+                                        'haystack' => array('admin', 'common', 'guest')
                                     ),
                                 ),
                             )

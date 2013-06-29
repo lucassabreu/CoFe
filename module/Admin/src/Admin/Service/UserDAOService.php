@@ -7,6 +7,7 @@ use Admin\Model\Entity\User;
 use Core\Model\DAO\Exception\DAOException;
 use Core\Model\Entity\Entity;
 use Core\Service\AbstractDAOService;
+use Zend\Authentication\AuthenticationService;
 
 /**
  * Service used by manage user entity
@@ -28,14 +29,37 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
             $user = $ent;
         else
             throw new DAOException("The service " . __CLASS__ . " not manage the class " . get_class($ent));
+
         /* @var $user User */
 
-        $userOld = $this->findByUsername($user->getUsername());
+        $authService = new AuthenticationService();
+        /* @var $authService AuthenticationService */
 
-        if ($userOld != null && $userOld->getId() != $user->getId())
+        $sessionUser = $authService->getIdentity();
+        /* @var $sessionUser User */
+
+        if ($sessionUser->getRole() !== 'admin') {
+            if ($sessionUser->getId() !== $user->getId()) {
+                throw new DAOException("You have no permission to edit values of that user.");
+            }
+        }
+
+        $userOld = $this->findByUsername($user->getUsername());
+        /* @var $userOld User */
+
+        if ($sessionUser->getRole() !== 'admin' && $userOld !== null) {
+            if ($sessionUser->getUsername() !== $userOld->getUsername()) {
+                throw new DAOException("You have no permission to edit values of that user.");
+            }
+        }
+
+        if ($userOld !== null && $userOld->getId() !== $user->getId())
             throw new DAOException("Already exists a user with username: $user->username.");
 
         if ($user->getId() === null) {
+            $user->setPassword(md5($user->getEmail()));
+            $user->setActive(false);
+
             $user->validate();
             return parent::save($user);
             // regra de criação
@@ -50,6 +74,21 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
                 throw new DAOException("To change active you must use lock or unlock method.");
             }
 
+            if ($sessionUser->getRole() !== 'admin') {
+                if ($user->getRole() != $userOld->getRole() // 
+                        || $user->getDateCreation() != $userOld->getDateCreation() // 
+                        || $user->isActive() != $userOld->isActive())
+                    throw new DAOException("You have no permission to edit values role, date creation or active of your user.");
+            }
+
+            /*$old->setData($user->getData());
+
+            $old = parent::save($old);
+
+            $user->setData($old->getData());
+
+            return $user;*/
+            
             return parent::save($user);
         }
     }
@@ -71,6 +110,18 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
         if ($user->id === null)
             throw new DAOException("To use " . __METHOD__ . " the user must be previewsly saved.");
 
+        $authService = new AuthenticationService();
+        /* @var $authService AuthenticationService */
+
+        $sessionUser = $authService->getIdentity();
+        /* @var $sessionUser User */
+
+        if ($sessionUser->getRole() !== 'admin') {
+            if ($sessionUser->getId() !== $user->getId()) {
+                throw new DAOException("You have no permission to edit values of that user.");
+            }
+        }
+
         if ($user->getPassword() <> md5($newPassword))
             throw new DAOException("The new password not matches with confirm password.");
 
@@ -80,7 +131,12 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
             throw new DAOException("User $user->name not exists.");
 
         // this method is oly for update the password, another values must use method save.
-        if ($user->getUsername() != $userOld->getUsername() || $user->getRole() != $userOld->getRole() || $user->getName() != $userOld->getName() || $user->getEmail() != $userOld->getEmail() || $user->getDateCreation() != $userOld->getDateCreation() || $user->isActive() != $userOld->isActive())
+        if ($user->getUsername() != $userOld->getUsername()                // 
+                || $user->getRole() != $userOld->getRole() // 
+                || $user->getName() != $userOld->getName() // 
+                || $user->getEmail() != $userOld->getEmail() // 
+                || $user->getDateCreation() != $userOld->getDateCreation() // 
+                || $user->isActive() != $userOld->isActive())
             throw new DAOException("Method " . __METHOD__ . " is only for update the password, other changes must use: " . __CLASS__ . "::save.");
 
         if ($userOld->getPassword() != md5($oldPassword))
@@ -94,6 +150,16 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
     }
 
     public function lock(User $user) {
+        $authService = new AuthenticationService();
+        /* @var $authService AuthenticationService */
+
+        $sessionUser = $authService->getIdentity();
+        /* @var $sessionUser User */
+
+        if ($sessionUser->getRole() !== 'admin') {
+            throw new DAOException("You have no permission to edit active status of your user.");
+        }
+
         $old = null;
         /* @var $old User */
         if ($user != null && $user->getId() != null) {
@@ -115,6 +181,16 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
     }
 
     public function unlock(User $user) {
+        $authService = new AuthenticationService();
+        /* @var $authService AuthenticationService */
+
+        $sessionUser = $authService->getIdentity();
+        /* @var $sessionUser User */
+
+        if ($sessionUser->getRole() !== 'admin') {
+            throw new DAOException("You have no permission to edit active status of your user.");
+        }
+
         $old = null;
         /* @var $old User */
         if ($user != null && $user->getId() != null) {
@@ -133,6 +209,20 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
         }
 
         return $user;
+    }
+
+    public function remove(Entity $ent) {
+        $authService = new AuthenticationService();
+        /* @var $authService AuthenticationService */
+
+        $sessionUser = $authService->getIdentity();
+        /* @var $sessionUser User */
+
+        if ($sessionUser->getRole() !== 'admin') {
+            throw new DAOException("You have no permission to remove your user.");
+        }
+
+        return parent::remove($ent);
     }
 
 }

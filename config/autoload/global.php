@@ -14,6 +14,9 @@
  * file.
  */
 return array(
+    'email_sendig' => array(
+        'from' => 'lucas.s.abreu@gmail.com',
+    ),
     'acl' => array(
         'roles' => array(
             'guest' => null,
@@ -33,6 +36,8 @@ return array(
             'Admin\Controller\User.lock',
             'Admin\Controller\User.unlock',
             'Admin\Controller\User.remove',
+            'Admin\Controller\User.detailProfile',
+            'Admin\Controller\User.updateProfile',
         ),
         'privilege' => array(
             'guest' => array(
@@ -45,6 +50,8 @@ return array(
             'common' => array(
                 'allow' => array(
                     'Application\Controller\Index.index',
+                    'Admin\Controller\User.detailProfile',
+                    'Admin\Controller\User.updateProfile',
                 ),
             ),
             'admin' => array(

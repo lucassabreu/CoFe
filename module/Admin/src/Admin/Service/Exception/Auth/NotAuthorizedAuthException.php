@@ -43,7 +43,7 @@ class NotAuthorizedAuthException extends AuthException {
             if ($user === null)
                 $message = "You was not allowed for use $controller.$action.";
             else
-                $message = "User $user->username was not allowed for use $controller.$action.";
+                $message = "User $user->username (as a $user->role) was not allowed for use $controller.$action.";
         }
 
         parent::__construct($user, $message, $code, $previous);

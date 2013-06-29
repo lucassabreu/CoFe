@@ -89,11 +89,11 @@ class AuthService extends Service {
         $auth = new AuthenticationService;
         $role = 'guest';
         $user = null;
+
+        $this->refreshIdentity();
         if ($auth->hasIdentity()) {
-            /**
-             * @var $user User
-             */
             $user = $auth->getIdentity();
+            /* @var $user User */
             $role = strtolower($user->getRole());
         }
 
@@ -117,6 +117,25 @@ class AuthService extends Service {
     public function setAdapter(ValidatableAdapterInterface $adapter) {
         $this->adapter = $adapter;
         return $this;
+    }
+
+    protected function refreshIdentity() {
+        $auth = new AuthenticationService;
+        if ($auth->hasIdentity()) {
+            $user = $auth->getIdentity();
+            /* @var $user User */
+
+            $us = $this->getService('Admin\Service\UserDAOService');
+            /* @var $us \Admin\Service\UserDAOService */
+
+            $userNew = $us->findById($user->getId());
+            /* @var $userNew User */
+            $auth->getStorage()->clear();
+            $auth->getStorage()->write($userNew);
+
+            if (!$userNew->isActive())
+                $this->logout();
+        }
     }
 
 }

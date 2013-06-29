@@ -70,7 +70,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface {
         try {
             $authService->authorize($moduleName, $controllerName, $actionName);
         } catch (NotAuthorizedAuthException $e) {
-
+            //throw $e;
             /**
              * @var $res \Zend\Http\PhpEnvironment\Response
              */
