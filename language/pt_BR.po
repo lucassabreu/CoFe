@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2013-06-22 21:05-0300\n"
+"PO-Revision-Date: 2013-06-29 17:24-0300\n"
 "Last-Translator: Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: pt_BR\n"
@@ -14,9 +14,6 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
-
-msgid "The parent of this category must have the some user!"
-msgstr "O pai desta categoria deve ser do mesmo usuário!"
 
 #: ../view/layout/layout.phtml:6 ../view/layout/layout.phtml:33
 msgid "Skeleton Application"

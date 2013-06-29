@@ -11,7 +11,7 @@
 namespace Core\Controller;
 
 use Core\Model\DAO\DAOInterface;
-use Zend\Http\Request;
+use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceManagerAwareInterface;
@@ -64,6 +64,27 @@ abstract class AbstractController extends AbstractActionController {
 
     public function indexAction() {
         return new ViewModel();
+    }
+
+    /**
+     * Returns information of session user, or null if has no user logged
+     * @param string (optional) $attribute Attribute of session wanted
+     * @return mixed|null
+     */
+    public function getSessionUser($attribute = null) {
+
+        $authService = new AuthenticationService();
+        /* @var $authService AuthenticationService */
+
+        $sessionUser = $authService->getIdentity();
+
+        if ($sessionUser === null)
+            return null;
+
+        if ($attribute === null)
+            return $sessionUser;
+        else
+            return $sessionUser->{$attribute};
     }
 
     public function redirectBack($route, $param = array()) {

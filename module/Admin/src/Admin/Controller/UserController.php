@@ -12,7 +12,6 @@ use Core\Model\DAO\Exception\DAOException;
 use DateTime;
 use Exception;
 use Zend\Authentication\AuthenticationService;
-use Zend\Http\Request;
 use Zend\Paginator\Paginator;
 use Zend\View\Model\ViewModel;
 
@@ -289,6 +288,10 @@ class UserController extends AbstractController {
         return $form;
     }
 
+    /**
+     * Lock a User password by param id (route or POST)
+     * @return ViewModel
+     */
     public function lockAction() {
         $id = $this->params()->fromRoute('id');
 
@@ -319,6 +322,10 @@ class UserController extends AbstractController {
         }
     }
 
+    /**
+     * Unlock a user passed by param id (route or POST)
+     * @return ViewModel
+     */
     public function unlockAction() {
         $id = $this->params()->fromRoute('id');
 
@@ -349,6 +356,10 @@ class UserController extends AbstractController {
         }
     }
 
+    /**
+     * 
+     * @return type
+     */
     public function changePasswordAction() {
 
         $id = $this->params()->fromRoute('id');
@@ -366,16 +377,41 @@ class UserController extends AbstractController {
 
         if ($id == null)
             return $this->redirect()->toUrl($returnTo);
+        else {
+            $user = $this->dao()->findById($id);
+            /* @var $user User */
+            if ($user == null)
+                return $this->redirect()->toRoute('user');
 
-        $form = new ChangePassword();
-        $action = "change";
 
-        return array(
-            'form' => $form,
-            'action' => $action,
-        );
+            if ($this->getSessionUser('id') === $user->getId())
+                $action = "change";
+            else {
+                if ($this->getSessionUser('role') === 'admin')
+                    $action = "reset";
+                else
+                    return $this->redirect()->toUrl($returnTo);
+            }
+
+            $form = new ChangePassword();
+            $form->get('cancel')->setAttribute('formaction', $returnTo);
+
+            if ($action == "reset") {
+                $form->get('changePassword')->setLabel('Reset Password');
+                $form->get('changePassword')->setOptions(array('label' => 'Reset Password'));
+            }
+
+            return array(
+                'form' => $form,
+                'action' => $action,
+                'user' => $user,
+            );
+        }
     }
 
+    /**
+     * Remove a user
+     */
     public function removeAction() {
 
         $id = $this->params()->fromRoute('id');

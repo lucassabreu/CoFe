@@ -2,7 +2,6 @@
 
 namespace Admin\Form\User;
 
-use Admin\Model\Entity\User as UserEntity;
 use Core\Form\Form as FormBase;
 use Zend\InputFilter\Factory;
 
@@ -15,7 +14,7 @@ class ChangePassword extends FormBase {
         $factory = new Factory();
         $this->setInputFilter($factory->createInputFilter(array(
                     'oldPassword' => array(
-                        'name' => 'password',
+                        'name' => 'oldPassword',
                         'required' => true,
                         'filters' => array(
                             array('name' => 'StringTrim'),
@@ -32,7 +31,7 @@ class ChangePassword extends FormBase {
                         ),
                     ),
                     'newPassword' => array(
-                        'name' => 'password',
+                        'name' => 'newPassword',
                         'required' => true,
                         'filters' => array(
                             array('name' => 'StringTrim'),
@@ -49,7 +48,7 @@ class ChangePassword extends FormBase {
                         ),
                     ),
                     'confirmPassword' => array(
-                        'name' => 'password',
+                        'name' => 'confirmPassword',
                         'required' => true,
                         'filters' => array(
                             array('name' => 'StringTrim'),
@@ -65,7 +64,7 @@ class ChangePassword extends FormBase {
                             ),
                         ),
                     ),
-                )));
+        )));
 
         $this->add(array(
             'name' => 'id',
@@ -81,6 +80,10 @@ class ChangePassword extends FormBase {
             'type' => 'Zend\Form\Element\Password',
             'attributes' => array(
                 'id' => "oldPassword_$time",
+                'placeholder' => 'Inform your actual password'
+            ),
+            'options' => array(
+                'label' => 'Old Password',
             ),
         ));
 
@@ -89,6 +92,10 @@ class ChangePassword extends FormBase {
             'type' => 'Zend\Form\Element\Password',
             'attributes' => array(
                 'id' => "newPassword_$time",
+                'placeholder' => 'Inform the new password',
+            ),
+            'options' => array(
+                'label' => 'New Password',
             ),
         ));
 
@@ -97,6 +104,10 @@ class ChangePassword extends FormBase {
             'type' => 'Zend\Form\Element\Password',
             'attributes' => array(
                 'id' => "confirmPassword_$time",
+                'placeholder' => 'Confirm the new password',
+            ),
+            'options' => array(
+                'label' => 'Confirm Password',
             ),
         ));
 
@@ -104,7 +115,7 @@ class ChangePassword extends FormBase {
             'name' => 'changePassword',
             'type' => 'Zend\Form\Element\Button',
             'attributes' => array(
-                'type' => 'button',
+                'type' => 'submit',
                 'id' => "changePasswordButton_$time",
                 'value' => 'changePassword',
             ),

@@ -38,6 +38,7 @@ return array(
             'Admin\Controller\User.remove',
             'Admin\Controller\User.detailProfile',
             'Admin\Controller\User.updateProfile',
+            'Admin\Controller\User.changePassword',
         ),
         'privilege' => array(
             'guest' => array(
@@ -64,6 +65,7 @@ return array(
                     'Admin\Controller\User.lock',
                     'Admin\Controller\User.unlock',
                     'Admin\Controller\User.remove',
+                    'Admin\Controller\User.changePassword',
                 ),
             ),
         ),

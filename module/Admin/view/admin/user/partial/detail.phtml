@@ -3,7 +3,6 @@
 /* @var $form \Admin\Form\User\User */
 /* @var $action string */
 
-$form->setAttribute('class', 'form-horizontal');
 if ($action == 'update' || $action == 'create'):
     $form->get('dateCreation')->setAttribute('readonly', 'readonly');
     if ($this->auth('role') != 'admin'):
@@ -27,16 +26,18 @@ if ($action == 'update' || $action == 'create'):
 else:
     $form->readonly();
 endif;
-foreach ($form as $element):
-    $element->setLabelAttributes(array('class' => 'control-label'));
 
-    if (($element instanceof \Zend\Form\Element\Button)) :
-        $element->setAttribute('class', 'btn');
-    endif;
-endforeach;
+/* $form->setAttribute('class', 'form-horizontal');
+  foreach ($form as $element):
+  $element->setLabelAttributes(array('class' => 'control-label'));
+
+  if (($element instanceof \Zend\Form\Element\Button)) :
+  $element->setAttribute('class', 'btn');
+  endif;
+  endforeach; */
 ?>
 <div class="well">
-    <?php echo $this->form()->openTag($form); // <form %s>  ?>
+    <?php echo $this->form()->openTag($this->ztbFormPrepare($form, 'horizontal')); // <form %s>  ?>
     <?php echo $this->formHidden((new \Zend\Form\Element\Hidden('returnTo'))->setValue($this->url('user', array('action' => $action, 'id' => $form->get('id')->getValue())))); ?>
     <?php echo $this->formHidden($form->get('id')); ?>
 
