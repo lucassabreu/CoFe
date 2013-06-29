@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>CoFe</title>
+    <parser>
+        <target>documents/docs</target>
+        <markers>
+            <item>TODO</item>            
+            <item>FIXME</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+        </extensions>
+        <visibility></visibility>
+    </parser>
+    <transformer>
+        <target>documents/docs</target>
+    </transformer>
+    <transformations>
+        <template name="CoFe" />
+    </transformations>
+    <files>
+        <directory>.</directory>
+        <ignore>vendor/*</ignore>
+        <ignore>config/*</ignore>
+        <ignore>tests/*</ignore>
+        <ignore>*.data.php</ignore>
+        <ignore>*test_*.php</ignore>
+        <ignore>*_test*.php</ignore>
+        <ignore>*.config.php</ignore>
+        <ignore>*/tests/*</ignore>
+        <ignore>documents/*</ignore>
+    </files>
+</phpdoc>
