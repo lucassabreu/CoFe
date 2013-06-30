@@ -17,7 +17,7 @@ class UserDAODoctrine extends AbstractDoctrineDAO implements UserDAOInterface {
         parent::__construct('Admin\Model\Entity\User');
     }
 
-    public function changePassword(User $user, $oldPassword, $newPassword) {
+    public function changePassword(User $user, $oldPassword, $newPassword, $confirmPassword) {
         return $this->save($user);
     }
     

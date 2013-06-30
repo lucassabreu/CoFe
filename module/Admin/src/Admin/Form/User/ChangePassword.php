@@ -67,15 +67,6 @@ class ChangePassword extends FormBase {
         )));
 
         $this->add(array(
-            'name' => 'id',
-            'type' => 'Zend\Form\Element\Hidden',
-            'attributes' => array(
-                'id' => "id_$time",
-                'type' => 'hidden',
-            ),
-        ));
-
-        $this->add(array(
             'name' => 'oldPassword',
             'type' => 'Zend\Form\Element\Password',
             'attributes' => array(
@@ -112,11 +103,11 @@ class ChangePassword extends FormBase {
         ));
 
         $this->add(array(
-            'name' => 'changePassword',
+            'name' => 'submitButton',
             'type' => 'Zend\Form\Element\Button',
             'attributes' => array(
                 'type' => 'submit',
-                'id' => "changePasswordButton_$time",
+                'id' => "submitButton_$time",
                 'value' => 'changePassword',
             ),
             'options' => array(

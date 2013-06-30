@@ -120,7 +120,7 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
         return parent::save($user);
     }
 
-    public function changePassword(User $user, $oldPassword, $newPassword) {
+    public function changePassword(User $user, $oldPassword, $newPassword, $confirmPassword) {
         if ($user === null || $user->getId() === null)
             throw new DAOException("To use " . __METHOD__ . " the user must be previewsly saved.");
 
@@ -130,13 +130,11 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
         $sessionUser = $authService->getIdentity();
         /* @var $sessionUser User */
 
-        if ($sessionUser->getRole() !== 'admin') {
-            if ($sessionUser->getId() !== $user->getId()) {
-                throw new DAOException("You have no permission to edit values of that user.");
-            }
+        if ($sessionUser->getId() !== $user->getId()) {
+            throw new DAOException("You have no permission to edit values of that user.");
         }
 
-        if ($user->getPassword() <> md5($newPassword))
+        if ($confirmPassword !== $newPassword)
             throw new DAOException("The new password not matches with confirm password.");
 
         $userOld = $this->findById($user->getId());
@@ -153,14 +151,12 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
                 || $user->isActive() != $userOld->isActive())
             throw new DAOException("Method " . __METHOD__ . " is only for update the password, other changes must use: " . __CLASS__ . "::save.");
 
-        if ($userOld->getPassword() != md5($oldPassword))
+        if ($userOld->getPassword() !== md5($oldPassword))
             throw new DAOException("Informed password not matches with old password.");
 
-        $userOld->setPassword($user->getPassword());
+        $userOld->setPassword(md5($newPassword));
 
-        $user = $this->dao->changePassword($userOld, $oldPassword, $newPassword);
-
-        return $user;
+        return $this->dao->changePassword($userOld, $oldPassword, $newPassword, $confirmPassword);
     }
 
     public function lock(User $user) {

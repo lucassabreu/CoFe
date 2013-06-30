@@ -1,0 +1,28 @@
+<?php $this->placeholder('email')->captureStart(); ?>
+<?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+    </head>
+    <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;line-height: 20px;color: #333333;">
+        <h3 style="width: 500px; margin: auto; background-color: #dcdcdc; padding: 19px 20px; border: 1px solid #dcdcdc; font-size: 20px; font-weight: 200;color: #777777;">
+            <?php echo $this->translate('CoFe'); ?>
+        </h3>
+        <div style="width: 500px; margin: auto; background-color: #f5f5f5; border: 1px solid #e3e3e3; padding: 0 20px;">
+            <p><?php echo $this->escapeHtml(sprintf('%s,', $user->getName())); ?></p>
+            <div style="padding: 0 2ex;">
+                <p><?php echo $this->escapeHtml(sprintf($this->translate('Your password on CoFe system has been reseted on account %s, your new password is:'), $user->getUsername())); ?></p>
+                <code style="display: block;padding: 2px 4px;background-color: #f7f7f9;border: 1px solid #e1e1e8;white-space: nowrap;">
+                    <?php echo $this->escapeHtml($password); ?>
+                </code>
+                <br/>
+            </div>
+        </div>
+        <p style="width: 500px; margin: auto; background-color: #dcdcdc; padding: 20px 20px; color:#767676; border: 1px solid #dcdcdc;">
+            <?php echo $this->translate('Att, CoFe System'); ?>
+        </p>
+    </body>
+</html>
+<?php $this->placeholder('email')->captureEnd(); ?>
+<?php echo $this->stripContent($this->placeholder('email')); ?>

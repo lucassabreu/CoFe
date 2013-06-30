@@ -3,9 +3,9 @@
 /* @var $form \Admin\Form\User\User */
 /* @var $action string */
 
-if ($action == 'update' || $action == 'create'):
+if ($action == 'update' || $action == 'updateProfile' || $action == 'create'):
     $form->get('dateCreation')->setAttribute('readonly', 'readonly');
-    if ($this->auth('role') != 'admin'):
+    if ($action == 'update'):
         $form->get('role')->setAttribute('disabled', 'disabled');
     endif;
 
@@ -15,7 +15,7 @@ if ($action == 'update' || $action == 'create'):
     else:
         $form->get('active')->setAttribute('disabled', 'disabled');
 
-        if ($this->auth('role') === 'admin'):
+        if ($action === 'update'):
             $form->setAttribute('action', $this->url('user', array('action' => 'update', 'id' => $form->get('id')->getValue())));
         else:
             $form->setAttribute('action', $this->url('user', array('action' => 'updateProfile')));
@@ -33,9 +33,12 @@ endif;
     <?php echo $this->formHidden($form->get('id')); ?>
 
     <h3 class="entity-title">
-        <?php if ($this->auth('role') === 'admin' && ($action == 'update' || $action == 'detail')): ?>
+        <?php if ($action == 'update' || $action == 'detail'): ?>
             <div class="btn-group pull-right">
-                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="icon icon-wrench icon-white"></span> <?php echo $this->escapeHtml($this->translate('Options')) ?> <i class="caret"></i></button>
+                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                    <span class="icon icon-wrench icon-white"></span> 
+                    <?php echo $this->escapeHtml($this->translate('Options')) ?> <i class="caret"></i>
+                </button>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="<?php echo $this->url('user', array('action' => 'index')); ?>">
@@ -64,11 +67,11 @@ endif;
                     <?php endif; ?>
                     <li>
                         <?php
-                        echo $this->ztbFormButton($form->get('changePassword')->setAttributes(array(
+                        echo $this->ztbFormButton((new \Zend\Form\Element\Button('resetPassword_' . time()))->setAttributes(array(
                                     'class' => 'input-large',
                                     'type' => 'submit',
-                                    'formaction' => $this->url('user', array('action' => 'changePassword')),
-                                )), null, array('icon' => 'lock', 'btn_type' => 'link'));
+                                    'formaction' => $this->url('user', array('action' => 'resetPassword')),
+                                )), 'Reset Password', array('icon' => 'lock', 'btn_type' => 'link'));
                         ?>
                     </li>
                     <li>
@@ -86,7 +89,7 @@ endif;
 
             <div class="btn-group">
             </div>
-        <?php elseif ($this->auth('role') !== 'admin' && $action == 'detail'): ?>
+        <?php elseif ($action == 'detailProfile'): ?>
             <?php
             echo $this->ztbFormButton((new \Zend\Form\Element\Button('editProfile_' . time()))->setAttributes(
                             array(
@@ -96,24 +99,22 @@ endif;
                     )), 'Edit Profile', array('icon' => 'edit white', 'btn_type' => 'warning',));
             ?>
         <?php endif; ?>
-        <?php if ($action == 'detail'): ?>
-            <?php if ($this->auth('role') === 'admin'): ?>
-                <?php echo $this->escapeHtml($this->translate("User Details")); ?>
-            <?php else: ?>
-                <?php echo $this->escapeHtml($this->translate("Profile Details")); ?>
-            <?php endif; ?>
-        <?php elseif ($action == 'update'): ?>
-            <?php if ($this->auth('role') === 'admin'): ?>
-                <?php echo $this->escapeHtml($this->translate("Edit User")); ?>
-            <?php else: ?>
-                <?php echo $this->escapeHtml($this->translate("Edit Profile")); ?>
-            <?php endif; ?>
-        <?php elseif ($action == 'create'): ?>
-            <?php echo $this->escapeHtml($this->translate("Create User")); ?>
-        <?php endif; ?>
+        <?php
+        if ($action == 'detail'):
+            echo $this->escapeHtml($this->translate("User Details"));
+        elseif ($action == 'create'):
+            echo $this->escapeHtml($this->translate("Create User"));
+        elseif ($action == 'update'):
+            echo $this->escapeHtml($this->translate("Edit User"));
+        elseif ($action == 'detailProfile'):
+            echo $this->escapeHtml($this->translate("Profile Details"));
+        elseif ($action == 'updateProfile'):
+            echo $this->escapeHtml($this->translate("Edit Profile"));
+        endif;
+        ?>
     </h3>
 
-    <?php if ($action == 'update' || $action == 'create'): ?>
+    <?php if ($action == 'updateProfile' || $action == 'update' || $action == 'create'): ?>
         <?php if (count($form->getExceptionMessages()) > 0): ?>
             <div class="alert alert-error">
                 <b><?php echo $this->escapeHtml($this->translate("Exceptions")); ?>:</b><br/>
@@ -153,7 +154,7 @@ endif;
             <?php echo $this->formInput($form->get('username')); ?>
         </div>
     </div>
-    <?php if (!($action === 'update' && $this->auth('role') !== 'admin')): ?>
+    <?php if ($action == 'detailProfile' || $action == 'detail' || $action == 'update'): ?>
         <div class="control-group">
             <?php echo $this->formLabel($form->get('role')); ?>
             <div class="controls">
@@ -161,7 +162,7 @@ endif;
             </div>
         </div>
     <?php endif; ?>
-    <?php if ($action !== 'create' && $this->auth('role') === 'admin'): ?>
+    <?php if ($action == 'detail' || $action == 'update'): ?>
         <div class="control-group">
             <?php echo $this->formLabel($form->get('active')); ?>
             <div class="controls">
@@ -179,7 +180,7 @@ endif;
             <?php echo $this->formInput($form->get('dateCreation')); ?>
         </div>
     </div>
-    <?php if ($action == 'update' || $action == 'create'): ?>
+    <?php if ($action == 'update' || $action == 'updateProfile' || $action == 'create'): ?>
         <div class="form-actions">
             <?php echo $this->ztbFormButton($form->get('submitAction')->setAttribute('class', 'input-medium'), null, array('btn_type' => 'warning')); ?>
             &nbsp;
@@ -199,5 +200,5 @@ endif;
     <?php echo $this->form()->closeTag($form); // </form>  ?>
 </div>
 <?php $this->placeholder('content')->captureEnd(); ?>
-<?php //echo ($this->placeholder('content')); ?>
+<?php //echo ($this->placeholder('content'));   ?>
 <?php echo $this->stripContent($this->placeholder('content')); ?>

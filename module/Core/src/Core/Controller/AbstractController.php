@@ -12,10 +12,13 @@ namespace Core\Controller;
 
 use Core\Model\DAO\DAOInterface;
 use Zend\Authentication\AuthenticationService;
+use Zend\Http\Request;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\Mvc\View\Http\ViewManager;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceManagerAwareInterface;
 use Zend\View\Model\ViewModel;
+use Zend\View\Renderer\PhpRenderer;
 
 /**
  * Base class for controller at application
@@ -44,6 +47,27 @@ abstract class AbstractController extends AbstractActionController {
      */
     public function getService($name) {
         return $this->getServiceLocator()->get($name);
+    }
+
+    /**
+     * Render a page based at param <code>$model</code>
+     * @param ViewModel|array|mixed $model
+     * @param string $layout Layout to be used
+     */
+    public function renderModel($model) {
+
+        if (is_array($model)) {
+            $model = new ViewModel($model);
+        }
+
+        $viewManager = $this->getService('ViewManager');
+        /* @var $viewManager ViewManager */
+
+        $renderer = new PhpRenderer();
+        $renderer->setResolver($viewManager->getResolver());
+        $renderer->setHelperPluginManager($viewManager->getHelperManager());
+
+        return $renderer->render($model);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Admin\Controller;
 
+use Admin\Form\User\ChangePassword;
 use Admin\Form\User\Form;
 use Admin\Form\User\Form as UserForm;
 use Admin\Form\User\Remove as RemoveForm;
@@ -15,6 +16,7 @@ use DateTime;
 use Exception;
 use Zend\Authentication\AuthenticationService;
 use Zend\Http\Request;
+use Zend\Mime\Mime;
 use Zend\Paginator\Paginator;
 use Zend\View\Model\ViewModel;
 
@@ -360,7 +362,47 @@ class UserController extends AbstractController {
     }
 
     public function changePasswordAction() {
-        return null;
+        $sessionUser = $this->getSessionUser();
+
+        if ($sessionUser === null)
+            return $this->redirect()->toRoute('home');
+
+
+        $request = $this->getRequest();
+        /* @var $request Request */
+
+        $form = new ChangePassword;
+
+        if ($request->isPost() && $request->getPost('submitButton') !== null) {
+            $form->setData($request->getPost());
+
+            if ($form->isValid()) {
+                $userUpdate = $this->dao()->findById($sessionUser->getId());
+                /* @var $userUpdate User */
+                $values = $form->getData();
+
+                try {
+                    $userUpdate = $this->dao()->changePassword($userUpdate, $values['oldPassword'], $values['newPassword'], $values['confirmPassword']);
+
+                    return array(
+                        'form' => $form,
+                        'action' => 'success',
+                    );
+                } catch (Exception $e) {
+                    if ($e instanceof DAOException)
+                        $form->addExceptionMessage($e);
+                    else {
+                        $form->addExceptionMessage('Occurred internal errors');
+                        throw $e;
+                    }
+                }
+            }
+        }
+
+        return array(
+            'form' => $form,
+            'action' => 'change',
+        );
     }
 
     /**
@@ -401,10 +443,20 @@ class UserController extends AbstractController {
                     $password = $dao->generatePassword();
                     $dao->resetPasswordTo($user, $password);
 
-                    $mailService = $this->getService('Core\Service\Util\\MailUtilService');
+                    $model = new ViewModel(array('user' => $user, 'password' => $password));
+                    $model->setTemplate('admin/user/mail-reset');
+
+                    $mailService = $this->getService('Core\Service\Util\MailUtilService');
                     /* @var $mailService MailUtilService */
 
-                    $mailService->sendEmail("Reset Password", "Teste: $password", \Zend\Mime\Mime::TYPE_TEXT, array($user->getEmail() => $user->getName()));
+                    $mailService->sendEmail("Reset Password", $this->renderModel($model), Mime::TYPE_HTML, array(
+                        $user->getEmail() => $user->getName()
+                    ));
+
+                    return array(
+                        'form' => $form,
+                        'action' => 'reseted',
+                    );
                 }
             }
 
@@ -412,6 +464,7 @@ class UserController extends AbstractController {
 
             return array(
                 'form' => $form,
+                'action' => 'question',
             );
         }
     }

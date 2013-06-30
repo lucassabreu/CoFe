@@ -58,7 +58,7 @@ class MailUtilService extends Service {
         else
             $message->addFrom($config['email_sending']['from']);
 
-        $message->setSubject('Test');
+        $message->setSubject($title);
 
         $transport = new SendmailTransport();
         $options = new SmtpOptions($config['email_sending']['transport_options']);

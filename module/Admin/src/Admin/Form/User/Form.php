@@ -147,7 +147,6 @@ class Form extends FormBase {
                 'attributes' => array(
                     'type' => 'button',
                     'id' => "cancelbutton_$time",
-                    'value' => 'changePassword',
                 ),
                 'options' => array(
                     'label' => 'Change Password',
