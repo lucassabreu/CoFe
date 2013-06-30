@@ -81,18 +81,16 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
                     throw new DAOException("You have no permission to edit values role, date creation or active of your user.");
             }
 
-            /*$old->setData($user->getData());
-
-            $old = parent::save($old);
-
-            $user->setData($old->getData());
-
-            return $user;*/
-            
             return parent::save($user);
         }
     }
 
+    /**
+     * Retrieves the instance of user based on id. 
+     * 
+     * @param int $id ID of user.
+     * @return User
+     */
     public function findById() {
         $id = func_get_args();
 
@@ -106,8 +104,24 @@ class UserDAOService extends AbstractDAOService implements UserDAOInterface {
         return $this->dao->findByUsername($username);
     }
 
+    /**
+     * Gerenate a random password with 12 characters
+     * @return string Password
+     */
+    public function generatePassword() {
+        return substr(md5(uniqid()), 0, 12);
+    }
+
+    public function resetPasswordTo(User $user, $password) {
+        if ($user === null || $user->getId() === null)
+            throw new DAOException("To use " . __METHOD__ . " the user must be previewsly saved.");
+
+        $user->setPassword(md5($password));
+        return parent::save($user);
+    }
+
     public function changePassword(User $user, $oldPassword, $newPassword) {
-        if ($user->id === null)
+        if ($user === null || $user->getId() === null)
             throw new DAOException("To use " . __METHOD__ . " the user must be previewsly saved.");
 
         $authService = new AuthenticationService();

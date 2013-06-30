@@ -26,15 +26,6 @@ if ($action == 'update' || $action == 'create'):
 else:
     $form->readonly();
 endif;
-
-/* $form->setAttribute('class', 'form-horizontal');
-  foreach ($form as $element):
-  $element->setLabelAttributes(array('class' => 'control-label'));
-
-  if (($element instanceof \Zend\Form\Element\Button)) :
-  $element->setAttribute('class', 'btn');
-  endif;
-  endforeach; */
 ?>
 <div class="well">
     <?php echo $this->form()->openTag($this->ztbFormPrepare($form, 'horizontal')); // <form %s>  ?>
@@ -73,6 +64,15 @@ endif;
                     <?php endif; ?>
                     <li>
                         <?php
+                        echo $this->ztbFormButton($form->get('changePassword')->setAttributes(array(
+                                    'class' => 'input-large',
+                                    'type' => 'submit',
+                                    'formaction' => $this->url('user', array('action' => 'changePassword')),
+                                )), null, array('icon' => 'lock', 'btn_type' => 'link'));
+                        ?>
+                    </li>
+                    <li>
+                        <?php
                         echo $this->ztbFormButton((new \Zend\Form\Element\Button('removeUser_' . time()))->setAttributes(
                                         array(
                                             'type' => 'submit',
@@ -80,6 +80,7 @@ endif;
                                 )), 'Remove user', array('icon' => 'remove', 'btn_type' => 'link',));
                         ?>
                     </li>
+
                 </ul>
             </div><!-- /btn-group -->
 
@@ -184,14 +185,14 @@ endif;
             &nbsp;
             <?php echo $this->ztbFormButton($form->get('cancel')->setAttribute('class', 'input-medium')); ?>
             &nbsp;
-            <?php if ($action == 'update'): ?>
+            <?php if ($action == 'updateProfile'): ?>
                 <?php
                 echo $this->ztbFormButton($form->get('changePassword')->setAttributes(array(
                             'class' => 'input-large',
                             'type' => 'submit',
                             'formaction' => $this->url('user', array('action' => 'changePassword')),
                         )), null, array('icon' => 'lock'));
-                ?>    
+                ?>
             <?php endif; ?>
         </div>
     <?php endif; ?>

@@ -20,6 +20,10 @@ class UserDAODoctrine extends AbstractDoctrineDAO implements UserDAOInterface {
     public function changePassword(User $user, $oldPassword, $newPassword) {
         return $this->save($user);
     }
+    
+    public function resetPasswordTo(User $user, $password) {
+        return $this->save($user);
+    }
 
     public function findByUsername($username) {
         $qb = $this->getRepository()->createQueryBuilder('u');

@@ -30,6 +30,14 @@ interface UserDAOInterface extends DAOInterface {
     public function changePassword(User $user, $oldPassword, $newPassword);
 
     /**
+     * Sets the password to the value in <code>$password</code> param.
+     * @param User $user
+     * @param string $password
+     * @return User
+     */
+    public function resetPasswordTo(User $user, $password);
+
+    /**
      * Alter the <code>active</code> status of User to inactive (locked).
      * @param User $user
      * @return User User updated

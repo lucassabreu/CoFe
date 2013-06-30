@@ -3,6 +3,7 @@
 namespace Core\Service;
 
 use Core\Service\Service;
+use Zend\Authentication\AuthenticationService;
 use Zend\ServiceManager\ServiceManager;
 use Zend\ServiceManager\ServiceManagerAwareInterface;
 
@@ -34,6 +35,27 @@ class Service implements ServiceManagerAwareInterface {
      */
     public function getService($name) {
         return $this->getServiceManager()->get($name);
+    }
+
+    /**
+     * Returns information of session user, or null if has no user logged
+     * @param string (optional) $attribute Attribute of session wanted
+     * @return mixed|null
+     */
+    public function getSessionUser($attribute = null) {
+
+        $authService = new AuthenticationService();
+        /* @var $authService AuthenticationService */
+
+        $sessionUser = $authService->getIdentity();
+
+        if ($sessionUser === null)
+            return null;
+
+        if ($attribute === null)
+            return $sessionUser;
+        else
+            return $sessionUser->{$attribute};
     }
 
 }

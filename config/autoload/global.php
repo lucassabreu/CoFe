@@ -14,8 +14,15 @@
  * file.
  */
 return array(
-    'email_sendig' => array(
-        'from' => 'lucas.s.abreu@gmail.com',
+    'email_sending' => array(
+        'transport_options' => array(
+            'host' => 'smtp.gmail.com',
+            'connection_class' => 'login',
+            'connection_config' => array(
+                "ssl" => "tls",
+            ),
+            'port' => 587,
+        ),
     ),
     'acl' => array(
         'roles' => array(
@@ -39,6 +46,7 @@ return array(
             'Admin\Controller\User.detailProfile',
             'Admin\Controller\User.updateProfile',
             'Admin\Controller\User.changePassword',
+            'Admin\Controller\User.resetPassword',
         ),
         'privilege' => array(
             'guest' => array(
@@ -53,6 +61,7 @@ return array(
                     'Application\Controller\Index.index',
                     'Admin\Controller\User.detailProfile',
                     'Admin\Controller\User.updateProfile',
+                    'Admin\Controller\User.changePassword',
                 ),
             ),
             'admin' => array(
@@ -65,7 +74,7 @@ return array(
                     'Admin\Controller\User.lock',
                     'Admin\Controller\User.unlock',
                     'Admin\Controller\User.remove',
-                    'Admin\Controller\User.changePassword',
+                    'Admin\Controller\User.resetPassword',
                 ),
             ),
         ),

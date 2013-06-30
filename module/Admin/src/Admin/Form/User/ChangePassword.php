@@ -7,7 +7,7 @@ use Zend\InputFilter\Factory;
 
 class ChangePassword extends FormBase {
 
-    public function __construct($create = false) {
+    public function __construct() {
         parent::__construct('changePassword_' . ($time = time()));
         $this->setAttribute('method', 'post');
 

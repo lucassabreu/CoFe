@@ -12,6 +12,7 @@ return array(
         ),
         'invokables' => array(
             'Core\Acl\Builder' => 'Core\Acl\Builder',
+            'Core\Service\Util\MailUtilService' => 'Core\Service\Util\MailUtilService',
         ),
         'dao_services' => array(
             'Admin\Service\UserDAOService' => array(

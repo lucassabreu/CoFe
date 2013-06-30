@@ -2,16 +2,19 @@
 
 namespace Admin\Controller;
 
-use Admin\Form\User\ChangePassword;
 use Admin\Form\User\Form;
 use Admin\Form\User\Form as UserForm;
 use Admin\Form\User\Remove as RemoveForm;
+use Admin\Form\User\ResetPassword;
 use Admin\Model\Entity\User;
+use Admin\Service\UserDAOService;
 use Core\Controller\AbstractController;
 use Core\Model\DAO\Exception\DAOException;
+use Core\Service\Util\MailUtilService;
 use DateTime;
 use Exception;
 use Zend\Authentication\AuthenticationService;
+use Zend\Http\Request;
 use Zend\Paginator\Paginator;
 use Zend\View\Model\ViewModel;
 
@@ -356,11 +359,15 @@ class UserController extends AbstractController {
         }
     }
 
-    /**
-     * 
-     * @return type
-     */
     public function changePasswordAction() {
+        return null;
+    }
+
+    /**
+     * Change Password 
+     * @return array
+     */
+    public function resetPasswordAction() {
 
         $id = $this->params()->fromRoute('id');
 
@@ -383,28 +390,28 @@ class UserController extends AbstractController {
             if ($user == null)
                 return $this->redirect()->toRoute('user');
 
+            $form = new ResetPassword();
+            $form->setData($user->getData());
 
-            if ($this->getSessionUser('id') === $user->getId())
-                $action = "change";
-            else {
-                if ($this->getSessionUser('role') === 'admin')
-                    $action = "reset";
-                else
-                    return $this->redirect()->toUrl($returnTo);
+            if ($request->isPost()) {
+                if ($request->getPost('resetPassword') === 'resetPassword') {
+                    $dao = $this->dao();
+                    /* @var $dao UserDAOService */
+
+                    $password = $dao->generatePassword();
+                    $dao->resetPasswordTo($user, $password);
+
+                    $mailService = $this->getService('Core\Service\Util\\MailUtilService');
+                    /* @var $mailService MailUtilService */
+
+                    $mailService->sendEmail("Reset Password", "Teste: $password", \Zend\Mime\Mime::TYPE_TEXT, array($user->getEmail() => $user->getName()));
+                }
             }
 
-            $form = new ChangePassword();
             $form->get('cancel')->setAttribute('formaction', $returnTo);
-
-            if ($action == "reset") {
-                $form->get('changePassword')->setLabel('Reset Password');
-                $form->get('changePassword')->setOptions(array('label' => 'Reset Password'));
-            }
 
             return array(
                 'form' => $form,
-                'action' => $action,
-                'user' => $user,
             );
         }
     }

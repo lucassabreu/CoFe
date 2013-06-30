@@ -5,6 +5,11 @@ namespace Admin\Form\User;
 use Admin\Model\Entity\User as UserEntity;
 use Core\Form\Form as FormBase;
 
+/**
+ * Detail class for entity User
+ * 
+ * @author Lucas dos Santos Abreu <lucas.s.abreu@gmail.com>
+ */
 class Form extends FormBase {
 
     public function __construct($create = false) {

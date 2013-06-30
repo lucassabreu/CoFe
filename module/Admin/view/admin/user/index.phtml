@@ -61,11 +61,11 @@
         ?>
         &nbsp;
         <?php
-        echo $this->ztbFormButton((new \Zend\Form\Element\Button('btn_changePassword_' . time(), array('icon' => 'lock',)))->setAttributes(array(
+        echo $this->ztbFormButton((new \Zend\Form\Element\Button('btn_resetPassword_' . time(), array('icon' => 'lock',)))->setAttributes(array(
                     'type' => 'submit',
-                    'formaction' => $this->url('user', array('action' => 'changePassword')),
+                    'formaction' => $this->url('user', array('action' => 'resetPassword')),
                     'class' => 'input-large',
-                )), 'Change Password');
+                )), 'Reset Password');
         ?>
         &nbsp;
         <?php
