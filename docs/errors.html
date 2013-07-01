@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; Compilation errors
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="css/template.css" rel="stylesheet" media="all"/>
+    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script src="js/template.js" type="text/javascript"></script>
+    <script src="js/prettify/prettify.min.js" type="text/javascript"></script>
+
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span> </a>
+            <a class="brand" href="index.html">CoFe</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                                                </ul>
+                    </li>
+                    <li class="dropdown" id="charts-menu">
+                        <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="graph_class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="errors.html"><i class="icon-list-alt"></i>&#160;Errors</a></li>
+                            <li><a href="markers.html"><i class="icon-list-alt"></i>&#160;Markers</a></li>
+                            <li><a href="deprecated.html"><i class="icon-list-alt"></i>&#160;Deprecated</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="go_to_top">
+        <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+    </div>
+</div>
+
+<div id="___" class="container">
+    <noscript>
+        <div class="alert alert-warning">
+            Javascript is disabled; several features are only available if Javascript is enabled.
+        </div>
+    </noscript>
+
+    <div class="row">
+        <div class="span4">
+
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Filter type</li>
+                <li>
+                    <div class="btn-group type-filter" data-toggle="buttons-checkbox">
+                        <button class="btn critical">Critical</button>
+                        <button class="btn error">Error</button>
+                        <button class="btn notice">Notice</button>
+                    </div>
+                </li>
+                <li class="nav-header">Navigation</li>
+                                                                            <li><a href="#Core/src/Core/Test/ServiceTestCase.php}"><i class="icon-file"></i> Core/src/Core/Test/ServiceTestCase.php</a></li>
+                                                                                                    <li><a href="#Core/src/Core/Service/Factory/DAOServiceFactory.php}"><i class="icon-file"></i> Core/src/Core/Service/Factory/DAOServiceFactory.php</a></li>
+                                                                                                    <li><a href="#Core/src/Core/Service/AbstractDAOService.php}"><i class="icon-file"></i> Core/src/Core/Service/AbstractDAOService.php</a></li>
+                                                                                                                                                            <li><a href="#Core/src/Core/Test/TestCase.php}"><i class="icon-file"></i> Core/src/Core/Test/TestCase.php</a></li>
+                                                                                                    <li><a href="#Admin/Module.php}"><i class="icon-file"></i> Admin/Module.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Service/Exception/Auth/InactiveUserAuthException.php}"><i class="icon-file"></i> Admin/src/Admin/Service/Exception/Auth/InactiveUserAuthException.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Form/User/Remove.php}"><i class="icon-file"></i> Admin/src/Admin/Form/User/Remove.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Form/User/Form.php}"><i class="icon-file"></i> Admin/src/Admin/Form/User/Form.php</a></li>
+                                                                                                    <li><a href="#Core/src/Core/Controller/AbstractController.php}"><i class="icon-file"></i> Core/src/Core/Controller/AbstractController.php</a></li>
+                                                                                                    <li><a href="#Core/src/Core/View/Helper/StripContentHelper.php}"><i class="icon-file"></i> Core/src/Core/View/Helper/StripContentHelper.php</a></li>
+                                                                                                                                                            <li><a href="#Admin/src/Admin/Model/Entity/User.php}"><i class="icon-file"></i> Admin/src/Admin/Model/Entity/User.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Form/User/ResetPassword.php}"><i class="icon-file"></i> Admin/src/Admin/Form/User/ResetPassword.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Form/User/ChangePassword.php}"><i class="icon-file"></i> Admin/src/Admin/Form/User/ChangePassword.php</a></li>
+                                                                                                    <li><a href="#Core/src/Core/Validator/GenericValidator.php}"><i class="icon-file"></i> Core/src/Core/Validator/GenericValidator.php</a></li>
+                                                                                                    <li><a href="#Core/src/Core/View/Helper/ZTB/ZTBFormButton.php}"><i class="icon-file"></i> Core/src/Core/View/Helper/ZTB/ZTBFormButton.php</a></li>
+                                                                                                    <li><a href="#Core/Module.php}"><i class="icon-file"></i> Core/Module.php</a></li>
+                                                                                                                                                            <li><a href="#Core/src/Core/Authentification/Doctrine/DoctrineAdapter.php}"><i class="icon-file"></i> Core/src/Core/Authentification/Doctrine/DoctrineAdapter.php</a></li>
+                                                                                                                                                            <li><a href="#Admin/src/Admin/Service/UserDAOService.php}"><i class="icon-file"></i> Admin/src/Admin/Service/UserDAOService.php</a></li>
+                                                                                                                                                            <li><a href="#Admin/src/Admin/Service/AuthService.php}"><i class="icon-file"></i> Admin/src/Admin/Service/AuthService.php</a></li>
+                                                                                                                                                            <li><a href="#Admin/src/Admin/Service/Exception/Auth/InvalidUserAuthException.php}"><i class="icon-file"></i> Admin/src/Admin/Service/Exception/Auth/InvalidUserAuthException.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/View/Helper/AuthHelper.php}"><i class="icon-file"></i> Admin/src/Admin/View/Helper/AuthHelper.php</a></li>
+                                                                                                    <li><a href="#Core/src/Core/Model/Entity/Entity.php}"><i class="icon-file"></i> Core/src/Core/Model/Entity/Entity.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Controller/AuthController.php}"><i class="icon-file"></i> Admin/src/Admin/Controller/AuthController.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Form/Login.php}"><i class="icon-file"></i> Admin/src/Admin/Form/Login.php</a></li>
+                                                                                                    <li><a href="#Core/src/Core/Test/ControllerTestCase.php}"><i class="icon-file"></i> Core/src/Core/Test/ControllerTestCase.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Service/Exception/Auth/NotAuthorizedAuthException.php}"><i class="icon-file"></i> Admin/src/Admin/Service/Exception/Auth/NotAuthorizedAuthException.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Controller/UserController.php}"><i class="icon-file"></i> Admin/src/Admin/Controller/UserController.php</a></li>
+                                                                                                    <li><a href="#Admin/src/Admin/Model/Doctrine/UserDAODoctrine.php}"><i class="icon-file"></i> Admin/src/Admin/Model/Doctrine/UserDAODoctrine.php</a></li>
+                                                                                                                                                            <li><a href="#Application/Module.php}"><i class="icon-file"></i> Application/Module.php</a></li>
+                                                                                                                                                            <li><a href="#Core/src/Core/Model/DAO/Doctrine/AbstractDoctrineDAO.php}"><i class="icon-file"></i> Core/src/Core/Model/DAO/Doctrine/AbstractDoctrineDAO.php</a></li>
+                                                                                                                                                            <li><a href="#Core/src/Core/Service/Service.php}"><i class="icon-file"></i> Core/src/Core/Service/Service.php</a></li>
+                                                                                                                                                                                                                    <li><a href="#Core/src/Core/Test/Bootstrap.php}"><i class="icon-file"></i> Core/src/Core/Test/Bootstrap.php</a></li>
+                                                                    </ul>
+        </div>
+
+        <div class="span8">
+            <ul class="breadcrumb">
+                <li><a href=""><i class="icon-remove-sign"></i></a><span class="divider">\</span></li>
+                <li>Compilation Errors</li>
+            </ul>
+
+            
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Test/ServiceTestCase.php" id="Core/src/Core/Test/ServiceTestCase.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Test/ServiceTestCase.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Core\Test\ServiceTestCase</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Service/Factory/DAOServiceFactory.php" id="Core/src/Core/Service/Factory/DAOServiceFactory.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Service/Factory/DAOServiceFactory.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $services</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Service/AbstractDAOService.php" id="Core/src/Core/Service/AbstractDAOService.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Service/AbstractDAOService.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $dao</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Test/TestCase.php" id="Core/src/Core/Test/TestCase.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Test/TestCase.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for function \Core\Test\setup()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/Module.php" id="Admin/Module.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/Module.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for function \Admin\getConfig()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Service/Exception/Auth/InactiveUserAuthException.php" id="Admin/src/Admin/Service/Exception/Auth/InactiveUserAuthException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Service/Exception/Auth/InactiveUserAuthException.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for function \Admin\Service\Exception\Auth\__construct()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Form/User/Remove.php" id="Admin/src/Admin/Form/User/Remove.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Form/User/Remove.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>No summary for class \Admin\Form\User\Remove</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Form/User/Form.php" id="Admin/src/Admin/Form/User/Form.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Form/User/Form.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for function \Admin\Form\User\__construct()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Controller/AbstractController.php" id="Core/src/Core/Controller/AbstractController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Controller/AbstractController.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>89</td>
+                                        <td>No summary for function \Core\Controller\indexAction()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/View/Helper/StripContentHelper.php" id="Core/src/Core/View/Helper/StripContentHelper.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/View/Helper/StripContentHelper.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for function \Core\View\Helper\__invoke()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Model/Entity/User.php" id="Admin/src/Admin/Model/Entity/User.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Model/Entity/User.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>96</td>
+                                        <td>No summary for function \Admin\Model\Entity\getInputFilter()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Form/User/ResetPassword.php" id="Admin/src/Admin/Form/User/ResetPassword.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Form/User/ResetPassword.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>No summary for class \Admin\Form\User\ResetPassword</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Form/User/ChangePassword.php" id="Admin/src/Admin/Form/User/ChangePassword.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Form/User/ChangePassword.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for class \Admin\Form\User\ChangePassword</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Validator/GenericValidator.php" id="Core/src/Core/Validator/GenericValidator.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Validator/GenericValidator.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for function \Core\Validator\isValid()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/View/Helper/ZTB/ZTBFormButton.php" id="Core/src/Core/View/Helper/ZTB/ZTBFormButton.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/View/Helper/ZTB/ZTBFormButton.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for function \Core\View\Helper\ZTB\__invoke()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/Module.php" id="Core/Module.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/Module.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9</td>
+                                        <td>No summary for class \Core\Module</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Authentification/Doctrine/DoctrineAdapter.php" id="Core/src/Core/Authentification/Doctrine/DoctrineAdapter.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Authentification/Doctrine/DoctrineAdapter.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for function \Core\Authentification\Doctrine\getCredential()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Service/UserDAOService.php" id="Admin/src/Admin/Service/UserDAOService.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Service/UserDAOService.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $dao</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Service/AuthService.php" id="Admin/src/Admin/Service/AuthService.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Service/AuthService.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for property $adapter</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Service/Exception/Auth/InvalidUserAuthException.php" id="Admin/src/Admin/Service/Exception/Auth/InvalidUserAuthException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Service/Exception/Auth/InvalidUserAuthException.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for function \Admin\Service\Exception\Auth\__construct()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/View/Helper/AuthHelper.php" id="Admin/src/Admin/View/Helper/AuthHelper.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/View/Helper/AuthHelper.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for function \Admin\View\Helper\__invoke()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Model/Entity/Entity.php" id="Core/src/Core/Model/Entity/Entity.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Model/Entity/Entity.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>45</td>
+                                        <td>No summary for function \Core\Model\Entity\__get()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Controller/AuthController.php" id="Admin/src/Admin/Controller/AuthController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Controller/AuthController.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for function \Admin\Controller\indexAction()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Form/Login.php" id="Admin/src/Admin/Form/Login.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Form/Login.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for class \Admin\Form\Login</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Test/ControllerTestCase.php" id="Core/src/Core/Test/ControllerTestCase.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Test/ControllerTestCase.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for class \Core\Test\ControllerTestCase</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Service/Exception/Auth/NotAuthorizedAuthException.php" id="Admin/src/Admin/Service/Exception/Auth/NotAuthorizedAuthException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Service/Exception/Auth/NotAuthorizedAuthException.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>55</td>
+                                        <td>No summary for function \Admin\Service\Exception\Auth\getController()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Controller/UserController.php" id="Admin/src/Admin/Controller/UserController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Controller/UserController.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>29</td>
+                                        <td>No summary for function \Admin\Controller\__construct()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Admin/src/Admin/Model/Doctrine/UserDAODoctrine.php" id="Admin/src/Admin/Model/Doctrine/UserDAODoctrine.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Admin/src/Admin/Model/Doctrine/UserDAODoctrine.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for function \Admin\Model\Doctrine\__construct()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Application/Module.php" id="Application/Module.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Application/Module.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for function \Application\onBootstrap()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Model/DAO/Doctrine/AbstractDoctrineDAO.php" id="Core/src/Core/Model/DAO/Doctrine/AbstractDoctrineDAO.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Model/DAO/Doctrine/AbstractDoctrineDAO.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for property $_idColumns</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Service/Service.php" id="Core/src/Core/Service/Service.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Service/Service.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $serviceManager</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Core/src/Core/Test/Bootstrap.php" id="Core/src/Core/Test/Bootstrap.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Core/src/Core/Test/Bootstrap.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for property $instance</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                    </div>
+    </div>
+</div>
+
+<footer class="span12">
+    Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+    <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+    generated on Sun, 30 Jun 2013 21:22:11 -0300.<br/>
+</footer>
+</body>
+</html>
