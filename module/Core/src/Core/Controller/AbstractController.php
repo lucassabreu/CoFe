@@ -97,10 +97,10 @@ abstract class AbstractController extends AbstractActionController {
      */
     public function getSessionUser($attribute = null) {
 
-        $authService = new AuthenticationService();
-        /* @var $authService AuthenticationService */
-
-        $sessionUser = $authService->getIdentity();
+        $authService = $this->getService('Admin\Service\AuthService');
+        /* @var $authService \Admin\Service\AuthService */
+        
+        $sessionUser = $authService->getUser();
 
         if ($sessionUser === null)
             return null;
@@ -109,21 +109,6 @@ abstract class AbstractController extends AbstractActionController {
             return $sessionUser;
         else
             return $sessionUser->{$attribute};
-    }
-
-    public function redirectBack($route, $param = array()) {
-        echo "<pre>";
-        $request = $this->getRequest();
-        /* @var $request Request */
-        $return = $request->getHeader('Referer');
-
-        if ($return === null) {
-            return $this->redirect()->toRoute($route, $param);
-        } else {
-            return $this->redirect()->toUrl($return);
-        }
-
-        echo "</pre>";
     }
 
 }

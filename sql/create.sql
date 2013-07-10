@@ -1,79 +1,63 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+-- phpMyAdmin SQL Dump
+-- version 3.5.2.2
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tempo de Geração: 01/07/2013 às 15:55:11
+-- Versão do Servidor: 5.5.27
+-- Versão do PHP: 5.4.7
 
-DROP SCHEMA IF EXISTS `cofe` ;
-CREATE SCHEMA IF NOT EXISTS `cofe` DEFAULT CHARACTER SET latin1 ;
-USE `cofe` ;
-
--- -----------------------------------------------------
--- Table `user`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `user` ;
-
-CREATE  TABLE IF NOT EXISTS `user` (
-  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `username` VARCHAR(50) NOT NULL ,
-  `password` CHAR(32) NOT NULL ,
-  `active` TINYINT(1) NOT NULL DEFAULT '0' ,
-  `role` VARCHAR(10) NOT NULL DEFAULT 'common' ,
-  `name` VARCHAR(60) NOT NULL ,
-  `email` VARCHAR(45) NOT NULL ,
-  `dt_criation` DATE NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = latin1;
-
-CREATE UNIQUE INDEX `idx_username` USING BTREE ON `user` (`username` ASC) ;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
--- -----------------------------------------------------
--- Table `category`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `category` ;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE  TABLE IF NOT EXISTS `category` (
-  `user_id` INT(10) UNSIGNED NOT NULL ,
-  `code` CHAR(6) NOT NULL ,
-  `description` VARCHAR(100) NOT NULL ,
-  `flow_type` TINYINT(1) NOT NULL DEFAULT '0' ,
-  `user_id_parent` INT(10) UNSIGNED NULL DEFAULT NULL ,
-  `code_parent` CHAR(6) NULL DEFAULT NULL ,
-  PRIMARY KEY (`user_id`, `code`) )
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+--
+-- Banco de Dados: `cofe`
+--
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `moviment`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `moviment` ;
+--
+-- Estrutura da tabela `category`
+--
 
-CREATE  TABLE IF NOT EXISTS `moviment` (
-  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `cat_code` CHAR(6) NOT NULL ,
-  `user_id` INT(10) UNSIGNED NOT NULL ,
-  `value` DECIMAL(18,2) UNSIGNED NOT NULL ,
-  `dt_emission` DATE NOT NULL ,
-  `descritption` VARCHAR(50) NOT NULL ,
-  `notes` TEXT NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+CREATE TABLE IF NOT EXISTS `category` (
+  `user_id` int(10) unsigned NOT NULL,
+  `code` char(6) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `flow_type` tinyint(1) NOT NULL DEFAULT '0',
+  `user_id_parent` int(10) unsigned DEFAULT NULL,
+  `code_parent` char(6) DEFAULT NULL,
+  PRIMARY KEY (`user_id`,`code`),
+  KEY `fk_category_parent` (`user_id_parent`,`code_parent`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE INDEX `idx_moviment` ON `moviment` (`user_id` ASC, `cat_code` ASC, `id` ASC) ;
+--
+-- Gatilhos `category`
+--
+DROP TRIGGER IF EXISTS `category_BUIN`;
+DELIMITER //
+CREATE TRIGGER `category_BUIN` BEFORE INSERT ON `category`
+ FOR EACH ROW BEGIN
+    IF (NEW.user_id <> NEW.user_id_parent) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories from diferent users!';
+    END IF;
 
-USE `cofe` ;
-USE `cofe`;
-
-DELIMITER $$
-
-USE `cofe`$$
-DROP TRIGGER IF EXISTS `category_BUPD` $$
-USE `cofe`$$
-
-
+    IF (NEW.flow_type <> (SELECT p.flow_type FROM category p
+                            WHERE p.user_id = NEW.user_id_parent
+                            AND   p.code    = NEW.code_parent)) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories with diferent flow types!';
+    END IF;
+END
+//
+DELIMITER ;
+DROP TRIGGER IF EXISTS `category_BUPD`;
+DELIMITER //
 CREATE TRIGGER `category_BUPD` BEFORE UPDATE ON `category`
  FOR EACH ROW BEGIN
     IF (NEW.user_id <> NEW.user_id_parent) THEN
@@ -92,39 +76,71 @@ CREATE TRIGGER `category_BUPD` BEFORE UPDATE ON `category`
             AND   category.code_parent    = NEW.code;
     END IF;
 END
-$$
-
-
-USE `cofe`$$
-DROP TRIGGER IF EXISTS `category_BUIN` $$
-USE `cofe`$$
-CREATE TRIGGER `category_BUIN` BEFORE INSERT ON `category`
- FOR EACH ROW BEGIN
-    IF (NEW.user_id <> NEW.user_id_parent) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories from diferent users!';
-    END IF;
-
-    IF (NEW.flow_type <> (SELECT p.flow_type FROM category p
-                            WHERE p.user_id = NEW.user_id_parent
-                            AND   p.code    = NEW.code_parent)) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories with diferent flow types!';
-    END IF;
-END
-$$
-
-
+//
 DELIMITER ;
 
+-- --------------------------------------------------------
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+--
+-- Estrutura da tabela `moviment`
+--
 
--- -----------------------------------------------------
--- Data for table `user`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `cofe`;
-INSERT INTO `user` (`id`, `username`, `password`, `active`, `role`, `name`, `email`, `dt_criation`) VALUES (NULL, 'admin', md5('admin'), 1, 'admin', 'Administrator', 'admin@localhost.net', curdate());
+CREATE TABLE IF NOT EXISTS `moviment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `cat_code` char(6) NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `value` decimal(18,2) unsigned NOT NULL,
+  `dt_emission` date NOT NULL,
+  `descritption` varchar(50) NOT NULL,
+  `notes` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_moviment` (`user_id`,`cat_code`,`id`),
+  KEY `fk_moviment_category` (`user_id`,`cat_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-COMMIT;
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` char(32) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `role` varchar(10) NOT NULL DEFAULT 'common',
+  `name` varchar(60) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `dt_criation` date NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_username` (`username`) USING BTREE
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Extraindo dados da tabela `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `active`, `role`, `name`, `email`, `dt_criation`) VALUES
+(NULL, 'admin', md5('admin'), 1, 'admin', 'Administrator', 'admin@localhost.net', curdate());
+
+--
+-- Restrições para as tabelas dumpadas
+--
+
+--
+-- Restrições para a tabela `category`
+--
+ALTER TABLE `category`
+  ADD CONSTRAINT `fk_category_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `fk_category_parent` FOREIGN KEY (`user_id_parent`, `code_parent`) REFERENCES `category` (`user_id`, `code`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para a tabela `moviment`
+--
+ALTER TABLE `moviment`
+  ADD CONSTRAINT `fk_moviment_category` FOREIGN KEY (`user_id`, `cat_code`) REFERENCES `category` (`user_id`, `code`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,60 @@
+<?php $this->placeholder('content')->captureStart(); ?>
+<?php echo $this->form()->openTag($form); ?>
+<?php echo $this->formHidden((new \Zend\Form\Element\Hidden('returnTo'))->setValue($this->url('categoryList'))); ?>
+
+<h3 class="entity-title">
+    <?php echo $this->escapeHtml($this->translate('Category')); ?>
+</h3>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th><?php echo $this->escapeHtml($this->translate('Code')); ?></th>
+            <th><?php echo $this->escapeHtml($this->translate('Description')); ?></th>
+            <th><?php echo $this->escapeHtml($this->translate('Flow Type')); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php echo $this->partial('application/category/partial/category_tr.phtml', array('categories' => $categories, 'level' => 0)); ?>
+    </tbody>
+</table>
+<div class="form-actions">
+    <?php
+    echo $this->ztbFormButton($form->get('createButton')
+                    ->setAttribute('class', 'input-medium')
+                    ->setAttribute('formaction', $this->url('category', array('action' => 'create'))), null, array('icon' => 'plus'));
+    ?>
+    &nbsp;
+    <?php
+    echo $this->ztbFormButton($form->get('detailButton')
+                    ->setAttribute('class', 'input-medium')
+                    ->setAttribute('formaction', $this->url('category', array('action' => 'detail'))), null, array('icon' => 'book'));
+    ?>
+    &nbsp;
+    <?php
+    echo $this->ztbFormButton($form->get('editButton')
+                    ->setAttribute('class', 'input-medium')
+                    ->setAttribute('formaction', $this->url('category', array('action' => 'update'))), null, array('icon' => 'edit'));
+    ?>
+    &nbsp;
+    <?php
+    echo $this->ztbFormButton($form->get('movimentsButton')
+                    ->setAttribute('class', 'input-medium')
+                    ->setAttribute('formaction', $this->url('moviment', array('action' => 'ofcategory'))), null, array('icon' => 'list'));
+    ?>
+    &nbsp;
+    <?php
+    echo $this->ztbFormButton($form->get('moveMovimentsButton')
+                    ->setAttribute('class', 'input-large')
+                    ->setAttribute('formaction', $this->url('category', array('action' => 'moveMoviments'))), null, array('icon' => 'share-alt'));
+    ?>
+    &nbsp;
+    <?php
+    echo $this->ztbFormButton($form->get('removeButton')
+                    ->setAttribute('class', 'input-medium')
+                    ->setAttribute('formaction', $this->url('category', array('action' => 'remove'))), null, array('icon' => 'remove'));
+    ?>
+</div>
+<?php echo $this->form()->closeTag(); ?>
+<?php $this->placeholder('content')->captureEnd(); ?>
+<?php echo $this->stripContent($this->placeholder('content')); ?>

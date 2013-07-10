@@ -92,17 +92,30 @@ abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
                         } else {
                             if (strpos($clause, '%') > 0)
                                 $and->add($qb->expr()->like('ent.' . $column, "?" . count($qbParams)));
-                            else
-                                $and->add($qb->expr()->eq('ent.' . $column, "?" . count($qbParams)));
-                            
+                            else {
+                                if (strtoupper($clause) === 'IS NULL' || $clause === null) {
+                                    $and->add($qb->expr()->isNull('ent.' . $column));
+                                    continue;
+                                } else {
+                                    if (strtoupper($clause) === 'IS NOT NULL') {
+                                        $and->add($qb->expr()->isNotNull('ent.' . $column));
+                                        continue;
+                                    } else {
+                                        $and->add($qb->expr()->eq('ent.' . $column, "?" . count($qbParams)));
+                                    }
+                                }
+                            }
+
                             $qbParams[] = $clause;
                         }
                     }
 
                     $qb->where($and);
-                    $qb->setParameters($qbParams);
+                    if (count($qbParams) > 0)
+                        $qb->setParameters($qbParams);
                 }
-            } else
+            }
+            else
                 $qb->where($params);
         }
 

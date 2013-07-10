@@ -26,8 +26,8 @@ final class DAOServiceFactory implements AbstractFactoryInterface {
     protected function getConfig() {
         $gConfig = $this->serviceLocator->get('Configuration');
 
-        if (isset($gConfig['service_manager']) && isset($gConfig['service_manager']['dao_services']))
-            return $gConfig['service_manager']['dao_services'];
+        if (isset($gConfig['service_manager']) && isset($gConfig['service_manager']['dao_factory']))
+            return $gConfig['service_manager']['dao_factory'];
         else
             return array();
     }
@@ -72,7 +72,7 @@ final class DAOServiceFactory implements AbstractFactoryInterface {
         $instance = null;
 
         if ($param instanceof Closure) {
-            $instance = $param($this->serviceLocator);
+            $instance = $param->__invoke($this->serviceLocator);
         } else {
             if (class_exists('\\' . $param)) {
                 $param = ('\\' . $param);

@@ -1,0 +1,13 @@
+<?php $this->placeholder('content')->captureStart(); ?>
+<?php
+/* @var $form \Application\Form\User\CreateCategory */
+/* @var $action string */
+
+if ($action == 'update' || $action == 'create'):
+else:
+endif;
+?>
+<div class="well">
+</div>
+<?php $this->placeholder('content')->captureEnd(); ?>
+<?php echo $this->stripContent($this->placeholder('content')); ?>

@@ -17,6 +17,16 @@ use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
  */
 return array(
     'service_manager' => array(
+        'dao_factory' => array(
+            'Application\Service\CategoryDAOService' => array(
+                'service' => 'Application\Service\CategoryDAOService',
+                'model' => 'Application\Model\Doctrine\CategoryDAODoctrine',
+            ),
+            'Application\Service\MovimentDAOService' => array(
+                'service' => 'Application\Service\MovimentDAOService',
+                'model' => 'Application\Model\Doctrine\MovimentDAODoctrine',
+            ),
+        ),
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
@@ -31,8 +41,7 @@ return array(
                 $doctrineConfig->setAutoGenerateProxyClasses(true);
 
                 $driver = new AnnotationDriver(
-                                new AnnotationReader(),
-                                array($config['doctrine']['driver']['paths'])
+                        new AnnotationReader(), array($config['doctrine']['driver']['paths'])
                 );
                 $doctrineConfig->setMetadataDriverImpl($driver);
                 $doctrineConfig->setMetadataCacheImpl($cache);
@@ -55,15 +64,6 @@ return array(
             'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Model')
         ),
     ),
-    'navigation' => array(
-        // The DefaultNavigationFactory we configured in (1) uses 'default' as the sitemap key
-        'default' => array(
-            array(
-                'label' => 'Home',
-                'route' => 'home'
-            ),
-        ),
-    ),
     'translator' => array(
         'locale' => 'pt_BR',
         'translation_file_patterns' => array(
@@ -77,6 +77,32 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Category' => 'Application\Controller\CategoryController',
+        ),
+    ),
+    'navigation' => array(
+        // The DefaultNavigationFactory we configured in (1) uses 'default' as the sitemap key
+        'default' => array(
+            array(
+                'label' => 'Home',
+                'route' => 'home'
+            ),
+            array(
+                'label' => 'Category',
+                'route' => 'categoryList',
+                'module' => 'application',
+                'controller' => 'category',
+                'action' => 'index',
+                'page' => 1,
+            ),
+            array(
+                'label' => 'Moviment',
+                'route' => 'movimentList',
+                'module' => 'application',
+                'controller' => 'moviment',
+                'action' => 'index',
+                'page' => 1,
+            ),
         ),
     ),
     'router' => array(
@@ -103,10 +129,33 @@ return array(
                     ),
                 ),
             ),
+            'movimentList' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/moviment/page[/[:page]]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Moviment',
+                        'action' => 'index',
+                        'module' => 'application',
+                        'id' => 1,
+                    ),
+                ),
+            ),
             'category' => array(
                 'type' => 'Segment',
                 'options' => array(
                     'route' => '/category[[/]:action[[/]:id]]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Category',
+                        'action' => 'index',
+                        'module' => 'application',
+                    ),
+                ),
+            ),
+            'categoryList' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/category[/]',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Category',
                         'action' => 'index',

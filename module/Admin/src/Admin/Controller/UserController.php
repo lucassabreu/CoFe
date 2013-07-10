@@ -377,12 +377,12 @@ class UserController extends AbstractController {
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $userUpdate = $this->dao()->findById($sessionUser->getId());
-                /* @var $userUpdate User */
-                $values = $form->getData();
-
                 try {
-                    $userUpdate = $this->dao()->changePassword($userUpdate, $values['oldPassword'], $values['newPassword'], $values['confirmPassword']);
+                    $userUpdate = $this->dao()->findById($sessionUser->getId());
+                    /* @var $userUpdate User */
+                    $values = $form->getData();
+
+                    $this->dao()->changePassword($userUpdate, $values['oldPassword'], $values['newPassword'], $values['confirmPassword']);
 
                     return array(
                         'form' => $form,

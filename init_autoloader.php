@@ -16,6 +16,8 @@
  * most users, however, feel free to configure autoloading however you'd like.
  */
 // Composer autoloading
+set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);
+
 if (file_exists('vendor/autoload.php')) {
     $loader = include 'vendor/autoload.php';
 }

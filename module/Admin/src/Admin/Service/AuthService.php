@@ -19,6 +19,12 @@ use Zend\Authentication\AuthenticationService;
 class AuthService extends Service {
 
     /**
+     * User of session
+     * @var User
+     */
+    protected static $user;
+
+    /**
      * @var ValidatableAdapterInterface
      */
     protected $adapter = null;
@@ -119,6 +125,18 @@ class AuthService extends Service {
         return $this;
     }
 
+    /**
+     * User of the session
+     * @return User
+     */
+    public function getUser() {
+
+        if (self::$user === null)
+            $this->refreshIdentity();
+
+        return self::$user;
+    }
+
     protected function refreshIdentity() {
         $auth = new AuthenticationService;
         if ($auth->hasIdentity()) {
@@ -130,10 +148,13 @@ class AuthService extends Service {
 
             $userNew = $us->findById($user->getId());
             /* @var $userNew User */
+
+            self::$user = $userNew;
+
             $auth->getStorage()->clear();
             $auth->getStorage()->write($userNew);
 
-            if (!$userNew->isActive())
+            if ($userNew === null || !$userNew->isActive())
                 $this->logout();
         }
     }

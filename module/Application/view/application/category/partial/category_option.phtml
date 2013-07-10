@@ -1,0 +1,6 @@
+<?php foreach ($categories as $category): ?><?php /* @var $category \Application\Model\Entity\Category */ ?>
+    <option value="<?php echo $this->escapeHtml($category->getNumber()); ?>">
+        <?php echo str_repeat('&nbsp;', $level); ?><?php echo $this->escapeHtml($category->getDescription()); ?> (<?php echo $this->escapeHtml($category->getCode()); ?>)
+    </option>
+    <?php echo $this->partial('application/category/partial/category_option.phtml', array('categories' => $category->getChildren(), 'level' => ($level + 1))); ?>
+<?php endforeach; ?>

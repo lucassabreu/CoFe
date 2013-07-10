@@ -34,18 +34,6 @@ return array(
             },
         ),
     ),
-    'navigation' => array(
-        'default' => array(
-            array(
-                'label' => 'User',
-                'route' => 'userList',
-                'module' => 'admin',
-                'controller' => 'user',
-                'action' => 'index',
-                'page' => 1,
-            ),
-        ),
-    ),
     'doctrine' => array(
         'authentication' => array(
             'object_manager' => 'Doctrine\ORM\Entity\Manager',
@@ -57,6 +45,18 @@ return array(
     'view_manager' => array(//the module can have a specific layout
         'template_path_stack' => array(
             'admin' => __DIR__ . '/../view',
+        ),
+    ),
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'User',
+                'route' => 'userList',
+                'module' => 'admin',
+                'controller' => 'user',
+                'action' => 'index',
+                'page' => 1,
+            ),
         ),
     ),
     'router' => array(
