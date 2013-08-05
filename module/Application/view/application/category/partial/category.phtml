@@ -3,11 +3,146 @@
 /* @var $form \Application\Form\User\CreateCategory */
 /* @var $action string */
 
+$caption = "Category";
 if ($action == 'update' || $action == 'create'):
+    if ($action === 'create'):
+        $caption = "Create Category";
+        $form->setAttribute('action', $this->url('category', array('action' => 'create')));
+    else:
+        $caption = "Create Category";
+        $form->setAttribute('action', $this->url('category', array('action' => 'update', 'number' => $form->get('number')->getValue())));
+    endif;
 else:
+    $caption = "Category Details";
+    $form->readonly();
 endif;
 ?>
 <div class="well">
+    <?php echo $this->form()->openTag($this->ztbFormPrepare($form, 'horizontal')); // <form %s>    ?>
+    <?php if ($action !== 'create'): ?>
+        <?php echo $this->formHidden((new \Zend\Form\Element\Hidden('returnTo'))->setValue($this->url('category', array('action' => $action, 'number' => $form->get('number')->getValue())))); ?>
+        <?php echo $this->formHidden($form->get('number')); ?>
+    <?php endif; ?>
+    <h3 class="entity-title">
+        <?php if ($action == 'update' || $action == 'detail'): ?>
+            <div class="btn-group pull-right">
+                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                    <span class="icon icon-wrench icon-white"></span> 
+                    <?php echo $this->escapeHtml($this->translate('Options')) ?> <i class="caret"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="<?php echo $this->url('category', array('action' => 'index')); ?>">
+                            <span class="icon icon-th-list"></span>
+                            <?php echo $this->escapeHtml($this->translate('List categories')); ?>
+                        </a>
+                    </li>
+                    <li>
+                        <?php
+                        echo $this->ztbFormButton($form->get('detailButton')
+                                        ->setAttribute('formaction', $this->url('category', array('action' => 'detail', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'book', 'btn_type' => 'link'));
+                        ?>
+                    </li>
+                    <li><?php
+                        echo $this->ztbFormButton($form->get('editButton')
+                                        ->setAttribute('formaction', $this->url('category', array('action' => 'update', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'edit', 'btn_type' => 'link'));
+                        ?>
+                    </li>
+                    <li class="divider"></li>
+                    <li>                 <?php
+                        echo $this->ztbFormButton($form->get('movimentsButton')
+                                        ->setAttribute('formaction', $this->url('moviment', array('action' => 'ofcategory', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'list', 'btn_type' => 'link'));
+                        ?>
+                    </li>
+                    <li>                <?php
+                        echo $this->ztbFormButton($form->get('moveMovimentsButton')
+                                        ->setAttribute('formaction', $this->url('category', array('action' => 'moveMoviments', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'share-alt', 'btn_type' => 'link'));
+                        ?>
+                    </li>
+                    <li class="divider"></li>
+                    <li>                <?php
+                        echo $this->ztbFormButton($form->get('removeButton')
+                                        ->setAttribute('formaction', $this->url('category', array('action' => 'remove', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'remove', 'btn_type' => 'link'));
+                        ?>
+                    </li>
+                </ul>
+            </div>
+        <? endif; ?>
+        <?php echo $this->escapeHtml($this->translate($caption)); ?>
+    </h3>
+
+    <?php if ($action == 'update' || $action == 'create'): ?>
+        <?php if (count($form->getExceptionMessages()) > 0): ?>
+            <div class="alert alert-error">
+                <b><?php echo $this->escapeHtml($this->translate("Exceptions")); ?>:</b><br/>
+                <ul class="alert-block alert-warning">
+                    <?php foreach ($form->getExceptionMessages() as $message): ?>
+                        <li><?php echo $this->escapeHtml($message); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+        <?php foreach ($form->getMessages() as $key => $messages): ?>
+            <div class="alert alert-error">
+                <b><?php echo $this->escapeHtml($this->translate($form->get($key)->getLabel())); ?>:</b><br/>
+                <ul class="alert-block alert-warning">
+                    <?php foreach ($messages as $message): ?>
+                        <li><?php echo $this->escapeHtml($message); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <div class="control-group">
+        <?php echo $this->formLabel($form->get('code')); ?>
+        <div class="controls">
+            <?php echo $this->formInput($form->get('code')); ?>
+        </div>
+    </div>
+    <div class="control-group">
+        <?php echo $this->formLabel($form->get('description')); ?>
+        <div class="controls">
+            <?php echo $this->formInput($form->get('description')->setAttribute('class', 'input-xxlarge')); ?>
+        </div>
+    </div>
+    <div class="control-group">
+        <?php echo $this->formLabel($form->get('flowType')); ?>
+        <div class="controls">
+            <?php echo $this->formSelect($form->get('flowType')); ?>
+        </div>
+    </div>
+    <div class="control-group">
+        <?php if ($action === 'update' || $action === 'create'): ?>
+            <?php echo $this->formLabel($form->get('parent')); ?>
+            <div class="controls">
+                <?php echo $this->formSelect()->openTag($form->get('parent')); ?>
+                <?php
+                echo $this->partial('application/category/partial/category_option.phtml', array(
+                    'categories' => $categories,
+                    'level' => 0,
+                    'numberSelected' => $form->get('parent')->getValue())
+                );
+                ?>
+                <?php echo $this->formSelect()->closeTag(); ?>
+            </div>
+        <?php else: ?>
+            <?php echo $this->formLabel($form->get('parent_number')); ?>
+            <div class="controls">
+                <?php echo $this->formHidden($form->get('parent_number')); ?>
+                <?php echo $this->formInput($form->get('parent_code')->setAttribute('class', 'input-small')); ?>&nbsp;
+                <?php echo $this->formInput($form->get('parent_description')); ?>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php if ($action == 'update' || $action == 'create'): ?>
+        <div class="form-actions">
+            <?php echo $this->ztbFormButton($form->get('submitAction')->setAttribute('class', 'input-medium'), null, array('btn_type' => 'warning')); ?>
+            &nbsp;
+            <?php echo $this->ztbFormButton($form->get('cancel')->setAttribute('class', 'input-medium')); ?>
+        </div>
+    <?php endif; ?>
+    <?php echo $this->form()->closeTag(); ?>
 </div>
 <?php $this->placeholder('content')->captureEnd(); ?>
 <?php echo $this->stripContent($this->placeholder('content')); ?>

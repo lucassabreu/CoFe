@@ -144,7 +144,7 @@ return array(
             'category' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route' => '/category[[/]:action[[/]:id]]',
+                    'route' => '/category[/[:action[/[:number]]]]',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Category',
                         'action' => 'index',

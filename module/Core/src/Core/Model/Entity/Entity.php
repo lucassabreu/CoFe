@@ -115,6 +115,9 @@ abstract class Entity implements Serializable, InputFilterAwareInterface {
         if (!$this->getInputFilter())
             return $value;
 
+        if (!$this->getInputFilter()->has($key))
+            return $value;
+
         try {
             $filter = $this->getInputFilter()->get($key);
         } catch (InvalidArgumentException $e) {
@@ -126,7 +129,7 @@ abstract class Entity implements Serializable, InputFilterAwareInterface {
 
         if (!$filter->isValid()) {
             $errors = implode(', ', $filter->getMessages());
-            throw new DAOException("Input inválido: $key = '$value'. $errors");
+            throw new DAOException("Invalid input: $key = '$value'. $errors");
         }
 
         return $filter->getValue($key);

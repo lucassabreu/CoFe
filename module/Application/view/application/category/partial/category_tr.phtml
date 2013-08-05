@@ -1,15 +1,12 @@
-<?php foreach ($categories as $category): ?><?php /* @var $category \Application\Model\Entity\Category */ ?>
-    <tr <?php if ($category->getParent() !== null): ?>
-            meta-parent="<?php echo $this->escapeHtml($category->getParent()->getNumber()); ?>"
-        <? endif; ?>
-        meta-number="<?php echo $this->escapeHtml($category->getNumber()); ?>">
-        <td>
-            <?php echo str_repeat('&nbsp;', $level * 3); ?>
-            <input type="radio" name="code" id="code" value="<?php echo $this->escapeHtml($category->getNumber()); ?>" />
-            <?php echo $this->escapeHtml($category->getCode()); ?>
+<?php foreach ($categories as $cat): ?><?php /* @var $cat \Application\Model\Entity\Category */ ?>
+    <tr meta-number="<?php echo $cat->getNumber(); ?>" 
+        <?php if ($cat->getParent()): ?>meta-parent-number="<? $cat->getParent()->getNumber(); ?>"<? endif; ?>>
+        <td style="text-indent: <?php echo $level * 2; ?>ex">
+            <input type="radio" name="number" value="<?php echo $cat->getNumber(); ?>" />
+            <?php echo $this->escapeHtml($cat->getCode()); ?>
         </td>
-        <td><?php echo $this->escapeHtml($category->getDescription()); ?></td>
-        <td><?php echo $this->escapeHtml($this->translate($category->getFlowType() ? "Input" : "Output")); ?></td>
+        <td><?php echo $this->escapeHtml($cat->getDescription()); ?></td>
+        <td><?php echo $this->escapeHtml($this->translate($cat->getFlowType() == 1 ? "Input" : "Output")); ?></td>
     </tr>
-    <?php echo $this->partial('application/category/partial/category_tr.phtml', array('categories' => $category->getChildren(), 'level' => ($level + 1))); ?>
+    <?php echo $this->partial('application/category/partial/category_tr.phtml', array('categories' => $cat->getChildren(), 'level' => ($level + 1))); ?>
 <?php endforeach; ?>

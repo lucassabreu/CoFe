@@ -16,7 +16,7 @@ class CategoryList extends Form {
         $this->setAttribute('method', 'post');
 
         $this->add(array(
-            'name' => 'code',
+            'name' => 'number',
             'type' => 'Zend\Form\Element\Hidden',
             'attributes' => array(
                 'type' => 'radio',

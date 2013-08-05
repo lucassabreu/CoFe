@@ -151,9 +151,6 @@ class AuthService extends Service {
 
             self::$user = $userNew;
 
-            $auth->getStorage()->clear();
-            $auth->getStorage()->write($userNew);
-
             if ($userNew === null || !$userNew->isActive())
                 $this->logout();
         }

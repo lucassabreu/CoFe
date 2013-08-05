@@ -23,6 +23,7 @@ return array(
     ),
     'view_helpers' => array(
         'invokables' => array(
+            'formSelect' => 'Core\View\Helper\Elements\FormSelect',
             'stripContent' => 'Core\View\Helper\StripContentHelper',
             'ztbFormButton' => 'Core\View\Helper\ZTB\ZTBFormButton',
             'ztbFormPrepare' => 'Core\View\Helper\ZTB\ZTBFormPrepare',

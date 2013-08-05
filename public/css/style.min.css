@@ -1,4 +1,6 @@
 .form-login{margin-left:auto;margin-right:auto;width:60ex;}
+form input[name=parent_code]{width:8ex;}
+form select[name=parent]{font-family:monospace;}
 .well .entity-title{margin-bottom:20px;}
 .well .form-actions{margin-bottom:-40px;margin-left:-20px;margin-right:-20px;border-top-color:#cacaca;background-color:#dcdcdc;}
 .well .form-horizontal .form-actions{padding-left:200px;}

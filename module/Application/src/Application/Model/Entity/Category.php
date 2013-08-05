@@ -5,6 +5,7 @@ namespace Application\Model\Entity;
 use Admin\Model\Entity\User;
 use Application\Model\Entity\Category;
 use Core\Model\Entity\Entity;
+use Core\Validator\GenericValidator;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Zend\InputFilter\Factory;
@@ -23,7 +24,7 @@ use Zend\InputFilter\Factory;
  * @property string $description Description of category
  * @property boolean $flowType Flow type of category (true == input, false == output)
  * @property Category|null $parent Parent of this category
- * @property array $children Cagories which father its this category
+ * @property ArrayCollection $children Cagories which father its this category
  */
 class Category extends Entity {
 
@@ -68,17 +69,211 @@ class Category extends Entity {
     public function getInputFilter() {
         if ($this->inputFilter === null) {
             $factory = new Factory();
-            $this->inputFilter = $factory->createInputFilter(array(
-                'number' => array(
-                    'name' => 'number',
-                    'filters' => array(
-                        array('name' => 'Int')
+            $this->inputFilter = $factory->createInputFilter(
+                    array(
+                        'number' => array(
+                            'name' => 'number',
+                            'filters' => array(
+                                array('name' => 'Int')
+                            )
+                        ),
+                        'code' => array(
+                            'name' => 'code',
+                            'filters' => array(
+                                array('name' => 'StringTrim'),
+                                array('name' => 'StringToUpper'),
+                                array('name' => 'StripTags'),
+                            ),
+                            'validators' => array(
+                                array('name' => 'NotEmpty'),
+                                array(
+                                    'name' => 'Alnum',
+                                    'options' => array(
+                                        'allowWhiteSpace' => false,
+                                    ),
+                                ),
+                                array(
+                                    'name' => 'StringLength',
+                                    'options' => array(
+                                        'mix' => 3,
+                                        'max' => 6,
+                                    )
+                                ),
+                            ),
+                        ),
+                        'description' => array(
+                            'name' => 'description',
+                            'filters' => array(
+                                array('name' => 'StringTrim'),
+                                array('name' => 'StripTags'),
+                            ),
+                            'validators' => array(
+                                array('name' => 'NotEmpty'),
+                                array(
+                                    'name' => 'Alnum',
+                                    'options' => array(
+                                        'allowWhiteSpace' => true,
+                                    ),
+                                ),
+                                array(
+                                    'name' => 'StringLength',
+                                    'options' => array(
+                                        'mix' => 3,
+                                        'max' => 100,
+                                    )
+                                ),
+                            ),
+                        ),
+                        'flowType' => array(
+                            'name' => 'flowType',
+                            'filters' => array(
+                                array('name' => 'Int'),
+                            ),
+                            'validators' => array(
+                                array(
+                                    'name' => 'InArray',
+                                    'options' => array(
+                                        'haystack' => array(0, 1),
+                                    ),
+                                ),
+                                array(
+                                    'name' => 'Core\Validator\GenericValidator',
+                                    'options' => array(
+                                        'validatorFunction' => function($value, GenericValidator $validator) {
+                                            if ($this->getParent() && $value != $this->getParent()->getFlowType()) {
+                                                $validator->error(sprintf("The flow type can't be changed, when category has parent"));
+                                                return false;
+                                            }
+
+                                            return true;
+                                        }
+                                    ),
+                                ),
+                            ),
+                        ),
+                        'parent' => array(
+                            'name' => 'parent',
+                            'required' => false,
+                            'validators' => array(
+                                array(
+                                    'name' => 'Core\Validator\GenericValidator',
+                                    'options' => array(
+                                        'validatorFunction' => function($value, GenericValidator $validator) {
+                                            if (is_null($value)) {
+                                                if (!is_null($this->getParent())) {
+                                                    $parent = $this->getParent();
+                                                    /* @var $parent Category */
+
+                                                    if ($parent->hasChild($this)) {
+                                                        $parent->removeChild($this);
+                                                    }
+                                                }
+                                            } else {
+                                                if (!Category::validParent($this, $value, $validator))
+                                                    return false;
+
+                                                $this->parent = $value;
+
+                                                if (!$value->hasChild($this))
+                                                    $value->addChild($this);
+                                            }
+
+                                            return true;
+                                        }
+                                    ),
+                                ),
+                            ),
+                        ),
+                        'child' => array(
+                            'name' => 'child',
+                            'validators' => array(
+                                array(
+                                    'name' => 'Core\Validator\GenericValidator',
+                                    'options' => array(
+                                        'validatorFunction' => function($value, GenericValidator $validator) {
+                                            if (!Category::validParent($value, $this, $validator))
+                                                return false;
+
+                                            $this->children->add($value);
+                                            $value->parent = $value;
+                                            return true;
+                                        }
+                                    ),
+                                ),
+                            ),
+                        ),
+                        'user' => array(
+                            'name' => 'user',
+                            'validators' => array(
+                                array(
+                                    'name' => 'Core\Validator\GenericValidator',
+                                    'options' => array(
+                                        'validatorFunction' => function($value, GenericValidator $validator) {
+                                            if ($this->getUser() !== null && $this->getUser()->getId() !== $value->getId()) {
+                                                $validator->error("User can't be changed");
+                                                return false;
+                                            }
+                                            else
+                                                return true;
+                                        }
+                                    ),
+                                ),
+                            ),
+                        )
                     )
-                ),
-            ));
+            );
         }
 
         return $this->inputFilter;
+    }
+
+    /**
+     * Realize validation on child-parent relation
+     * @param Category $child
+     * @param Category $parent
+     * @param GenericValidator $validator
+     * @return boolean
+     */
+    protected static function validParent(Category $child, Category $parent, GenericValidator $validator) {
+        if (!($parent instanceof Category)) {
+            $validator->error('The parent of Category must be a object of Category.');
+            return false;
+        }
+
+        if ($child->getParent() === $parent)
+            return true;
+
+        /* @var $parent Category */
+        if ($parent->getNumber() === $child->getNumber()) {
+            $validator->error("This category can't be its self parent.");
+            return false;
+        }
+
+        if ($child->getUser() !== null) {
+            if ($parent->getUser()->getId() !== $child->getUser()->getId()) {
+                $validator->error(sprintf("The category %s can't be related as parent of %s.", $parent->getDescription(), $child->getDescription()));
+                return false;
+            }
+        }
+        else
+            $child->setUser($parent->getUser());
+
+        if ($parent->getFlowType() !== $child->getFlowType()) {
+            $validator->error(sprintf("The parent of category %s must has the some flow type.", $child->getCode()));
+            return false;
+        }
+
+        $gp = $parent->getParent();
+
+        while (!is_null($gp)) {
+            if ($gp->getNumber() === $child->getNumber()) {
+                $validator->error(sprintf("The category %s can't be parent of %s, because %s is below %s.", $parent->getDescription(), $child->getDescription()));
+                return false;
+            }
+            $gp = $gp->getParent();
+        }
+
+        return true;
     }
 
     /**
@@ -120,6 +315,64 @@ class Category extends Entity {
         } else {
             $this->setChildren(new ArrayCollection());
         }
+    }
+
+    /**
+     * Set parent of category
+     * @param Category $parent
+     * @return Category
+     */
+    public function setParent($parent) {
+        if (!is_null($parent) && !($parent instanceof Category))
+            throw InvalidArgumentException("Value must be NULL or instance of " . __CLASS__);
+        
+        $this->parent = $this->valid('parent', $parent);
+        return $this;
+    }
+
+    /**
+     * Add a new child for this category
+     * @param Category $child
+     * @return Category this
+     */
+    public function addChild(Category $child) {
+        $this->children->add($this->valid('child', $child));
+        return $this;
+    }
+
+    /**
+     * Retrieves if param category is child at this category
+     * @param Category $child
+     * @return boolean
+     */
+    public function hasChild(Category $child) {
+        return $this->children->contains($child);
+    }
+
+    /**
+     * Remove a child from this category
+     * @param Category $child
+     * @return Category
+     */
+    public function removeChild(Category $child) {
+        if ($this->hasChild($child)) {
+            $this->children->removeElement($child);
+            $child->setParent(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set childrens of this category
+     * @param ArrayCollection|array $children
+     * @return Category
+     */
+    public function setChildren($children = array()) {
+        foreach ($children as $child)
+            $this->addChild($child);
+
+        return $this;
     }
 
     /**
@@ -173,26 +426,6 @@ class Category extends Entity {
     }
 
     /**
-     * Set parent of category
-     * @param Category $parent
-     * @return Category
-     */
-    public function setParent(Category $parent) {
-        $this->parent = $this->valid('parent', $parent);
-        return $this;
-    }
-
-    /**
-     * Set childrens of this category
-     * @param ArrayCollection|array $children
-     * @return Category
-     */
-    public function setChildren($children = array()) {
-        $this->children = $children;
-        return $this;
-    }
-
-    /**
      * Retrieves the identifier number of this category
      * @return integer
      */
@@ -229,7 +462,7 @@ class Category extends Entity {
      * @return boolean
      */
     public function getFlowType() {
-        return $this->flowType;
+        return (int) ($this->flowType);
     }
 
     /**
@@ -261,11 +494,14 @@ class Category extends Entity {
      * @return ArrayCollection|array
      */
     public function getChildren() {
-        return $this->children;
+        if (!is_null($this->children))
+            return $this->children->toArray();
+        else
+            return array();
     }
 
     public function __toString() {
-        return __CLASS__ . "{code: $this->code}";
+        return $this->code;
     }
 
 }
