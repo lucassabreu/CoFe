@@ -14,6 +14,11 @@ if ($action == 'update' || $action == 'create'):
     endif;
 else:
     $caption = "Category Details";
+
+    if ($form->get('parent_number')->getValue() == 0):
+        $form->get('parentDetailButton')->setAttribute('disabled', true);
+    endif;
+
     $form->readonly();
 endif;
 ?>
@@ -130,7 +135,10 @@ endif;
             <?php echo $this->formLabel($form->get('parent_number')); ?>
             <div class="controls">
                 <?php echo $this->formHidden($form->get('parent_number')); ?>
-                <?php echo $this->formInput($form->get('parent_code')->setAttribute('class', 'input-small')); ?>&nbsp;
+                <?php echo $this->formInput($form->get('parent_code')->setAttribute('class', 'input-small')); ?>
+                &nbsp;
+                <?php echo $this->ztbFormButton($form->get('parentDetailButton')->setAttribute('formaction', $this->url('category', array('action' => 'detail', 'number' => $form->get('parent_number')->getValue()))), " ", array('icon' => 'book')); ?>
+                &nbsp;
                 <?php echo $this->formInput($form->get('parent_description')); ?>
             </div>
         <?php endif; ?>
@@ -139,10 +147,13 @@ endif;
         <div class="form-actions">
             <?php echo $this->ztbFormButton($form->get('submitAction')->setAttribute('class', 'input-medium'), null, array('btn_type' => 'warning')); ?>
             &nbsp;
-            <?php echo $this->ztbFormButton($form->get('cancel')->setAttribute('class', 'input-medium')); ?>
+            <?php
+            echo $this->ztbFormButton($form->get('cancel')->setAttribute('class', 'input-medium')
+                            ->setAttribute('formaction', $this->url('category', array('action' => 'index'))));
+            ?>
         </div>
     <?php endif; ?>
-    <?php echo $this->form()->closeTag(); ?>
+<?php echo $this->form()->closeTag(); ?>
 </div>
 <?php $this->placeholder('content')->captureEnd(); ?>
 <?php echo $this->stripContent($this->placeholder('content')); ?>

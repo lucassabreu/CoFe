@@ -10,7 +10,7 @@ namespace Application\Form\Category;
 class CategoryDetail extends CategoryForm {
 
     public function __construct() {
-        parent::__construct('detailCategory_' . ($time = $this->time));
+        parent::__construct('detailCategory_' . ($time = $this->time = time()));
 
         $this->remove('submitAction');
         $this->remove('cancel');
@@ -48,6 +48,17 @@ class CategoryDetail extends CategoryForm {
             ),
             'options' => array(
                 'label' => 'Parent Description',
+            ),
+        ));
+
+        $this->add(array(
+            'name' => 'parentDetailButton',
+            'type' => 'submit',
+            'attributes' => array(
+                'id' => "parentDetailButton_$time"
+            ),
+            'options' => array(
+                "label" => "Detail Parent",
             ),
         ));
     }
