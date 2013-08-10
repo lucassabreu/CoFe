@@ -1,0 +1,21 @@
+<?php $this->placeholder('content')->captureStart(); ?>
+<?php /* @var $form \Application\Form\Moviment\MovimentRemove */ ?>
+<?php $form->setAttribute('action', $this->url('moviment', array('action' => 'remove', 'id' => $form->get('id')->getValue()))); ?>
+<div class="well well-message">
+    <?php echo $this->form()->openTag($form); ?>
+    <h4>
+        <?php
+        echo $this->escapeHtml($this->translate('You really want to remove the moviment?'));
+        ?>
+    </h4>
+        <?php echo $this->formHidden($form->get('id')); ?>
+    <div class="form-actions">
+    <?php echo $this->ztbFormButton($form->get('submitAction')->setAttribute('class', 'input-medium'), null, array('btn_type' => 'danger')); ?>
+        <a class="btn pull-right input-medium" href="<?php echo $form->get('cancel')->getAttribute('formaction'); ?>">
+        <?php echo $this->escapeHtml($this->translate($form->get('cancel')->getLabel())); ?>
+        </a>
+    </div>
+<?php echo $this->form()->closeTag($form); ?>
+</div>
+    <?php $this->placeholder('content')->captureEnd(); ?>
+<?php echo $this->stripContent($this->placeholder('content')); ?>

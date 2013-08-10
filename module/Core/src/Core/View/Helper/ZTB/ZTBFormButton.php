@@ -5,6 +5,7 @@ namespace Core\View\Helper\ZTB;
 use Zend\Form\ElementInterface;
 use Zend\Form\Exception\InvalidArgumentException;
 use Zend\Form\View\Helper\FormButton;
+use Exception;
 
 /**
  * Improvement of FormButton for use potencial of Twitter Bootstrap

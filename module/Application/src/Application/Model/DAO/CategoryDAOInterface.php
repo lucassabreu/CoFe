@@ -19,6 +19,13 @@ interface CategoryDAOInterface extends DAOInterface {
      * @return Category[] Categories
      */
     public function fetchAllTop(User $user = null);
+    
+    /**
+     * Move the moviments from one category, to other. <b>One way only</b>
+     * @param Category $from
+     * @param Category $to
+     */
+    public function moveMoviments(Category $from, Category $to);
 }
 
 ?>

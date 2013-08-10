@@ -1,6 +1,6 @@
 <?php $this->placeholder('content')->captureStart(); ?>
 <?php
-/* @var $form \Application\Form\User\CreateCategory */
+/* @var $form \Application\Form\Category\CategoryForm */
 /* @var $action string */
 
 $caption = "Category";
@@ -11,6 +11,10 @@ if ($action == 'update' || $action == 'create'):
     else:
         $caption = "Create Category";
         $form->setAttribute('action', $this->url('category', array('action' => 'update', 'number' => $form->get('number')->getValue())));
+    endif;
+
+    if (!$form->get('cancel')->getAttribute('formaction')):
+        $form->get('cancel')->setAttribute('formaction', $this->url('categoryList'));
     endif;
 else:
     $caption = "Category Details";
@@ -42,17 +46,21 @@ endif;
                             <?php echo $this->escapeHtml($this->translate('List categories')); ?>
                         </a>
                     </li>
-                    <li>
-                        <?php
-                        echo $this->ztbFormButton($form->get('detailButton')
-                                        ->setAttribute('formaction', $this->url('category', array('action' => 'detail', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'book', 'btn_type' => 'link'));
-                        ?>
-                    </li>
-                    <li><?php
-                        echo $this->ztbFormButton($form->get('editButton')
-                                        ->setAttribute('formaction', $this->url('category', array('action' => 'update', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'edit', 'btn_type' => 'link'));
-                        ?>
-                    </li>
+                    <?php if ($action !== 'detail'): ?>
+                        <li>
+                            <?php
+                            echo $this->ztbFormButton($form->get('detailButton')
+                                            ->setAttribute('formaction', $this->url('category', array('action' => 'detail', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'book', 'btn_type' => 'link'));
+                            ?>
+                        </li>
+                    <?php endif; ?>
+                    <?php if ($action !== 'update'): ?>
+                        <li><?php
+                            echo $this->ztbFormButton($form->get('editButton')
+                                            ->setAttribute('formaction', $this->url('category', array('action' => 'update', 'number' => $form->get('number')->getValue()))), null, array('icon' => 'edit', 'btn_type' => 'link'));
+                            ?>
+                        </li>
+                    <?php endif; ?>
                     <li class="divider"></li>
                     <li>                 <?php
                         echo $this->ztbFormButton($form->get('movimentsButton')
@@ -72,7 +80,7 @@ endif;
                     </li>
                 </ul>
             </div>
-        <? endif; ?>
+        <?php endif; ?>
         <?php echo $this->escapeHtml($this->translate($caption)); ?>
     </h3>
 
@@ -126,8 +134,9 @@ endif;
                 echo $this->partial('application/category/partial/category_option.phtml', array(
                     'categories' => $categories,
                     'level' => 0,
-                    'numberSelected' => $form->get('parent')->getValue())
-                );
+                    'numberSelected' => $form->get('parent')->getValue(),
+                    'none' => true,
+                ));
                 ?>
                 <?php echo $this->formSelect()->closeTag(); ?>
             </div>
@@ -147,13 +156,12 @@ endif;
         <div class="form-actions">
             <?php echo $this->ztbFormButton($form->get('submitAction')->setAttribute('class', 'input-medium'), null, array('btn_type' => 'warning')); ?>
             &nbsp;
-            <?php
-            echo $this->ztbFormButton($form->get('cancel')->setAttribute('class', 'input-medium')
-                            ->setAttribute('formaction', $this->url('category', array('action' => 'index'))));
-            ?>
+            <a href="<?php echo $form->get('cancel')->getAttribute('formaction'); ?>" class="btn input-medium">
+                <?php echo $this->escapeHtml($this->translate($form->get('cancel')->getLabel())); ?>
+            </a>
         </div>
     <?php endif; ?>
-<?php echo $this->form()->closeTag(); ?>
+    <?php echo $this->form()->closeTag(); ?>
 </div>
 <?php $this->placeholder('content')->captureEnd(); ?>
 <?php echo $this->stripContent($this->placeholder('content')); ?>

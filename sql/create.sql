@@ -1,146 +1,95 @@
--- phpMyAdmin SQL Dump
--- version 3.5.2.2
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tempo de Geração: 01/07/2013 às 15:55:11
--- Versão do Servidor: 5.5.27
--- Versão do PHP: 5.4.7
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+DROP SCHEMA IF EXISTS `cofe` ;
+CREATE SCHEMA IF NOT EXISTS `cofe` DEFAULT CHARACTER SET latin1 ;
+USE `cofe` ;
 
---
--- Banco de Dados: `cofe`
---
+-- -----------------------------------------------------
+-- Table `cofe`.`user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cofe`.`user` ;
 
--- --------------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `cofe`.`user` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `username` VARCHAR(50) NOT NULL ,
+  `password` CHAR(32) NOT NULL ,
+  `active` TINYINT(1) NOT NULL DEFAULT '0' ,
+  `role` VARCHAR(10) NOT NULL DEFAULT 'common' ,
+  `name` VARCHAR(60) NOT NULL ,
+  `email` VARCHAR(45) NOT NULL ,
+  `dt_criation` DATE NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = latin1;
 
---
--- Estrutura da tabela `category`
---
+CREATE UNIQUE INDEX `idx_username` USING BTREE ON `cofe`.`user` (`username` ASC) ;
 
-CREATE TABLE IF NOT EXISTS `category` (
-  `user_id` int(10) unsigned NOT NULL,
-  `code` char(6) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `flow_type` tinyint(1) NOT NULL DEFAULT '0',
-  `user_id_parent` int(10) unsigned DEFAULT NULL,
-  `code_parent` char(6) DEFAULT NULL,
-  PRIMARY KEY (`user_id`,`code`),
-  KEY `fk_category_parent` (`user_id_parent`,`code_parent`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Gatilhos `category`
---
-DROP TRIGGER IF EXISTS `category_BUIN`;
-DELIMITER //
-CREATE TRIGGER `category_BUIN` BEFORE INSERT ON `category`
- FOR EACH ROW BEGIN
-    IF (NEW.user_id <> NEW.user_id_parent) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories from diferent users!';
-    END IF;
+-- -----------------------------------------------------
+-- Table `cofe`.`category`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cofe`.`category` ;
 
-    IF (NEW.flow_type <> (SELECT p.flow_type FROM category p
-                            WHERE p.user_id = NEW.user_id_parent
-                            AND   p.code    = NEW.code_parent)) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories with diferent flow types!';
-    END IF;
-END
-//
-DELIMITER ;
-DROP TRIGGER IF EXISTS `category_BUPD`;
-DELIMITER //
-CREATE TRIGGER `category_BUPD` BEFORE UPDATE ON `category`
- FOR EACH ROW BEGIN
-    IF (NEW.user_id <> NEW.user_id_parent) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories from diferent users!';
-    END IF;
+CREATE  TABLE IF NOT EXISTS `cofe`.`category` (
+  `num_category` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `user_id` INT(10) UNSIGNED NOT NULL ,
+  `code` CHAR(6) NOT NULL ,
+  `description` VARCHAR(100) NOT NULL ,
+  `flow_type` TINYINT(1) NOT NULL DEFAULT '0' ,
+  `num_parent` INT UNSIGNED NULL DEFAULT NULL ,
+  PRIMARY KEY (`num_category`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
-    IF (NEW.flow_type <> (SELECT p.flow_type FROM category p
-                            WHERE p.user_id = NEW.user_id_parent
-                            AND   p.code    = NEW.code_parent)) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Can not relate categories with diferent flow types!';
-    END IF;
+CREATE UNIQUE INDEX `idx_category_rpk` ON `cofe`.`category` (`user_id` ASC, `code` ASC) ;
 
-    IF (NEW.flow_type <> OLD.flow_type) THEN
-        UPDATE category SET category.flow_type = NEW.flow_type
-            WHERE category.user_id_parent = NEW.user_id
-            AND   category.code_parent    = NEW.code;
-    END IF;
-END
-//
-DELIMITER ;
 
--- --------------------------------------------------------
+-- -----------------------------------------------------
+-- Table `cofe`.`moviment`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cofe`.`moviment` ;
 
---
--- Estrutura da tabela `moviment`
---
+CREATE  TABLE IF NOT EXISTS `cofe`.`moviment` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `num_category` INT UNSIGNED NOT NULL ,
+  `value` DECIMAL(18,2) UNSIGNED NOT NULL ,
+  `dt_emission` DATE NOT NULL ,
+  `descritption` VARCHAR(50) NOT NULL ,
+  `notes` TEXT NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
-CREATE TABLE IF NOT EXISTS `moviment` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `cat_code` char(6) NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `value` decimal(18,2) unsigned NOT NULL,
-  `dt_emission` date NOT NULL,
-  `descritption` varchar(50) NOT NULL,
-  `notes` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idx_moviment` (`user_id`,`cat_code`,`id`),
-  KEY `fk_moviment_category` (`user_id`,`cat_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE INDEX `idx_moviment` ON `cofe`.`moviment` (`id` ASC) ;
 
--- --------------------------------------------------------
+CREATE INDEX `fk_moviment_category` ON `cofe`.`moviment` (`num_category` ASC) ;
 
---
--- Estrutura da tabela `user`
---
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `password` char(32) NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '0',
-  `role` varchar(10) NOT NULL DEFAULT 'common',
-  `name` varchar(60) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `dt_criation` date NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `idx_username` (`username`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
---
--- Extraindo dados da tabela `user`
---
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO `user` (`id`, `username`, `password`, `active`, `role`, `name`, `email`, `dt_criation`) VALUES
-(NULL, 'admin', md5('admin'), 1, 'admin', 'Administrator', 'admin@localhost.net', curdate());
+-- -----------------------------------------------------
+-- Data for table `cofe`.`user`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cofe`;
+INSERT INTO `cofe`.`user` (`id`, `username`, `password`, `active`, `role`, `name`, `email`, `dt_criation`) VALUES (1, 'admin', md5('admin'), 1, 'admin', 'Administrator', 'admin@localhost.net', curdate());
 
---
--- Restrições para as tabelas dumpadas
---
+COMMIT;
 
---
--- Restrições para a tabela `category`
---
-ALTER TABLE `category`
-  ADD CONSTRAINT `fk_category_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `fk_category_parent` FOREIGN KEY (`user_id_parent`, `code_parent`) REFERENCES `category` (`user_id`, `code`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- -----------------------------------------------------
+-- Data for table `cofe`.`category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cofe`;
+INSERT INTO `cofe`.`category` (`num_category`, `user_id`, `code`, `description`, `flow_type`, `num_parent`) VALUES (1, 1, 'GAST', 'Gastos', 0, NULL);
+INSERT INTO `cofe`.`category` (`num_category`, `user_id`, `code`, `description`, `flow_type`, `num_parent`) VALUES (2, 1, 'GANH', 'Ganhos', 1, NULL);
+INSERT INTO `cofe`.`category` (`num_category`, `user_id`, `code`, `description`, `flow_type`, `num_parent`) VALUES (3, 1, 'ALIM', 'Alimentacao', 0, 1);
 
---
--- Restrições para a tabela `moviment`
---
-ALTER TABLE `moviment`
-  ADD CONSTRAINT `fk_moviment_category` FOREIGN KEY (`user_id`, `cat_code`) REFERENCES `category` (`user_id`, `code`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+COMMIT;

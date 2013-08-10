@@ -1,6 +1,6 @@
 <?php foreach ($categories as $cat): ?><?php /* @var $cat \Application\Model\Entity\Category */ ?>
     <tr meta-number="<?php echo $cat->getNumber(); ?>" 
-        <?php if ($cat->getParent()): ?>meta-parent-number="<? $cat->getParent()->getNumber(); ?>"<? endif; ?>>
+        <?php if ($cat->getParent()) : ?>meta-parent-number="<?php echo $cat->getParent()->getNumber(); ?>"<?php endif; ?>>
         <td style="text-indent: <?php echo $level * 2; ?>ex">
             <input type="radio" name="number" value="<?php echo $cat->getNumber(); ?>" />
             <?php echo $this->escapeHtml($cat->getCode()); ?>

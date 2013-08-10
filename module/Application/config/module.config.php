@@ -16,6 +16,13 @@ use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 return array(
+    'controllers' => array(
+        'invokables' => array(
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Category' => 'Application\Controller\CategoryController',
+            'Application\Controller\Moviment' => 'Application\Controller\MovimentController',
+        ),
+    ),
     'service_manager' => array(
         'dao_factory' => array(
             'Application\Service\CategoryDAOService' => array(
@@ -65,19 +72,13 @@ return array(
         ),
     ),
     'translator' => array(
-        'locale' => 'pt_BR',
+        'locale' => 'en_US',
         'translation_file_patterns' => array(
             array(
                 'type' => 'gettext',
                 'base_dir' => __DIR__ . '/../../../language',
                 'pattern' => '%s.mo',
             ),
-        ),
-    ),
-    'controllers' => array(
-        'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Category' => 'Application\Controller\CategoryController',
         ),
     ),
     'navigation' => array(

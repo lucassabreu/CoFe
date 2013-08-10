@@ -1,13 +1,13 @@
-<?php if ($level === 0): ?>
+<?php if ($level === 0 && $none === true): ?>
     <option value="0"><?php echo $this->escapeHtml($this->translate(" -- None -- ")); ?></option>
-<? endif; ?>
+<?php endif; ?>
 <?php foreach ($categories as $category): ?><?php /* @var $category \Application\Model\Entity\Category */ ?>
     <?php if ($category->getNumber() === null): ?>
         <?php continue; ?>
     <?php endif; ?>
 
     <option value="<?php echo $this->escapeHtml($category->getNumber()); ?>"
-            <? if ($numberSelected == $category->getNumber()): ?>selected<? endif; ?>>
+            <?php if ($numberSelected == $category->getNumber()): ?>selected<?php endif; ?>>
         <?php echo str_repeat('&nbsp;', $level * 2); ?><?php echo $this->escapeHtml($category->getDescription()); ?> (<?php echo $this->escapeHtml($category->getCode()); ?>)
     </option>
     <?php

@@ -4,7 +4,10 @@ namespace Application\Model\Doctrine;
 
 use Admin\Model\Entity\User;
 use Application\Model\DAO\CategoryDAOInterface;
+use Application\Model\Entity\Category;
+use Application\Service\MovimentDAOService;
 use Core\Model\DAO\Doctrine\AbstractDoctrineDAO;
+use Core\Model\DAO\Exception\DAOException;
 
 /**
  * Implementation of CategoryDAOInterface for Doctrine
@@ -53,6 +56,13 @@ class CategoryDAODoctrine extends AbstractDoctrineDAO implements CategoryDAOInte
         $query = $this->getQuery($params)->getQuery();
 
         return $query->execute();
+    }
+
+    public function moveMoviments(Category $from, Category $to) {
+        $mDao = $this->getService('Application\Service\MovimentDAOService');
+        /* @var $mDao MovimentDAOService */
+
+        return $mDao->moveMoviments($from, $to);
     }
 
 }

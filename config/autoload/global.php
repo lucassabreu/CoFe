@@ -51,7 +51,14 @@ return array(
             'Application\Controller\Category.detail',
             'Application\Controller\Category.create',
             'Application\Controller\Category.update',
+            'Application\Controller\Category.moveMoviments',
             'Application\Controller\Category.remove',
+            'Application\Controller\Moviment.index',
+            'Application\Controller\Moviment.detail',
+            'Application\Controller\Moviment.create',
+            'Application\Controller\Moviment.update',
+            'Application\Controller\Moviment.remove',
+            'Application\Controller\Moviment.ofcategory',
         ),
         'privilege' => array(
             'guest' => array(
@@ -72,6 +79,13 @@ return array(
                     'Application\Controller\Category.create',
                     'Application\Controller\Category.update',
                     'Application\Controller\Category.remove',
+                    'Application\Controller\Category.moveMoviments',
+                    'Application\Controller\Moviment.index',
+                    'Application\Controller\Moviment.detail',
+                    'Application\Controller\Moviment.create',
+                    'Application\Controller\Moviment.update',
+                    'Application\Controller\Moviment.remove',
+                    'Application\Controller\Moviment.ofcategory',
                 ),
             ),
             'admin' => array(

@@ -5,11 +5,13 @@ namespace Application\Controller;
 use Application\Form\Category\CategoryCreate;
 use Application\Form\Category\CategoryDetail;
 use Application\Form\Category\CategoryList;
+use Application\Form\Category\CategoryRemove;
 use Application\Form\Category\CategoryUpdate;
 use Application\Model\Entity\Category;
 use Core\Controller\AbstractController;
 use Core\Model\DAO\Exception\DAOException;
 use Exception;
+use Zend\Http\Request;
 
 /**
  * CRUD of entity Category
@@ -45,6 +47,7 @@ class CategoryController extends AbstractController {
         /* @var $request Request */
 
         $form = new CategoryCreate();
+        $form->get('cancel')->setAttribute('formaction', $request->getPost('returnTo'));
 
         if ($request->isPost()) {
             $submitAction = $request->getPost('submitAction');
@@ -124,6 +127,7 @@ class CategoryController extends AbstractController {
             }
 
             $form = new CategoryUpdate();
+            $form->get('cancel')->setAttribute('formaction', $request->getPost('returnTo'));
             $data = $category->getData();
 
             if ($request->isPost()) {
@@ -235,6 +239,60 @@ class CategoryController extends AbstractController {
 
             return array('form' => $form);
         }
+
+        return array('form' => $form);
+    }
+
+    /**
+     * Remove a category
+     */
+    public function removeAction() {
+        $request = $this->getRequest();
+        /* @var $request Request */
+
+        $number = $this->params()->fromRoute('number', null);
+
+        if ($number === null && $request->isPost())
+            $number = $request->getPost('number');
+
+        if ($number === null)
+            return $this->redirect()->toRoute('categoryList');
+
+        $category = $this->dao()->findById($number);
+        /* @var $category Category */
+        if ($category == null) {
+            return $this->redirect()->toRoute('category');
+        }
+
+        $form = new CategoryRemove();
+
+        $returnTo = $request->getPost('returnTo');
+
+        if ($returnTo === null)
+            $returnTo = $this->url()->fromRoute('categoryList');
+
+        $form->get('cancel')->setAttribute('formaction', $returnTo);
+
+        if ($request->isPost()) {
+            $submitAction = $request->getPost('submitAction');
+
+            if ($submitAction === 'remove') {
+                try {
+                    $this->dao()->remove($category);
+                    return $this->redirect()->toRoute('categoryList');
+                } catch (Exception $e) {
+                    if ($e instanceof DAOException) {
+                        $form->addExceptionMessage($e);
+                    } else {
+                        throw $e;
+                        $form->addExceptionMessage('Occurred internal errors: ' . $e->getMessage());
+                    }
+                }
+            }
+        }
+
+
+        $form->setData($category->getData());
 
         return array('form' => $form);
     }

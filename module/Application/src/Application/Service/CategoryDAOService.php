@@ -73,6 +73,10 @@ class CategoryDAOService extends AbstractDAOService implements CategoryDAOInterf
         return $this->dao->fetchAllTop($user);
     }
 
+    public function moveMoviments(Category $from, Category $to) {
+        return $this->dao->moveMoviments($from, $to);
+    }
+
 }
 
 ?>

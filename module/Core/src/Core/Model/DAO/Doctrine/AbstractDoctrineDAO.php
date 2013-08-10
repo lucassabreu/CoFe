@@ -8,6 +8,7 @@ use Core\Model\Entity\Entity;
 use Core\Service\Service;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator;
@@ -64,6 +65,32 @@ abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
         return $query->execute();
     }
 
+    protected function _processClause($column, $clause, &$qbParams, $qb, $and) {
+        if (is_array($clause)) {
+            $and->add($qb->expr()->between($column, "?" . count($qbParams), "?" . (count($qbParams) + 1)));
+            $qbParams[] = $clause[0];
+            $qbParams[] = $clause[1];
+        } else {
+            if (strpos($clause, '%') > 0)
+                $and->add($qb->expr()->like($column, "?" . count($qbParams)));
+            else {
+                if (strtoupper($clause) === 'IS NULL' || $clause === null) {
+                    $and->add($qb->expr()->isNull($column));
+                    return;
+                } else {
+                    if (strtoupper($clause) === 'IS NOT NULL') {
+                        $and->add($qb->expr()->isNotNull($column));
+                        return;
+                    } else {
+                        $and->add($qb->expr()->eq($column, "?" . count($qbParams)));
+                    }
+                }
+            }
+
+            $qbParams[] = $clause;
+        }
+    }
+
     /**
      * Returns a query to execute based on params.
      * @param array|mixed $params
@@ -73,6 +100,8 @@ abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
      */
     protected function getQuery($params = null, $limit = null, $offset = null) {
         $qb = $this->getRepository()->createQueryBuilder('ent');
+
+        $innerJoins = array();
 
         if ($params !== null) {
             if (is_array($params)) {
@@ -85,32 +114,27 @@ abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
                     $and = $qb->expr()->andX();
 
                     foreach ($params as $column => $clause) {
-                        if (is_array($clause)) {
-                            $and->add($qb->expr()->between('ent.' . $column, "?" . count($qbParams), "?" . (count($qbParams) + 1)));
-                            $qbParams[] = $clause[0];
-                            $qbParams[] = $clause[1];
-                        } else {
-                            if (strpos($clause, '%') > 0)
-                                $and->add($qb->expr()->like('ent.' . $column, "?" . count($qbParams)));
-                            else {
-                                if (strtoupper($clause) === 'IS NULL' || $clause === null) {
-                                    $and->add($qb->expr()->isNull('ent.' . $column));
-                                    continue;
-                                } else {
-                                    if (strtoupper($clause) === 'IS NOT NULL') {
-                                        $and->add($qb->expr()->isNotNull('ent.' . $column));
-                                        continue;
-                                    } else {
-                                        $and->add($qb->expr()->eq('ent.' . $column, "?" . count($qbParams)));
-                                    }
-                                }
+                        if (strpos($column, '.') > 0) {
+                            $joinTable = substr($column, 0, strpos($column, '.'));
+                            $column = substr($column, strpos($column, '.') + 1);
+
+                            if (!isset($innerJoins[$joinTable])) {
+                                $innerJoins[$joinTable] = $qb->expr()->andX();
                             }
 
-                            $qbParams[] = $clause;
+                            $this->_processClause("$joinTable.$column", $clause, $qbParams, $qb, $innerJoins[$joinTable]);
+                        } else {
+                            $this->_processClause("ent.$column", $clause, $qbParams, $qb, $and);
                         }
                     }
 
-                    $qb->where($and);
+                    foreach ($innerJoins as $joinTable => $with) {
+                        $qb->join("ent.$joinTable", $joinTable, Join::WITH, $with);
+                    }
+
+                    if ($and->count() > 0)
+                        $qb->where($and);
+                    
                     if (count($qbParams) > 0)
                         $qb->setParameters($qbParams);
                 }
@@ -133,8 +157,8 @@ abstract class AbstractDoctrineDAO extends Service implements DAOInterface {
 
         if ($orderBy != null)
             foreach ($orderBy as $column => $order)
-                $qb->orderBy($column, $order);
-
+                $qb->orderBy("ent.$column", $order);
+        
         $paginator = new Paginator($qb->getQuery());
         $adapter = new DoctrinePaginator($paginator);
 
