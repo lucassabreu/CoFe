@@ -7,10 +7,13 @@ use Application\Form\Moviment\MovimentDetail;
 use Application\Form\Moviment\MovimentList;
 use Application\Form\Moviment\MovimentRemove;
 use Application\Form\Moviment\MovimentUpdate;
+use Application\Model\Entity\Category;
 use Application\Model\Entity\Moviment;
+use Application\Service\MovimentDAOService;
 use Core\Controller\AbstractController;
 use Core\Model\DAO\Exception\DAOException;
 use Exception;
+use Zend\Http\Request;
 use Zend\Paginator\Paginator;
 
 /**
@@ -24,11 +27,47 @@ class MovimentController extends AbstractController {
         $this->daoName = 'Application\Service\MovimentDAOService';
     }
 
-    public function indexAction() {
+    /**
+     * {@inheritDoc}
+     * @return MovimentDAOService
+     */
+    public function dao($name = null) {
+        return parent::dao($name);
+    }
 
+    public function indexAction() {
+        return $this->listBy(array('category.user' => $this->getSessionUser()));
+    }
+
+    public function ofcategoryAction() {
+        $number = $this->params()->fromRoute('number');
+
+        if ($number == null)
+            $number = $this->getRequest()->getPost('number');
+
+        if ($number == null)
+            return $this->redirect()->toRoute('moviment');
+        else {
+            $category = $this->dao()->findCategory($number);
+            /* @var $category Category */
+            if ($category == null) {
+                return $this->redirect()->toRoute('moviment');
+            }
+
+            if ($category->getUser()->getId() === $this->getSessionUser()->getId()) {
+                $parms = $this->listBy(array('category' => $category));
+                $parms['category'] = $category;
+                return $parms;
+            } else {
+                return $this->redirect()->toRoute('moviment');
+            }
+        }
+    }
+
+    protected function listBy($params = array()) {
         $page = $this->params()->fromRoute('page', 1);
 
-        $adapter = $this->dao()->getAdapterPaginator(array('category.user' => $this->getSessionUser()), array('dateEmission' => 'desc'));
+        $adapter = $this->dao()->getAdapterPaginator($params, array('dateEmission' => 'desc'));
 
         $moviments = new Paginator($adapter);
         $moviments->setItemCountPerPage(10);

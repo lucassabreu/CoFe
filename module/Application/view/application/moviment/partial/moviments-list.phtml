@@ -1,0 +1,57 @@
+<?php //$this->placeholder('content')->captureStart();                              ?>
+<?php echo $this->form()->openTag($this->ztbFormPrepare($form)); ?>
+<?php echo $this->formHidden((new \Zend\Form\Element\Hidden('returnTo'))->setValue($this->url('movimentList', array('page' => 1)))); ?>
+
+<h3 class="entity-title">
+    <?php if ($action === 'ofcategory'): ?>
+        <?php echo $this->escapeHtml(sprintf($this->translate('Moviments of Category %s (%s)'), $category->getDescription(), $category->getCode())); ?>
+    <?php else: ?>
+        <?php echo $this->escapeHtml($this->translate('Moviments')); ?>
+    <?php endif; ?>
+
+    <div class="pull-right">
+        <?php if ($action === 'ofcategory'): ?>
+            <?php echo $this->paginationControl($moviments, 'Sliding', 'partial/paginatorControl.phtml', array('route' => 'movimentsOfCategory', 'params' => array('number' => $category->getNumber()))); ?>
+        <?php else: ?>
+            <?php echo $this->paginationControl($moviments, 'Sliding', 'partial/paginatorControl.phtml', array('route' => 'movimentList')); ?>
+        <?php endif; ?>
+    </div>
+</h3>
+
+<table class="table table-striped table-hover moviments-table">
+    <thead>
+        <tr>
+            <th />
+            <th><?php echo $this->escapeHtml($this->translate('Emission')); ?></th>
+            <th><?php echo $this->escapeHtml($this->translate('Category')); ?></th>
+            <th><?php echo $this->escapeHtml($this->translate('Description')); ?></th>
+            <th class="value"><?php echo $this->escapeHtml($this->translate('Value')); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($moviments as $moviment): ?>
+            <?php /* @var $moviment Application\Model\Entity\Moviment */ ?>
+            <tr>
+                <td><input type="radio" name="id" value="<?php echo $this->escapeHtml($moviment->getId()); ?>" /></td>
+                <td><?php echo $this->dateFormat($moviment->getDateEmission(), IntlDateFormatter::MEDIUM); ?></td>
+                <td><?php echo $this->escapeHtml(sprintf("%s (%s)", $moviment->getCategory()->getDescription(), $moviment->getCategory()->getCode())); ?></td>
+                <td><?php echo $this->escapeHtml($moviment->getDescription()); ?></td>
+                <td class="<?php echo ($moviment->category->isInput() ? "input-value" : "output-value"); ?>">
+                    <?php echo preg_replace("/([^0-9\\.\\,]+)/", '', $this->numberFormat($moviment->getValue(), NumberFormatter::DECIMAL_ALWAYS_SHOWN, NumberFormatter::TYPE_DEFAULT)); ?>
+                </td>
+            </tr>        
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<div class="form-actions">
+    <?php echo $this->ztbFormButton($form->get('createButton')->setAttribute('class', 'input-medium'), null, array('icon' => 'plus')); ?>
+    &nbsp;
+    <?php echo $this->ztbFormButton($form->get('detailButton')->setAttribute('class', 'input-medium'), null, array('icon' => 'book')); ?>
+    &nbsp;
+    <?php echo $this->ztbFormButton($form->get('editButton')->setAttribute('class', 'input-medium'), null, array('icon' => 'edit')); ?>
+    &nbsp;
+    <?php echo $this->ztbFormButton($form->get('removeButton')->setAttribute('class', 'input-medium'), null, array('icon' => 'remove')); ?>
+</div>
+<?php echo $this->form()->closeTag(); ?>
+<?php $this->placeholder('content')->captureEnd(); ?>
+<?php echo $this->stripContent($this->placeholder('content')); ?>

@@ -53,7 +53,7 @@ form {
     margin-bottom: 0;
 
     .btn-group {
-        float: right;
+        //float: right;
     }
 
 
@@ -84,6 +84,24 @@ table {
     &.table td {
         padding: 4px 8px;
         font-size: 90%;
+    }
+
+    &.moviments-table {
+        th.value, td.input-value, td.output-value {
+            text-align: right;
+        }
+        
+        td.input-value, td.output-value {
+            font-weigth: bold;
+        }
+
+        td.input-value {
+            color: @colorInputValue;
+        }
+
+        td.output-value {
+            color: @colorOutputValue;
+        }
     }
 }
 

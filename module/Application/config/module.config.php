@@ -84,23 +84,23 @@ return array(
     'navigation' => array(
         // The DefaultNavigationFactory we configured in (1) uses 'default' as the sitemap key
         'default' => array(
-            array(
+            /*array(
                 'label' => 'Home',
                 'route' => 'home'
+            ),*/
+            array(
+                'label' => 'Moviment',
+                'route' => 'movimentList',
+                'module' => 'application',
+                'controller' => 'moviment',
+                'action' => 'index',
+                'page' => 1,
             ),
             array(
                 'label' => 'Category',
                 'route' => 'categoryList',
                 'module' => 'application',
                 'controller' => 'category',
-                'action' => 'index',
-                'page' => 1,
-            ),
-            array(
-                'label' => 'Moviment',
-                'route' => 'movimentList',
-                'module' => 'application',
-                'controller' => 'moviment',
                 'action' => 'index',
                 'page' => 1,
             ),
@@ -113,7 +113,7 @@ return array(
                 'options' => array(
                     'route' => '/[page/:page]',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Application\Controller\Moviment',
                         'action' => 'index',
                         'module' => 'application',
                     ),
@@ -137,6 +137,18 @@ return array(
                     'defaults' => array(
                         'controller' => 'Application\Controller\Moviment',
                         'action' => 'index',
+                        'module' => 'application',
+                        'id' => 1,
+                    ),
+                ),
+            ),
+            'movimentsOfCategory' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/moviment/ofcategory[/:number[/page/[:page]]]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Moviment',
+                        'action' => 'ofcategory',
                         'module' => 'application',
                         'id' => 1,
                     ),

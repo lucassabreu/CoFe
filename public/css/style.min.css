@@ -5,11 +5,15 @@ form select[name=parent]{font-family:monospace;}
 .well .form-actions{margin-bottom:-40px;margin-left:-20px;margin-right:-20px;border-top-color:#cacaca;background-color:#dcdcdc;}
 .well .form-horizontal .form-actions{padding-left:200px;}
 .well.well-message{max-width:500px;margin-left:auto;margin-right:auto;}
-.entity-title{position:relative;border-bottom:1px solid #e3e3e3;color:#767676;margin-top:-5px;padding:0 10px;margin-bottom:0;}.entity-title .btn-group{float:right;}
+.entity-title{position:relative;border-bottom:1px solid #e3e3e3;color:#767676;margin-top:-5px;padding:0 10px;margin-bottom:0;}
 .entity-title .pagination{font-size:14px;}
 .float-left{float:left;}
 .float-right{float:right;}
 .btn .float-right,.btn .float-left{margin-top:2.5px;}
 table input[type="radio"],table input[type="checkbox"]{margin-top:0;}
 table.table td{padding:4px 8px;font-size:90%;}
+table.moviments-table th.value,table.moviments-table td.input-value,table.moviments-table td.output-value{text-align:right;}
+table.moviments-table td.input-value,table.moviments-table td.output-value{font-weigth:bold;}
+table.moviments-table td.input-value{color:#008000;}
+table.moviments-table td.output-value{color:#e30000;}
 @media (max-width:480px){.well .form-actions,.well .form-horizontal .form-actions{padding-left:10px;padding-right:10px;}}

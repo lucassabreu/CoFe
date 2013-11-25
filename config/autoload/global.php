@@ -15,6 +15,8 @@
  */
 return array(
     'email_sending' => array(
+        'from' => 'noreplaycofe@gmail.com',
+        'fromName' => "NoReply CoFe",
         'transport_options' => array(
             'host' => 'smtp.gmail.com',
             'connection_class' => 'login',
@@ -106,9 +108,9 @@ return array(
     'doctrine' => array(
         'connection' => array(
             'driver' => 'pdo_mysql',
-            'host' => 'localhost',
-            'port' => '3306',
-            'dbname' => 'cofe'
+            //'host' => $OPENSHIFT_MYSQL_DB_HOST,
+            //'port' => $OPENSHIFT_MYSQL_DB_PORT,
+            'dbname' => 'cofe',
         ),
     ),
     'service_manager' => array(
@@ -118,9 +120,11 @@ return array(
     ),
     'db' => array(
         'driver' => 'PDO',
-        'dsn' => 'mysql:dbname=cofe;host=localhost',
+        //'dsn' => "mysql:dbname=cofe;host=$OPENSHIFT_MYSQL_DB_HOST",
+        //'port' => $OPENSHIFT_MYSQL_DB_PORT,
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
     ),
+    
 );
